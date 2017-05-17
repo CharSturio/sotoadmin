@@ -1,0 +1,129 @@
+<div class="header">
+  <h2><strong>Credito y Cobranza</strong></h2>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel">
+      <div class="panel-header">
+        <h3><i class="icon-bulb"></i> Credito y Cobranza </h3>
+      </div>
+      <div class="panel-content p-t-0">
+        <p> Filtra por Cliente y da clic en 'Seguimiento' para dar seguimiento a cliente.</p>
+        <div class="row">
+          <div class="col-md-6">
+              <label class="form-label">Cliente</label>
+              <input id="client" type="text" class="form-control" placeholder="Filtrar por Cliente">
+          </div>
+          <div class="col-md-12">
+            <button onclick="onClickBrowser()" type="button" class="btn btn-primary btn-square">Buscar</button>
+          </div>
+          <div class="col-md-12 border-top" style="border-top:1px;">
+            <div class="panel-content">
+              <table class="table table-striped tablet-tools">
+                <thead>
+                  <tr>
+                    <th>Cliente</th>
+                    <th>Saldo</th>
+                    <th>Facturas Pendientes</th>
+                    <th>Estatus</th>
+                    <th>Ultimo Pago</th>
+                    <th>Vendedor</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="response">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/js/views/credit-collect.js"></script>
+
+<div class="modal fade" id="modal-bootstrap-timepicker" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+        <div id="titleOperation">
+          Seguimiento Cliente
+        </div>
+        <p id="nameClient2" class="form-label"></p>
+      </div>
+      <div class="modal-body">
+        <p>Pagos, pon la cantidad y selecciona Pagar. Seguimientos, llena la informacion y da clic en Agregar.</p>
+        <div class="row">
+          <div class="col-md-12 border-top" style="border-top:1px;">
+            <div class="panel-content">
+              <div class="col-md-6">
+                <h3>Cliente: <b id="nameClient">Juan Espinas</b></h3>
+                <p>Limite de credito: <b id="limitCredit">$30,000.00</b></p>
+              </div>
+              <div class="col-md-6">
+                <h3>Documento: <b id="invoice">F000398A</b></h3>
+                <p>Saldo: <b id="rest">$-2903</b></p>
+              </div>
+              <div class="col-md-12 border-top">
+                <h3>Pago</h3>
+                <label class="form-label">Pago a cuenta</label>
+                <input id="paid" type="text" class="form-control" placeholder="Ingrese la cantidad del pago a cuenta">
+                <button onClick="onClickPaid()" type="button" class="btn btn-success btn-square">Pagar</button>
+              </div>
+              <div class="col-md-12 border-top border-bottom">
+                <h3>Seguimiento</h3>
+                <table class="table table-striped tablet-tools">
+                  <thead>
+                    <tr>
+                      <th>Fecha</th>
+                      <th>Estatus</th>
+                      <th>Seguimiento</th>
+                      <th>Fecha Programada</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="response1">
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-label">Estatus</label>
+                  <select id="statusFollow" class="form-control" data-placeholder="Selecciona Estatus">
+                    <option value="convenido">Convenido</option>
+                    <option value="promesa">Promesa pago</option>
+                    <option value="NoContesta">No contesta</option>
+                    <option value="llamar">Volver a llamar</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-label">Seguimiento</label>
+                  <textarea id="Follow" type="text" class="form-control">
+                  </textarea>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="form-label">Fecha Seguimiento</label>
+                  <input id="dateFollow" type="text" data-mask="99/99/9999" class="form-control" placeholder="DD/MM/YYYY">
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <button onclick="onClickAddFollow()" type="button" class="btn btn-primary btn-square">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

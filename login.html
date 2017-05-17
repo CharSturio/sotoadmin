@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Administración Soto GoodYear</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="themes-lab" name="author" />
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/ui.css" rel="stylesheet">
+    <link href="assets/plugins/bootstrap-loading/lada.min.css" rel="stylesheet">
+  </head>
+  <body class="account" data-page="login">
+      <!-- BEGIN LOGIN BOX -->
+    <div class="container" id="login-block">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+          <div class="account-wall">
+            <i class="user-img icons-faces-users-03"></i>
+            <div class="append-icon">
+              <input type="text" name="name" id="name" class="form-control form-white username" placeholder="Usuario" required>
+              <i class="icon-user"></i>
+            </div>
+            <div class="append-icon m-b-20">
+              <input type="password" name="password" id="password" class="form-control form-white password" placeholder="Contraseña" required>
+              <i class="icon-lock"></i>
+            </div>
+            <button onclick="onClickSubmit()"type="submit" id="submit" class="btn btn-lg btn-danger btn-block ladda-button" data-style="expand-left">Conectar</button>
+          </div>
+        </div>
+      </div>
+      <p class="account-copyright">
+        <span>Copyright © 2016 </span>
+      </p>
+      <div id="response">
+
+      </div>
+    </div>
+    <script src="assets/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="assets/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/plugins/gsap/main-gsap.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/backstretch/backstretch.min.js"></script>
+    <script src="assets/plugins/bootstrap-loading/lada.min.js"></script>
+    <script src="assets/js/pages/login-v1.js"></script>
+  </body>
+</html>
+<script>
+function onClickSubmit() {
+  var name = document.getElementById('name').value;
+  var password = document.getElementById('password').value;
+
+  if (!name || !password) {
+    alert('Favor de llenar todos los campos.');
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState === 1) {
+        document.getElementById('response').innerHTML = 'Procesando...';
+      } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
+        var response = xmlhttp.responseText;
+        if (response === '1') {
+          changeWeb();
+        } else if (response === '2') {
+          changeClient();
+        } else {
+          document.getElementById('response').innerHTML = xmlhttp.responseText;
+        }
+      }
+    };
+
+    xmlhttp.open("GET", "links/login/index.php?operation=login&name=" + name + "&pass=" + password);
+    xmlhttp.send();
+  }
+}
+
+function changeWeb() {
+  location.href='index.php';
+}
+
+function changeClient() {
+  location.href='stocks.html';
+}
+</script>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="CR" folio="1873" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2017-03-21T09:06:26" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" subTotal="45672.38" total="52979.96" metodoDePago="02" tipoDeComprobante="ingreso" sello="L+kI2IwwF5jB/vvx6csGUQcux5+RbUcmgHaJz2h7hwGIUenuuV2ag9ncQ+joLAmQFfGXXhWagOR2s0fTA2D0L4CybGDqNvALRd1ufRWHxdY/HtLFNUF3yc5NffN7UXe9GQNahEeokzV20oMb8TRQjOfHathQDz3LLBpzprogBmc=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="MAAN550731MWA" nombre="NICOLAS MARTINEZ AVILA ">
+    <cfdi:Domicilio calle="PROLONGACION 5 DE MAYO " noExterior="138" colonia="CENTRO " localidad="CALVILLO" municipio="CALVILLO" estado="AGUASCALIENTES " pais="México" codigoPostal="20800"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="12" unidad="Pieza" noIdentificacion="3231" descripcion="LLANTA MAXTREK  SU830 205-70-R14" valorUnitario="620.69" importe="7448.28"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="1145" descripcion="LLANTA MAXTREK SU800 LT 265-75-R16 10C" valorUnitario="1508.62" importe="6034.48"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="1099" descripcion="LLANTA MAXTREK MAXIMUS M1 225-45-R17 " valorUnitario="689.66" importe="2758.64"/>
+    <cfdi:Concepto cantidad="12" unidad="Pieza" noIdentificacion="4059" descripcion="LLANTA WANLI AP028 215-70-R15" valorUnitario="775.86" importe="9310.32"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4167" descripcion="LLANTAS BLACK LION 245-70-R19.5" valorUnitario="2155.17" importe="4310.34"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="4187" descripcion="LLANTA BLACKLION BC86 235-75-R15" valorUnitario="1077.59" importe="4310.36"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="846" descripcion="LLANTA WANLI S1023 205-60-R15" valorUnitario="775.86" importe="3103.44"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="4189" descripcion="LLANTA MAXTREK MAXIMUNS M1 205-50-R17" valorUnitario="793.1" importe="3172.4"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="520" descripcion="LLANTA BRIDGESTONE ECOPIA 205-60-R16" valorUnitario="810.34" importe="3241.36"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="123" descripcion="LLANTA ANTARES/MAXTREK SU800 205-R14 8C" valorUnitario="991.38" importe="1982.76"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="7307.59">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="1191.72"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="965.52"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="441.38"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="1489.65"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="689.66"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="689.66"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="496.55"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="507.58"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="518.62"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="317.24"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="762D1567-A563-49FB-A4D8-54D6D5FA8051" FechaTimbrado="2017-03-21T10:06:50" selloCFD="L+kI2IwwF5jB/vvx6csGUQcux5+RbUcmgHaJz2h7hwGIUenuuV2ag9ncQ+joLAmQFfGXXhWagOR2s0fTA2D0L4CybGDqNvALRd1ufRWHxdY/HtLFNUF3yc5NffN7UXe9GQNahEeokzV20oMb8TRQjOfHathQDz3LLBpzprogBmc=" noCertificadoSAT="00001000000203352843" selloSAT="FHhjuw/epADw2JT/MgmkqIPSPgJd4ZQxmYjNFUznSFD0SZgm1z3SlmYh747iARGEcJHkl+5+l9s6MX5UblnzTQdTtub6vNNtrBt55DdM4zxsDjFkp5Msu0zIkWeTafNdGL0HBQAZGzsbnt6fjFfHmSi8eEF6cs+QoDP0RpF3LY8="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

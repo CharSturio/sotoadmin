@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="CR" folio="568" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2016-08-31T12:16:55" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" subTotal="6620.7" total="7680.01" metodoDePago="99" tipoDeComprobante="ingreso" sello="Bqk6cBRt5GsBMgbUH5/8gwoRJGnswilBaIaN1OG9YEvzo/C1zJA6HNM/QUSO0tHuWx+HyWm6LpjPjQ/kXNtRdYj6uePTeQgvzETtJ52FVcdF4u81GQWCV+dmq+snLmA6DnhmGr7c8kfe/sRrwOJpAg/eF2vjtlFJwI4Uj0PPToU=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="CEPG690318I31" nombre="GUSTAVO CERVANTES PRECIDO ">
+    <cfdi:Domicilio calle="RAMON CORONA " noExterior="83" colonia="CENTRO" localidad="JALOSTITLAN " municipio="JALOSTITLAN " estado="JALISCO " pais="México" codigoPostal="47120"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="156" descripcion="LLANTA BARUM BRABURIS AT 27-8.5-R14 6C" valorUnitario="965.52" importe="3862.08"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="886" descripcion="LLANTA LAVIGATOR MT LT 31-10.5-R15 6C" valorUnitario="1379.31" importe="2758.62"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="1059.31">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="617.93"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="441.38"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="75A26FA3-565A-43A6-938A-341A12C64DA1" FechaTimbrado="2016-08-31T11:17:09" selloCFD="Bqk6cBRt5GsBMgbUH5/8gwoRJGnswilBaIaN1OG9YEvzo/C1zJA6HNM/QUSO0tHuWx+HyWm6LpjPjQ/kXNtRdYj6uePTeQgvzETtJ52FVcdF4u81GQWCV+dmq+snLmA6DnhmGr7c8kfe/sRrwOJpAg/eF2vjtlFJwI4Uj0PPToU=" noCertificadoSAT="00001000000203352843" selloSAT="o851nvmfAB46E5vWN/P5wecIaMDCLFus5NJ3Wf7hMebajbJGHR8pV3Zc4M05aApxbFf7TiVfBtezrbkIRVcooj+UhRhUU1gYUplfCVaaD4X27Yt9aOm6nn/jABsdX0QPOkFdDvfgDbKlEkXJ/rNgY5tMBvfu4WqGAMKdPRjlnH0="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

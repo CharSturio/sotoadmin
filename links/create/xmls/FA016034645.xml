@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="1603" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2016-11-14T14:56:22" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="1960.02" metodoDePago="01" tipoDeComprobante="ingreso" subTotal="1689.67" sello="GYas55NFz5ZpwS+qw7OWJqESbIIDi/JJV048847eXl3bq99sWVSIkQoWd1O1O/+3tAyDSN9Pw5h+pZesGZTw2kJc/AoqRKvuhjNsaEXbWUwAvJICnZn2v1DThIxKoZWEkuRXkpH/pduAQOMAKayW8M0+zeVfhhcBGp/Ees61+b0=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="SPC130227L99" nombre="SECRETARIA DE PLANEACION ADMINISTRACION Y FINANZAS">
+    <cfdi:Domicilio calle="PEDRO MORENO" noExterior="281" colonia="CENTRO" localidad="GUADALAJARA " municipio="GUADALAJARA " estado="JALISCO" pais="México" codigoPostal="44100"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="3501" descripcion="MANO   DE  BALEROS" valorUnitario="172.41" importe="172.41"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="3014" descripcion="MANO   DE LAVAR Y ENGRASAR BALEROS" valorUnitario="129.31" importe="129.31"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="2116" descripcion="RETENES" valorUnitario="86.21" importe="86.21"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="330" descripcion="RECTIFICADOS" valorUnitario="68.97" importe="275.88"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="7" descripcion="ALINEACION DELANTERA" valorUnitario="129.31" importe="129.31"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="3500" descripcion="MANO DE OBRA DE BALATAS" valorUnitario="293.1" importe="293.1"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="3499" descripcion="BALATAS DELANTERAS" valorUnitario="258.62" importe="258.62"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="200" descripcion="BALATAS TRASERAS DE TAMBOR" valorUnitario="344.83" importe="344.83"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="270.35">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="27.59"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="20.69"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="13.79"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="44.14"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="20.69"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="46.9"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="41.38"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="55.17"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="5F8ACE25-9286-4000-9F64-BA8E364BE66C" FechaTimbrado="2016-11-14T16:56:38" selloCFD="GYas55NFz5ZpwS+qw7OWJqESbIIDi/JJV048847eXl3bq99sWVSIkQoWd1O1O/+3tAyDSN9Pw5h+pZesGZTw2kJc/AoqRKvuhjNsaEXbWUwAvJICnZn2v1DThIxKoZWEkuRXkpH/pduAQOMAKayW8M0+zeVfhhcBGp/Ees61+b0=" noCertificadoSAT="00001000000203352843" selloSAT="NVOnRm5BnrMhO6IoFSmuRLyDJ3twfU4Lc3Vp8DYEpk775z69liSP5xcsrD6s4LedTQnTEiFGn+k3Fn4Q/s7RocqHbeEjEUyG/XQllB9HgKvofuflQUsdMb3WFcIfhhsAYVMbO+TC/ZT8xiNV/AR41VpNdsqJSfE4N67jY9ohrBw="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

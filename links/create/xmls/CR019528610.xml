@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="CR" folio="1952" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2017-04-05T08:06:38" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" subTotal="52586.12" total="60999.9" metodoDePago="99" tipoDeComprobante="ingreso" sello="WCLB+7Swz43xNSxeeL5G2nJsjhgviaBetloyi1DvAm5dIAqGDDG9yvmcrur26w8h0wQYPQz3liz4rJ3Pi2cAoPnGPBgVTX7kAASa9csrknDLrQxDDAgwABkgwjtSS+rBq7NcVyr0QqFw8fDFp/OoDGuZn9ZwvfqNt/ZoZC+Wz78=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="MAAN550731MWA" nombre="NICOLAS MARTINEZ AVILA ">
+    <cfdi:Domicilio calle="PROLONGACION 5 DE MAYO " noExterior="138" colonia="CENTRO " localidad="CALVILLO" municipio="CALVILLO" estado="AGUASCALIENTES " pais="México" codigoPostal="20800"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="4365" descripcion="LLANTA 215-75-R15 MAXTREK SIERRA S6" valorUnitario="887.93" importe="3551.72"/>
+    <cfdi:Concepto cantidad="12" unidad="Pieza" noIdentificacion="184" descripcion="LLANTA MAXTREK SU810 195-R15 8C" valorUnitario="810.34" importe="9724.08"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="123" descripcion="LLANTA ANTARES/MAXTREK SU800 205-R14 8C" valorUnitario="991.38" importe="3965.52"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="445" descripcion="LLANTA TORNEL T1300 750-R17 10C" valorUnitario="1508.62" importe="6034.48"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="3904" descripcion="LLANTA COOPER TOURING CS5 225-65-R17 BLEM" valorUnitario="1206.9" importe="4827.6"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="4368" descripcion="LLANTA HAIDA HD878 285-70-R17" valorUnitario="2353.45" importe="9413.8"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="2167" descripcion="LLANTA FREEPASSER MT CT404 LT 215-85-R16 10C" valorUnitario="1250" importe="5000"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="3802" descripcion="LLANTA FIRENZA MT383 LT 31-10.5-R15" valorUnitario="1413.79" importe="5655.16"/>
+    <cfdi:Concepto cantidad="8" unidad="Pieza" noIdentificacion="61" descripcion="LLANTA MAXTREK SU830 185-70-R13" valorUnitario="551.72" importe="4413.76"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="8413.78">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="568.28"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="1555.85"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="634.48"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="965.52"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="772.41"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="1506.21"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="800"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="904.83"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="706.2"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="1CE29BB4-3777-4416-B37D-1610A8CEBD2D" FechaTimbrado="2017-04-05T10:06:48" selloCFD="WCLB+7Swz43xNSxeeL5G2nJsjhgviaBetloyi1DvAm5dIAqGDDG9yvmcrur26w8h0wQYPQz3liz4rJ3Pi2cAoPnGPBgVTX7kAASa9csrknDLrQxDDAgwABkgwjtSS+rBq7NcVyr0QqFw8fDFp/OoDGuZn9ZwvfqNt/ZoZC+Wz78=" noCertificadoSAT="00001000000405607284" selloSAT="7Oen6/xfLqYiUEHctR0g+eUIpI9pOUIiPXFVOKAbiIA/vxkhZAUWKALVDBwA5vpIbJpVFJEvpWRNRDlxrLYF4FlnZUT6w++P9u9oqRf34fkC8tEyZFmuUBzlKrEw5cWhmZ47QzKhvYgoKwfaGNGOC/YDp1J7tKZOX86ptkjsQCx283QHjjIOmOEJ3rqAtVw54bGYENJgUfUCymWeTLxoiRmXoTt0gUT0032ucaG26kCOswvkGUqM2pJ6Ls/mSpPgIf9JUnGRywsMgJ7okalqWuvONhGO/6Pmub16pME/BkxqGjlAJ3xT3avQhPwq5JIcaYzAItFcoLP6qKQepJk8kg=="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

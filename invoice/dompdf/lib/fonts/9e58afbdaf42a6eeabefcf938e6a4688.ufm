@@ -1,0 +1,137 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/PhenX/php-font-lib
+EncodingScheme FontSpecific
+Copyright Copyright © 2013 by Lukas Bischoff. All rights reserved.
+FontName artill clean weather icons
+FontSubfamily Regular
+UniqueID 1.001;UKWN;artillcleanweathericons-Regular
+FullName artill clean weather icons Regular
+Version Version 1.001;PS 001.001;hotconv 1.0.70;makeotf.lib2.5.58329
+PostScriptName artillcleanweathericons-Regular
+Manufacturer artill.de
+Designer Lukas Bischoff
+FontDesignerURL www.artill.de
+CompatibleFullName artill clean weather icons Regular
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 50
+UnderlinePosition -75
+FontHeightOffset 0
+Ascender 700
+Descender -280
+FontBBox 0 -261 1000 667
+StartCharMetrics 111
+U 0 ; WX 1000 ; N glyph1 ; G 1
+U 13 ; WX 1000 ; N uni000D ; G 2
+U 32 ; WX 600 ; N space ; G 3
+U 33 ; WX 793 ; N exclam ; G 4
+U 34 ; WX 528 ; N quotedbl ; G 5
+U 35 ; WX 528 ; N numbersign ; G 6
+U 39 ; WX 528 ; N quotesingle ; G 7
+U 40 ; WX 398 ; N parenleft ; G 8
+U 41 ; WX 399 ; N parenright ; G 9
+U 42 ; WX 677 ; N asterisk ; G 10
+U 44 ; WX 730 ; N comma ; G 11
+U 46 ; WX 528 ; N period ; G 12
+U 47 ; WX 677 ; N slash ; G 13
+U 48 ; WX 639 ; N zero ; G 14
+U 49 ; WX 596 ; N one ; G 15
+U 50 ; WX 696 ; N two ; G 16
+U 51 ; WX 820 ; N three ; G 17
+U 52 ; WX 405 ; N four ; G 18
+U 53 ; WX 313 ; N five ; G 19
+U 54 ; WX 392 ; N six ; G 20
+U 55 ; WX 696 ; N seven ; G 21
+U 56 ; WX 696 ; N eight ; G 22
+U 57 ; WX 696 ; N nine ; G 23
+U 58 ; WX 648 ; N colon ; G 24
+U 59 ; WX 528 ; N semicolon ; G 25
+U 63 ; WX 528 ; N question ; G 26
+U 65 ; WX 849 ; N A ; G 27
+U 66 ; WX 1050 ; N B ; G 28
+U 67 ; WX 878 ; N C ; G 29
+U 68 ; WX 977 ; N D ; G 30
+U 69 ; WX 898 ; N E ; G 31
+U 70 ; WX 850 ; N F ; G 32
+U 71 ; WX 677 ; N G ; G 33
+U 72 ; WX 850 ; N H ; G 34
+U 73 ; WX 677 ; N I ; G 35
+U 74 ; WX 850 ; N J ; G 36
+U 75 ; WX 677 ; N K ; G 37
+U 76 ; WX 849 ; N L ; G 38
+U 77 ; WX 677 ; N M ; G 39
+U 78 ; WX 850 ; N N ; G 40
+U 79 ; WX 676 ; N O ; G 41
+U 80 ; WX 850 ; N P ; G 42
+U 81 ; WX 677 ; N Q ; G 43
+U 82 ; WX 849 ; N R ; G 44
+U 83 ; WX 677 ; N S ; G 45
+U 84 ; WX 850 ; N T ; G 46
+U 85 ; WX 677 ; N U ; G 47
+U 86 ; WX 850 ; N V ; G 48
+U 87 ; WX 677 ; N W ; G 49
+U 88 ; WX 849 ; N X ; G 50
+U 89 ; WX 677 ; N Y ; G 51
+U 90 ; WX 793 ; N Z ; G 52
+U 91 ; WX 291 ; N bracketleft ; G 53
+U 92 ; WX 677 ; N backslash ; G 54
+U 93 ; WX 292 ; N bracketright ; G 55
+U 97 ; WX 697 ; N a ; G 56
+U 98 ; WX 898 ; N b ; G 57
+U 99 ; WX 908 ; N c ; G 58
+U 100 ; WX 825 ; N d ; G 59
+U 101 ; WX 833 ; N e ; G 60
+U 102 ; WX 698 ; N f ; G 61
+U 103 ; WX 706 ; N g ; G 62
+U 104 ; WX 698 ; N h ; G 63
+U 105 ; WX 707 ; N i ; G 64
+U 106 ; WX 698 ; N j ; G 65
+U 107 ; WX 707 ; N k ; G 66
+U 108 ; WX 697 ; N l ; G 67
+U 109 ; WX 708 ; N m ; G 68
+U 110 ; WX 697 ; N n ; G 69
+U 111 ; WX 707 ; N o ; G 70
+U 112 ; WX 698 ; N p ; G 71
+U 113 ; WX 707 ; N q ; G 72
+U 114 ; WX 697 ; N r ; G 73
+U 115 ; WX 707 ; N s ; G 74
+U 116 ; WX 698 ; N t ; G 75
+U 117 ; WX 707 ; N u ; G 76
+U 118 ; WX 699 ; N v ; G 77
+U 119 ; WX 707 ; N w ; G 78
+U 120 ; WX 697 ; N x ; G 79
+U 121 ; WX 706 ; N y ; G 80
+U 122 ; WX 920 ; N z ; G 81
+U 123 ; WX 392 ; N braceleft ; G 82
+U 125 ; WX 318 ; N braceright ; G 83
+U 160 ; WX 600 ; N uni00A0 ; G 84
+U 161 ; WX 265 ; N exclamdown ; G 85
+U 183 ; WX 528 ; N periodcentered ; G 86
+U 191 ; WX 528 ; N questiondown ; G 87
+U 8192 ; WX 333 ; N uni2000 ; G 88
+U 8193 ; WX 667 ; N uni2001 ; G 89
+U 8194 ; WX 333 ; N uni2002 ; G 90
+U 8195 ; WX 667 ; N uni2003 ; G 91
+U 8196 ; WX 222 ; N uni2004 ; G 92
+U 8197 ; WX 167 ; N uni2005 ; G 93
+U 8198 ; WX 111 ; N uni2006 ; G 94
+U 8199 ; WX 111 ; N uni2007 ; G 95
+U 8200 ; WX 83 ; N uni2008 ; G 96
+U 8201 ; WX 133 ; N uni2009 ; G 97
+U 8202 ; WX 37 ; N uni200A ; G 98
+U 8211 ; WX 325 ; N endash ; G 99
+U 8212 ; WX 325 ; N emdash ; G 100
+U 8216 ; WX 310 ; N quoteleft ; G 101
+U 8220 ; WX 310 ; N quotedblleft ; G 102
+U 8221 ; WX 310 ; N quotedblright ; G 103
+U 8226 ; WX 677 ; N bullet ; G 104
+U 8230 ; WX 727 ; N ellipsis ; G 105
+U 8239 ; WX 133 ; N uni202F ; G 106
+U 8249 ; WX 586 ; N guilsinglleft ; G 107
+U 8250 ; WX 576 ; N guilsinglright ; G 108
+U 8287 ; WX 167 ; N uni205F ; G 109
+U 57344 ; WX 430 ; N uniE000 ; G 110
+EndCharMetrics
+EndFontMetrics

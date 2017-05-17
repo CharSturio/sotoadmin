@@ -1,0 +1,124 @@
+body{
+    font-size: 11px;
+}
+.clearL{
+    clear: left;
+}
+.fondop{
+    background: silver;
+}
+.font9{
+    font-size: 8px;
+}
+.font12{
+    font-size: 10px;
+}
+.font13{
+    font-size: 13px;
+}
+.Franja{
+    background: black;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    width: 100%;
+}
+.mtop{
+    margin-top: 12px;
+}
+.pup{
+    margin-top: 6px;
+}
+.tab{
+    padding-left: 15px;
+}
+.tabfDer{
+    float: right;
+    padding-right: 15px;
+    position:relative;
+}
+.wid10{
+    width: 10%;
+    float: left;
+    height: auto;
+}
+.wid12{
+    width: 12%;
+    float: left;
+    height: auto;
+}
+.wid14{
+    width: 14%;
+    float: left;
+    height: auto;
+}
+.wid15{
+    width: 15%;
+    float: left;
+    height: auto;
+}
+.wid17{
+    width: 17%;
+    float: left;
+    height: auto;
+}
+.wid20{
+    width: 20%;
+    float: left;
+    height: auto;
+}
+.wid25{
+    width: 25%;
+    float: left;
+    height: auto;
+}
+.wid30{
+    width: 30%;
+    float: left;
+    height: auto;
+}
+.wid33{
+    width: 30%;
+    float: left;
+    height: auto;
+}
+.wid40{
+    width: 40%;
+    float: left;
+    height: auto;
+}
+.wid50{
+    width: 50%;
+    float: left;
+    height: auto;
+}
+.wid60{
+    width: 60%;
+    float: left;
+    height: auto;
+}
+.wid70{
+    width: 68%;
+    float: left;
+    height: auto;
+}
+.wid85{
+    width: 85%;
+    float: left;
+    height: auto;
+}
+.wid100{
+    width: 100%;
+    float: left;
+    height: auto;
+}
+.center{
+    text-align: center;
+}
+#logo{
+    height: 90px;
+}
+#qr{
+    width: 100%;
+    height: auto;
+}

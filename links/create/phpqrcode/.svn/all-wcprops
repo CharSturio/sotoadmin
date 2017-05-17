@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode
+END
+qrconst.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrconst.php
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/LICENSE
+END
+qrspec.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrspec.php
+END
+qrbitstream.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrbitstream.php
+END
+qrsplit.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrsplit.php
+END
+qrmask.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrmask.php
+END
+VERSION
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/VERSION
+END
+qrencode.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrencode.php
+END
+CHANGELOG
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/CHANGELOG
+END
+qrinput.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrinput.php
+END
+qrtools.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrtools.php
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/README
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/index.php
+END
+qrconfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrconfig.php
+END
+qrlib.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrlib.php
+END
+INSTALL
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/INSTALL
+END
+qrrscode.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrrscode.php
+END
+qrimage.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/qrimage.php
+END
+phpqrcode.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/MGWheelsProd/!svn/ver/2/trunk/phpqrcode/phpqrcode.php
+END

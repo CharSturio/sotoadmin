@@ -3,8 +3,8 @@ require '../../connection/index.php';
 require 'call.php';
 
   $queryDandC = "SELECT D.last_date, D.invoice, D.id, D.id_invoice, D.last_digits, D.total, D.payment_method, C.rfc, C.name, C.address, C.noExt, C.noint, C.colony, C.city, C.state, C.pc FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id=" . $_REQUEST['id'] ." LIMIT 1;";
-  $resultDandC = mysql_query($queryDandC) or die ('Consulta fallida: ' . mysql_error());
-  $rowDandC = mysql_fetch_assoc($resultDandC);
+  $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
+  $rowDandC = mysqli_fetch_assoc($resultDandC);
   $fecha_ = $rowDandC['last_date'];
   $fecha_O = str_replace(" ", "T", $fecha_);
   $idInvoice = $rowDandC['id_invoice'];
@@ -95,9 +95,9 @@ $rfc = strtoupper($rowDandC['rfc']);
   $node_dom_catch->setAttribute("codigoPostal",$rowDandC['pc']);
 
   $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
-  $resultQandP = mysql_query($queryQandP) or die ('Consulta fallida: ' . mysql_error());
+  $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
   $node_concepts = $node_proof->appendChild($dom->createElement("cfdi:Conceptos"));
-  while ($rowQandP = mysql_fetch_assoc($resultQandP)) {
+  while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
     $costUnit = $rowQandP['unit_cost'];
     $costUnitSIVA = ($costUnit/116) * 100;
     $CostUnitSIVA = round($costUnitSIVA, 2);
@@ -114,10 +114,10 @@ $rfc = strtoupper($rowDandC['rfc']);
   }
   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
   $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
-  $resultQandP = mysql_query($queryQandP) or die ('Consulta fallida: ' . mysql_error());
+  $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
   $node_taxes->setAttribute("totalImpuestosTrasladados",$IVA_total);
   $node_transfers = $node_taxes->appendChild($dom->createElement("cfdi:Traslados"));
-  while ($rowQandP = mysql_fetch_assoc($resultQandP)) {
+  while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
     $totalPIVA = $rowQandP['unit_cost'] * $rowQandP['amount'];
     $importe = ($totalPIVA / 116) * 16;
     $import = round($importe, 2);
@@ -182,7 +182,7 @@ $rfc = strtoupper($rowDandC['rfc']);
   $noCertificado = '00001000000301099705';
 
   $query = "UPDATE documents SET uuid='" . $UUID . "', fechaTimbrado='" . $fechaTimbrado . "', selloSat='" . $selloSAT . "', noCertificado='" . $noCertificado . "', certificado='" . $certificado . "', sello='" . $sello . "', noCertificadoSat='" . $noCertificadoSat . "'  WHERE id=" . $_REQUEST['id'];
-  $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+  $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
   echo "Creado con exito";
 

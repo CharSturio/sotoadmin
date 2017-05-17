@@ -6,7 +6,7 @@ require '../../connection/index.php';
 
   if ($_REQUEST['operation'] === 'login') {
     $query = "SELECT * FROM users where user ='" . $name ."' AND password=SHA('" . $pass . "') LIMIT 1;";
-    $result = mysqli_query($link, $query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link, $query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     if(mysqli_num_rows($result) === 1){
         while($row = mysqli_fetch_assoc($result)) {

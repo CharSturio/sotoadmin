@@ -25,12 +25,12 @@
     }
 
     $query = "SELECT * FROM clients where name='" . $name ."';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     if (mysqli_fetch_assoc($result)) {
       echo 'El cliente ya existe. Favor de verificarlo o ingresar uno diferente.';
     } else {
       $query = "INSERT INTO clients (name, address, colony, state, phone, contact_name, rfc, pc, city, cell_phone, last_date, noInt, noExt, email, limit_credit, credit, type_cost) VALUES ('" . $name . "','" . $address . "','" . $colony . "','" . $state . "','" . $phone . "','" . $contact_name . "','" . $rfc . "','" . $pc . "','" . $city . "','" . $cell_phone . "',now(),'" . $noInt . "','" . $noExt . "','" . $email . "','" . $credit . "','" . $thiscredit . "','" . $type_cost . "');";
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Usuario agregado.';
     }
   } else if ($operation === 'modify') {
@@ -85,28 +85,28 @@
       }
     }
     $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     echo 'Actualizado correctamente.';
 
   } else if ($operation === 'delete') {
     $query .= "DELETE FROM clients WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     echo 'Eliminado correctamente.';
   } else if ($operation === 'clients') {
     $query = "SELECT id, name FROM clients;";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     while ($row = mysqli_fetch_assoc($result)) {
       echo '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
     }
   } else if ($operation === 'selectClient') {
     $id = $_REQUEST['id'];
     $query = "SELECT * FROM clients where id=" . $id . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $row = mysqli_fetch_assoc($result);
     echo $row['name'] . ',' . $row['address'] . ',' . $row['colony'] . ',' . $row['state'] . ',' . $row['phone'] . ',' . $row['contact_name'] . ',' . $row['rfc'] . ',' . $row['pc'] . ',' . $row['city'] . ',' . $row['cell_phone'] . ',' . $row['noInt'] . ',' . $row['noExt'] . ',' . $row['email'] . ',' . $row['limit_credit'] . ',' . $row['type_cost'];
   } else if ($operation === 'browserName') {
     $query = "SELECT * FROM clients WHERE name LIKE '%" . $_REQUEST['content'] . "%';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $print = '<table class="table table-striped tablet-tools">
       <thead>
         <tr>
@@ -129,7 +129,7 @@
     echo $print;
   } else if ($operation === 'browserRFC') {
     $query = "SELECT * FROM clients WHERE rfc LIKE '%" . $_REQUEST['content'] . "%';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $print = '<table class="table table-striped tablet-tools">
       <thead>
         <tr>

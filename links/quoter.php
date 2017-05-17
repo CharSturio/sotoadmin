@@ -10,10 +10,10 @@
     $id = $_REQUEST['id'];
 
     $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "',now());";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $query = "SELECT * FROM stocks where id_product ='" . $id ."';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $total = $amount;
     while($row = mysqli_fetch_assoc($result)){
@@ -21,7 +21,7 @@
     }
 
     $query = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id;
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
 
     echo 'Agregados Satisfactoriamente.';
@@ -29,7 +29,7 @@
     $name = $_REQUEST['name'];
 
     $query = "SELECT * FROM clients WHERE name LIKE '%" . $_REQUEST['name'] . "%';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $print = '<table class="table table-striped tablet-tools">
       <thead>
@@ -76,7 +76,7 @@
       $query .= "p.key_ LIKE '%" . $_REQUEST['key'] . "%'";
     }
     $query .= " AND s.amount > 0;";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     while ($row = mysqli_fetch_assoc($result)) {
       echo '
@@ -119,7 +119,7 @@
     }
   } else if ($operation === 'addProduct') {
     $query = "SELECT * FROM temp_quoter where id_product LIKE '%" . $_REQUEST['id'] ."%' AND id_client LIKE '%" . $_REQUEST['idClient'] . "%' AND id_user LIKE '%" . $_SESSION['id'] . "%' AND unit_cost LIKE '%" . $_REQUEST['price'] . "%';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $exist = false;
     $amount = $_REQUEST['amount'];
     $id = null;
@@ -131,14 +131,14 @@
 
     if ($exist && $id) {
       $query = "UPDATE temp_quoter SET amount=" . $amount . " WHERE id=" . $id;
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     } else {
       $query = "INSERT INTO temp_quoter (id_product, id_client, id_user, amount, unit_cost, last_date) VALUES ('" . $_REQUEST['id'] . "','" . $_REQUEST['idClient'] . "','" . $_SESSION['id'] . "','" . $_REQUEST['amount'] . "','" . $_REQUEST['price'] . "',now());";
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     }
 
     $query = "SELECT T.id, T.amount, T.unit_cost, P.type_product, P.brand, P.model, P.name FROM temp_quoter as T INNER JOIN products AS P ON T.id_product = P.id where T.id_client =" . $_REQUEST['idClient'] . " AND T.id_user =" . $_SESSION['id'] . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $totalAll = 0;
     while ($row = mysqli_fetch_assoc($result)) {
       $total = $row['unit_cost'] * $row['amount'];
@@ -157,10 +157,10 @@
     echo '<div id="totalQuoter"><h3>Total:</h3><h2>$' . $totalAll . '</h2></div>';
   } else if ($operation === 'cancelProduct') {
     $query = "DELETE FROM temp_quoter WHERE id=" . $_REQUEST['id'];
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $query = "SELECT T.id, T.amount, T.unit_cost, P.type_product, P.brand, P.model, P.name FROM temp_quoter as T INNER JOIN products AS P ON T.id_product = P.id where T.id_client LIKE '%" . $_REQUEST['idClient'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $totalAll = 0;
     while ($row = mysqli_fetch_assoc($result)) {
@@ -172,11 +172,11 @@
 
   } else if ($operation === 'cancelAll') {
     $query = "DELETE FROM temp_quoter WHERE id_client = " . $_REQUEST['id_client'];
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     echo 'Eliminado Correcatmente';
   } else if ($operation === 'remission') {
     $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $pass = true;
     while ($row = mysqli_fetch_assoc($result)) {
       if ($row['temp_amount'] > $row['exist_amount']) {
@@ -187,7 +187,7 @@
 
     if ($pass) {
       $queryInvoice = "select * from documents where type = 'remission' order by id_invoice desc limit 1";
-      $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error());
+      $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error($link));
       $rowInvoice = mysqli_fetch_assoc($resultInvoice);
 
       if ($rowInvoice['id_invoice']) {
@@ -216,43 +216,43 @@
       }
 
       $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','remission','activo',now(),0);";
-      $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error());
+      $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
       $id_document = mysqli_insert_id();
       $total_credit = 0;
       $query2 = "SELECT * FROM temp_quoter where id_client =" . $_REQUEST['id_client'] . " AND id_user=" . $_SESSION['id'] . ";";
-      $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error());
+      $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error($link));
 
       while ($row2 = mysqli_fetch_assoc($result2)) {
         $total_invoice += ($row2['amount'] * $row2['unit_cost']);
         $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " limit 1;";
-        $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error());
+        $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $AllStock = mysqli_fetch_assoc($resultStock);
 
         $amount = $AllStock['amount'] - $row2['amount'];
         $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
-        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',now());";
-        $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error());
+        $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];
-        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       }
       $queryTemp = "UPDATE documents SET total=" . $total_invoice . " WHERE id=" . $id_document;
-      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       echo $id_document;
     } else {
       echo 'Las existencias han cambiado. Favor de verificar los productos.';
     }
   } else if ($operation === 'invoice') {
     $queryClient = "SELECT * FROM clients WHERE id=" . $_REQUEST['id_client'];
-    $resultClient = mysqli_query($link,$queryClient) or die ('Consulta fallida: ' . mysqli_error());
+    $resultClient = mysqli_query($link,$queryClient) or die ('Consulta fallida: ' . mysqli_error($link));
     $rowClient = mysqli_fetch_assoc($resultClient);
     if ($rowClient['name'] && $rowClient['address'] && $rowClient['colony'] && $rowClient['state'] && $rowClient['rfc'] && $rowClient['pc'] && $rowClient['city'] && $rowClient['phone'] && $rowClient['noExt']) {
 
       $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $pass = true;
       while ($row = mysqli_fetch_assoc($result)) {
         if ($row['temp_amount'] > $row['exist_amount']) {
@@ -263,7 +263,7 @@
 
       if ($pass) {
         $queryInvoice = "select * from documents where type = 'invoice' order by id_invoice desc limit 1";
-        $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error());
+        $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error($link));
         $rowInvoice = mysqli_fetch_assoc($resultInvoice);
 
         if ($rowInvoice['id_invoice']) {
@@ -292,32 +292,32 @@
         }
 
         $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','invoice','activo',now(),0);";
-        $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error());
+        $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
         $id_document = mysqli_insert_id();
         $total_invoice = 0;
 
         $query2 = "SELECT * FROM temp_quoter where id_client =" . $_REQUEST['id_client'] . " AND id_user=" . $_SESSION['id'] . ";";
-        $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error());
+        $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error($link));
 
         while ($row2 = mysqli_fetch_assoc($result2)) {
           $total_invoice += ($row2['amount'] * $row2['unit_cost']);
           $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " limit 1;";
-          $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error());
+          $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $AllStock = mysqli_fetch_assoc($resultStock);
 
           $amount = $AllStock['amount'] - $row2['amount'];
           $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
-          $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+          $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',now());";
-          $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error());
+          $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];
-          $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+          $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
         }
         $queryTemp = "UPDATE documents SET total=" . $total_invoice . " WHERE id=" . $id_document;
-        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
         echo $id_document;
       } else {
         echo 'y';
@@ -327,7 +327,7 @@
     }
   } else if ($operation === 'credit') {
     $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $pass = true;
     while ($row = mysqli_fetch_assoc($result)) {
       if ($row['temp_amount'] > $row['exist_amount']) {
@@ -338,7 +338,7 @@
 
     if ($pass) {
       $queryInvoice = "select * from documents where type = 'credit' order by id_invoice desc limit 1";
-      $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error());
+      $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error($link));
       $rowInvoice = mysqli_fetch_assoc($resultInvoice);
 
       if ($rowInvoice['id_invoice']) {
@@ -366,36 +366,36 @@
         $invoice = 'CR00001';
       }
       $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total, dias_credito) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','credit','activo',now(),0,'" . $_REQUEST['diasCredito'] . "');";
-      $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error());
+      $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
 
       $id_document = mysqli_insert_id();
       $total_credit = 0;
       $query2 = "SELECT * FROM temp_quoter where id_client =" . $_REQUEST['id_client'] . " AND id_user=" . $_SESSION['id'] . ";";
-      $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error());
+      $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error($link));
 
       while ($row2 = mysqli_fetch_assoc($result2)) {
         $total_credit += ($row2['amount'] * $row2['unit_cost']);
         $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " limit 1;";
-        $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error());
+        $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $AllStock = mysqli_fetch_assoc($resultStock);
 
         $amount = $AllStock['amount'] - $row2['amount'];
         $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
-        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',now());";
-        $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error());
+        $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];
-        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+        $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       }
 
       $queryCredit = "INSERT INTO credit (id_document, total_credit, total_paid_out, status, last_date) VALUES ('" . $id_document . "','" . $total_credit . "','0','payable',now());";
-      $result = mysqli_query($link,$queryCredit) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$queryCredit) or die ('Consulta fallida: ' . mysqli_error($link));
 
       $queryTemp = "UPDATE documents SET total=" . $total_credit . " WHERE id=" . $id_document;
-      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
       echo $id_document;
 

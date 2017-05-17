@@ -10,7 +10,7 @@
 
 
     $query = "INSERT INTO cash_out (comprobante, cantidad, descripcion, id_user, status, last_date) VALUES ('" . $comprobante . "'," . $cantidad . ",'" . $descripcion . "'," . $_SESSION['id'] . ",'out',now());";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     echo 'Agregados Satisfactoriamente.';
   } else if ($operation === 'add2') {
@@ -20,7 +20,7 @@
 
 
       $query = "INSERT INTO cash_out (comprobante, cantidad, descripcion, id_user, status, last_date) VALUES ('" . $comprobante . "'," . $cantidad . ",'" . $descripcion . "'," . $_SESSION['id'] . ",'in',now());";
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
       echo 'Agregados Satisfactoriamente.';
     }

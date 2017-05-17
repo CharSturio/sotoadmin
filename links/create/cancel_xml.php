@@ -66,8 +66,8 @@ session_start();
     }
     $id = $_REQUEST['id'];
     $queryDandC = "SELECT * FROM documents WHERE id=" . $id . " LIMIT 1;";
-    $resultDandC = mysql_query($queryDandC) or die ('Consulta fallida: ' . mysql_error());
-    $rowDandC = mysql_fetch_assoc($resultDandC);
+    $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
+    $rowDandC = mysqli_fetch_assoc($resultDandC);
     $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . ".xml";
     $name_xml = "xmls/" . $name_xml;
     if ($rowDandC['uuid']) {
@@ -76,9 +76,9 @@ session_start();
           if(CancelarCFDI($rowDandC['fechaTimbrado'], $rowDandC['uuid'], $name_xml))
           {
             $query = "UPDATE documents SET status='cancelado' WHERE id=" . $id;
-            $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+            $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
             $queryTemp = "DELETE FROM credit WHERE id_document =" . $id;
-            $result = mysql_query($queryTemp) or die ('Consulta fallida: ' . mysql_error());
+            $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
               echo "cancelado";
           }
       }
@@ -89,9 +89,9 @@ session_start();
       }
     } else {
       $query = "UPDATE documents SET status='cancelado' WHERE id=" . $id;
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $queryTemp = "DELETE FROM credit WHERE id_document =" . $id;
-      $result = mysql_query($queryTemp) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
         echo "cancelado";
     }
   } else {

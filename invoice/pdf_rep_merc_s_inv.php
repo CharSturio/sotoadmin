@@ -5,7 +5,7 @@
   $operation = $_REQUEST['operation'];
   if ($operation === 'action') {
     $query = "SELECT S.amount, P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.measure, P.treadware, P.load_index, P.load_speed FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "'  ORDER BY P.barcode DESC";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
       require_once 'lib/PHPExcel/PHPExcel.php';
 

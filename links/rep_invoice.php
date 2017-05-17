@@ -30,7 +30,7 @@
       $ident = 1;
     }
     $query .= " ORDER BY D.last_date DESC";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $table_efectivo_remision = '<div class="force-table-responsive">
     <table class="table table-striped">

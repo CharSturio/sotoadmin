@@ -6,7 +6,7 @@
     $id = $_REQUEST['id'];
     $quest = $id * 25;
     $query = "SELECT D.uuid, D.id, D.invoice, D.last_date, D.type, D.status, C.name, U.user, D.total, D.comments FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id ORDER BY D.last_date DESC LIMIT " . $quest . ",250";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     while ($row = mysqli_fetch_assoc($result)) {
       if ($row['type'] === 'invoice') {
         if ($row['uuid']) {
@@ -94,7 +94,7 @@
       $query .= " U.user LIKE '%" . $user . "%'";
     }
     $query .= " ORDER BY D.last_date DESC";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     while ($row = mysqli_fetch_assoc($result)) {
       if ($row['type'] === 'invoice') {
         if ($row['uuid']) {
@@ -156,7 +156,7 @@
   } else if ($operation === 'xml') {
     $id = $_REQUEST['id'];
     $queryDandC = "SELECT * FROM documents WHERE id=" . $id ." LIMIT 1;";
-    $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error());
+    $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
     $rowDandC = mysqli_fetch_assoc($resultDandC);
     if ($rowDandC['status'] === 'cancelado') {
       $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . "_cancelado.xml";
@@ -182,7 +182,7 @@
   else if ($operation === 'pdf') {
    $id = $_REQUEST['id'];
    $queryDandC = "SELECT * FROM documents WHERE id=" . $id ." LIMIT 1;";
-   $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error());
+   $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
    $rowDandC = mysqli_fetch_assoc($resultDandC);
    $name_pdf = $rowDandC['invoice']. ".pdf";
    $file = "../invoice/pdf/" . $name_pdf;

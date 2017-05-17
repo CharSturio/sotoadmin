@@ -16,12 +16,12 @@
     $check_out = $_REQUEST['checkOut'];
 
     $query = "SELECT * FROM users where user='" . $user ."';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     if (mysqli_fetch_assoc($result)) {
       echo 'El usuario ya existe. Favor de intentar con otro.';
     } else {
       $query = "INSERT INTO users (status, user, password, name, address, city, last_name, pc, state, permit, check_in, check_out, last_date) VALUES(1,'" . $user . "',SHA('" . $password . "'),'" . $name . "','" . $address . "','" . $city . "','" . $last_name . "','" . $pc . "','" . $state . "','" . $permit . "','" . $check_in . "','" . $check_out . "',now());";
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Usuario agregado.';
     }
 
@@ -61,23 +61,23 @@
       $query .= " check_out='" . $_REQUEST['checkOut'] . "',";
     }
     $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     echo 'Actualizado correctamente.';
 
   } else if ($operation === 'delete') {
     $query .= "DELETE FROM users WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     echo 'Eliminado correctamente.';
   } else if ($operation === 'users') {
     $query = "SELECT id, user FROM users;";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     while ($row = mysqli_fetch_assoc($result)) {
       echo '<option value="' . $row["id"] . '">' . $row["user"] . '</option>';
     }
   } else if ($operation === 'selectUser') {
     $id = $_REQUEST['id'];
     $query = "SELECT * FROM users where id=" . $id . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $row = mysqli_fetch_assoc($result);
     echo $row['user'] . ',' . $row['name'] . ',' . $row['address'] . ',' . $row['city'] . ',' . $row['last_name'] . ',' . $row['pc'] . ',' . $row['state'] . ',' . $row['permit'] . ',' . $row['check_in'] . ',' . $row['check_out'];
   }

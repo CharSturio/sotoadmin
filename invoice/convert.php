@@ -177,4 +177,4 @@ function num2letras($num, $fem = false, $dec = true) {
    $end_num=ucfirst($tex).' pesos '.$float[1].'/100 M.N.';
    return $end_num;
 }
-?> 
+?>

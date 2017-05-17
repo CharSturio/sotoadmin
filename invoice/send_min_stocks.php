@@ -6,7 +6,7 @@
   $operation = $_REQUEST['operation'];
   if ($operation === 'action') {
     $query = "SELECT S.amount, P.type_product, P.barcode, P.name, P.key_, P.brand, P.model FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "' AND S.amount < 5 ORDER BY P.barcode DESC";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
     require_once 'lib/PHPExcel/PHPExcel.php';
 
@@ -39,7 +39,7 @@
 
     //Se agregan los datos de los alumnos
     $i=4;
-    while($row = mysql_fetch_assoc($result)){
+    while($row = mysqli_fetch_assoc($result)){
       $objPHPExcel->setActiveSheetIndex(0)
                 ->setCellValue('A'.$i, $row['type_product'])
                 ->setCellValue('B'.$i, $row['name'])
@@ -161,5 +161,5 @@ $nombre_archivo = 'minimostock.xlsx';
       echo $e->getMessage(); //Boring error messages from anything else!
     }
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

@@ -5,8 +5,8 @@ $id = $_REQUEST['id'];
 $op = $_REQUEST['op'];
 if ($op === '1') {
   $query = "SELECT D.dias_credito, D.type, D.invoice, C.name, C.address, C.noExt, C.noInt, C.pc, C.rfc, C.phone, C.email, D.last_date, D.payment_method, D.last_digits, D.guide_number, D.uuid, D.fechaTimbrado, D.sello, D.noCertificadoSat, D.noCertificado, D.selloSat FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id =" . $id . " LIMIT 1;";
-  $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-  $row = mysql_fetch_assoc($result);
+  $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+  $row = mysqli_fetch_assoc($result);
 
   $html = '<!DOCTYPE html>
   <html lang="en">
@@ -59,9 +59,9 @@ if ($op === '1') {
       <div class="wid15"><b>TOTAL</b></div>
       <div class="clearL"></div>';
           $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "'";
-          $resultPro = mysql_query($queryPro) or die ('Consulta fallida: ' . mysql_error());
+          $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error());
           $totalGral = 0;
-          while ($rowPro = mysql_fetch_assoc($resultPro)) {
+          while ($rowPro = mysqli_fetch_assoc($resultPro)) {
             $unitCost = ($rowPro['unit_cost']/116) * 100;
             $totalUnitCost = $rowPro['amount'] * $unitCost;
             $unitCost = round($unitCost, 2);
@@ -156,8 +156,8 @@ if ($op === '1') {
   </html>';
 } else if ($op === '2') {
   $query = "SELECT  D.invoice, C.name, C.address, C.noExt, C.noInt, C.pc, C.rfc, C.phone, C.email, D.last_date, D.payment_method, D.last_digits, D.guide_number FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id =" . $id ." LIMIT 1;";
-  $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-  $row = mysql_fetch_assoc($result);
+  $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+  $row = mysqli_fetch_assoc($result);
 
   $html = '<!DOCTYPE html>
   <html lang="en">
@@ -210,9 +210,9 @@ if ($op === '1') {
       <div class="wid15"><b>TOTAL</b></div>
       <div class="clearL"></div>';
           $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "'";
-          $resultPro = mysql_query($queryPro) or die ('Consulta fallida: ' . mysql_error());
+          $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error());
           $totalGral = 0;
-          while ($rowPro = mysql_fetch_assoc($resultPro)) {
+          while ($rowPro = mysqli_fetch_assoc($resultPro)) {
             $unitCost = ($rowPro['unit_cost']/116) * 100;
             $totalUnitCost = $rowPro['amount'] * $unitCost;
             $unitCost = round($unitCost, 2);
@@ -269,8 +269,8 @@ if ($op === '1') {
   </html>';
 } else if ($op === '3') {
   $query = "SELECT  D.dias_credito, D.invoice, C.name, C.address, C.noExt, C.noInt, C.pc, C.rfc, C.phone, C.email, D.last_date, D.payment_method, D.last_digits, D.guide_number FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id =" . $id ." LIMIT 1;";
-  $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-  $row = mysql_fetch_assoc($result);
+  $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+  $row = mysqli_fetch_assoc($result);
 
   $html = '<!DOCTYPE html>
   <html lang="en">
@@ -323,9 +323,9 @@ if ($op === '1') {
       <div class="wid15"><b>TOTAL</b></div>
       <div class="clearL"></div>';
           $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "'";
-          $resultPro = mysql_query($queryPro) or die ('Consulta fallida: ' . mysql_error());
+          $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error());
           $totalGral = 0;
-          while ($rowPro = mysql_fetch_assoc($resultPro)) {
+          while ($rowPro = mysqli_fetch_assoc($resultPro)) {
             $unitCost = ($rowPro['unit_cost']/116) * 100;
             $totalUnitCost = $rowPro['amount'] * $unitCost;
             $unitCost = round($unitCost, 2);

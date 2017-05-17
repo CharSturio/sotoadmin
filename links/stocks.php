@@ -26,9 +26,9 @@
       $query .= "p.key_ LIKE '%" . $_REQUEST['key'] . "%'";
     }
     $query .= " AND s.amount > 1;";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
       echo '
           <tr>
             <td>' . $row['amount'] . '</td>
@@ -43,5 +43,5 @@
           </tr>';
     }
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

@@ -25,12 +25,12 @@
     }
 
     $query = "SELECT * FROM clients where name='" . $name ."';";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-    if (mysql_fetch_assoc($result)) {
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    if (mysqli_fetch_assoc($result)) {
       echo 'El cliente ya existe. Favor de verificarlo o ingresar uno diferente.';
     } else {
       $query = "INSERT INTO clients (name, address, colony, state, phone, contact_name, rfc, pc, city, cell_phone, last_date, noInt, noExt, email, limit_credit, credit, type_cost) VALUES ('" . $name . "','" . $address . "','" . $colony . "','" . $state . "','" . $phone . "','" . $contact_name . "','" . $rfc . "','" . $pc . "','" . $city . "','" . $cell_phone . "',now(),'" . $noInt . "','" . $noExt . "','" . $email . "','" . $credit . "','" . $thiscredit . "','" . $type_cost . "');";
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
       echo 'Usuario agregado.';
     }
   } else if ($operation === 'modify') {
@@ -85,28 +85,28 @@
       }
     }
     $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     echo 'Actualizado correctamente.';
 
   } else if ($operation === 'delete') {
     $query .= "DELETE FROM clients WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     echo 'Eliminado correctamente.';
   } else if ($operation === 'clients') {
     $query = "SELECT id, name FROM clients;";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-    while ($row = mysql_fetch_assoc($result)) {
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    while ($row = mysqli_fetch_assoc($result)) {
       echo '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
     }
   } else if ($operation === 'selectClient') {
     $id = $_REQUEST['id'];
     $query = "SELECT * FROM clients where id=" . $id . ";";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-    $row = mysql_fetch_assoc($result);
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $row = mysqli_fetch_assoc($result);
     echo $row['name'] . ',' . $row['address'] . ',' . $row['colony'] . ',' . $row['state'] . ',' . $row['phone'] . ',' . $row['contact_name'] . ',' . $row['rfc'] . ',' . $row['pc'] . ',' . $row['city'] . ',' . $row['cell_phone'] . ',' . $row['noInt'] . ',' . $row['noExt'] . ',' . $row['email'] . ',' . $row['limit_credit'] . ',' . $row['type_cost'];
   } else if ($operation === 'browserName') {
     $query = "SELECT * FROM clients WHERE name LIKE '%" . $_REQUEST['content'] . "%';";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     $print = '<table class="table table-striped tablet-tools">
       <thead>
         <tr>
@@ -117,7 +117,7 @@
         </tr>
       </thead>
       <tbody>';
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
       $print .= '<tr>
             <td>' . $row['name'] . '</td>
             <td>' . $row['rfc'] . '</td>
@@ -129,7 +129,7 @@
     echo $print;
   } else if ($operation === 'browserRFC') {
     $query = "SELECT * FROM clients WHERE rfc LIKE '%" . $_REQUEST['content'] . "%';";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     $print = '<table class="table table-striped tablet-tools">
       <thead>
         <tr>
@@ -140,7 +140,7 @@
         </tr>
       </thead>
       <tbody>';
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
       $print .= '<tr>
             <td>' . $row['name'] . '</td>
             <td>' . $row['rfc'] . '</td>
@@ -151,5 +151,5 @@
     $print .= '</tbody></table>';
     echo $print;
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

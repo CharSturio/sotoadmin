@@ -5,7 +5,7 @@
   $operation = $_REQUEST['operation'];
   if ($operation === 'action') {
     $query="SELECT S.id, S.amount, P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.retail_price, P.wholesale_price, P.special_price, P.tarjeta, P.mpago, P.pespecial, E.unit_cost, E.last_date FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id INNER JOIN (SELECT * FROM merchandise_entry) AS E ON S.id_product = E.id_product WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "' ORDER BY P.barcode, E.last_date DESC";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
     require_once 'lib/PHPExcel/PHPExcel.php';
 
@@ -46,7 +46,7 @@
 
     //Se agregan los datos de los alumnos
     $i=4;
-    while($row = mysql_fetch_assoc($result)){
+    while($row = mysqli_fetch_assoc($result)){
       $objPHPExcel->setActiveSheetIndex(0)
                 ->setCellValue('A'.$i, $row['type_product'])
                 ->setCellValue('B'.$i, $row['name'])
@@ -155,5 +155,5 @@
     $objWriter->save('php://output');
     exit;
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

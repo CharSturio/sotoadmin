@@ -7,9 +7,9 @@
     $client = $_REQUEST['client'];
 
     $query = "SELECT D.id AS id_document, C.limit_credit, D.invoice, U.name AS name_user, C.name AS name_client, CR.total_credit, CR.total_paid_out, CR.status, CR.last_date FROM documents AS D INNER JOIN credit AS CR ON D.id = CR.id_document INNER JOIN users AS U ON D.id_user = U.id INNER JOIN clients AS C ON D.id_client = C.id WHERE C.name LIKE '%" . $client . "%' AND D.type='credit' AND CR.status='payable'";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
-    while ($row =  mysql_fetch_assoc($result)) {
+    while ($row =  mysqli_fetch_assoc($result)) {
       $rest = $row['total_paid_out'] - $row['total_credit'];
       $document = "'" . $row['invoice'] . "'";
       $client_name = "'" . $row['name_client'] . "'";
@@ -28,9 +28,9 @@
     $id_document = $_REQUEST['id_document'];
 
     $query = "SELECT * FROM follow WHERE id_invoice = " . $id_document;
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
       echo '<tr>
               <td>' . $row['last_date'] . '</td>
               <td>' . $row['status'] . '</td>
@@ -45,7 +45,7 @@
     $date_follow = "'" . $_REQUEST['date_follow'] . "'";
 
     $query = "INSERT INTO follow (status, follow, date_follow, id_invoice, last_date) VALUES (" . $status . "," . $follow . "," . $date_follow . "," . $id_document . ",now())";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
     echo "Guardado con Exito. Refresque para actualizar datos.";
   } else if ($operation === 'paid') {
@@ -53,12 +53,12 @@
     $paid = $_REQUEST['paid'];
 
     $query = "INSERT INTO credit_paid (id_document, id_user, paid_out, last_date) VALUES (" . $id_document . "," . $_SESSION['id'] . "," . $paid . ",now())";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
     $query = "SELECT * FROM credit WHERE id_document=" . $id_document . " LiMIT 1";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
-    $row = mysql_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result);
     $total = $row['total_credit'] * 1;
     $total_out = ($row['total_paid_out'] + $paid) * 1;
     $status = $row['status'];
@@ -72,9 +72,9 @@
     }
 
     $query = "UPDATE credit SET total_paid_out=" . $total_out . ", status='" . $status . "'  WHERE id_document=" . $id_document;
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
     echo "Guardado con Exito. Refresque para actualizar datos.";
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

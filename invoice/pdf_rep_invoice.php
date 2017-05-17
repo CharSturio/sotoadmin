@@ -30,7 +30,7 @@
       $ident = 1;
     }
     $query .= " ORDER BY D.last_date DESC";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     $html = '<style>
               table {
                   border-collapse: collapse;
@@ -61,7 +61,7 @@
       </thead>
       <tbody id="table">';
 
-    while($row = mysql_fetch_assoc($result)){
+    while($row = mysqli_fetch_assoc($result)){
       $total_efectivo += $row['total'];
       $html .= '<tr>
         <td>' . $row['invoice'] . '</td>
@@ -83,5 +83,5 @@
   $dompdf->setPaper('letter', 'vertical');
   $dompdf->render();
   $dompdf->stream('reporteFacturas' . $desde_fecha . 'a' . $hasta_fecha);
-  mysql_close($link);
+  mysqli_close($link);
  ?>

@@ -31,8 +31,8 @@ session_start();
       }
     }
     $query .= ";";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-    while ($row = mysql_fetch_assoc($result)) {
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    while ($row = mysqli_fetch_assoc($result)) {
       $namePrint = "'" . $row['name'] . "'";
       echo '<tr>
               <td>' . $row['amount'] . '</td>
@@ -50,7 +50,7 @@ session_start();
       $alter_stock = $_REQUEST['alterStock'];
 
       $queryTemp = "UPDATE stocks SET amount=" . $alter_stock . " WHERE id_product=" . $id_product;
-      $result = mysql_query($queryTemp) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
       echo 'Cantidad cambiada.';
     } else {
       echo 'Solo admin puede modificar existencia';
@@ -61,13 +61,13 @@ session_start();
       $alter_stock = $_REQUEST['alterStock'];
 
       $queryTemp = "SELECT amount FROM stocks WHERE id_product=" . $id_product;
-      $result = mysql_query($queryTemp) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
 
-      $row = mysql_fetch_assoc($result);
+      $row = mysqli_fetch_assoc($result);
       $total = $alter_stock + $row['amount'];
 
       $queryTemp = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id_product;
-      $result = mysql_query($queryTemp) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
       echo 'Cantidad cambiada.';
     } else {
       echo 'Solo admin puede modificar existencia';
@@ -78,17 +78,17 @@ session_start();
       $alter_stock = $_REQUEST['alterStock'];
 
       $queryTemp = "SELECT amount FROM stocks WHERE id_product=" . $id_product;
-      $result = mysql_query($queryTemp) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
 
-      $row = mysql_fetch_assoc($result);
+      $row = mysqli_fetch_assoc($result);
       $total = $row['amount'] - $alter_stock;
 
       $queryTemp = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id_product;
-      $result = mysql_query($queryTemp) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error());
       echo 'Cantidad cambiada.';
     } else {
       echo 'Solo admin puede modificar existencia';
     }
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

@@ -30,7 +30,7 @@
       $ident = 1;
     }
     $query .= " ORDER BY D.last_date DESC";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
     $table_efectivo_remision = '<div class="force-table-responsive">
     <table class="table table-striped">
@@ -45,7 +45,7 @@
       </thead>
       <tbody id="table">';
 
-    while($row = mysql_fetch_assoc($result)){
+    while($row = mysqli_fetch_assoc($result)){
       $total_efectivo += $row['total'];
       $table_efectivo_remision .= '<tr>
         <td>' . $row['invoice'] . '</td>
@@ -61,5 +61,5 @@
     echo $table_efectivo_remision;
 
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

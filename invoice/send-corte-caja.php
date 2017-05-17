@@ -14,7 +14,7 @@ if ($op === '1') {
       $hasta_fecha = $hasta[2] . '-' . $hasta[0] . '-' . $hasta[1];
 
       $query = "SELECT D.payment_method, D.id, D.invoice, D.total, D.last_date, D.type, D.status, D.comments, C.name AS nameC, U.name AS nameU FROM documents AS D  INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id WHERE D.last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
       $total_efectivo = 0;
       $salida_caja = 0;
       $entrada_caja = 0;
@@ -360,7 +360,7 @@ if ($op === '1') {
                     </tr>
                   </thead>
                   <tbody id="table">';
-      while($row = mysql_fetch_assoc($result)){
+      while($row = mysqli_fetch_assoc($result)){
         if ($row['payment_method'] === 'Pago en Efectivo') {
           $total_efectivo += $row['total'];
           if ($row['type'] === 'remission') {
@@ -717,20 +717,20 @@ if ($op === '1') {
       $table_no_identificado_factura .= '</tbody></table></div>';
 
       $query_out = "SELECT * FROM cash_out WHERE status='out' AND last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
-      $result_out = mysql_query($query_out) or die ('Consulta fallida: ' . mysql_error());
-      while($row_out = mysql_fetch_assoc($result_out)){
+      $result_out = mysqli_query($link,$query_out) or die ('Consulta fallida: ' . mysqli_error());
+      while($row_out = mysqli_fetch_assoc($result_out)){
         $salida_caja += $row_out['cantidad'];
       }
 
       $query_out = "SELECT * FROM cash_out WHERE status='in' AND last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
-      $result_out = mysql_query($query_out) or die ('Consulta fallida: ' . mysql_error());
-      while($row_out = mysql_fetch_assoc($result_out)){
+      $result_out = mysqli_query($link,$query_out) or die ('Consulta fallida: ' . mysqli_error());
+      while($row_out = mysqli_fetch_assoc($result_out)){
         $entrada_caja += $row_out['cantidad'];
       }
   $total_pagos_para_credito=0;
       $query = "SELECT paid_out FROM credit_paid WHERE last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-      while($row = mysql_fetch_assoc($result)){
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      while($row = mysqli_fetch_assoc($result)){
         $total_pagos_para_credito += $row['paid_out'];
       }
 
@@ -900,8 +900,8 @@ if ($op === '1') {
               </thead>
               <tbody id="table">';
           $query = "SELECT OU.comprobante, OU.descripcion, OU.cantidad, OU.last_date, C.name FROM cash_out AS OU INNER JOIN users AS C ON  OU.id_user = C.id WHERE OU.status='out' AND OU.last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
-          $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-          while($row = mysql_fetch_assoc($result)){
+          $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+          while($row = mysqli_fetch_assoc($result)){
             $salidas_de_caja .= '<tr>
                     <td>' . $row['comprobante'] . '</td>
                     <td>' . $row['descripcion'] . '</td>
@@ -939,8 +939,8 @@ if ($op === '1') {
           </thead>
           <tbody id="table">';
       $query = "SELECT OU.comprobante, OU.descripcion, OU.cantidad, OU.last_date, C.name FROM cash_out AS OU INNER JOIN users AS C ON  OU.id_user = C.id WHERE OU.status='in' AND OU.last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-      while($row = mysql_fetch_assoc($result)){
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      while($row = mysqli_fetch_assoc($result)){
         $entradas_de_caja .= '<tr>
                 <td>' . $row['comprobante'] . '</td>
                 <td>' . $row['descripcion'] . '</td>
@@ -977,8 +977,8 @@ if ($op === '1') {
           </thead>
           <tbody id="table">';
       $query = "SELECT D.invoice, CP.paid_out, C.name AS nameC, U.name AS nameU, CP.last_date FROM credit_paid AS CP INNER JOIN documents AS D ON CP.id_document = D.id INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id WHERE CP.last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-      while($row = mysql_fetch_assoc($result)){
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      while($row = mysqli_fetch_assoc($result)){
         $pagos_credito .= '<tr>
                 <td>' . $row['invoice'] . '</td>
                 <td>$' . number_format($row['paid_out'], 2, '.', ',') . '</td>
@@ -1063,5 +1063,5 @@ try {
 // fwrite($fp, $pdfoutput);
 // fclose($fp);
 // echo $html;
-mysql_close($link);
+mysqli_close($link);
 ?>

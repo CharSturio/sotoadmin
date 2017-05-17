@@ -6,7 +6,7 @@
   if ($operation === 'action') {
 
     $query = "SELECT S.amount, P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.measure, P.treadware, P.load_index, P.load_speed FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "' ORDER BY P.barcode ASC";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
     $table_efectivo_remision = '<div class="force-table-responsive">
     <table class="table table-striped">
@@ -27,7 +27,7 @@
       </thead>
       <tbody id="table">';
 
-    while($row = mysql_fetch_assoc($result)){
+    while($row = mysqli_fetch_assoc($result)){
       $total_efectivo += $row['total'];
       $table_efectivo_remision .= '<tr>
         <td>' . $row['type_product'] . '</td>
@@ -49,5 +49,5 @@
     echo $table_efectivo_remision;
 
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

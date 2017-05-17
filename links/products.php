@@ -29,28 +29,28 @@ session_start();
     $mpago = round(($mpago/116)*100,2)*1.16;
     $pespecial = round(($pespecial/116)*100,2)*1.16;
     $query = "SELECT * FROM products where name ='" . $name ."';";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-    if (mysql_fetch_assoc($result)) {
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    if (mysqli_fetch_assoc($result)) {
       echo 'El Nombre de Producto ya existe.';
     } else {
       $query = "SELECT * FROM products where barcode ='" . $barcode ."';";
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-      if (mysql_fetch_assoc($result)) {
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+      if (mysqli_fetch_assoc($result)) {
         echo 'El Codigo de Barras ya existe.';
       } else {
         $query = "INSERT INTO products (type_product, barcode, name, description, key_, brand, model, measure, treadware, load_index, load_speed, retail_price, wholesale_price, special_price, tarjeta, mpago, pespecial, last_date) VALUES ('" . $type_product . "','" . $barcode . "','" . $name . "','" . $description . "','" . $key . "','" . $brand . "','" . $model . "','" . $measure . "','" . $treadware . "','" . $load_index . "','" . $load_speed . "','" . $retail_price . "','" . $wholesale_price . "','" . $special_price . "','" . $tarjeta . "','" . $mpago . "','" . $pespecial . "',now());";
-        $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+        $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
         // $query = "SELECT id FROM products where name ='" . $name ."';";
-        // $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+        // $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
         // $id = 0;
-        // while ($row = mysql_fetch_assoc($result)) {
+        // while ($row = mysqli_fetch_assoc($result)) {
         //   $id = $row['id'];
         // }
-        $id=mysql_insert_id();
+        $id=mysqli_insert_id();
 
         $query = "INSERT INTO stocks (id_product, amount, last_date) VALUES ('" . $id . "', 0, now());";
-        $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+        $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
 
         echo 'Producto agregado.';
       }
@@ -88,7 +88,7 @@ session_start();
       $query .= " load_speed='" . $_REQUEST['load_speed'] . "',";
     }
     $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     echo 'Actualizado correctamente.';
 
   }else if ($operation === 'modifyCosts') {
@@ -113,7 +113,7 @@ session_start();
         $query .= " pespecial='" . round(($_REQUEST['pespecial']/116)*100,2)*1.16 . "',";
       }
       $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
       echo 'Actualizado correctamente.';
     } elseif ($_REQUEST['typeProduct'] !== 'llantas') {
       $query = "UPDATE products SET";
@@ -136,7 +136,7 @@ session_start();
         $query .= " pespecial='" . round(($_REQUEST['pespecial']/116)*100,2)*1.16 . "',";
       }
       $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
-      $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
       echo 'Actualizado correctamente.';
     } else {
       echo 'Solo el usuario Administrador puede modificar precios';
@@ -144,11 +144,11 @@ session_start();
 
   } else if ($operation === 'delete') {
     $query .= "DELETE FROM products WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     echo 'Eliminado correctamente.';
   }  else if ($operation === 'browserName') {
     $query = "SELECT * FROM products WHERE name LIKE '%" . $_REQUEST['content'] . "%';";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     $print = '<table class="table table-striped tablet-tools">
       <thead>
         <tr>
@@ -159,7 +159,7 @@ session_start();
         </tr>
       </thead>
       <tbody>';
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
       $print .= '<tr>
             <td>' . $row['barcode'] . '</td>
             <td>' . $row['key_'] . '</td>
@@ -171,7 +171,7 @@ session_start();
     echo $print;
   } else if ($operation === 'browserBarcode') {
     $query = "SELECT * FROM products WHERE barcode LIKE '%" . $_REQUEST['content'] . "%';";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
     $print = '<table class="table table-striped tablet-tools">
       <thead>
         <tr>
@@ -182,7 +182,7 @@ session_start();
         </tr>
       </thead>
       <tbody>';
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
       $print .= '<tr>
             <td>' . $row['barcode'] . '</td>
             <td>' . $row['key_'] . '</td>
@@ -195,9 +195,9 @@ session_start();
   } else if ($operation === 'selectProduct') {
     $id = $_REQUEST['id'];
     $query = "SELECT * FROM products where id=" . $id . ";";
-    $result = mysql_query($query) or die ('Consulta fallida: ' . mysql_error());
-    $row = mysql_fetch_assoc($result);
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error());
+    $row = mysqli_fetch_assoc($result);
     echo $row['barcode'] . ',' . $row['name'] . ',' . $row['description'] . ',' . $row['key_'] . ',' . $row['brand'] . ',' . $row['model'] . ',' . $row['measure'] . ',' . $row['treadware'] . ',' . $row['load_index'] . ',' . $row['load_speed'] . ',' . $row['retail_price'] . ',' . $row['wholesale_price'] . ',' . $row['special_price'] . ',' . $row['tarjeta'] . ',' . $row['mpago'] . ',' . $row['pespecial'];
   }
-  mysql_close($link);
+  mysqli_close($link);
  ?>

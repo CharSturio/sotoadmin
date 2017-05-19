@@ -3,7 +3,7 @@ require '../../connection/index.php';
 require 'call.php';
   $queryNow = "UPDATE documents SET last_date = now() WHERE id=" . $_REQUEST['id'];
   $resultNow = mysqli_query($link,$queryNow) or die ('Consulta fallida: ' . mysqli_error($link));
-  $rowNow = mysqli_fetch_assoc($resultNow);
+  //$rowNow = mysqli_fetch_assoc($resultNow);
 
   $queryDandC = "SELECT D.last_date, D.invoice, D.id, D.id_invoice, D.last_digits, D.total, D.payment_method, C.rfc, C.name, C.address, C.noExt, C.noint, C.colony, C.city, C.state, C.pc FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id=" . $_REQUEST['id'] ." LIMIT 1;";
   $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));

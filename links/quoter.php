@@ -217,7 +217,7 @@
 
       $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','remission','activo',now(),0);";
       $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
-      $id_document = mysqli_insert_id();
+      $id_document = mysqli_insert_id($link);
       $total_credit = 0;
       $query2 = "SELECT * FROM temp_quoter where id_client =" . $_REQUEST['id_client'] . " AND id_user=" . $_SESSION['id'] . ";";
       $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error($link));
@@ -293,7 +293,7 @@
 
         $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','invoice','activo',now(),0);";
         $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
-        $id_document = mysqli_insert_id();
+        $id_document = mysqli_insert_id($link);
         $total_invoice = 0;
 
         $query2 = "SELECT * FROM temp_quoter where id_client =" . $_REQUEST['id_client'] . " AND id_user=" . $_SESSION['id'] . ";";
@@ -368,7 +368,7 @@
       $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total, dias_credito) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','credit','activo',now(),0,'" . $_REQUEST['diasCredito'] . "');";
       $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
 
-      $id_document = mysqli_insert_id();
+      $id_document = mysqli_insert_id($link);
       $total_credit = 0;
       $query2 = "SELECT * FROM temp_quoter where id_client =" . $_REQUEST['id_client'] . " AND id_user=" . $_SESSION['id'] . ";";
       $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error($link));

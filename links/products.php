@@ -47,7 +47,7 @@ session_start();
         // while ($row = mysqli_fetch_assoc($result)) {
         //   $id = $row['id'];
         // }
-        $id=mysqli_insert_id();
+        $id=mysqli_insert_id($link);
 
         $query = "INSERT INTO stocks (id_product, amount, last_date) VALUES ('" . $id . "', 0, now());";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));

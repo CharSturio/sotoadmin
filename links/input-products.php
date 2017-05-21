@@ -8,7 +8,7 @@
     $unit_cost = $_REQUEST['unit_cost'];
     $id = $_REQUEST['id'];
 
-    $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "',now());";
+    $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $query = "SELECT * FROM stocks where id_product ='" . $id ."';";

@@ -9,7 +9,7 @@
     $unit_cost = $_REQUEST['unit_cost'];
     $id = $_REQUEST['id'];
 
-    $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "',now());";
+    $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $query = "SELECT * FROM stocks where id_product ='" . $id ."';";
@@ -133,7 +133,7 @@
       $query = "UPDATE temp_quoter SET amount=" . $amount . " WHERE id=" . $id;
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     } else {
-      $query = "INSERT INTO temp_quoter (id_product, id_client, id_user, amount, unit_cost, last_date) VALUES ('" . $_REQUEST['id'] . "','" . $_REQUEST['idClient'] . "','" . $_SESSION['id'] . "','" . $_REQUEST['amount'] . "','" . $_REQUEST['price'] . "',now());";
+      $query = "INSERT INTO temp_quoter (id_product, id_client, id_user, amount, unit_cost, last_date) VALUES ('" . $_REQUEST['id'] . "','" . $_REQUEST['idClient'] . "','" . $_SESSION['id'] . "','" . $_REQUEST['amount'] . "','" . $_REQUEST['price'] . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     }
 
@@ -215,7 +215,7 @@
         $invoice = 'R00001E';
       }
 
-      $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','remission','activo',now(),0);";
+      $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','remission','activo',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),0);";
       $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
       $id_document = mysqli_insert_id($link);
       $total_credit = 0;
@@ -233,7 +233,7 @@
         $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
         $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
-        $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',now());";
+        $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];
@@ -291,7 +291,7 @@
           $invoice = 'FA00001';
         }
 
-        $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','invoice','activo',now(),0);";
+        $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','invoice','activo',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),0);";
         $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
         $id_document = mysqli_insert_id($link);
         $total_invoice = 0;
@@ -310,7 +310,7 @@
           $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
           $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
-          $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',now());";
+          $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
           $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];
@@ -365,7 +365,7 @@
         $numInvoice = 1;
         $invoice = 'CR00001';
       }
-      $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total, dias_credito) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','credit','activo',now(),0,'" . $_REQUEST['diasCredito'] . "');";
+      $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total, dias_credito) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','credit','activo',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),0,'" . $_REQUEST['diasCredito'] . "');";
       $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
 
       $id_document = mysqli_insert_id($link);
@@ -384,14 +384,14 @@
         $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
         $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
-        $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',now());";
+        $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];
         $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       }
 
-      $queryCredit = "INSERT INTO credit (id_document, total_credit, total_paid_out, status, last_date) VALUES ('" . $id_document . "','" . $total_credit . "','0','payable',now());";
+      $queryCredit = "INSERT INTO credit (id_document, total_credit, total_paid_out, status, last_date) VALUES ('" . $id_document . "','" . $total_credit . "','0','payable',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
       $result = mysqli_query($link,$queryCredit) or die ('Consulta fallida: ' . mysqli_error($link));
 
       $queryTemp = "UPDATE documents SET total=" . $total_credit . " WHERE id=" . $id_document;

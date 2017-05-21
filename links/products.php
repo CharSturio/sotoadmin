@@ -38,7 +38,7 @@ session_start();
       if (mysqli_fetch_assoc($result)) {
         echo 'El Codigo de Barras ya existe.';
       } else {
-        $query = "INSERT INTO products (type_product, barcode, name, description, key_, brand, model, measure, treadware, load_index, load_speed, retail_price, wholesale_price, special_price, tarjeta, mpago, pespecial, last_date) VALUES ('" . $type_product . "','" . $barcode . "','" . $name . "','" . $description . "','" . $key . "','" . $brand . "','" . $model . "','" . $measure . "','" . $treadware . "','" . $load_index . "','" . $load_speed . "','" . $retail_price . "','" . $wholesale_price . "','" . $special_price . "','" . $tarjeta . "','" . $mpago . "','" . $pespecial . "',now());";
+        $query = "INSERT INTO products (type_product, barcode, name, description, key_, brand, model, measure, treadware, load_index, load_speed, retail_price, wholesale_price, special_price, tarjeta, mpago, pespecial, last_date) VALUES ('" . $type_product . "','" . $barcode . "','" . $name . "','" . $description . "','" . $key . "','" . $brand . "','" . $model . "','" . $measure . "','" . $treadware . "','" . $load_index . "','" . $load_speed . "','" . $retail_price . "','" . $wholesale_price . "','" . $special_price . "','" . $tarjeta . "','" . $mpago . "','" . $pespecial . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
         // $query = "SELECT id FROM products where name ='" . $name ."';";
@@ -49,7 +49,7 @@ session_start();
         // }
         $id=mysqli_insert_id($link);
 
-        $query = "INSERT INTO stocks (id_product, amount, last_date) VALUES ('" . $id . "', 0, now());";
+        $query = "INSERT INTO stocks (id_product, amount, last_date) VALUES ('" . $id . "', 0, date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
         echo 'Producto agregado.';
@@ -87,7 +87,7 @@ session_start();
     if ($_REQUEST['load_speed']) {
       $query .= " load_speed='" . $_REQUEST['load_speed'] . "',";
     }
-    $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
+    $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     echo 'Actualizado correctamente.';
 
@@ -112,7 +112,7 @@ session_start();
       if ($_REQUEST['pespecial']) {
         $query .= " pespecial='" . round(($_REQUEST['pespecial']/116)*100,2)*1.16 . "',";
       }
-      $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
+      $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Actualizado correctamente.';
     } elseif ($_REQUEST['typeProduct'] !== 'llantas') {
@@ -135,7 +135,7 @@ session_start();
       if ($_REQUEST['pespecial']) {
         $query .= " pespecial='" . round(($_REQUEST['pespecial']/116)*100,2)*1.16 . "',";
       }
-      $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
+      $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Actualizado correctamente.';
     } else {

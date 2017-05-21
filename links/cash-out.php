@@ -9,7 +9,7 @@
     $descripcion = $_REQUEST['descripcion'];
 
 
-    $query = "INSERT INTO cash_out (comprobante, cantidad, descripcion, id_user, status, last_date) VALUES ('" . $comprobante . "'," . $cantidad . ",'" . $descripcion . "'," . $_SESSION['id'] . ",'out',now());";
+    $query = "INSERT INTO cash_out (comprobante, cantidad, descripcion, id_user, status, last_date) VALUES ('" . $comprobante . "'," . $cantidad . ",'" . $descripcion . "'," . $_SESSION['id'] . ",'out',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     echo 'Agregados Satisfactoriamente.';
@@ -19,7 +19,7 @@
       $descripcion = $_REQUEST['descripcion2'];
 
 
-      $query = "INSERT INTO cash_out (comprobante, cantidad, descripcion, id_user, status, last_date) VALUES ('" . $comprobante . "'," . $cantidad . ",'" . $descripcion . "'," . $_SESSION['id'] . ",'in',now());";
+      $query = "INSERT INTO cash_out (comprobante, cantidad, descripcion, id_user, status, last_date) VALUES ('" . $comprobante . "'," . $cantidad . ",'" . $descripcion . "'," . $_SESSION['id'] . ",'in',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
       echo 'Agregados Satisfactoriamente.';

@@ -20,7 +20,7 @@
     if (mysqli_fetch_assoc($result)) {
       echo 'El usuario ya existe. Favor de intentar con otro.';
     } else {
-      $query = "INSERT INTO users (status, user, password, name, address, city, last_name, pc, state, permit, check_in, check_out, last_date) VALUES(1,'" . $user . "',SHA('" . $password . "'),'" . $name . "','" . $address . "','" . $city . "','" . $last_name . "','" . $pc . "','" . $state . "','" . $permit . "','" . $check_in . "','" . $check_out . "',now());";
+      $query = "INSERT INTO users (status, user, password, name, address, city, last_name, pc, state, permit, check_in, check_out, last_date) VALUES(1,'" . $user . "',SHA('" . $password . "'),'" . $name . "','" . $address . "','" . $city . "','" . $last_name . "','" . $pc . "','" . $state . "','" . $permit . "','" . $check_in . "','" . $check_out . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Usuario agregado.';
     }
@@ -60,7 +60,7 @@
     if ($_REQUEST['checkOut']) {
       $query .= " check_out='" . $_REQUEST['checkOut'] . "',";
     }
-    $query .= " last_date=now() WHERE id=" . $_REQUEST['id'] . ";";
+    $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     echo 'Actualizado correctamente.';
 

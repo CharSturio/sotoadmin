@@ -44,7 +44,7 @@
     $follow = "'" . $_REQUEST['follow'] . "'";
     $date_follow = "'" . $_REQUEST['date_follow'] . "'";
 
-    $query = "INSERT INTO follow (status, follow, date_follow, id_invoice, last_date) VALUES (" . $status . "," . $follow . "," . $date_follow . "," . $id_document . ",now())";
+    $query = "INSERT INTO follow (status, follow, date_follow, id_invoice, last_date) VALUES (" . $status . "," . $follow . "," . $date_follow . "," . $id_document . ",date_sub(NOW(), INTERVAL 300 HOUR_MINUTE))";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     echo "Guardado con Exito. Refresque para actualizar datos.";
@@ -52,7 +52,7 @@
     $id_document = $_REQUEST['id_document'];
     $paid = $_REQUEST['paid'];
 
-    $query = "INSERT INTO credit_paid (id_document, id_user, paid_out, last_date) VALUES (" . $id_document . "," . $_SESSION['id'] . "," . $paid . ",now())";
+    $query = "INSERT INTO credit_paid (id_document, id_user, paid_out, last_date) VALUES (" . $id_document . "," . $_SESSION['id'] . "," . $paid . ",date_sub(NOW(), INTERVAL 300 HOUR_MINUTE))";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $query = "SELECT * FROM credit WHERE id_document=" . $id_document . " LiMIT 1";

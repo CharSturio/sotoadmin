@@ -11,7 +11,7 @@ require 'call.php';
 
   if ($rowDandC['name'] && $rowDandC['address'] && $rowDandC['colony'] && $rowDandC['state'] && $rowDandC['rfc'] && $rowDandC['pc'] && $rowDandC['city'] && $rowDandC['phone'] && $rowDandC['noExt']) {
 
-    $fecha_ = $rowDandC['last_date'];
+    //$fecha_ = $rowDandC['last_date'];
     //$fecha_ = date("Y-m-d H:i:s", (strtotime ("-2 Hours")));
     $fecha_ = date("Y-m-d H:i:s");
     // $fecha_explode = explode(":", $fecha_);

@@ -29,7 +29,7 @@
     if (mysqli_fetch_assoc($result)) {
       echo 'El cliente ya existe. Favor de verificarlo o ingresar uno diferente.';
     } else {
-      $query = "INSERT INTO clients (name, address, colony, state, phone, contact_name, rfc, pc, city, cell_phone, last_date, noInt, noExt, email, limit_credit, credit, type_cost) VALUES ('" . $name . "','" . $address . "','" . $colony . "','" . $state . "','" . $phone . "','" . $contact_name . "','" . $rfc . "','" . $pc . "','" . $city . "','" . $cell_phone . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),'" . $noInt . "','" . $noExt . "','" . $email . "','" . $credit . "','" . $thiscredit . "','" . $type_cost . "');";
+      $query = "INSERT INTO clients (name, address, colony, state, phone, contact_name, rfc, pc, city, cell_phone, last_date, noInt, noExt, email, limit_credit, credit, type_cost) VALUES ('" . $name . "','" . $address . "','" . $colony . "','" . $state . "','" . $phone . "','" . $contact_name . "','" . $rfc . "','" . $pc . "','" . $city . "','" . $cell_phone . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),'" . $noInt . "','" . $noExt . "','" . $email . "'," . $credit . "," . $thiscredit . ",'" . $type_cost . "');";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Usuario agregado.';
     }

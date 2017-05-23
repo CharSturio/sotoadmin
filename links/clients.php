@@ -22,6 +22,7 @@
       $thiscredit = 1;
     } else {
       $thiscredit = 0;
+      $credit = 0;
     }
 
     $query = "SELECT * FROM clients where name='" . $name ."';";

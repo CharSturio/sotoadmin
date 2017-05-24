@@ -27,7 +27,7 @@
       <tbody id="table">';
 
     while($row = mysqli_fetch_assoc($result)){
-      $total_efectivo += $row['total'];
+      //$total_efectivo += $row['total'];
       $table_efectivo_remision .= '<tr>
       <td>' . $row['type_product'] . '</td>
       <td>' . $row['name'] . '</td>

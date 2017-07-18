@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-if ($_SESSION['logged'] && $_SESSION['id']) {
   echo '<html class="" lang="en">
   <head>
     <meta charset="utf-8">
@@ -265,9 +263,6 @@ if ($_SESSION['logged'] && $_SESSION['id']) {
   <!-- END PAGE SCRIPTS -->
   </body>
   </html>';
-} else {
-  echo 'Redireccionando...<script>location.href="login.html";</script>';
-}
 
  ?>
  <!DOCTYPE html>

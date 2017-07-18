@@ -53,6 +53,7 @@ if ($_SESSION['logged'] && $_SESSION['id']) {
                 <ul class="children collapse" style="display: none;">
                   <li id="users"><a>Usuarios</a></li>
                   <li id="clients"><a>Clientes</a></li>
+                  <li id="sucursales"><a>Sucursales</a></li>
                   <li id="products"><a>Productos</a></li>
                 </ul>
               </li>

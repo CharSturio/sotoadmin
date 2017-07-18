@@ -17,6 +17,12 @@ $(document).ready(function () {
     $('#content').load("views/clients.html");
   });
 
+  $("#sucursales").on("click", function(event)
+  {
+    event.preventDefault();
+    $('#content').load("views/sucursales.html");
+  });
+
   $("#credit-collection").on("click", function(event)
   {
     event.preventDefault();

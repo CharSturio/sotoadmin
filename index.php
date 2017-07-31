@@ -1,5 +1,6 @@
 <?php
 session_start();
+if ($_SESSION['logged'] && $_SESSION['id']) {
   echo '<html class="" lang="en">
   <head>
     <meta charset="utf-8">
@@ -72,6 +73,7 @@ session_start();
                 <li id="salida-caja"><a>Entrada y Salida Caja</a></li>
                 <li id="min-stocks"><a>Stocks Minimos</a></li>
                 <li id="send-inv-clients"><a>Envio Mercancia</a></li>
+                <li id="permisos"><a>Permisos</a></li>
                 </ul>
               </li>
               <li class="tm nav-parent">
@@ -263,6 +265,9 @@ session_start();
   <!-- END PAGE SCRIPTS -->
   </body>
   </html>';
+} else {
+echo 'Redireccionando...<script>location.href="login.html";</script>';
+}
 
  ?>
  <!DOCTYPE html>

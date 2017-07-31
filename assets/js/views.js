@@ -149,6 +149,12 @@ $(document).ready(function () {
     $('#content').load("views/send_client_inv.html");
   });
 
+  $("#permisos").on("click", function(event)
+  {
+    event.preventDefault();
+    $('#content').load("views/permisos.html");
+  });
+
   $("#index").on("click", function(event)
   {
     event.preventDefault();

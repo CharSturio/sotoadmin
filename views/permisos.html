@@ -11,6 +11,15 @@
         <p>Favor de escoger un Nombre de Permiso para Editar, o simplemente Asigne un nombre y de Guardar para que se guarde un nuevo Permiso.</p>
         <div class="row">
           <div class="col-md-6">
+              <label class="form-label">Nombre de Permiso</label>
+              <input id="user" type="text" class="form-control" placeholder="Ingrese Nombre de Permiso">
+          </div>
+          <div class="col-md-12">
+            <button onClick="onClickNew()" type="button" class="btn btn-success btn-square">Crear</button>
+            <button onclick="onClickUsers()" class="btn btn-dark m-t-5" data-toggle="modal" data-target="#modal-bootstrap-timepicker">Escoger Permiso</button>
+            <button onclick="onClickModify()" type="button" class="btn btn-primary btn-square">Modificar</button>
+          </div>
+          <div class="col-md-6">
             <h3><strong>Registro</strong></h3>
             <div class="panel-group panel-accordion" id="accordion">
               <div class="panel panel-default">
@@ -24,7 +33,7 @@
                 <div id="usersP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -87,7 +96,7 @@
                 <div id="clientsP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -150,7 +159,7 @@
                 <div id="branchesP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -213,7 +222,7 @@
                 <div id="productsP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -289,7 +298,7 @@
                 <div id="creditP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -352,7 +361,7 @@
                 <div id="SendMercP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -385,7 +394,7 @@
                 <div id="cutBoxP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -438,7 +447,7 @@
                 <div id="inOutBoxP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -481,7 +490,7 @@
                 <div id="minStockP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -514,7 +523,7 @@
                 <div id="permisionsP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -582,7 +591,7 @@
                 <div id="ListP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -655,7 +664,7 @@
                 <div id="QuotationP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -738,7 +747,7 @@
                 <div id="inventP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -801,7 +810,7 @@
                 <div id="inMercP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -851,7 +860,7 @@
                 <div id="invoiseP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -894,7 +903,7 @@
                 <div id="merccinvP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -937,7 +946,7 @@
                 <div id="mercsinvP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -980,7 +989,7 @@
                 <div id="mercccostP" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="col-md-6">
-                      General
+                      <b>General</b>
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
@@ -1013,19 +1022,10 @@
                 </div>
               </div>
             </div>
-
-
-
           </div>
-
-
-
-
-
         </div>
       </div>
     </div>
-  </div>
 </div>
 <script src="assets/js/views/users.js"></script>
 <div class="modal fade" id="modal-bootstrap-timepicker" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1033,15 +1033,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-        <h4 class="modal-title"><strong>Seleccion de </strong> Usuario</h4>
+        <h4 class="modal-title"><strong>Seleccion de </strong> Permiso</h4>
       </div>
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label for="users">Usuarios</label>
+              <label for="users">Permisos</label>
               <select id="all_users" class="form-control">
-                <option value="NA">Cargando Usuarios</option>
+                <option value="NA">Cargando permisos</option>
               </select>
             </div>
           </div>

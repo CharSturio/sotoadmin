@@ -3,18 +3,15 @@
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'new') {
-    $user = $_REQUEST['user'];
-    $password = $_REQUEST['pass'];
     $name = $_REQUEST['name'];
+    $rfc = $_REQUEST['rfc'];
     $address = $_REQUEST['address'];
-    $city = $_REQUEST['city'];
-    $last_name = $_REQUEST['lastName'];
-    $pc = $_REQUEST['pc'];
+    $nint = $_REQUEST['nint'];
+    $next = $_REQUEST['next'];
     $state = $_REQUEST['state'];
-    $permit = $_REQUEST['permision'];
-    $branch = $_REQUEST['branches'];
-    $check_in = $_REQUEST['checkIn'];
-    $check_out = $_REQUEST['checkOut'];
+    $city = $_REQUEST['city'];
+    $cp = $_REQUEST['cp'];
+    $reason = $_REQUEST['reason'];
 
     $query = "SELECT * FROM users where user='" . $user ."';";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));

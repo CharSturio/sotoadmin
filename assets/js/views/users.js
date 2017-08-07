@@ -9,6 +9,7 @@ function onClickNew() {
   var pc = document.getElementById('pc').value;
   var state = document.getElementById('state').value;
   var permision = document.getElementById('permision').value;
+  var branches = document.getElementById('branches').value;
   var checkIn = document.getElementById('check_in').value;
   var checkOut = document.getElementById('check_out').value;
   if (pass !== repass) {
@@ -26,7 +27,7 @@ function onClickNew() {
         }
       };
 
-      xmlhttp.open("GET", "links/users.php?operation=new&user=" + user + "&pass=" + pass + "&name=" + name + "&address=" + address + "&city=" + city + "&lastName=" + lastName + "&pc=" + pc + "&state=" + state + "&permision=" + permision + "&checkIn=" + checkIn  + "&checkOut=" + checkOut);
+      xmlhttp.open("GET", "links/users.php?operation=new&user=" + user + "&pass=" + pass + "&name=" + name + "&address=" + address + "&city=" + city + "&lastName=" + lastName + "&pc=" + pc + "&state=" + state + "&permision=" + permision + "&branches=" + branches + "&checkIn=" + checkIn  + "&checkOut=" + checkOut);
       xmlhttp.send();
     }
   }
@@ -47,6 +48,7 @@ function onClickModify() {
     var pc = document.getElementById('pc').value;
     var state = document.getElementById('state').value;
     var permision = document.getElementById('permision').value;
+    var branches = document.getElementById('branches').value;
     var checkIn = document.getElementById('check_in').value;
     var checkOut = document.getElementById('check_out').value;
     if (pass !== repass) {
@@ -61,7 +63,7 @@ function onClickModify() {
         }
       };
 
-      xmlhttp.open("GET", "links/users.php?operation=modify&user=" + user + "&pass=" + pass + "&name=" + name + "&address=" + address + "&city=" + city + "&lastName=" + lastName + "&pc=" + pc + "&state=" + state + "&permision=" + permision + "&checkIn=" + checkIn  + "&checkOut=" + checkOut + "&id=" + id);
+      xmlhttp.open("GET", "links/users.php?operation=modify&user=" + user + "&pass=" + pass + "&name=" + name + "&address=" + address + "&city=" + city + "&lastName=" + lastName + "&pc=" + pc + "&state=" + state + "&permision=" + permision + "&branches=" + branches + "&checkIn=" + checkIn  + "&checkOut=" + checkOut + "&id=" + id);
       xmlhttp.send();
     }
   }
@@ -82,8 +84,9 @@ function onClickSelect() {
       document.getElementById('pc').value = res[5];
       document.getElementById('state').value = res[6];
       document.getElementById('permision').value = res[7];
-      document.getElementById('check_in').value = res[8];
-      document.getElementById('check_out').value = res[9];
+      document.getElementById('branches').value = res[8];
+      document.getElementById('check_in').value = res[9];
+      document.getElementById('check_out').value = res[10];
     }
   };
 

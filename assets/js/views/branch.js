@@ -18,12 +18,12 @@ function onClickNew() {
     }
   };
 
-  xmlhttp.open("GET", "links/users.php?operation=new&name=" + name + "&address=" + address + "&nint=" + nint + "&city=" + city + "&cp=" + cp + "&reason=" + reason + "&rfc=" + rfc + "&next=" + next + "&state=" + state);
+  xmlhttp.open("GET", "links/branch.php?operation=new&name=" + name + "&address=" + address + "&nint=" + nint + "&city=" + city + "&cp=" + cp + "&reason=" + reason + "&rfc=" + rfc + "&next=" + next + "&state=" + state);
   xmlhttp.send();
 }
 
 function onClickModify() {
-  var id = document.getElementById('all_branches').value;
+  var id = document.getElementById('all_branch').value;
   if (!id || id === 'NA') {
     document.getElementById('response').innerHTML = "No se ha seleccionado ningun usuario";
   } else {
@@ -46,17 +46,17 @@ function onClickModify() {
       }
     };
 
-    xmlhttp.open("GET", "links/users.php?operation=modify&&name=" + name + "&address=" + address + "&nint=" + nint + "&city=" + city + "&cp=" + cp + "&reason=" + reason + "&rfc=" + rfc + "&next=" + next + "&state=" + state + "&id=" + id);
+    xmlhttp.open("GET", "links/branch.php?operation=modify&&name=" + name + "&address=" + address + "&nint=" + nint + "&city=" + city + "&cp=" + cp + "&reason=" + reason + "&rfc=" + rfc + "&next=" + next + "&state=" + state + "&id=" + id);
     xmlhttp.send();
   }
 }
 
 function onClickSelect() {
-  var select = document.getElementById('all_branches').value;
+  var select = document.getElementById('all_branch').value;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      //document.getElementById('all_branches').innerHTML = xmlhttp.responseText;
+      //document.getElementById('all_branch').innerHTML = xmlhttp.responseText;
       var res = xmlhttp.responseText.split(',');
       document.getElementById('name').value = res[0];
       document.getElementById('rfc').value = res[1];
@@ -70,24 +70,24 @@ function onClickSelect() {
     }
   };
 
-  xmlhttp.open("GET", "links/users.php?operation=selectUser&id=" + select);
+  xmlhttp.open("GET", "links/branch.php?operation=selectBranch&id=" + select);
   xmlhttp.send();
 }
 
-function onClickUsers() {
+function onClickBranch() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      document.getElementById('all_branches').innerHTML = xmlhttp.responseText;
+      document.getElementById('all_branch').innerHTML = xmlhttp.responseText;
     }
   };
 
-  xmlhttp.open("GET", "links/users.php?operation=users");
+  xmlhttp.open("GET", "links/branch.php?operation=branch");
   xmlhttp.send();
 }
 
 function onClickDelete() {
-  var select = document.getElementById('all_branches').value;
+  var select = document.getElementById('all_branch').value;
   if (!select || select === 'NA') {
     document.getElementById('response').innerHTML = "No se ha seleccionado ningun usuario";
     } else {
@@ -98,7 +98,7 @@ function onClickDelete() {
       }
     };
 
-    xmlhttp.open("GET", "links/users.php?operation=delete&id=" + select);
+    xmlhttp.open("GET", "links/branch.php?operation=delete&id=" + select);
     xmlhttp.send();
   }
 }

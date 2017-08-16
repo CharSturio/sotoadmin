@@ -1,7 +1,7 @@
 <?php
 //$link = mysqli_connect('db625491732.db.1and1.com', 'dbo625491732', 'sotoadmin','db625491732')
   //or die('No se pudo conectar: ' . mysqli_connect_error());
-  $link = mysqli_connect('localhost', 'root', '.','sotoadmin')
+  $link = mysqli_connect('localhost', 'root', 'SotoLlantas2015.','sotoadmin')
   or die('No se pudo conectar: ' . mysqli_connect_error());
   // $link = mysqli_connect('localhost', 'root', 'SS2013MySql2017.','sotoadmin')
   // or die('No se pudo conectar: ' . mysqli_connect_error());

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="730" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2016-07-27T16:21:06" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="5000" metodoDePago="03" tipoDeComprobante="ingreso" subTotal="4310.34" sello="b1JK4S3PDeEBwrykpQIqDhBRFP/Uvsx2KIdYCepX6Ta6Y4Y8VuxXpBpytEVwl/sA9Ptuzxq/jNjFc4Nr6cnsPnDP1VYV0buMHEhe9rGZxTmk1C8NHpx7edh51sQacevAT7Q2Oeg5pRhRLfk7gdvnWmSiHS7w2j2brmFVfKvUQJg=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="XAXX010101000" nombre="RAFAEL CALVO">
+    <cfdi:Domicilio calle="AV. CIRCUNVALACION" noExterior="2" colonia="INFONAVIT" localidad="CHILPANCINGO DE LOS BRAVO" municipio="CHILPANCINGO DE LOS BRAVO" estado="GUERRERO" pais="México" codigoPostal="39090"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="185" descripcion="LLANTA WANLI AS028 225-60-R18" valorUnitario="1077.59" importe="4310.34"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="689.65">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="689.66"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="9842EE92-785E-4C4E-AF4F-C74CA4317563" FechaTimbrado="2016-07-27T15:21:20" selloCFD="b1JK4S3PDeEBwrykpQIqDhBRFP/Uvsx2KIdYCepX6Ta6Y4Y8VuxXpBpytEVwl/sA9Ptuzxq/jNjFc4Nr6cnsPnDP1VYV0buMHEhe9rGZxTmk1C8NHpx7edh51sQacevAT7Q2Oeg5pRhRLfk7gdvnWmSiHS7w2j2brmFVfKvUQJg=" noCertificadoSAT="00001000000203352843" selloSAT="k2g3XQxoxcaPdU3UwuwPqwForB46VN51ffdcsBop5kQAF9kwPMavRVtLlWXZMPiO4HVs+dG4Qh3y/1QchJhqez9Nq1148xec6dKMd6wOefLNsnzH3rn6LkhBCaPzucZwFDghX2lLllRgNRpuT16xTkEFLwzvsYO32u2z8IwwzKY="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

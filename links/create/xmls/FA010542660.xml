@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="1054" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2016-08-30T17:01:40" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="3460" metodoDePago="03" tipoDeComprobante="ingreso" subTotal="2982.75" sello="P36JqzmKEIQdhVNNOc0TasUcqGSK2rE0T52kMC1OxWDSnO50pCqGV8GiigoSOjn62JjNZivGn3QewJ9vRZXdwSoCcRPjs/wc67rTi+xr9SqLnXupLvTQ8o/6X5KQ6Z/NBZ8C+C6dpWt2q1N7y6wtpRPR64Fg4AlKKIp4ADgI050=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="XAXX10101000" nombre="JULIO CEN">
+    <cfdi:Domicilio calle="30 AV." noExterior="SN" colonia="SAN MIGUEL 2" localidad="COZUMEL" municipio="COZUMEL" estado="QUINTANA ROO" pais="México" codigoPostal="77600"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="261" descripcion="LLANTA MAXTREK SIERRAS6 235-60-R17" valorUnitario="1405.17" importe="2810.34"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="55" descripcion="ESTAFETA SOBREPESO 25 KG" valorUnitario="86.21" importe="172.41"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="477.24">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="449.66"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="27.59"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="9783DDC9-80D8-4EC8-A89A-BACB4AFE8F59" FechaTimbrado="2016-08-30T16:01:53" selloCFD="P36JqzmKEIQdhVNNOc0TasUcqGSK2rE0T52kMC1OxWDSnO50pCqGV8GiigoSOjn62JjNZivGn3QewJ9vRZXdwSoCcRPjs/wc67rTi+xr9SqLnXupLvTQ8o/6X5KQ6Z/NBZ8C+C6dpWt2q1N7y6wtpRPR64Fg4AlKKIp4ADgI050=" noCertificadoSAT="00001000000203352843" selloSAT="X25a5tQ3WbA8yFcvvTP7WDqMTt7IRUfvM2PbxGNSml0Pm8Q88WIlNvK2UKnGqDsrPchexF2x1Q+3s6/IEjJBRzghcEbG769b9+tNTDkwhCayTh3Zu1GqDUfZi0cq51Y9XHES5xlxstUWiLL5zb/wLBGNB+w0ouAYZ72rOtYFr1w="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="4415" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2017-07-17T13:05:16" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="2600" metodoDePago="03" tipoDeComprobante="ingreso" subTotal="2241.38" sello="bPOxppzjEqCBn49MFhirMN2P3piu2sCA0Sz/DOdUxo9jsygUjD8v31UqUEnJLHkLixDkOKD0kSO5FqsN6ZUUoM7lcaW9gmj9T/W/BCS2sGkFTlnyK6UotosyFgf7mmJ6tMT2AkBEahVOZmnmePmLAhCQYX3m4J8+R+mTBtYJlbk=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="XAXX010101000" nombre="CESAR ADRIAN GUZMAN CARRANCO">
+    <cfdi:Domicilio calle="ARTICULO 5" noExterior="510" colonia="FIDEL VELAZQUEZ" localidad="RAMOS ARIZPE " municipio="RAMOS ARIZPE " estado="COAHUILA" pais="México" codigoPostal="25900"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="104" descripcion="LLANTA WANLI AS028 225-65-R17" valorUnitario="1120.69" importe="2241.38"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="358.62">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="358.62"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="A2FE0A23-82C5-402F-A3DE-BDB3E5E51BB8" FechaTimbrado="2017-07-17T13:05:27" selloCFD="bPOxppzjEqCBn49MFhirMN2P3piu2sCA0Sz/DOdUxo9jsygUjD8v31UqUEnJLHkLixDkOKD0kSO5FqsN6ZUUoM7lcaW9gmj9T/W/BCS2sGkFTlnyK6UotosyFgf7mmJ6tMT2AkBEahVOZmnmePmLAhCQYX3m4J8+R+mTBtYJlbk=" noCertificadoSAT="00001000000405607284" selloSAT="KHZYzNcPOgEnzyMqD8uR3w3CX+hGXl64ZJ7U019Q2GnM5vVwffBH+gAYukN6ziYLS04JlqVU7iuqX8n38AFZjcSOQu0AuOQa4hzIoEZCYDEXUofDqBQnCMYqc81chw7fEUmckJ1OQ7R+8XLYzRincvHYOHfz+qPe9yLHyj1Ilg2DVNWLnPZP5tKm4iFIXPok9QZWfc/+ZalqPfST43yGY+GKWgGdKMA9o89buGE0jqdhL9026P8lDwnU4e/i7Xqxl8WiIYecZ+h4GeiyevMNTQSG4ruInjBVixwRIkh55x/7fwwekBLGs6HxLdrAxik+a5i/+Q9XHN92CEX9EaxYkQ=="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

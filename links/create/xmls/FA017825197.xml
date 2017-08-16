@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="1782" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2016-11-30T10:45:49" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="105100" metodoDePago="03" tipoDeComprobante="ingreso" subTotal="90603.45" sello="R0nTs162BWDm+myw2OiJfxposo6orTzmW6Q73ZUNy5LUucjcRDKSihNWCmwpE6ochutEyf5VzENJtapmIsum1hYgvG54A0C+7FSKDrPxqGHRllwQRsWmMLKgbjVbg4kC71QtlyAVusn4iSujNBj0/Wbmbv+K62VQp0dSyxAoLg4=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="XAXX010101000" nombre="PUBLICO GENERAL ">
+    <cfdi:Domicilio calle="CONOCIDO " noExterior="S/N" colonia="CENTRO" localidad="ARANDAS" municipio="ARANDAS" estado="JALISCO" pais="México" codigoPostal="47180"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="20" unidad="Pieza" noIdentificacion="861" descripcion="LLANTA COOPER ZEON LTZ 255-55-R19 XL" valorUnitario="1896.55" importe="37931.03"/>
+    <cfdi:Concepto cantidad="10" unidad="Pieza" noIdentificacion="2691" descripcion="LLANTA FIRESTONE FIREHAWK  295-50-R15" valorUnitario="1706.9" importe="17068.97"/>
+    <cfdi:Concepto cantidad="8" unidad="Pieza" noIdentificacion="3303" descripcion="LLANTA SUNEW SONORA MT 235-75-R15" valorUnitario="1422.41" importe="11379.31"/>
+    <cfdi:Concepto cantidad="8" unidad="Pieza" noIdentificacion="2904" descripcion="LLANTA COOPER DISCOVER SRX 255-65-R16" valorUnitario="1250" importe="10000"/>
+    <cfdi:Concepto cantidad="10" unidad="Pieza" noIdentificacion="2733" descripcion="LLANTA CARBON CS89 295-25-r22" valorUnitario="1422.41" importe="14224.14"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="14496.55">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="6068.97"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="2731.03"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="1820.69"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="1600"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="2275.86"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="760BBD0F-9707-42F5-ABF5-AF7F3EDB3DC2" FechaTimbrado="2016-11-30T12:46:00" selloCFD="R0nTs162BWDm+myw2OiJfxposo6orTzmW6Q73ZUNy5LUucjcRDKSihNWCmwpE6ochutEyf5VzENJtapmIsum1hYgvG54A0C+7FSKDrPxqGHRllwQRsWmMLKgbjVbg4kC71QtlyAVusn4iSujNBj0/Wbmbv+K62VQp0dSyxAoLg4=" noCertificadoSAT="00001000000203352843" selloSAT="cLU1maBWtJ2/yKtCyC/Lged0tAmFf2Ti0iJvK9+ITvboYqNlHx7LUh007UE10mX/fgB9LLuBYu3N8KlluYyLebnKXZwV2q/1xWtSsx8LrKBVuHxUZ1qMPP92aUI2Y57xI9Hya/GJNS4f1CPZnDRHGpeI7JRWXai2c+e4ujnoBSM="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

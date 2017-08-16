@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="895" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2016-08-16T17:10:01" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="5145" metodoDePago="99" tipoDeComprobante="ingreso" subTotal="4435.35" sello="UWGB9BVpva4VbJcG+iy1VaD224Ae3qMkJSHiXzJe6Ywvc879KhR3u2lviblfr8LL3vswRKlgIoZoAxd3fFXktio9f1bkxIz0FiHwumV1amDZDkJe3pb7QaibOQb5R6d+xCKg1lV4AG6gxitwZlRkeOeyyRedgAaC88vmx4HhTss=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="BAC821104Q39" nombre="BACARDI Y COMPAÑIA SA DE CV ">
+    <cfdi:Domicilio calle="AUTOPISTA MEXICO QUERETARO " noExterior="4431" colonia="CENTRO" localidad="MEXICO" municipio="MEXICO" estado="TULTITLAN " pais="México" codigoPostal="54900"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="1901" descripcion="MANO DE OBRA 850" valorUnitario="732.76" importe="732.76"/>
+    <cfdi:Concepto cantidad="3" unidad="Pieza" noIdentificacion="7" descripcion="ALINEACION DELANTERA" valorUnitario="129.31" importe="387.93"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="350" descripcion="VIELETA 1315008 SYD " valorUnitario="344.83" importe="344.83"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="25" descripcion="ANTICONGELANTE PRESTONE " valorUnitario="77.59" importe="155.17"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="569" descripcion="FILTRO DE GASOLINA " valorUnitario="189.66" importe="189.66"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="762" descripcion="TERMINAL EXT 1109002" valorUnitario="284.48" importe="284.48"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="330" descripcion="RECTIFICADOS" valorUnitario="137.93" importe="275.86"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="1026" descripcion="MANO DE OBRA 6.00" valorUnitario="517.24" importe="517.24"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="619" descripcion="FILTRO DE ACEITE MANN FILTER ML1008" valorUnitario="43.1" importe="43.1"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="570" descripcion="FILTRO DE AIRE " valorUnitario="215.52" importe="215.52"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="78" descripcion="MANO DE OBRA 1.0" valorUnitario="86.21" importe="86.21"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="81" descripcion="MANO DE OBRA 1.80" valorUnitario="155.17" importe="155.17"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="36" descripcion="ACEITE CASTROL 5W30 SINTETICO DIESEL" valorUnitario="163.79" importe="163.79"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="14" descripcion="BALANCEO CAMION " valorUnitario="64.66" importe="64.66"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="694" descripcion="MANO DE OBRA 9.5" valorUnitario="818.97" importe="818.97"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="709.66">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="117.24"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="62.07"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="55.17"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="24.83"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="30.35"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="45.52"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="44.14"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="82.76"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="6.9"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="34.48"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="13.79"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="24.83"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="26.21"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="10.34"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="131.03"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="359A4D0F-B0B4-4C2D-8C3F-61486919DCAB" FechaTimbrado="2016-08-16T16:10:12" selloCFD="UWGB9BVpva4VbJcG+iy1VaD224Ae3qMkJSHiXzJe6Ywvc879KhR3u2lviblfr8LL3vswRKlgIoZoAxd3fFXktio9f1bkxIz0FiHwumV1amDZDkJe3pb7QaibOQb5R6d+xCKg1lV4AG6gxitwZlRkeOeyyRedgAaC88vmx4HhTss=" noCertificadoSAT="00001000000203352843" selloSAT="NrEIIX83TYZ1ObnYU8dvNXMjbHFKC8NUgeF8PQgcWHzlCba4bCumNh69jeW9YlMIU8HKEQ7a2yzNdcSDxr30JLdl/PQn8czutYDHwXduqz8P7b+GWlI0C/kfQe7YaqIgxbNtjBlrSA6vES47FDigDfuAz8uglGVV7o7mPSt+8J4="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

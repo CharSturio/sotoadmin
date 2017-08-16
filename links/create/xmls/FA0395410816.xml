@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="3954" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2017-06-20T11:37:00" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="1880" metodoDePago="99" tipoDeComprobante="ingreso" subTotal="1620.69" sello="bGrVPMz1djk7YaBIAVN1b2Y3ErYwdbqIjAGaTMYJXyXGepjpifj40swkWcvaMP/T3dUukyQTypZpPSwZoTEOR9F6DFJXitEPqxHPpQaLy+xq540wk1lpdbCM4QhUsH1wplj19f2LygjMrCs6ekBe9HatQ+WSTq76iNekaXMy0ak=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="IMA910125AK9" nombre="INDUSTRIAL MUEBLERA   DE LOS ALTOS">
+    <cfdi:Domicilio calle="CARRETERA ARANDAS GUADALAJARA" noExterior="KM 2 " colonia="SIN  COLONIA" localidad="ARANDAS" municipio="ARANDAS" estado="JALISCO" pais="México" codigoPostal="47180"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4649" descripcion="LLANTAS SAFERICH FRC16 205-70-R14" valorUnitario="775.86" importe="1551.72"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="2247" descripcion="ROTACION DE LLANTAS" valorUnitario="68.97" importe="68.97"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="259.31">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="248.28"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="11.04"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="5AAF4806-CE8F-44D4-A305-B7E189D7241C" FechaTimbrado="2017-06-20T11:37:15" selloCFD="bGrVPMz1djk7YaBIAVN1b2Y3ErYwdbqIjAGaTMYJXyXGepjpifj40swkWcvaMP/T3dUukyQTypZpPSwZoTEOR9F6DFJXitEPqxHPpQaLy+xq540wk1lpdbCM4QhUsH1wplj19f2LygjMrCs6ekBe9HatQ+WSTq76iNekaXMy0ak=" noCertificadoSAT="00001000000405607284" selloSAT="hGnss9EgagEHcMr5GZIgmHvzS7z1xflTYrNjsImdypwpduHKg5PKEBsCcAbaFTRLhIKvhm1CPF24xJeQeWn5ASltlDNXG1zbgfqY76xWqvXYxpldznSRvNyamKFhYYmpZ6hxDOLXDeOmbotyIuJL5fyUFSgmynwe9eBI7e57WOi45lozK7+RJ/hFJ25l9jjsYj035TX1Bwm61zCWfDaGaYWU4mcaXTHNMQMeY1OOFRgt4up+O79QyIMvO2YyjaVWS6wQOZQp5HiVMYIMpnPryM/qXexmDv1Bz2KGRmPBequpCfzjFip6msaAtyGxESr7OoCiV7ljOS0NiVw7oTAXgQ=="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

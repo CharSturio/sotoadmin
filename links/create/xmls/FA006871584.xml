@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="687" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2016-07-19T13:54:58" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="1600" metodoDePago="03" tipoDeComprobante="ingreso" subTotal="1379.31" sello="C82EWZVhmb6iX/xK4lWI0uF/rKeIR+SMweHcKWBpvbx31Bh3H6a9OV2XowxaO3aLj0A1pyZ/RB9je3uN2xAuviBa0yjTMMLHH8QtMVXXnKVRyOr1xW8uN62Z4rarlsuXxH6gQkj2vc/pNuMvt9o+pYjURisqVZ2D03QY0Vw5NCI=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="XAXX010101000" nombre="MAATEN SCHAAFSMA">
+    <cfdi:Domicilio calle="EJE CENTRAL LAZARO CARDENAS 454 INT 701" noExterior="454" colonia="TLATELOLCO" localidad="CUAUHTEMOC" municipio="CUAUHTEMOC" estado="DISTRITO FEDERAL" pais="México" codigoPostal="06900"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="48" descripcion="ESTAFETA SOBREPESO 2KG" valorUnitario="8.62" importe="8.62"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="42" descripcion="GUIA ESTAFETA 35 KILOS" valorUnitario="163.79" importe="163.79"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="106" descripcion="CARBON 265-70-R17-SERIES-AT-TRACK" valorUnitario="1206.9" importe="1206.9"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="220.69">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="1.38"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="26.21"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="193.1"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="6EBCD884-072C-4668-A993-C80B14D1E0F1" FechaTimbrado="2016-07-19T12:55:20" selloCFD="C82EWZVhmb6iX/xK4lWI0uF/rKeIR+SMweHcKWBpvbx31Bh3H6a9OV2XowxaO3aLj0A1pyZ/RB9je3uN2xAuviBa0yjTMMLHH8QtMVXXnKVRyOr1xW8uN62Z4rarlsuXxH6gQkj2vc/pNuMvt9o+pYjURisqVZ2D03QY0Vw5NCI=" noCertificadoSAT="00001000000203352843" selloSAT="mu3EKWPzrRNAHIN/4Exs5eatY871fXFfpBLZ+Sxe/QSx+F6xzVww6FNcJuSJz8smayECDNaQI6N086Q1XExxanQ4c7rqwYNvQKHKhbyAyvstXluLJaQirL5TPHUotmqlYV9YAQg8J2GdMvDR/NW1qrhLUKVsYzRJePfTrF3AdDY="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

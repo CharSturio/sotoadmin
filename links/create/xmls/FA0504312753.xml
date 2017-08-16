@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="5043" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2017-08-15T13:27:49" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="4619.98" metodoDePago="01" tipoDeComprobante="ingreso" subTotal="3982.74" sello="JXXnh4M3ahCcDEpIO9GLKq8MR2BblbeD4svXaDAguaPa2ATGgqIquWsem7S2qch0TwXZh6eoOqJQMhtksaFt5VsnQnaIdHQUFEgWXUsXz0hy33PWF398TikYKodJZjU57nAZSK4tcRv6ZgIDwt/Bu0RAfsO9n/WxUucOm4XqMs8=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="HEGG900902UX5" nombre="GABRIEL HERNANDEZ GARCIA ">
+    <cfdi:Domicilio calle="SAN PABLO " noExterior="362" colonia="MORALES " localidad="ARANDAS " municipio="ARANDAS " estado="JALISCO " pais="México" codigoPostal="47180"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="75" descripcion="MANO DE OBRA .60" valorUnitario="51.72" importe="51.72"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="5295" descripcion="AMORTIGUADOR MP-8533 " valorUnitario="1637.93" importe="1637.93"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="77" descripcion="MANO DE OBRA .80" valorUnitario="68.97" importe="68.97"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="385" descripcion="FILTRO DE ACEITE 1003 MANN FILTER" valorUnitario="43.1" importe="43.1"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="4760" descripcion="FILTRO DE AIRE LTH LTH165A" valorUnitario="215.52" importe="215.52"/>
+    <cfdi:Concepto cantidad="5" unidad="Pieza" noIdentificacion="1548" descripcion="ACEITE  5W-30 MOBIL " valorUnitario="155.17" importe="775.85"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="192" descripcion="BALANCEO " valorUnitario="34.48" importe="137.92"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="7" descripcion="ALINEACION DELANTERA " valorUnitario="129.31" importe="129.31"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="571" descripcion="MANO DE OBRA 1.60" valorUnitario="137.93" importe="137.93"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="330" descripcion="RECTIFICADOS" valorUnitario="68.97" importe="137.94"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="5294" descripcion="JGO DE BALATAS D1044 DEL ARRASA" valorUnitario="646.55" importe="646.55"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="637.24">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="8.28"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="262.07"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="11.03"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="6.9"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="34.48"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="124.14"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="22.07"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="20.69"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="22.07"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="22.07"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="103.45"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="9D067394-8EFF-4168-8A1C-B8D800C7C96A" FechaTimbrado="2017-08-15T13:28:03" selloCFD="JXXnh4M3ahCcDEpIO9GLKq8MR2BblbeD4svXaDAguaPa2ATGgqIquWsem7S2qch0TwXZh6eoOqJQMhtksaFt5VsnQnaIdHQUFEgWXUsXz0hy33PWF398TikYKodJZjU57nAZSK4tcRv6ZgIDwt/Bu0RAfsO9n/WxUucOm4XqMs8=" noCertificadoSAT="00001000000405607284" selloSAT="8Y3+W23uSSONuHsGyI0BACSLDfKkHBAafsJxf9qvm8SRDQYPUBsi9hK/ckGh2uleemtB0zlYI7GB5WoCsRLh7o0o1fsofUV2ZKGkPRo3LzXNvKaDVWrFphCckOxc2d904bbn1QoL6D64aJ/xxhARWbCsg4jCojNTZKXCh/FOx46OWlbNzEaWov9wHHNd6wJt5+ww+851M0HdYws5vDLnyZbR0BTdW+tilMUhRG2qS+zkdjaKE1i1ukw4mVeBhb2nH29ULfL+mUYplci+ksPMx/ZiXr28c3YJ1S1bxCPYgLTPGrEnzgcOCRsh1Sms4mOq860kOkoOurSzqaQqMFPFcA=="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

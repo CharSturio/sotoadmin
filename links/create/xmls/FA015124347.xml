@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="FA" folio="1512" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2016-11-24T09:42:59" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" total="6749.98" metodoDePago="02" tipoDeComprobante="ingreso" subTotal="5818.95" sello="UbZXtW7fP7X4h1b91/RA18yt5XBA8dZYsv9Zt+2+OxKhwjqUMUL6Qdb8ay6WpF4BVzzhY8cYHGGaj29g+oKaLAH/M9A66nXNcO94EB38Eo2GkhsHgUOANfgKNRNzfmTuyIl3jUS5Ls2SX3lHWmWYxZ/EUs/Co0GTJTK1vP+RoJQ=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="COPF7506273K4" nombre="FELIPE DE JESUS CONTRERAS">
+    <cfdi:Domicilio calle="RANCHO COYOTES" noExterior="90" colonia="COYOTES" localidad="ARANDAS" municipio="ARANDAS" estado="JALISCO" pais="México" codigoPostal="47180"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="9" descripcion="MANO DE OBRA .40" valorUnitario="25.86" importe="51.72"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="1557" descripcion="AMORT.GMAGNUM D 34983 GM C10,20SUB  MONROE" valorUnitario="732.76" importe="1465.52"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="7" descripcion="ALINEACION DELANTERA" valorUnitario="129.31" importe="129.31"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="1901" descripcion="MANO DE OBRA 850" valorUnitario="818.97" importe="818.97"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="3382" descripcion="HORQUILLA SUP 3492123 ARRASA" valorUnitario="431.03" importe="862.06"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="3381" descripcion="JGO DE BUJES K-7006 ARRASA" valorUnitario="172.41" importe="344.82"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="3380" descripcion="ROTULA SUP  K-778  ARRASA" valorUnitario="327.59" importe="655.18"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="3379" descripcion="BRAZO AUX  K-7055 ARRASA" valorUnitario="431.03" importe="431.03"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="3378" descripcion="VARILLA CENTRAL  DS-1173" valorUnitario="1060.34" importe="1060.34"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="931.03">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="8.28"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="234.48"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="20.69"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="131.04"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="137.93"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="55.17"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="104.83"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="68.96"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="169.65"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="1E000036-0738-446C-81D8-ECE097CBC340" FechaTimbrado="2016-11-24T11:43:10" selloCFD="UbZXtW7fP7X4h1b91/RA18yt5XBA8dZYsv9Zt+2+OxKhwjqUMUL6Qdb8ay6WpF4BVzzhY8cYHGGaj29g+oKaLAH/M9A66nXNcO94EB38Eo2GkhsHgUOANfgKNRNzfmTuyIl3jUS5Ls2SX3lHWmWYxZ/EUs/Co0GTJTK1vP+RoJQ=" noCertificadoSAT="00001000000203352843" selloSAT="VYPoCGI5x/DHPdY14yvr5FWBdWj+6+tetMwnN3Ilym+glZYcBK9vy0IyXeC6PHDxBc3r4vUQtVyI4uiZxJtlH8knXv7OmbwdiaRdWh0t+ynPKz5ImT1K+RgiOMxaU8p8ib1gNWnv5CgQ2p5oSAtkveqSd7l96ARkLVnSLhleF9s="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

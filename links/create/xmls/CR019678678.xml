@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="CR" folio="1967" LugarExpedicion="Arandas" TipoCambio="1" Moneda="Pesos Mexicanos" fecha="2017-04-07T10:22:19" formaDePago="Pago en una sola exhibición" noCertificado="00001000000301099705" subTotal="28991.39" total="33630.01" metodoDePago="99" tipoDeComprobante="ingreso" sello="glrLfNsYO1h0z1e9donoLwprUrXJ9dhuVymWEwVssNGFk5zrgcCcMrYiVDXwJ9UZD46dsf7Pi78nFeZc+ThDbg9s9CYfHbsUnl1zGVEBb/X/cAoFeYMUmG1RzS6OEWjaI5rqEyl/iitTWTT4El1jY5y67+zsJ0zMMkkcL/IMHnc=" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEwOTk3MDUwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzEwMjExODEyMzhaFw0xNzEwMjExODEyMzhaMIG9MSAwHgYDVQQDExdBTUFOREEgVkFMRU5DSUFOTyBBVklMQTEgMB4GA1UEKRMXQU1BTkRBIFZBTEVOQ0lBTk8gQVZJTEExIDAeBgNVBAoTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMRYwFAYDVQQtEw1WQUFBNjcxMDA0TFkwMRswGQYDVQQFExJWQUFBNjcxMDA0TUFTTFZNMDIxIDAeBgNVBAsTF0FNQU5EQSBWQUxFTkNJQU5PIEFWSUxBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCxmH6npk2sfOg+lvf6SEEjRlqIWVz52hdChnvQ/KbBHZIaDfB6UzglCCrPBaCPQG56VAFM5s57izJDCA+wvnBdrRqn0dHevMpxs24BLPMamF/6BcobN7cWrlacZDsztqbAzQY35lY3SWDGYpLx3Ode0HFY7VdDzV8QBsWsVYsSQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAvNwkCKkv7zDtAvwCQQum+J4462aZ1Nw0ompeUHt9c8tOaQmp7aSpjo4KloRFZYwjaDLxUSDO77R8D2OPrxC3r6Q7E35gblpqs51oQdJ7wDE7LdZD9ATdwdig7MXsUBZ2KjrxKdqKMXcxm2Gp2FMcbtuKMK1RIZgJqdhC0tgTAu/JoYTiJOeByNVj7EEGdIv/o5kCjj1eXIuAo018xUoxkEozO5/IVwaMJXb+bwGXa36fs0vGItABjQiIxyQwUxY0YmiAHuFrbBmEBEIB4b6qes8803OBLU+rbXtJiN4ttUv+s99f0OTNbdIGjhJ3tW5z7bSGzqtTiSoiz/DzlHflYQ==">
+  <cfdi:Emisor rfc="VAAA671004LY0" nombre="Amanda Valencio Avila">
+    <cfdi:DomicilioFiscal calle="Medina Ascencio" noExterior="649" noInterior="NA" colonia="Santa Barbara" localidad="Arandas" municipio="Arandas" estado="Jalisco" pais="México" codigoPostal="47180"/>
+    <cfdi:RegimenFiscal Regimen="Régimen de Personas Físicas con Actividades Empresariales y Profesionales."/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="ZULA8201275U6" nombre="ALEJANDRA ZUÑIGA LEON ">
+    <cfdi:Domicilio calle="SALAMANCA " noExterior="109" colonia="PCO" localidad="SANTA ANA " municipio="SANTA ANA " estado="GUANAJUATO " pais="México" codigoPostal="36910"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4443" descripcion="LLANTA 245-65-R17 TRIANGLE TR257" valorUnitario="1120.69" importe="2241.38"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="218" descripcion="LLANTA MAXTREK SU800 LT 245-75-R16" valorUnitario="1431.03" importe="2862.06"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4430" descripcion="LLANTA TRIANGLE 225-45-R17 TH201" valorUnitario="775.86" importe="1551.72"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4421" descripcion="LLANTA TRIANGLE TH201 205-40-R17" valorUnitario="620.69" importe="1241.38"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4453" descripcion="LLANTA 205-55-R16 TRIANGLE TE301" valorUnitario="689.66" importe="1379.32"/>
+    <cfdi:Concepto cantidad="4" unidad="Pieza" noIdentificacion="4413" descripcion="LLANTA  TRIANGLE TE301  185-60-R14 " valorUnitario="508.62" importe="2034.48"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4420" descripcion="LLANTA TRIANGLE TE301 195-65-R15" valorUnitario="655.17" importe="1310.34"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4417" descripcion="LLANTA 195-55-R15 TRIANGLE TE301" valorUnitario="629.31" importe="1258.62"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4416" descripcion="LLANTA 195-50-R15 TRIANGLE TE301" valorUnitario="637.93" importe="1275.86"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="131" descripcion="LLANTA MAXTREK 185-65-R14 MAXIMUS M1" valorUnitario="517.24" importe="517.24"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="210" descripcion="WANLI S1088 195-50-R15" valorUnitario="767.24" importe="767.24"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4429" descripcion="LLANTA TRIANGLE 225-40-R18 TH201" valorUnitario="775.86" importe="1551.72"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="2152" descripcion="LLANTA TDI TRACK TK1 225-35-R20 XL" valorUnitario="905.17" importe="1810.34"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4440" descripcion="LLANTA 245-35-R20 TRIANGLE TR968" valorUnitario="948.28" importe="1896.56"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4449" descripcion="LLANTA 265-35-R22 TRIANGLE TR968" valorUnitario="1206.9" importe="2413.8"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4422" descripcion="LLANTA TRIANGLE TR918 205-50-R15" valorUnitario="689.66" importe="1379.32"/>
+    <cfdi:Concepto cantidad="2" unidad="Pieza" noIdentificacion="4452" descripcion="LLANTA 215-55-R17 TRIANGLE TR967" valorUnitario="818.97" importe="1637.94"/>
+    <cfdi:Concepto cantidad="1" unidad="Pieza" noIdentificacion="2204" descripcion="LLANTA WANLI SP601 305-30-R26 XL" valorUnitario="1862.07" importe="1862.07"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="4638.62">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="358.62"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="457.93"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="248.28"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="198.62"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="220.69"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="325.52"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="209.65"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="201.38"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="204.14"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="82.76"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="122.76"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="248.28"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="289.66"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="303.45"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="386.21"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="220.69"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="262.07"/>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="297.93"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="A13BA405-7C25-4C6E-A7AC-EFB0FF6A1FC3" FechaTimbrado="2017-04-07T12:22:44" selloCFD="glrLfNsYO1h0z1e9donoLwprUrXJ9dhuVymWEwVssNGFk5zrgcCcMrYiVDXwJ9UZD46dsf7Pi78nFeZc+ThDbg9s9CYfHbsUnl1zGVEBb/X/cAoFeYMUmG1RzS6OEWjaI5rqEyl/iitTWTT4El1jY5y67+zsJ0zMMkkcL/IMHnc=" noCertificadoSAT="00001000000405607284" selloSAT="s1laagsfteNXoGYTG1I9MHq0axnAFOOaHP8ArJFKfCQ8Xyk4sVN1CYMDiay23yoNu44nhjSiFzGTvvRSlgk99uSWaRxwDeYKp9AfItTI+PpnKh917ediIsaQ1IhBLv8KDdQBXBvI1eteZix5kkDRMFzJRdX7qRr4RcahQpYz08sWkGqfdWocHlbWznfdP6eiXVQN5Q5HrBZV8ewhSNRI4yzIt5SLbv6EJnEd0eC+B0YcsGtzUpOmVGeOjbkhtkBuYR1MT+dpGhw8IeS17UvH3o6NiPrb/sGUD2EfjeEukzHn1vVxwMAtorijdU1kI7rRf/J1mgoBIb+9tCDzDycVPw=="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

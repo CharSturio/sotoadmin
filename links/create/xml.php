@@ -110,9 +110,9 @@ $rfc = strtoupper($rowDandC['rfc']);
   $node_dom_catch = $node_catch->appendChild($dom->createElement('cfdi:Domicilio'));
   $node_dom_catch->setAttribute("calle",$rowDandC['address']);
   $node_dom_catch->setAttribute("noExterior",$rowDandC['noExt']);
-  //if ($rowDandC['noInt']) {
+  if ($rowDandC['noInt'] != "") {
     $node_dom_catch->setAttribute("noInterior",$rowDandC['noInt']);
-  //}
+  }
   $node_dom_catch->setAttribute("colonia",$rowDandC['colony']);
   $node_dom_catch->setAttribute("localidad",$rowDandC['city']);
   $node_dom_catch->setAttribute("municipio",$rowDandC['city']);

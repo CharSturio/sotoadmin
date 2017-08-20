@@ -13,30 +13,30 @@ require 'call.php';
   $fecha_O = str_replace(" ", "T", $fecha_);
   $idInvoice = $rowDandC['id_invoice'];
 
-//   $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . ".xml";
-//   $name_xml = "xmls/" . $name_xml;
+  $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . ".xml";
+  $name_xml = "xmls/" . $name_xml;
 
-//   if ($idInvoice) {
-//     $numInvoice = $idInvoice;
-//     $count = strlen($numInvoice);
-//     switch ($count) {
-//       case 1:
-//       $folio = '0000' . $numInvoice;
-//         break;
-//       case 2:
-//       $folio = '000' . $numInvoice;
-//         break;
-//       case 3:
-//       $folio = '00' . $numInvoice;
-//         break;
-//       case 4:
-//       $folio = '0' . $numInvoice;
-//         break;
-//       case 5:
-//       $folio = '' . $numInvoice;
-//         break;
-//     }
-//   }
+  if ($idInvoice) {
+    $numInvoice = $idInvoice;
+    $count = strlen($numInvoice);
+    switch ($count) {
+      case 1:
+      $folio = '0000' . $numInvoice;
+        break;
+      case 2:
+      $folio = '000' . $numInvoice;
+        break;
+      case 3:
+      $folio = '00' . $numInvoice;
+        break;
+      case 4:
+      $folio = '0' . $numInvoice;
+        break;
+      case 5:
+      $folio = '' . $numInvoice;
+        break;
+    }
+  }
 
 //   $total = $rowDandC['total'];
 //   $subTotalX = ($total/116) * 100;

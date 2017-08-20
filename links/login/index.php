@@ -10,7 +10,6 @@ require '../../connection/index.php';
     $result = mysqli_query($link, $query) or die ('Consulta fallida: ' . mysqli_error($link));
     if(mysqli_num_rows($result) === 1){
         while($row = mysqli_fetch_assoc($result)) {
-          echo $row;
           session_start();
           $_SESSION['user'] = $row['user'];
           $_SESSION['permit'] = $row['permit'];

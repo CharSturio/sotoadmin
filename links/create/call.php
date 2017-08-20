@@ -124,9 +124,9 @@ function GetCadenaOriginal_3_2($xml_Original) {
           error_reporting(0);
 
           $obj_xslt = new XSLTProcessor();
-          return 'ok';
-          $obj_xslt->importStylesheet($obj_xsl);
           
+          $obj_xslt->importStyleSheet($obj_xsl);
+          return 'ok';
           
         //   error_reporting(E_ALL);
         //   $tmp_CadOrig = $obj_xslt->transformToXml($xml);

@@ -164,6 +164,7 @@ $rfc = strtoupper($rowDandC['rfc']);
 
 
   $cadenaOriginal = GetCadenaOriginal_3_2($dom);
+  echo $cadenaOriginal;
 
   // $sello = GetSelloDigital($cadenaOriginal, $fecha_O);
 

@@ -1,6 +1,6 @@
 <?php
 require '../../connection/index.php';
-require 'call.php';
+//require 'call.php';
 //   $queryNow = "UPDATE documents SET last_date = date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'];
 //   $resultNow = mysqli_query($link,$queryNow) or die ('Consulta fallida: ' . mysqli_error($link));
 //   //$rowNow = mysqli_fetch_assoc($resultNow);

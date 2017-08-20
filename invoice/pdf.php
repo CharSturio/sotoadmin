@@ -83,7 +83,7 @@ if ($op === '1') {
           $totalF = round($totalF, 2);
           $ivaTotalF = $totalGral * .16;
           $ivaTotalF = round($ivaTotalF, 2);
-echo $totalF . 'asdasdsad';
+
           $totalLetra = num2letras($totalF);
 
           $html .= '

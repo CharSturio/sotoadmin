@@ -174,7 +174,11 @@ function num2letras($num, $fem = false, $dec = true) {
    }
    $tex = $neg . substr($tex, 1) . $fin;
    //Zi hack --> return ucfirst($tex);
-   $end_num=ucfirst($tex).' pesos '.$float[1].'/100 M.N.';
+   if (!empty($float[1])){
+      $end_num=ucfirst($tex).' pesos '.$float[1].'/100 M.N.';      
+   } else {
+      $end_num=ucfirst($tex).' pesos 00/100 M.N.';      
+   }
    return $end_num;
 }
 ?>

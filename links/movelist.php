@@ -1,9 +1,5 @@
 <?php
   require '../connection/index.php';
-  $pathXml = "/links/create/xmls/";  
-  require "$pathXml";
-  $pathPdf = "/invoice/pdf/";  
-  require "$pathPdf";
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'loadInfo') {
@@ -164,10 +160,10 @@
     $rowDandC = mysqli_fetch_assoc($resultDandC);
     if ($rowDandC['status'] === 'cancelado') {
       $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . "_cancelado.xml";
-      $file = $pathXml.$name_xml;
+      $file = "create/xmls/".$name_xml;
     } else {
       $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . ".xml";
-      $file = $pathXml.$name_xml;
+      $file = "create/xmls/".$name_xml;
     }
     if (file_exists($file)) {
       header('Content-Description: File Transfer');
@@ -190,7 +186,7 @@
     $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
     $rowDandC = mysqli_fetch_assoc($resultDandC);
     $name_pdf = $rowDandC['invoice']. ".pdf";
-    $file = $pathPdf . $name_pdf;
+    $file = "../invoice/pdf/" . $name_pdf;
     if (file_exists($file)) {
       header('Content-Description: File Transfer');
       header('Content-Type: application/octet-stream');

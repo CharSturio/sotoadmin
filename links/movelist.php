@@ -1,8 +1,8 @@
 <?php
   require '../connection/index.php';
-  $pathXml = "create/xmls/";  
+  $pathXml = "/links/create/xmls/";  
   require "$pathXml";
-  $pathPdf = "../invoice/pdf/";  
+  $pathPdf = "/invoice/pdf/";  
   require "$pathPdf";
 
   $operation = $_REQUEST['operation'];

@@ -87,31 +87,31 @@ require 'call.php';
   }
   $node_proof->setAttribute("tipoDeComprobante","ingreso");
 
-//   $node_sender = $node_proof->appendChild($dom->createElement("cfdi:Emisor"));
-//   $node_sender->setAttribute("rfc","VAAA671004LY0");//VAAA671004LY0
-//   $node_sender->setAttribute("nombre","Amanda Valencio Avila");//Amanda Valencio Avila
-//   $node_dom_fiscal = $node_sender->appendChild($dom->createElement("cfdi:DomicilioFiscal"));
-//   $node_dom_fiscal->setAttribute("calle","Medina Ascencio");
-//   $node_dom_fiscal->setAttribute("noExterior","649");
-//   $node_dom_fiscal->setAttribute("noInterior","NA");
-//   $node_dom_fiscal->setAttribute("colonia","Santa Barbara");
-//   $node_dom_fiscal->setAttribute("localidad","Arandas");
-//   $node_dom_fiscal->setAttribute("municipio","Arandas");
-//   $node_dom_fiscal->setAttribute("estado","Jalisco");
-//   $node_dom_fiscal->setAttribute("pais","México");
-//   $node_dom_fiscal->setAttribute("codigoPostal","47180");
-//   $node_regime_fiscal = $node_sender->appendChild($dom->createElement("cfdi:RegimenFiscal"));
-//   $node_regime_fiscal->setAttribute("Regimen","Régimen de Personas Físicas con Actividades Empresariales y Profesionales.");
-// $rfc = strtoupper($rowDandC['rfc']);
-//   $node_catch = $node_proof->appendChild($dom->createElement('cfdi:Receptor'));
-//   $node_catch->setAttribute("rfc",$rfc);
-//   $node_catch->setAttribute("nombre",$rowDandC['name']);
-//   $node_dom_catch = $node_catch->appendChild($dom->createElement('cfdi:Domicilio'));
-//   $node_dom_catch->setAttribute("calle",$rowDandC['address']);
-//   $node_dom_catch->setAttribute("noExterior",$rowDandC['noExt']);
-//   if (isset($rowDandC['noInt'])) {
-//     $node_dom_catch->setAttribute("noInterior",$rowDandC['noInt']);
-//   }
+  $node_sender = $node_proof->appendChild($dom->createElement("cfdi:Emisor"));
+  $node_sender->setAttribute("rfc","VAAA671004LY0");//VAAA671004LY0
+  $node_sender->setAttribute("nombre","Amanda Valencio Avila");//Amanda Valencio Avila
+  $node_dom_fiscal = $node_sender->appendChild($dom->createElement("cfdi:DomicilioFiscal"));
+  $node_dom_fiscal->setAttribute("calle","Medina Ascencio");
+  $node_dom_fiscal->setAttribute("noExterior","649");
+  $node_dom_fiscal->setAttribute("noInterior","NA");
+  $node_dom_fiscal->setAttribute("colonia","Santa Barbara");
+  $node_dom_fiscal->setAttribute("localidad","Arandas");
+  $node_dom_fiscal->setAttribute("municipio","Arandas");
+  $node_dom_fiscal->setAttribute("estado","Jalisco");
+  $node_dom_fiscal->setAttribute("pais","México");
+  $node_dom_fiscal->setAttribute("codigoPostal","47180");
+  $node_regime_fiscal = $node_sender->appendChild($dom->createElement("cfdi:RegimenFiscal"));
+  $node_regime_fiscal->setAttribute("Regimen","Régimen de Personas Físicas con Actividades Empresariales y Profesionales.");
+$rfc = strtoupper($rowDandC['rfc']);
+  $node_catch = $node_proof->appendChild($dom->createElement('cfdi:Receptor'));
+  $node_catch->setAttribute("rfc",$rfc);
+  $node_catch->setAttribute("nombre",$rowDandC['name']);
+  $node_dom_catch = $node_catch->appendChild($dom->createElement('cfdi:Domicilio'));
+  $node_dom_catch->setAttribute("calle",$rowDandC['address']);
+  $node_dom_catch->setAttribute("noExterior",$rowDandC['noExt']);
+  if (isset($rowDandC['noInt'])) {
+    $node_dom_catch->setAttribute("noInterior",$rowDandC['noInt']);
+  }
 //   $node_dom_catch->setAttribute("colonia",$rowDandC['colony']);
 //   $node_dom_catch->setAttribute("localidad",$rowDandC['city']);
 //   $node_dom_catch->setAttribute("municipio",$rowDandC['city']);

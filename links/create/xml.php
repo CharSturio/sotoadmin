@@ -141,25 +141,25 @@ $rfc = strtoupper($rowDandC['rfc']);
   }
   $node_proof->setAttribute("subTotal",$sinIVA);
 
-//   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
-//   $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
-//   $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
-//   $IVATOTAL = $sinIVA * .16;
-//   $IVA_total = round($IVATOTAL, 2);
-//   $node_taxes->setAttribute("totalImpuestosTrasladados",$IVA_total);
-//   $node_transfers = $node_taxes->appendChild($dom->createElement("cfdi:Traslados"));
-//   while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
-//     $totalPIVA = $rowQandP['unit_cost'] * $rowQandP['amount'];
-//     $importe = ($totalPIVA / 116) * 16;
-//     $import = round($importe, 2);
+  $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
+  $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
+  $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
+  $IVATOTAL = $sinIVA * .16;
+  $IVA_total = round($IVATOTAL, 2);
+  $node_taxes->setAttribute("totalImpuestosTrasladados",$IVA_total);
+  $node_transfers = $node_taxes->appendChild($dom->createElement("cfdi:Traslados"));
+  while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
+    $totalPIVA = $rowQandP['unit_cost'] * $rowQandP['amount'];
+    $importe = ($totalPIVA / 116) * 16;
+    $import = round($importe, 2);
 
-//     $node_transfe = $node_transfers->appendChild($dom->createElement("cfdi:Traslado"));
-//     $node_transfe->setAttribute("impuesto","IVA");
-//     $node_transfe->setAttribute("tasa","16");
-//     $node_transfe->setAttribute("importe",$import);
-//   }
+    $node_transfe = $node_transfers->appendChild($dom->createElement("cfdi:Traslado"));
+    $node_transfe->setAttribute("impuesto","IVA");
+    $node_transfe->setAttribute("tasa","16");
+    $node_transfe->setAttribute("importe",$import);
+  }
 
-//   $dom->appendChild($node_proof);
+  $dom->appendChild($node_proof);
 
 
 

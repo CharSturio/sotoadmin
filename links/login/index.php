@@ -6,6 +6,7 @@ require '../../connection/index.php';
 
   if ($_REQUEST['operation'] === 'login') {
     $query = "SELECT * FROM users where user ='" . $name ."' AND password=SHA('" . $pass . "') LIMIT 1;";
+    $query = "SELECT * FROM users as U INNER JOIN permissions as P ON U.permit = P.name where U.user ='charly' AND U.password=SHA('" . $pass . "') LIMIT 1    ";
     $result = mysqli_query($link, $query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     if(mysqli_num_rows($result) === 1){
@@ -15,12 +16,17 @@ require '../../connection/index.php';
           $_SESSION['permit'] = $row['permit'];
           $_SESSION['id'] = $row['id'];
           $_SESSION['logged'] = TRUE;
-          if ($row['permit'] === 'client') {
-            echo 2;
-          } else {
-            echo 1;
-          }
         }
+        if ($row['permit'] === 'client') {
+          echo 2;
+        } else {
+          echo 1;
+        }
+
+
+
+
+
     } else {
       echo "Usuario o contraseña incorrecta. Intente de nuevo.";
       exit;

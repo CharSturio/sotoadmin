@@ -1,5 +1,9 @@
 <?php
   require '../connection/index.php';
+  $pathXml = "create/xmls/";  
+  require "$pathXml";
+  $pathPdf = "../invoice/pdf/";  
+  require "$pathPdf";
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'loadInfo') {
@@ -160,10 +164,10 @@
     $rowDandC = mysqli_fetch_assoc($resultDandC);
     if ($rowDandC['status'] === 'cancelado') {
       $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . "_cancelado.xml";
-      $file = "create/xmls/".$name_xml;
+      $file = $pathXml.$name_xml;
     } else {
       $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . ".xml";
-      $file = "create/xmls/".$name_xml;
+      $file = $pathXml.$name_xml;
     }
     if (file_exists($file)) {
       header('Content-Description: File Transfer');
@@ -181,25 +185,25 @@
 
   }
   else if ($operation === 'pdf') {
-   $id = $_REQUEST['id'];
-   $queryDandC = "SELECT * FROM documents WHERE id=" . $id ." LIMIT 1;";
-   $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
-   $rowDandC = mysqli_fetch_assoc($resultDandC);
-   $name_pdf = $rowDandC['invoice']. ".pdf";
-   $file = "../invoice/pdf/" . $name_pdf;
-
-   header('Content-Description: File Transfer');
-   header('Content-Type: application/octet-stream');
-   header('Content-Disposition: attachment; filename='.basename($file));
-   header('Content-Transfer-Encoding: binary');
-   header('Expires: 0');
-   header('Cache-Control: must-revalidate');
-   header('Pragma: public');
-   header('Content-Length: ' . filesize($file));
-   ob_clean();
-   flush();
-   readfile($file);
-
- }
+    $id = $_REQUEST['id'];
+    $queryDandC = "SELECT * FROM documents WHERE id=" . $id ." LIMIT 1;";
+    $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
+    $rowDandC = mysqli_fetch_assoc($resultDandC);
+    $name_pdf = $rowDandC['invoice']. ".pdf";
+    $file = $pathPdf . $name_pdf;
+    if (file_exists($file)) {
+      header('Content-Description: File Transfer');
+      header('Content-Type: application/octet-stream');
+      header('Content-Disposition: attachment; filename='.basename($file));
+      header('Content-Transfer-Encoding: binary');
+      header('Expires: 0');
+      header('Cache-Control: must-revalidate');
+      header('Pragma: public');
+      header('Content-Length: ' . filesize($file));
+      ob_clean();
+      flush();
+      readfile($file);
+    }
+  }
   mysqli_close($link);
  ?>

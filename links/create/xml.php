@@ -38,24 +38,24 @@ require 'call.php';
     }
   }
 
-//   $total = $rowDandC['total'];
-//   $subTotalX = ($total/116) * 100;
-//   $subTotal = round($subTotalX, 2);
-//   $IVA_totalX = ($total/116) * 16;
-//   $IVA_total = round($IVA_totalX, 2);
+  $total = $rowDandC['total'];
+  $subTotalX = ($total/116) * 100;
+  $subTotal = round($subTotalX, 2);
+  $IVA_totalX = ($total/116) * 16;
+  $IVA_total = round($IVA_totalX, 2);
 
-//   $dom = new DOMDocument('1.0','UTF-8');
-//   $node_proof=$dom->createElement("cfdi:Comprobante");
-//   $node_proof->setAttribute("xmlns:cfdi","http://www.sat.gob.mx/cfd/3");
-//   $node_proof->setAttribute("xmlns:xsi","http://www.w3.org/2001/XMLSchema-instance");
-//   $node_proof->setAttribute("xsi:schemaLocation","http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd");
-//   $node_proof->setAttribute("version","3.2");
-//   $node_proof->setAttribute("serie","FA");
-//   $node_proof->setAttribute("folio",$idInvoice);
-//   $node_proof->setAttribute("LugarExpedicion","Arandas");
-//   if ($rowDandC['last_digits']) {
-//     $node_proof->setAttribute("NumCtaPago",$rowDandC['last_digits']);
-//   }
+  $dom = new DOMDocument('1.0','UTF-8');
+  $node_proof=$dom->createElement("cfdi:Comprobante");
+  $node_proof->setAttribute("xmlns:cfdi","http://www.sat.gob.mx/cfd/3");
+  $node_proof->setAttribute("xmlns:xsi","http://www.w3.org/2001/XMLSchema-instance");
+  $node_proof->setAttribute("xsi:schemaLocation","http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd");
+  $node_proof->setAttribute("version","3.2");
+  $node_proof->setAttribute("serie","FA");
+  $node_proof->setAttribute("folio",$idInvoice);
+  $node_proof->setAttribute("LugarExpedicion","Arandas");
+  if ($rowDandC['last_digits']) {
+    $node_proof->setAttribute("NumCtaPago",$rowDandC['last_digits']);
+  }
 //   $node_proof->setAttribute("TipoCambio","1");
 //   $node_proof->setAttribute("Moneda","Pesos Mexicanos");
 //   $node_proof->setAttribute("fecha",$fecha_O);

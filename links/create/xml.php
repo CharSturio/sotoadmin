@@ -163,17 +163,17 @@ $rfc = strtoupper($rowDandC['rfc']);
 
 
 
-  $cadenaOriginal = GetCadenaOriginal_3_3($dom);
+  $cadenaOriginal = GetCadenaOriginal_3_2($dom);
 
-  $sello = GetSelloDigital($cadenaOriginal, $fecha_O);
+  // $sello = GetSelloDigital($cadenaOriginal, $fecha_O);
 
-  $certificado = GetCertificado();
+  // $certificado = GetCertificado();
 
-  $node_proof->setAttribute("sello",$sello);
-  $node_proof->setAttribute("certificado",$certificado);
-  $dom->formatOutput=true;
+  // $node_proof->setAttribute("sello",$sello);
+  // $node_proof->setAttribute("certificado",$certificado);
+  // $dom->formatOutput=true;
 
-  $dom->save($name_xml);
+  // $dom->save($name_xml);
 
 //   try{
 //       if(!SetTimbrado($name_xml))

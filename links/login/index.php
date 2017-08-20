@@ -5,9 +5,8 @@ require '../../connection/index.php';
   $name = $_REQUEST['name'];
 
   if ($_REQUEST['operation'] === 'login') {
-    //$query = "SELECT * FROM users where user ='" . $name ."' AND password=SHA('" . $pass . "') LIMIT 1;";
-    $query = "SELECT * FROM users as U INNER JOIN permissions as P ON U.permit = P.name where U.user ='" . $name ."' AND U.password=SHA('" . $pass . "') LIMIT 1;";
-    echo $query;
+    $query = "SELECT * FROM users where user ='" . $name ."' AND password=SHA('" . $pass . "') LIMIT 1;";
+    //$query = "SELECT * FROM users as U INNER JOIN permissions as P ON U.permit = P.name where U.user ='" . $name ."' AND U.password=SHA('" . $pass . "') LIMIT 1;";
     $result = mysqli_query($link, $query) or die ('Consulta fallida: ' . mysqli_error($link));
     if(mysqli_num_rows($result) === 1){
         while($row = mysqli_fetch_assoc($result)) {

@@ -9,7 +9,7 @@ require '../../connection/index.php';
     $query = "SELECT * FROM users as U INNER JOIN permissions as P ON U.permit = P.name where U.user ='" . $name ."' AND U.password=SHA('" . $pass . "') LIMIT 1;";
     echo $query;
     $result = mysqli_query($link, $query) or die ('Consulta fallida: ' . mysqli_error($link));
-
+echo $result;
     if(mysqli_num_rows($result) === 1){
         while($row = mysqli_fetch_assoc($result)) {
           session_start();

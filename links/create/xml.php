@@ -112,34 +112,34 @@ $rfc = strtoupper($rowDandC['rfc']);
   if (isset($rowDandC['noInt'])) {
     $node_dom_catch->setAttribute("noInterior",$rowDandC['noInt']);
   }
-//   $node_dom_catch->setAttribute("colonia",$rowDandC['colony']);
-//   $node_dom_catch->setAttribute("localidad",$rowDandC['city']);
-//   $node_dom_catch->setAttribute("municipio",$rowDandC['city']);
-//   $node_dom_catch->setAttribute("estado",$rowDandC['state']);
-//   $node_dom_catch->setAttribute("pais","México");
-//   $node_dom_catch->setAttribute("codigoPostal",$rowDandC['pc']);
+  $node_dom_catch->setAttribute("colonia",$rowDandC['colony']);
+  $node_dom_catch->setAttribute("localidad",$rowDandC['city']);
+  $node_dom_catch->setAttribute("municipio",$rowDandC['city']);
+  $node_dom_catch->setAttribute("estado",$rowDandC['state']);
+  $node_dom_catch->setAttribute("pais","México");
+  $node_dom_catch->setAttribute("codigoPostal",$rowDandC['pc']);
 
-//   $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
-//   $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
-//   $node_concepts = $node_proof->appendChild($dom->createElement("cfdi:Conceptos"));
-//   $sinIVA = 0;
-//   while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
-//     $costUnit = $rowQandP['unit_cost'];
-//     $costUnitSIVA = ($costUnit/116) * 100;
-//     $CostUnitSIVA = round($costUnitSIVA, 2);
-//     $costPzs = $costUnitSIVA * $rowQandP['amount'];
-//     $CostPzs = round($costPzs, 2);
-//     $sinIVA += $CostPzs;
+  $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
+  $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
+  $node_concepts = $node_proof->appendChild($dom->createElement("cfdi:Conceptos"));
+  $sinIVA = 0;
+  while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
+    $costUnit = $rowQandP['unit_cost'];
+    $costUnitSIVA = ($costUnit/116) * 100;
+    $CostUnitSIVA = round($costUnitSIVA, 2);
+    $costPzs = $costUnitSIVA * $rowQandP['amount'];
+    $CostPzs = round($costPzs, 2);
+    $sinIVA += $CostPzs;
 
-//     $node_concept = $node_concepts->appendChild($dom->createElement("cfdi:Concepto"));
-//     $node_concept->setAttribute("cantidad",$rowQandP['amount']);
-//     $node_concept->setAttribute("unidad","Pieza");
-//     $node_concept->setAttribute("noIdentificacion",$rowQandP['id_product']);
-//     $node_concept->setAttribute("descripcion",$rowQandP['name']);
-//     $node_concept->setAttribute("valorUnitario",$CostUnitSIVA);
-//     $node_concept->setAttribute("importe",$CostPzs);
-//   }
-//   $node_proof->setAttribute("subTotal",$sinIVA);
+    $node_concept = $node_concepts->appendChild($dom->createElement("cfdi:Concepto"));
+    $node_concept->setAttribute("cantidad",$rowQandP['amount']);
+    $node_concept->setAttribute("unidad","Pieza");
+    $node_concept->setAttribute("noIdentificacion",$rowQandP['id_product']);
+    $node_concept->setAttribute("descripcion",$rowQandP['name']);
+    $node_concept->setAttribute("valorUnitario",$CostUnitSIVA);
+    $node_concept->setAttribute("importe",$CostPzs);
+  }
+  $node_proof->setAttribute("subTotal",$sinIVA);
 
 //   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
 //   $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";

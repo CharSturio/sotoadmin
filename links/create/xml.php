@@ -56,36 +56,36 @@ require 'call.php';
   if ($rowDandC['last_digits']) {
     $node_proof->setAttribute("NumCtaPago",$rowDandC['last_digits']);
   }
-//   $node_proof->setAttribute("TipoCambio","1");
-//   $node_proof->setAttribute("Moneda","Pesos Mexicanos");
-//   $node_proof->setAttribute("fecha",$fecha_O);
-//   $node_proof->setAttribute("formaDePago","Pago en una sola exhibición");
-//   $node_proof->setAttribute("noCertificado","00001000000301099705");
-//   $node_proof->setAttribute("total",$total);
-//   if ($rowDandC['payment_method'] === 'Cheque Nominativo') {
-//     $node_proof->setAttribute("metodoDePago","02");
-//   }
-//   else if ($rowDandC['payment_method'] === 'Tarjeta de Credito') {
-//     $node_proof->setAttribute("metodoDePago","04");
-//   }
-//   else if ($rowDandC['payment_method'] === 'Tarjeta de Debito') {
-//     $node_proof->setAttribute("metodoDePago","28");
-//   }
-//   else if ($rowDandC['payment_method'] === 'Deposito en Cuenta') {
-//     $node_proof->setAttribute("metodoDePago","99");
-//   }
-//   else if ($rowDandC['payment_method'] === 'Pago en Efectivo') {
-//     $node_proof->setAttribute("metodoDePago","01");
-//   }
-//   else if ($rowDandC['payment_method'] === 'Transferencia Electronica de Fondos') {
-//     $node_proof->setAttribute("metodoDePago","03");
-//   }
-//   else if ($rowDandC['payment_method'] === 'No Identificado') {
-//     $node_proof->setAttribute("metodoDePago","99");
-//   } else {
-//     $node_proof->setAttribute("metodoDePago","99");
-//   }
-//   $node_proof->setAttribute("tipoDeComprobante","ingreso");
+  $node_proof->setAttribute("TipoCambio","1");
+  $node_proof->setAttribute("Moneda","Pesos Mexicanos");
+  $node_proof->setAttribute("fecha",$fecha_O);
+  $node_proof->setAttribute("formaDePago","Pago en una sola exhibición");
+  $node_proof->setAttribute("noCertificado","00001000000301099705");
+  $node_proof->setAttribute("total",$total);
+  if ($rowDandC['payment_method'] === 'Cheque Nominativo') {
+    $node_proof->setAttribute("metodoDePago","02");
+  }
+  else if ($rowDandC['payment_method'] === 'Tarjeta de Credito') {
+    $node_proof->setAttribute("metodoDePago","04");
+  }
+  else if ($rowDandC['payment_method'] === 'Tarjeta de Debito') {
+    $node_proof->setAttribute("metodoDePago","28");
+  }
+  else if ($rowDandC['payment_method'] === 'Deposito en Cuenta') {
+    $node_proof->setAttribute("metodoDePago","99");
+  }
+  else if ($rowDandC['payment_method'] === 'Pago en Efectivo') {
+    $node_proof->setAttribute("metodoDePago","01");
+  }
+  else if ($rowDandC['payment_method'] === 'Transferencia Electronica de Fondos') {
+    $node_proof->setAttribute("metodoDePago","03");
+  }
+  else if ($rowDandC['payment_method'] === 'No Identificado') {
+    $node_proof->setAttribute("metodoDePago","99");
+  } else {
+    $node_proof->setAttribute("metodoDePago","99");
+  }
+  $node_proof->setAttribute("tipoDeComprobante","ingreso");
 
 //   $node_sender = $node_proof->appendChild($dom->createElement("cfdi:Emisor"));
 //   $node_sender->setAttribute("rfc","VAAA671004LY0");//VAAA671004LY0

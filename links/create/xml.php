@@ -163,7 +163,7 @@ $rfc = strtoupper($rowDandC['rfc']);
 
 
 
-  $cadenaOriginal = GetCadenaOriginal_3_2($dom);
+  $cadenaOriginal = GetCadenaOriginal_3_3($dom);
 
   $sello = GetSelloDigital($cadenaOriginal, $fecha_O);
 

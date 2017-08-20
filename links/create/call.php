@@ -120,13 +120,13 @@ function GetCadenaOriginal_3_2($xml_Original) {
           $xml->loadXML($str_xml);
           $obj_xsl = new DOMDocument();
           $obj_xsl->load("http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_2/cadenaoriginal_3_2.xslt", LIBXML_NOCDATA);
-        return 'ok';
         
-        //   error_reporting(0);
+          error_reporting(0);
 
-        //   $obj_xslt = new XSLTProcessor();
-        //   $obj_xslt->importStylesheet($obj_xsl);
-
+          $obj_xslt = new XSLTProcessor();
+          $obj_xslt->importStylesheet($obj_xsl);
+          return 'ok';
+          
         //   error_reporting(E_ALL);
         //   $tmp_CadOrig = $obj_xslt->transformToXml($xml);
 

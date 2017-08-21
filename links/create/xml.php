@@ -164,57 +164,55 @@ $rfc = strtoupper($rowDandC['rfc']);
 
 
   $cadenaOriginal = GetCadenaOriginal_3_2($dom);
-  echo $cadenaOriginal;
+  $sello = GetSelloDigital($cadenaOriginal, $fecha_O);
 
-  // $sello = GetSelloDigital($cadenaOriginal, $fecha_O);
+  $certificado = GetCertificado();
 
-  // $certificado = GetCertificado();
+  $node_proof->setAttribute("sello",$sello);
+  $node_proof->setAttribute("certificado",$certificado);
+  $dom->formatOutput=true;
 
-  // $node_proof->setAttribute("sello",$sello);
-  // $node_proof->setAttribute("certificado",$certificado);
-  // $dom->formatOutput=true;
+  $dom->save($name_xml);
 
-  // $dom->save($name_xml);
+  try{
+      if(!SetTimbrado($name_xml))
+      {
+          unlink($name_xml);
+          echo "Error en el timbrado";
+          exit;
+      }
+  }
+  catch(Exception $e)
+  {
+      unlink($name_xml);
+      echo $e->getMessage();
+      exit;
+  }
 
-//   try{
-//       if(!SetTimbrado($name_xml))
-//       {
-//           unlink($name_xml);
-//           echo "Error en el timbrado";
-//           exit;
-//       }
-//   }
-//   catch(Exception $e)
-//   {
-//       unlink($name_xml);
-//       echo $e->getMessage();
-//       exit;
-//   }
+  $doc = new DOMDocument();
 
-//   $doc = new DOMDocument();
+  $doc->load($name_xml);
 
-//   $doc->load($name_xml);
+  $Complemento = $doc->getElementsByTagName("Complemento");
+  $timbre = $Complemento->item(0)->getElementsByTagName("TimbreFiscalDigital");
+  $UUID = $timbre->item(0)->getAttribute('UUID');
+  $fechaTimbrado = $timbre->item(0)->getAttribute('FechaTimbrado');
+  $selloSAT = $timbre->item(0)->getAttribute('selloSAT');
+  $noCertificadoSat = $timbre->item(0)->getAttribute('noCertificadoSAT');
 
-//   $Complemento = $doc->getElementsByTagName("Complemento");
-//   $timbre = $Complemento->item(0)->getElementsByTagName("TimbreFiscalDigital");
-//   $UUID = $timbre->item(0)->getAttribute('UUID');
-//   $fechaTimbrado = $timbre->item(0)->getAttribute('FechaTimbrado');
-//   $selloSAT = $timbre->item(0)->getAttribute('selloSAT');
-//   $noCertificadoSat = $timbre->item(0)->getAttribute('noCertificadoSAT');
+  $izq = str_pad($importe[1], 6, "0", STR_PAD_LEFT);
+  $der = str_pad($importe[0], 10, "0", STR_PAD_LEFT);
 
-//   $izq = str_pad($importe[1], 6, "0", STR_PAD_LEFT);
-//   $der = str_pad($importe[0], 10, "0", STR_PAD_LEFT);
+  include_once("phpqrcode/qrlib.php");
+  $cadenaCodigoBarras = "?re=VAAA671004LY0&rr=" . $rfc . "&tt=" . $der . $izq . "&id=" . $UUID;
 
-//   include_once("phpqrcode/qrlib.php");
-//   $cadenaCodigoBarras = "?re=VAAA671004LY0&rr=" . $rfc . "&tt=" . $der . $izq . "&id=" . $UUID;
+  if(!file_exists("cbb/" . $UUID . ".png")) {
+    QRcode::png($cadenaCodigoBarras, "cbb/" . $UUID . ".png", 'L', 4, 2);
+  }
+  $noCertificado = '00001000000301099705';
 
-//   if(!file_exists("cbb/" . $UUID . ".png")) {
-//     QRcode::png($cadenaCodigoBarras, "cbb/" . $UUID . ".png", 'L', 4, 2);
-//   }
-//   $noCertificado = '00001000000301099705';
-
-//   $query = "UPDATE documents SET uuid='" . $UUID . "', fechaTimbrado='" . $fechaTimbrado . "', selloSat='" . $selloSAT . "', noCertificado='" . $noCertificado . "', certificado='" . $certificado . "', sello='" . $sello . "', noCertificadoSat='" . $noCertificadoSat . "'  WHERE id=" . $_REQUEST['id'];
-//   $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+  $query = "UPDATE documents SET uuid='" . $UUID . "', fechaTimbrado='" . $fechaTimbrado . "', selloSat='" . $selloSAT . "', noCertificado='" . $noCertificado . "', certificado='" . $certificado . "', sello='" . $sello . "', noCertificadoSat='" . $noCertificadoSat . "'  WHERE id=" . $_REQUEST['id'];
+  $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
   echo "Creado con exito";
 

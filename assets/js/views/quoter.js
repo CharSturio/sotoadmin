@@ -45,6 +45,7 @@ function onClickProducts() {
 
 function onClickSelectName(id, name, credit, limitCredit, typeCost) {
   idSelect = id;
+  console.log(idSelect);
   TypeCost = typeCost;
   document.getElementById('response').innerHTML = '<div></div>';
   document.getElementById('nameClient').innerHTML = '<b>Nombre Comercial / Razón Social: </b>' + name;
@@ -62,6 +63,7 @@ function onClickAdd(id, amount, codigo) {
   if (idSelect === 'NA') {
     alert('Favor de escoger un cliente.');
   } else {
+    console.log(idSelect + " cuando se escoge el producto");
     xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState === 1) {
         document.getElementById('response').innerHTML = 'Procesando...';

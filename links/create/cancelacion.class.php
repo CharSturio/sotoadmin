@@ -75,7 +75,7 @@ class Cancelacion{
 
 			/* se cacha la respuesta de la autenticacion */
 			$this->responseAutentica = $this->https->Autenticar($autentica);
-			if($this->responseAutentica->return->mensaje != ""){
+			if(isset($this->responseAutentica->return->mensaje) && $this->responseAutentica->return->mensaje != ""){
 				$this->error = $this->responseAutentica->return->mensaje;
 			}else{
 				/* se manda el xml a timbrar */
@@ -91,7 +91,7 @@ class Cancelacion{
 				/* cacha la respuesta */
 				$this->Cancelacion_1Response = $this->https->Cancelacion_1($cancela1);
 
-				if($this->Cancelacion_1Response->return->mensaje != ""){
+				if(isset($this->Cancelacion_1Response->return->mensaje) && $this->Cancelacion_1Response->return->mensaje != ""){
 					$this->error = $this->Cancelacion_1Response->return->mensaje;
 				}else{
 					$this->out = $this->Cancelacion_1Response->return->acuse;

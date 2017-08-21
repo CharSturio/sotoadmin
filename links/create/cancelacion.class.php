@@ -65,7 +65,7 @@ class Cancelacion{
 			}
 
 
-			var_dump($https);
+			//var_dump($https);
 
 			/* se le pasan los datos de acceso */
 			$autentica = new Autenticar();

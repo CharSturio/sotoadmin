@@ -165,7 +165,7 @@
       $name_xml = $rowDandC['invoice'] . $rowDandC['id'] . ".xml";
       $file = "create/xmls/".$name_xml;
     }
-    if (file_exists($file)) {
+    //if (file_exists($file)) {
       header('Content-Description: File Transfer');
       header('Content-Type: application/octet-stream');
       header('Content-Disposition: attachment; filename='.basename($file));
@@ -177,7 +177,7 @@
       ob_clean();
       flush();
       readfile($file);
-    }
+    //}
 
   }
   else if ($operation === 'pdf') {
@@ -187,7 +187,7 @@
     $rowDandC = mysqli_fetch_assoc($resultDandC);
     $name_pdf = $rowDandC['invoice']. ".pdf";
     $file = "../invoice/pdf/" . $name_pdf;
-    if (file_exists($file)) {
+    //if (file_exists($file)) {
       header('Content-Description: File Transfer');
       header('Content-Type: application/octet-stream');
       header('Content-Disposition: attachment; filename='.basename($file));
@@ -199,7 +199,7 @@
       ob_clean();
       flush();
       readfile($file);
-    }
+    //}
   }
   mysqli_close($link);
  ?>

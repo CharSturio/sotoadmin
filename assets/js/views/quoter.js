@@ -73,7 +73,7 @@ function onClickAdd(id, amount, codigo) {
       }
     };
 
-    xmlhttp.open("GET", "links/quoter.php?operation=addProduct&id=" + id + "&amount=" + amount + "&price=" + price + "&idClient=" + idSelect);
+    xmlhttp.open("GET", "links/quoter.php?operation=addProduct&id=" + id + "&amount=" + ramount + "&price=" + price + "&idClient=" + idSelect);
     xmlhttp.send();
   }
 }

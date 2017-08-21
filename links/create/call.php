@@ -21,8 +21,8 @@ function SetTimbrado($fileName) {
         $autentica->contrasena = "7388O_a14";
 
         $responseAutentica = $client->Autenticar($autentica);
-        echo $responseAutentica->return->mensaje . "<br>";
-    		echo $responseAutentica->return->token . "<br>";
+        // echo $responseAutentica->return->mensaje . "<br>";
+    	// 	echo $responseAutentica->return->token . "<br>";
         /* se manda el xml a timbrar */
         $timbrar = new Timbrar();
     		$timbrar->cfd = $XML->saveXML();
@@ -30,13 +30,13 @@ function SetTimbrado($fileName) {
 
         /* cacha la respuesta */
         $responseTimbre = $client->Timbrar($timbrar);
-        echo "<br><br><br>MSG SOAP REQUEST:<br><br>" . $client->__getLastRequest() . "\n";
-    		echo "<br><br><br>MSG SOAP REQUEST:<br><br>" . $client->__getLastResponse() . "\n";
+        // echo "<br><br><br>MSG SOAP REQUEST:<br><br>" . $client->__getLastRequest() . "\n";
+    	// 	echo "<br><br><br>MSG SOAP REQUEST:<br><br>" . $client->__getLastResponse() . "\n";
 
 
-        echo "codigoErr:" . $responseTimbre->return->codigo . "<br>";
-    		echo $responseTimbre->return->mensaje . "<br>";
-    		echo $responseTimbre->return->cfdi . "<br>";
+        // echo "codigoErr:" . $responseTimbre->return->codigo . "<br>";
+    	// 	echo $responseTimbre->return->mensaje . "<br>";
+    	// 	echo $responseTimbre->return->cfdi . "<br>";
 
 
         if(isset($responseTimbre->return->codigo) && $responseTimbre->return->codigo != "" && $responseTimbre->return->codigo <> 0) {

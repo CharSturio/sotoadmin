@@ -92,7 +92,7 @@ session_start();
     echo 'Actualizado correctamente.';
 
   }else if ($operation === 'modifyCosts') {
-    if ($_SESSION['permit'] === 'admin') {
+    //if ($_SESSION['permit'] === 'admin') {
       $query = "UPDATE products SET";
       if ($_REQUEST['retail_price']) {
         $query .= " retail_price='" . round(($_REQUEST['retail_price']/116)*100,2)*1.16 . "',";
@@ -115,32 +115,32 @@ session_start();
       $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Actualizado correctamente.';
-    } elseif ($_REQUEST['typeProduct'] !== 'llantas') {
-      $query = "UPDATE products SET";
-      if ($_REQUEST['retail_price']) {
-        $query .= " retail_price='" . round(($_REQUEST['retail_price']/116)*100,2)*1.16 . "',";
-      }
-      if ($_REQUEST['wholesale_price']) {
-        $query .= " wholesale_price='" . round(($_REQUEST['wholesale_price']/116)*100,2)*1.16 . "',";
-      }
-      if ($_REQUEST['special_price']) {
-        $query .= " special_price='" . round(($_REQUEST['special_price']/116)*100,2)*1.16 . "',";
-      }
-      if ($_REQUEST['tarjeta']) {
-        $query .= " tarjeta='" . round(($_REQUEST['tarjeta']/116)*100,2)*1.16 . "',";
-      }
-      if ($_REQUEST['mpago']) {
-        $query .= " mpago='" . round(($_REQUEST['mpago']/116)*100,2)*1.16 . "',";
-      }
-      if ($_REQUEST['pespecial']) {
-        $query .= " pespecial='" . round(($_REQUEST['pespecial']/116)*100,2)*1.16 . "',";
-      }
-      $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-      echo 'Actualizado correctamente.';
-    } else {
-      echo 'Solo el usuario Administrador puede modificar precios';
-    }
+    // } elseif ($_REQUEST['typeProduct'] !== 'llantas') {
+    //   $query = "UPDATE products SET";
+    //   if ($_REQUEST['retail_price']) {
+    //     $query .= " retail_price='" . round(($_REQUEST['retail_price']/116)*100,2)*1.16 . "',";
+    //   }
+    //   if ($_REQUEST['wholesale_price']) {
+    //     $query .= " wholesale_price='" . round(($_REQUEST['wholesale_price']/116)*100,2)*1.16 . "',";
+    //   }
+    //   if ($_REQUEST['special_price']) {
+    //     $query .= " special_price='" . round(($_REQUEST['special_price']/116)*100,2)*1.16 . "',";
+    //   }
+    //   if ($_REQUEST['tarjeta']) {
+    //     $query .= " tarjeta='" . round(($_REQUEST['tarjeta']/116)*100,2)*1.16 . "',";
+    //   }
+    //   if ($_REQUEST['mpago']) {
+    //     $query .= " mpago='" . round(($_REQUEST['mpago']/116)*100,2)*1.16 . "',";
+    //   }
+    //   if ($_REQUEST['pespecial']) {
+    //     $query .= " pespecial='" . round(($_REQUEST['pespecial']/116)*100,2)*1.16 . "',";
+    //   }
+    //   $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
+    //   $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+    //   echo 'Actualizado correctamente.';
+    // } else {
+    //   echo 'Solo el usuario Administrador puede modificar precios';
+    // }
 
   } else if ($operation === 'delete') {
     $query .= "DELETE FROM products WHERE id=" . $_REQUEST['id'] . ";";

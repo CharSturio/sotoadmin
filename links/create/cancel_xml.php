@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-  if ($_SESSION['permit'] === 'admin') {
+  //if ($_SESSION['permit'] === 'admin') {
     require '../../connection/index.php';
     function CancelarCFDI($fecha, $folio, $file) {
         header ('Content-type: text/html; charset=utf-8');
@@ -94,8 +94,8 @@ session_start();
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
         echo "cancelado";
     }
-  } else {
-    echo '1';
-  }
+//   } else {
+//     echo '1';
+//   }
 
 ?>

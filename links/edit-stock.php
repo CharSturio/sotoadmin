@@ -45,18 +45,18 @@ session_start();
             </tr>';
     }
   } else if ($operation === 'modify') {
-    if ($_SESSION['permit'] === 'admin') {
+    //if ($_SESSION['permit'] === 'admin') {
       $id_product = $_REQUEST['id'];
       $alter_stock = $_REQUEST['alterStock'];
 
       $queryTemp = "UPDATE stocks SET amount=" . $alter_stock . " WHERE id_product=" . $id_product;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Cantidad cambiada.';
-    } else {
-      echo 'Solo admin puede modificar existencia';
-    }
+    // } else {
+    //   echo 'Solo admin puede modificar existencia';
+    // }
   } else if ($operation === 'in') {
-    if ($_SESSION['permit'] === 'admin') {
+    //if ($_SESSION['permit'] === 'admin') {
       $id_product = $_REQUEST['id'];
       $alter_stock = $_REQUEST['alterStock'];
 
@@ -69,11 +69,11 @@ session_start();
       $queryTemp = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id_product;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Cantidad cambiada.';
-    } else {
-      echo 'Solo admin puede modificar existencia';
-    }
+    // } else {
+    //   echo 'Solo admin puede modificar existencia';
+    // }
   } else if ($operation === 'out') {
-    if ($_SESSION['permit'] === 'admin') {
+    //if ($_SESSION['permit'] === 'admin') {
       $id_product = $_REQUEST['id'];
       $alter_stock = $_REQUEST['alterStock'];
 
@@ -86,9 +86,9 @@ session_start();
       $queryTemp = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id_product;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Cantidad cambiada.';
-    } else {
-      echo 'Solo admin puede modificar existencia';
-    }
+    // } else {
+    //   echo 'Solo admin puede modificar existencia';
+    // }
   }
   mysqli_close($link);
  ?>

@@ -1,4 +1,8 @@
-<div class="header">
+<?php 
+session_start();
+if($_SESSION['RegCliGen']){
+  echo '
+  <div class="header">
   <h2><strong>Clientes</strong></h2>
 </div>
 <div class="row">
@@ -106,4 +110,11 @@
     </div>
   </div>
 </div>
-<script src="assets/js/views/clients.js"></script>
+<script src="assets/js/views/clients.js"></script>';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

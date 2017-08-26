@@ -1,4 +1,7 @@
-<div class="header">
+<?php 
+session_start();
+if($_SESSION['UtiPerGen']){
+  echo '<div class="header">
   <h2><strong>Permisos</strong></h2>
 </div>
 <div class="row">
@@ -41,7 +44,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegUsuGen' type="checkbox" class="switch-input">
+                        <input id="RegUsuGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -51,7 +54,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegUsuCre' type="checkbox" class="switch-input">
+                        <input id="RegUsuCre" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -61,7 +64,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegUsuMod' type="checkbox" class="switch-input">
+                        <input id="RegUsuMod" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -71,7 +74,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegUsuEli' type="checkbox" class="switch-input">
+                        <input id="RegUsuEli" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -81,7 +84,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegUsuVer' type="checkbox" class="switch-input">
+                        <input id="RegUsuVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -104,7 +107,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegCliGen' type="checkbox" class="switch-input">
+                        <input id="RegCliGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -114,7 +117,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegCliCre' type="checkbox" class="switch-input">
+                        <input id="RegCliCre" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -124,7 +127,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegCliMod' type="checkbox" class="switch-input">
+                        <input id="RegCliMod" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -134,7 +137,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegCliEli' type="checkbox" class="switch-input">
+                        <input id="RegCliEli" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -144,7 +147,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegCliVer' type="checkbox" class="switch-input">
+                        <input id="RegCliVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -167,7 +170,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegSucGen' type="checkbox" class="switch-input">
+                        <input id="RegSucGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -177,7 +180,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegSucCre' type="checkbox" class="switch-input">
+                        <input id="RegSucCre" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -187,7 +190,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegSucMod' type="checkbox" class="switch-input">
+                        <input id="RegSucMod" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -197,7 +200,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegSucEli' type="checkbox" class="switch-input">
+                        <input id="RegSucEli" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -207,7 +210,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegSucVer' type="checkbox" class="switch-input">
+                        <input id="RegSucVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -230,7 +233,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegProGen' type="checkbox" class="switch-input">
+                        <input id="RegProGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -240,7 +243,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegProCre' type="checkbox" class="switch-input">
+                        <input id="RegProCre" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -250,7 +253,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegProMod' type="checkbox" class="switch-input">
+                        <input id="RegProMod" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -260,7 +263,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegProModPre' type="checkbox" class="switch-input">
+                        <input id="RegProModPre" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -270,7 +273,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegProEli' type="checkbox" class="switch-input">
+                        <input id="RegProEli" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -280,7 +283,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RegProVer' type="checkbox" class="switch-input">
+                        <input id="RegProVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -306,7 +309,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCyCGen' type="checkbox" class="switch-input">
+                        <input id="UtiCyCGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -316,7 +319,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCyCBus' type="checkbox" class="switch-input">
+                        <input id="UtiCyCBus" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -326,7 +329,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCyCSeg' type="checkbox" class="switch-input">
+                        <input id="UtiCyCSeg" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -336,7 +339,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCyCPag' type="checkbox" class="switch-input">
+                        <input id="UtiCyCPag" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -346,7 +349,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCyCSegInt' type="checkbox" class="switch-input">
+                        <input id="UtiCyCSegInt" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -369,7 +372,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiEnvMerGen' type="checkbox" class="switch-input">
+                        <input id="UtiEnvMerGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -379,7 +382,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiEnvMerEnv' type="checkbox" class="switch-input">
+                        <input id="UtiEnvMerEnv" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -402,7 +405,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCCGen' type="checkbox" class="switch-input">
+                        <input id="UtiCCGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -412,7 +415,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCCCorCaj' type="checkbox" class="switch-input">
+                        <input id="UtiCCCorCaj" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -422,7 +425,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCCPdf' type="checkbox" class="switch-input">
+                        <input id="UtiCCPdf" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -432,7 +435,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiCCEnv' type="checkbox" class="switch-input">
+                        <input id="UtiCCEnv" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -455,7 +458,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiEySCGen' type="checkbox" class="switch-input">
+                        <input id="UtiEySCGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -465,7 +468,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiEySCAgrSal' type="checkbox" class="switch-input">
+                        <input id="UtiEySCAgrSal" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -475,7 +478,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiEySCAgrEnt' type="checkbox" class="switch-input">
+                        <input id="UtiEySCAgrEnt" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -498,7 +501,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiStoMinGen' type="checkbox" class="switch-input">
+                        <input id="UtiStoMinGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -508,7 +511,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiStoMinEnv' type="checkbox" class="switch-input">
+                        <input id="UtiStoMinEnv" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -531,7 +534,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiPerGen' type="checkbox" class="switch-input">
+                        <input id="UtiPerGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -541,7 +544,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiPerCre' type="checkbox" class="switch-input">
+                        <input id="UtiPerCre" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -551,7 +554,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiPerMod' type="checkbox" class="switch-input">
+                        <input id="UtiPerMod" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -561,7 +564,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiPerEli' type="checkbox" class="switch-input">
+                        <input id="UtiPerEli" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -571,7 +574,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='UtiPerVer' type="checkbox" class="switch-input">
+                        <input id="UtiPerVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -599,7 +602,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovLisGen' type="checkbox" class="switch-input">
+                        <input id="MovLisGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -609,7 +612,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovLisBus' type="checkbox" class="switch-input">
+                        <input id="MovLisBus" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -619,7 +622,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovLisTim' type="checkbox" class="switch-input">
+                        <input id="MovLisTim" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -629,7 +632,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovLisDes' type="checkbox" class="switch-input">
+                        <input id="MovLisDes" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -639,7 +642,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovLisEnv' type="checkbox" class="switch-input">
+                        <input id="MovLisEnv" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -649,7 +652,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovLisEli' type="checkbox" class="switch-input">
+                        <input id="MovLisEli" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -672,7 +675,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovCotGen' type="checkbox" class="switch-input">
+                        <input id="MovCotGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -682,7 +685,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovCotBusCli' type="checkbox" class="switch-input">
+                        <input id="MovCotBusCli" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -692,7 +695,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovCotBusPro' type="checkbox" class="switch-input">
+                        <input id="MovCotBusPro" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -702,7 +705,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovCotFac' type="checkbox" class="switch-input">
+                        <input id="MovCotFac" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -712,7 +715,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovCotRem' type="checkbox" class="switch-input">
+                        <input id="MovCotRem" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -722,7 +725,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovCotCre' type="checkbox" class="switch-input">
+                        <input id="MovCotCre" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -732,7 +735,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovCotCan' type="checkbox" class="switch-input">
+                        <input id="MovCotCan" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -755,7 +758,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovInvGen' type="checkbox" class="switch-input">
+                        <input id="MovInvGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -765,7 +768,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovInvBus' type="checkbox" class="switch-input">
+                        <input id="MovInvBus" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -775,7 +778,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovInvMod' type="checkbox" class="switch-input">
+                        <input id="MovInvMod" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -785,7 +788,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovInvEntDev' type="checkbox" class="switch-input">
+                        <input id="MovInvEntDev" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -795,7 +798,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovInvSalDev' type="checkbox" class="switch-input">
+                        <input id="MovInvSalDev" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -818,7 +821,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovEntMerGen' type="checkbox" class="switch-input">
+                        <input id="MovEntMerGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -828,7 +831,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovEntMerBus' type="checkbox" class="switch-input">
+                        <input id="MovEntMerBus" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -838,7 +841,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='MovEntMerAgr' type="checkbox" class="switch-input">
+                        <input id="MovEntMerAgr" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -864,7 +867,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepFacGen' type="checkbox" class="switch-input">
+                        <input id="RepFacGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -874,7 +877,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepFacVer' type="checkbox" class="switch-input">
+                        <input id="RepFacVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -884,7 +887,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepFacDes' type="checkbox" class="switch-input">
+                        <input id="RepFacDes" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -907,7 +910,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerCInvGen' type="checkbox" class="switch-input">
+                        <input id="RepMerCInvGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -917,7 +920,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerCInvVer' type="checkbox" class="switch-input">
+                        <input id="RepMerCInvVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -927,7 +930,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerCInvDes' type="checkbox" class="switch-input">
+                        <input id="RepMerCInvDes" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -950,7 +953,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerSInvGen' type="checkbox" class="switch-input">
+                        <input id="RepMerSInvGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -960,7 +963,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerSInvVer' type="checkbox" class="switch-input">
+                        <input id="RepMerSInvVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -970,7 +973,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerSInvDes' type="checkbox" class="switch-input">
+                        <input id="RepMerSInvDes" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -993,7 +996,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerCCosGen' type="checkbox" class="switch-input">
+                        <input id="RepMerCCosGen" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -1003,7 +1006,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerCCosVer' type="checkbox" class="switch-input">
+                        <input id="RepMerCCosVer" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -1013,7 +1016,7 @@
                     </div>
                     <div class="col-md-6">
                       <label class="switch switch-green">
-                        <input id='RepMerCCosDes' type="checkbox" class="switch-input">
+                        <input id="RepMerCCosDes" type="checkbox" class="switch-input">
                         <span class="switch-label" data-on="On" data-off="Off"></span>
                         <span class="switch-handle"></span>
                       </label>
@@ -1053,4 +1056,11 @@
       </div>
     </div>
   </div>
-</div>
+</div>';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

@@ -1,11 +1,14 @@
-<div class="header">
-  <h2><strong>Reporte de Mercancia con Costos</strong></h2>
+<?php 
+session_start();
+if($_SESSION['RepMerCInvGen']){
+  echo '<div class="header">
+  <h2><strong>Reporte de Mercancia con Inventarios</strong></h2>
 </div>
 <div class="row">
   <div class="col-lg-12">
     <div class="panel">
       <div class="panel-header">
-        <h3><i class="icon-bulb"></i>Reporte de mercancia con <strong>Costos</strong></h3>
+        <h3><i class="icon-bulb"></i>Reporte de mercancia con <strong>Inventarios</strong></h3>
       </div>
       <div class="panel-content p-t-0">
         <div class="row">
@@ -31,11 +34,17 @@
     </div>
   </div>
 </div>
-<script src="assets/js/views/rep_merc_c_cost.js"></script>
+<script src="assets/js/views/rep_merc_c_inv.js"></script>
 <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
 <link href="assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 <link href="assets/plugins/rateit/rateit.css" rel="stylesheet">
 <script>
-$('#sandbox-container input').datepicker({
-});
-</script>
+$("#sandbox-container input").datepicker({});
+</script>';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

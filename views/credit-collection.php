@@ -1,4 +1,7 @@
-<div class="header">
+<?php 
+session_start();
+if($_SESSION['UtiCyCGen']){
+  echo '<div class="header">
   <h2><strong>Credito y Cobranza</strong></h2>
 </div>
 <div class="row">
@@ -8,7 +11,7 @@
         <h3><i class="icon-bulb"></i> Credito y Cobranza </h3>
       </div>
       <div class="panel-content p-t-0">
-        <p> Filtra por Cliente y da clic en 'Seguimiento' para dar seguimiento a cliente.</p>
+        <p> Filtra por Cliente y da clic en "Seguimiento" para dar seguimiento a cliente.</p>
         <div class="row">
           <div class="col-md-6">
               <label class="form-label">Cliente</label>
@@ -126,4 +129,11 @@
       </div>
     </div>
   </div>
-</div>
+</div>';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

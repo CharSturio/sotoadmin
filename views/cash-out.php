@@ -1,4 +1,7 @@
-<div class="header">
+<?php 
+session_start();
+if($_SESSION['UtiEySCGen']){
+  echo '<div class="header">
 	<h2><strong>Entradas y salidas de Caja</strong></h2>
 </div>
 <div class="row">
@@ -67,16 +70,14 @@
 	      </div>
 	    </div>
 		</div>
-
-
-
-
-
-
-
-
-
 	  </div>
 	</div>
 </div>
-<script src="assets/js/views/cash-out.js"></script>
+<script src="assets/js/views/cash-out.js"></script>';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

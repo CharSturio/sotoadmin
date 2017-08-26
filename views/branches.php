@@ -1,4 +1,7 @@
-<div class="header">
+<?php 
+session_start();
+if($_SESSION['RegSucGen']){
+  echo '<div class="header">
   <h2><strong>Sucursales</strong></h2>
 </div>
 <div class="row">
@@ -8,7 +11,7 @@
         <h3><i class="icon-bulb"></i> Crear | Modificar | Suspender <strong>Sucursales</strong></h3>
       </div>
       <div class="panel-content p-t-0">
-        <p> Favor de agregar todos los campos con *. Para modificar información, selecciona sucursal en 'escoge sucursal', solo edita y da clic en el botón Editar o Eliminar.</p>
+        <p> Favor de agregar todos los campos con *. Para modificar información, selecciona sucursal en "escoge sucursal", solo edita y da clic en el botón Editar o Eliminar.</p>
         <div class="row">
           <div class="col-md-6">
               <label class="form-label">Nombre Sucursal</label>
@@ -75,4 +78,11 @@
       </div>
     </div>
   </div>
-</div>
+</div>';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

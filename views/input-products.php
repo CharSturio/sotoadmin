@@ -1,4 +1,7 @@
-<div class="header">
+<?php 
+session_start();
+if($_SESSION['MovEntMerGen']){
+  echo '<div class="header">
 	<h2><strong>Entrada Mercancia</strong></h2>
 </div>
 <div class="row">
@@ -68,4 +71,11 @@
       </div>
     </div>
   </div>
-</div>
+</div>';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

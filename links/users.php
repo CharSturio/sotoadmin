@@ -53,7 +53,7 @@
       $query .= " state='" . $_REQUEST['state'] . "',";
     }
     if ($_REQUEST['permision']) {
-      $query .= " permit='" . $_REQUEST['permit'] . "',";
+      $query .= " permit='" . $_REQUEST['permision'] . "',";
     }
     if ($_REQUEST['branches']) {
       $query .= " branch=" . $_REQUEST['branches'] . ",";

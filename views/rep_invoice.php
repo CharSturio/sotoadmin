@@ -1,4 +1,7 @@
-<div class="header">
+<?php 
+session_start();
+if($_SESSION['RepFacGen']){
+  echo '<div class="header">
   <h2><strong>Reporte de Facturas</strong></h2>
 </div>
 <div class="row">
@@ -53,6 +56,13 @@
 <link href="assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 <link href="assets/plugins/rateit/rateit.css" rel="stylesheet">
 <script>
-$('#sandbox-container input').datepicker({
-});
+$("#sandbox-container input").datepicker({});
 </script>
+';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

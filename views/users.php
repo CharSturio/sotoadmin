@@ -1,3 +1,8 @@
+<?php 
+require '../connection/index.php';
+session_start();
+if($_SESSION['RegUsuGen']){
+  echo '
 <div class="header">
   <h2><strong>Usuarios</strong></h2>
 </div>
@@ -8,7 +13,7 @@
         <h3><i class="icon-bulb"></i> Crear | Modificar | Suspender <strong>Usuarios</strong></h3>
       </div>
       <div class="panel-content p-t-0">
-        <p> Favor de agregar todos los campos con *. Para modificar información, selecciona usuario en 'escoge usuario', solo edita y da clic en el botón Editar o Eliminar.</p>
+        <p> Favor de agregar todos los campos con *. Para modificar información, selecciona usuario en "escoge usuario", solo edita y da clic en el botón Editar o Eliminar.</p>
         <div class="row">
           <div class="col-md-6">
               <label class="form-label">Usuario</label>
@@ -38,10 +43,14 @@
           </div>
           <div class="col-md-6">
               <label for="permisos">Permisos</label>
-              <select id="permision" class="form-control">
-                <option value="admin">Admin</option>
-                <option value="vendedor">Vendedor</option>
-              </select>
+              <select id="permision" class="form-control">';
+              $query = "SELECT name FROM permissions";
+              $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value="'.$row['name'].'">'.$row['name'].'</option>';
+              }
+                
+              echo '</select>
           </div>
           <div class="col-md-6">
               <label for="sucursal">Sucursal</label>
@@ -170,4 +179,11 @@
       </div>
     </div>
   </div>
-</div>
+</div>';
+} else {
+  echo '
+    <script type="text/javascript">
+    alert("No cuenta con los permisos necesarios.");
+    </script>
+  ';
+}

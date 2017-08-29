@@ -1,103 +1,119 @@
 <?php
   require '../connection/index.php';
-
+  session_start();
+  
   $operation = $_REQUEST['operation'];
   if ($operation === 'new') {
-    $name = $_REQUEST['name'];
-    $address = $_REQUEST['address'];
-    $colony = $_REQUEST['colony'];
-    $state = $_REQUEST['state'];
-    $phone = $_REQUEST['phone'];
-    $contact_name = $_REQUEST['contact_name'];
-    $rfc = $_REQUEST['rfc'];
-    $pc = $_REQUEST['pc'];
-    $city = $_REQUEST['city'];
-    $noInt = $_REQUEST['noInt'];
-    $noExt = $_REQUEST['noExt'];
-    $email = $_REQUEST['email'];
-    $credit = $_REQUEST['credit'];
-    $type_cost = $_REQUEST['typeCost'];
-    $cell_phone = $_REQUEST['cell_phone'];
-    if ($credit > 0) {
-      $thiscredit = 1;
-    } else {
-      $thiscredit = 0;
-      $credit = 0;
-    }
+    if($_SESSION['RegCliCre']){
+      $name = $_REQUEST['name'];
+      $address = $_REQUEST['address'];
+      $colony = $_REQUEST['colony'];
+      $state = $_REQUEST['state'];
+      $phone = $_REQUEST['phone'];
+      $contact_name = $_REQUEST['contact_name'];
+      $rfc = $_REQUEST['rfc'];
+      $pc = $_REQUEST['pc'];
+      $city = $_REQUEST['city'];
+      $noInt = $_REQUEST['noInt'];
+      $noExt = $_REQUEST['noExt'];
+      $email = $_REQUEST['email'];
+      $credit = $_REQUEST['credit'];
+      $type_cost = $_REQUEST['typeCost'];
+      $cell_phone = $_REQUEST['cell_phone'];
+      if ($credit > 0) {
+        $thiscredit = 1;
+      } else {
+        $thiscredit = 0;
+        $credit = 0;
+      }
 
-    $query = "SELECT * FROM clients where name='" . $name ."';";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-    if (mysqli_fetch_assoc($result)) {
-      echo 'El cliente ya existe. Favor de verificarlo o ingresar uno diferente.';
-    } else {
-      $query = "INSERT INTO clients (name, address, colony, state, phone, contact_name, rfc, pc, city, cell_phone, last_date, noInt, noExt, email, limit_credit, credit, type_cost) VALUES ('" . $name . "','" . $address . "','" . $colony . "','" . $state . "','" . $phone . "','" . $contact_name . "','" . $rfc . "','" . $pc . "','" . $city . "','" . $cell_phone . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),'" . $noInt . "','" . $noExt . "','" . $email . "','" . $credit . "','" . $thiscredit . "','" . $type_cost . "');";
+      $query = "SELECT * FROM clients where name='" . $name ."';";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-      echo 'Usuario agregado.';
+      if (mysqli_fetch_assoc($result)) {
+        echo 'El cliente ya existe. Favor de verificarlo o ingresar uno diferente.';
+      } else {
+        $query = "INSERT INTO clients (name, address, colony, state, phone, contact_name, rfc, pc, city, cell_phone, last_date, noInt, noExt, email, limit_credit, credit, type_cost) VALUES ('" . $name . "','" . $address . "','" . $colony . "','" . $state . "','" . $phone . "','" . $contact_name . "','" . $rfc . "','" . $pc . "','" . $city . "','" . $cell_phone . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),'" . $noInt . "','" . $noExt . "','" . $email . "','" . $credit . "','" . $thiscredit . "','" . $type_cost . "');";
+        $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+        echo 'Usuario agregado.';
+      }
+    } else {
+      echo 'noPermit';
     }
   } else if ($operation === 'modify') {
-    $query = "UPDATE clients SET";
-    if ($_REQUEST['name']) {
-      $query .= " name='" . $_REQUEST['name'] . "',";
-    }
-    if ($_REQUEST['address']) {
-      $query .= " address='" . $_REQUEST['address'] . "',";
-    }
-    if ($_REQUEST['colony']) {
-      $query .= " colony='" . $_REQUEST['colony'] . "',";
-    }
-    if ($_REQUEST['state']) {
-      $query .= " state='" . $_REQUEST['state'] . "',";
-    }
-    if ($_REQUEST['phone']) {
-      $query .= " phone='" . $_REQUEST['phone'] . "',";
-    }
-    if ($_REQUEST['contact_name']) {
-      $query .= " contact_name='" . $_REQUEST['contact_name'] . "',";
-    }
-    if ($_REQUEST['rfc']) {
-      $query .= " rfc='" . $_REQUEST['rfc'] . "',";
-    }
-    if ($_REQUEST['pc']) {
-      $query .= " pc='" . $_REQUEST['pc'] . "',";
-    }
-    if ($_REQUEST['city']) {
-      $query .= " city='" . $_REQUEST['city'] . "',";
-    }
-    if ($_REQUEST['cell_phone']) {
-      $query .= " cell_phone='" . $_REQUEST['cell_phone'] . "',";
-    }
-    if ($_REQUEST['noInt']) {
-      $query .= " noInt='" . $_REQUEST['noInt'] . "',";
-    }
-    if ($_REQUEST['noExt']) {
-      $query .= " noExt='" . $_REQUEST['noExt'] . "',";
-    }
-    if ($_REQUEST['email']) {
-      $query .= " email='" . $_REQUEST['email'] . "',";
-    }
-    if ($_REQUEST['typeCost']) {
-      $query .= " type_cost='" . $_REQUEST['typeCost'] . "',";
-    }
-    if ($_REQUEST['credit']) {
-      if ($_REQUEST['credit'] > 0) {
-        $query .= " limit_credit=" . $_REQUEST['credit'] . ", credit = 1,";
-      } else {
-        $query .= " limit_credit=" . $_REQUEST['credit'] . ", credit = 0,";
+    if($_SESSION['RegCliMod']){
+      $query = "UPDATE clients SET";
+      if ($_REQUEST['name']) {
+        $query .= " name='" . $_REQUEST['name'] . "',";
       }
+      if ($_REQUEST['address']) {
+        $query .= " address='" . $_REQUEST['address'] . "',";
+      }
+      if ($_REQUEST['colony']) {
+        $query .= " colony='" . $_REQUEST['colony'] . "',";
+      }
+      if ($_REQUEST['state']) {
+        $query .= " state='" . $_REQUEST['state'] . "',";
+      }
+      if ($_REQUEST['phone']) {
+        $query .= " phone='" . $_REQUEST['phone'] . "',";
+      }
+      if ($_REQUEST['contact_name']) {
+        $query .= " contact_name='" . $_REQUEST['contact_name'] . "',";
+      }
+      if ($_REQUEST['rfc']) {
+        $query .= " rfc='" . $_REQUEST['rfc'] . "',";
+      }
+      if ($_REQUEST['pc']) {
+        $query .= " pc='" . $_REQUEST['pc'] . "',";
+      }
+      if ($_REQUEST['city']) {
+        $query .= " city='" . $_REQUEST['city'] . "',";
+      }
+      if ($_REQUEST['cell_phone']) {
+        $query .= " cell_phone='" . $_REQUEST['cell_phone'] . "',";
+      }
+      if ($_REQUEST['noInt']) {
+        $query .= " noInt='" . $_REQUEST['noInt'] . "',";
+      }
+      if ($_REQUEST['noExt']) {
+        $query .= " noExt='" . $_REQUEST['noExt'] . "',";
+      }
+      if ($_REQUEST['email']) {
+        $query .= " email='" . $_REQUEST['email'] . "',";
+      }
+      if ($_REQUEST['typeCost']) {
+        $query .= " type_cost='" . $_REQUEST['typeCost'] . "',";
+      }
+      if ($_REQUEST['credit']) {
+        if ($_REQUEST['credit'] > 0) {
+          $query .= " limit_credit=" . $_REQUEST['credit'] . ", credit = 1,";
+        } else {
+          $query .= " limit_credit=" . $_REQUEST['credit'] . ", credit = 0,";
+        }
+      }
+      $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+      echo 'Actualizado correctamente.';
+    } else {
+      echo 'noPermit';
     }
-    $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-    echo 'Actualizado correctamente.';
-
   } else if ($operation === 'delete') {
-    $query .= "DELETE FROM clients WHERE id=" . $_REQUEST['id'] . ";";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-    echo 'Eliminado correctamente.';
+    if($_SESSION['RegCliEli']){
+      $query .= "DELETE FROM clients WHERE id=" . $_REQUEST['id'] . ";";
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+      echo 'Eliminado correctamente.';
+    } else {
+      echo 'noPermit';
+    }
   } else if ($operation === 'clients') {
-    $query = "SELECT id, name FROM clients;";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-    while ($row = mysqli_fetch_assoc($result)) {
-      echo '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
+    if($_SESSION['RegCliVer']){
+      $query = "SELECT id, name FROM clients;";
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo '<option value="' . $row["id"] . '">' . $row["name"] . '</option>';
+      }
+    } else {
+      echo 'noPermit';
     }
   } else if ($operation === 'selectClient') {
     $id = $_REQUEST['id'];

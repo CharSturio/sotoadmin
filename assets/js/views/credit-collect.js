@@ -11,7 +11,11 @@ function onClickBrowser() {
       if (xmlhttp.readyState === 1) {
         document.getElementById('response').innerHTML = 'Procesando...';
       } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-        document.getElementById('response').innerHTML = xmlhttp.response;
+        if (xmlhttp.responseText == 'noPermit') {
+          alert("No cuenta con los permisos necesarios.");
+        } else {
+          document.getElementById('response').innerHTML = xmlhttp.responseText;            
+        }
       }
     };
 
@@ -33,7 +37,11 @@ function onClickFollow(id_document, limitCredit, rest, invoice, nameClient) {
     if (xmlhttp.readyState === 1) {
       document.getElementById('response1').innerHTML = 'Procesando...';
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      document.getElementById('response1').innerHTML = xmlhttp.response;
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else {
+        document.getElementById('response1').innerHTML = xmlhttp.responseText;            
+      }
     }
   };
 
@@ -51,7 +59,12 @@ function onClickAddFollow() {
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 1) {
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      alert(xmlhttp.response);
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else {
+        alert(xmlhttp.response);          
+      }
+      
     }
   };
 
@@ -67,7 +80,12 @@ function onClickPaid() {
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 1) {
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      alert(xmlhttp.response);
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else {
+        alert(xmlhttp.response);          
+      }
+      
     }
   };
 

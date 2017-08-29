@@ -51,9 +51,9 @@ function onClickXMLCredit(id, op) {
         if (xmlhttp.readyState === 1) {
           document.getElementById('response').innerHTML = 'Procesando...';
         } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-          if (xmlhttp.response === '0') {
+          if (xmlhttp.responseText === '1') { 
             alert('Faltan datos del cliente para poder facturar.');
-          } else if (xmlhttp.response === '0') {
+          } else if (xmlhttp.responseText === '0') {
             alert('Hubo un error: ' + xmlhttp.response);
             console.log(xmlhttp.response);
           } else {
@@ -113,8 +113,12 @@ function onClickBrowser() {
       if (xmlhttp.readyState === 1) {
         document.getElementById('response').innerHTML = 'Procesando...';
       } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-        document.getElementById('response').innerHTML = '';
-        document.getElementById('table').innerHTML = xmlhttp.responseText;
+        if (xmlhttp.responseText == 'noPermit') {
+          alert("No cuenta con los permisos necesarios.");
+        } else {
+          document.getElementById('response').innerHTML = '';
+          document.getElementById('table').innerHTML = xmlhttp.responseText;
+        }
       }
     }
     xmlhttp.open("GET", "links/movelist.php?operation=browserInfo&user=" + userName +"&client=" + clientName + "&invoice=" + keyInvoice);

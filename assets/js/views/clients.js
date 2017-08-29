@@ -26,7 +26,11 @@ function onClickNew() {
         if (xmlhttp.readyState === 1) {
           document.getElementById('response').innerHTML = 'Procesando...';
         } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-          document.getElementById('response').innerHTML = xmlhttp.responseText;
+          if (xmlhttp.responseText == 'noPermit') {
+            alert("No cuenta con los permisos necesarios.");
+          } else {
+            document.getElementById('response').innerHTML = xmlhttp.responseText;            
+          }
         }
       };
 
@@ -65,7 +69,11 @@ function onClickModify() {
         if (xmlhttp.readyState === 1) {
           document.getElementById('response').innerHTML = 'Procesando...';
         } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-          document.getElementById('response').innerHTML = xmlhttp.responseText;
+          if (xmlhttp.responseText == 'noPermit') {
+            alert("No cuenta con los permisos necesarios.");
+          } else {
+            document.getElementById('response').innerHTML = xmlhttp.responseText;            
+          }
         }
       };
 
@@ -109,7 +117,11 @@ function onClickClients() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      document.getElementById('all_clients').innerHTML = xmlhttp.responseText;
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else {
+        document.getElementById('all_clients').innerHTML = xmlhttp.responseText;            
+      }
     }
   };
 
@@ -151,7 +163,11 @@ function onClickDelete() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-        document.getElementById('response').innerHTML = xmlhttp.responseText;
+        if (xmlhttp.responseText == 'noPermit') {
+          alert("No cuenta con los permisos necesarios.");
+        } else {
+          document.getElementById('response').innerHTML = xmlhttp.responseText;            
+        }
       }
     };
 

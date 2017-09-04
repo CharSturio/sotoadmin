@@ -6,7 +6,7 @@
   if ($operation === 'loadInfo') {
     // $id = $_REQUEST['id'];
     // $quest = $id * 25;
-    $query = "SELECT D.uuid, D.id, D.invoice, D.last_date, D.type, D.status, C.name, U.user, D.total, D.comments FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id ORDER BY D.last_date DESC LIMIT 0,250";
+    $query = "SELECT D.uuid, D.id, D.invoice, D.last_date, D.type, D.status, C.name, U.user, D.total, D.comments FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id ORDER BY D.last_date DESC LIMIT 0,425";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     while ($row = mysqli_fetch_assoc($result)) {
       if ($row['type'] === 'invoice') {

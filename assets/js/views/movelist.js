@@ -24,7 +24,9 @@ function onClickXML(id, op) {
         if (xmlhttp.readyState === 1) {
           document.getElementById('response').innerHTML = 'Procesando...';
         } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-          if(/exito/.test(xmlhttp.responseText)) {
+          if (xmlhttp.responseText == 'noPermit') {
+            alert("No cuenta con los permisos necesarios.");
+          } else if(/exito/.test(xmlhttp.responseText)) {
             alert('Proceso realizado. Se le redireccionara.');
             window.location.href ="links/movelist.php?operation=xml&id=" + id;
             document.location.reload();
@@ -51,7 +53,9 @@ function onClickXMLCredit(id, op) {
         if (xmlhttp.readyState === 1) {
           document.getElementById('response').innerHTML = 'Procesando...';
         } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-          if (xmlhttp.responseText === '1') { 
+          if (xmlhttp.responseText == 'noPermit') {
+            alert("No cuenta con los permisos necesarios.");
+          } else if (xmlhttp.responseText === '1') { 
             alert('Faltan datos del cliente para poder facturar.');
           } else if (xmlhttp.responseText === '0') {
             alert('Hubo un error: ' + xmlhttp.response);
@@ -83,7 +87,9 @@ function onClickCancel(id) {
       if (xmlhttp.readyState === 1) {
         document.getElementById('response').innerHTML = 'Procesando...';
       } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-        if (xmlhttp.response === '1') {
+        if (xmlhttp.responseText == 'noPermit') {
+          alert("No cuenta con los permisos necesarios.");
+        } else if (xmlhttp.response === '1') {
           alert('Solo un usuario Administrador puede Eliminar');
         } else {
           alert(xmlhttp.response + ' sera redireccionado.');

@@ -86,7 +86,7 @@
       if (mysqli_fetch_assoc($result)) {
         echo 'El permiso ya existe. Favor de intentar con otro nombre.';
       } else {
-        $query = "INSERT INTO permissions (name, RegUsuGen, RegUsuCre, RegUsuMod, RegUsuEli, RegUsuVer, RegCliGen, RegCliCre, RegCliMod, RegCliEli, RegCliVer, RegSucGen, RegSucCre, RegSucMod, RegSucEli, RegSucVer, RegProGen, RegProCre, RegProMod, RegProModPre, RegProEli, RegProVer, UtiCyCGen, UtiCyCBus, UtiCyCSeg, UtiCyCPag, UtiCyCSegInt, UtiEnvMerGen, UtiEnvMerEnv, UtiCCGen, UtiCCCorCaj, UtiCCPdf, UtiCCEnv, UtiEySCGen, UtiEySCAgrSal, UtiEySCAgrEnt, UtiStoMinGen, UtiStoMinEnv, UtiPerGen, UtiPerCre, UtiPerMod, UtiPerEli, UtiPerVer, MovLisGen, MovLisBus, MovLisTim, MovLisDes, MovLisEnv, MovLisEli, MovCotGen, MovCotBusCli, MovCotBusPro, MovCotFac, MovCotRem, MovCotCre, MovCotCan, MovInvGen, MovInvBus, MovInvMod, MovInvEntDev, MovInvSalDev, MovEntMerGen, MovEntMerBus, MovEntMerAgr, RepFacGen, RepFacVer, RepFacDes, RepMerCInvGen, RepMerCInvVer, RepMerCInvDes, RepMerSInvGen, RepMerSInvVer, RepMerSInvDes, RepMerCCosGen, RepMerCCosVer, RepMerCCosDes, last_date) VALUES('" . $name ."',".$RegUsuGen.",".$RegUsuCre.",".$RegUsuMod.",".$RegUsuEli.",".$RegUsuVer.",".$RegCliGen.",".$RegCliCre.",".$RegCliMod.",".$RegCliEli.",".$RegCliVer.",".$RegSucGen.",".$RegSucCre.",".$RegSucMod.",".$RegSucEli.",".$RegSucVer.",".$RegProGen.",".$RegProCre.",".$RegProMod.",".$RegProModPre.",".$RegProEli.",".$RegProVer.",".$UtiCyCGen.",".$UtiCyCBus.",".$UtiCyCSeg.",".$UtiCyCPag.",".$UtiCyCSegInt.",".$UtiEnvMerGen.",".$UtiEnvMerEnv.",".$UtiCCGen.",".$UtiCCCorCaj.",".$UtiCCPdf.",".$UtiCCEnv.",".$UtiEySCGen.",".$UtiEySCAgrSal.",".$UtiEySCAgrEnt.",".$UtiStoMinGen.",".$UtiStoMinEnv.",".$UtiPerGen.",".$UtiPerCre.",".$UtiPerMod.",".$UtiPerEli.",".$UtiPerVer.",".$MovLisGen.",".$MovLisBus.",".$MovLisTim.",".$MovLisDes.",".$MovLisEnv.",".$MovLisEli.",".$MovCotGen.",".$MovCotBusCli.",".$MovCotBusPro.",".$MovCotFac.",".$MovCotRem.",".$MovCotCre.",".$MovCotCan.",".$MovInvGen.",".$MovInvBus.",".$MovInvMod.",".$MovInvEntDev.",".$MovInvSalDev.",".$MovEntMerBus.",".$MovEntMerGen.",".$MovEntMerAgr.",".$RepFacGen.",".$RepFacVer.",".$RepFacDes.",".$RepMerCInvGen.",".$RepMerCInvVer.",".$RepMerCInvDes.",".$RepMerSInvGen.",".$RepMerSInvVer.",".$RepMerSInvDes.",".$RepMerCCosGen.",".$RepMerCCosVer.",".$RepMerCCosDes.",date_sub(NOW(), INTERVAL 300 HOUR_MINUTE))";
+        $query = "INSERT INTO permissions (name, RegUsuGen, RegUsuCre, RegUsuMod, RegUsuEli, RegUsuVer, RegCliGen, RegCliCre, RegCliMod, RegCliEli, RegCliVer, RegSucGen, RegSucCre, RegSucMod, RegSucEli, RegSucVer, RegProGen, RegProCre, RegProMod, RegProModPre, RegProEli, RegProVer, UtiCyCGen, UtiCyCBus, UtiCyCSeg, UtiCyCPag, UtiCyCSegInt, UtiEnvMerGen, UtiEnvMerEnv, UtiCCGen, UtiCCCorCaj, UtiCCPdf, UtiCCEnv, UtiEySCGen, UtiEySCAgrSal, UtiEySCAgrEnt, UtiStoMinGen, UtiStoMinEnv, UtiPerGen, UtiPerCre, UtiPerMod, UtiPerEli, UtiPerVer, MovLisGen, MovLisBus, MovLisTim, MovLisDes, MovLisEnv, MovLisEli, MovCotGen, MovCotBusCli, MovCotBusPro, MovCotFac, MovCotRem, MovCotCre, MovCotCan, MovInvGen, MovInvBus, MovInvMod, MovInvEntDev, MovInvSalDev, MovEntMerGen, MovEntMerBus, MovEntMerAgr, RepFacGen, RepFacVer, RepFacDes, RepMerCInvGen, RepMerCInvVer, RepMerCInvDes, RepMerSInvGen, RepMerSInvVer, RepMerSInvDes, RepMerCCosGen, RepMerCCosVer, RepMerCCosDes, last_date) VALUES('" . $name ."','".$RegUsuGen."','".$RegUsuCre."','".$RegUsuMod."','".$RegUsuEli."','".$RegUsuVer."','".$RegCliGen."','".$RegCliCre."','".$RegCliMod."','".$RegCliEli."','".$RegCliVer."','".$RegSucGen."','".$RegSucCre."','".$RegSucMod."','".$RegSucEli."','".$RegSucVer."','".$RegProGen."','".$RegProCre."','".$RegProMod."','".$RegProModPre."','".$RegProEli."','".$RegProVer."','".$UtiCyCGen."','".$UtiCyCBus."','".$UtiCyCSeg."','".$UtiCyCPag."','".$UtiCyCSegInt."','".$UtiEnvMerGen."','".$UtiEnvMerEnv."','".$UtiCCGen."','".$UtiCCCorCaj."','".$UtiCCPdf."','".$UtiCCEnv."','".$UtiEySCGen."','".$UtiEySCAgrSal."','".$UtiEySCAgrEnt."','".$UtiStoMinGen."','".$UtiStoMinEnv."','".$UtiPerGen."','".$UtiPerCre."','".$UtiPerMod."','".$UtiPerEli."','".$UtiPerVer."','".$MovLisGen."','".$MovLisBus."','".$MovLisTim."','".$MovLisDes."','".$MovLisEnv."','".$MovLisEli."','".$MovCotGen."','".$MovCotBusCli."','".$MovCotBusPro."','".$MovCotFac."','".$MovCotRem."','".$MovCotCre."','".$MovCotCan."','".$MovInvGen."','".$MovInvBus."','".$MovInvMod."','".$MovInvEntDev."','".$MovInvSalDev."','".$MovEntMerBus."','".$MovEntMerGen."','".$MovEntMerAgr."','".$RepFacGen."','".$RepFacVer."','".$RepFacDes."','".$RepMerCInvGen."','".$RepMerCInvVer."','".$RepMerCInvDes."','".$RepMerSInvGen."','".$RepMerSInvVer."','".$RepMerSInvDes."','".$RepMerCCosGen."','".$RepMerCCosVer."','".$RepMerCCosDes."',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE))";
         //$query = "INSERT INTO permissions (name, rfc, address, nint, next, state, city, cp, reason, last_date) VALUES('" . $name ."','" . $rfc . "','" . $address . "','" . $nint . "','" . $next . "','" . $state . "','" . $city . "','" . $cp . "','" . $reason . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
         echo 'Sucursal agregada.';
@@ -102,229 +102,229 @@
         $query .= " name='" . $_REQUEST['name'] . "',";
       }
       if ($_REQUEST['RegUsuGen']) {
-        $query .= " RegUsuGen=" . $_REQUEST['RegUsuGen'] . ",";
+        $query .= " RegUsuGen='" . $_REQUEST['RegUsuGen'] . "',";
       }
       if ($_REQUEST['RegUsuCre']) {
-        $query .= " RegUsuCre=" . $_REQUEST['RegUsuCre'] . ",";
+        $query .= " RegUsuCre='" . $_REQUEST['RegUsuCre'] . "',";
       }
       if ($_REQUEST['RegUsuMod']) {
-        $query .= " RegUsuMod=" . $_REQUEST['RegUsuMod'] . ",";
+        $query .= " RegUsuMod='" . $_REQUEST['RegUsuMod'] . "',";
       }
       if ($_REQUEST['RegUsuEli']) {
-        $query .= " RegUsuEli=" . $_REQUEST['RegUsuEli'] . ",";
+        $query .= " RegUsuEli='" . $_REQUEST['RegUsuEli'] . "',";
       }
       if ($_REQUEST['RegUsuVer']) {
-        $query .= " RegUsuVer=" . $_REQUEST['RegUsuVer'] . ",";
+        $query .= " RegUsuVer='" . $_REQUEST['RegUsuVer'] . "',";
       }
       if ($_REQUEST['RegCliGen']) {
-        $query .= " RegCliGen=" . $_REQUEST['RegCliGen'] . ",";
+        $query .= " RegCliGen='" . $_REQUEST['RegCliGen'] . "',";
       }
       if ($_REQUEST['RegCliCre']) {
-        $query .= " RegCliCre=" . $_REQUEST['RegCliCre'] . ",";
+        $query .= " RegCliCre='" . $_REQUEST['RegCliCre'] . "',";
       }
       if ($_REQUEST['RegCliMod']) {
-        $query .= " RegCliMod=" . $_REQUEST['RegCliMod'] . ",";
+        $query .= " RegCliMod='" . $_REQUEST['RegCliMod'] . "',";
       }
       if ($_REQUEST['RegCliEli']) {
-        $query .= " RegCliEli=" . $_REQUEST['RegCliEli'] . ",";
+        $query .= " RegCliEli='" . $_REQUEST['RegCliEli'] . "',";
       }
       if ($_REQUEST['RegCliVer']) {
-        $query .= " RegCliVer=" . $_REQUEST['RegCliVer'] . ",";
+        $query .= " RegCliVer='" . $_REQUEST['RegCliVer'] . "',";
       }
       if ($_REQUEST['RegSucGen']) {
-        $query .= " RegSucGen=" . $_REQUEST['RegSucGen'] . ",";
+        $query .= " RegSucGen='" . $_REQUEST['RegSucGen'] . "',";
       }
       if ($_REQUEST['RegSucCre']) {
-        $query .= " RegSucCre=" . $_REQUEST['RegSucCre'] . ",";
+        $query .= " RegSucCre='" . $_REQUEST['RegSucCre'] . "',";
       }
       if ($_REQUEST['RegSucMod']) {
-        $query .= " RegSucMod=" . $_REQUEST['RegSucMod'] . ",";
+        $query .= " RegSucMod='" . $_REQUEST['RegSucMod'] . "',";
       }
       if ($_REQUEST['RegSucEli']) {
-        $query .= " RegSucEli=" . $_REQUEST['RegSucEli'] . ",";
+        $query .= " RegSucEli='" . $_REQUEST['RegSucEli'] . "',";
       }
       if ($_REQUEST['RegSucVer']) {
-        $query .= " RegSucVer=" . $_REQUEST['RegSucVer'] . ",";
+        $query .= " RegSucVer='" . $_REQUEST['RegSucVer'] . "',";
       }
       if ($_REQUEST['RegProGen']) {
-        $query .= " RegProGen=" . $_REQUEST['RegProGen'] . ",";
+        $query .= " RegProGen='" . $_REQUEST['RegProGen'] . "',";
       }
       if ($_REQUEST['RegProCre']) {
-        $query .= " RegProCre=" . $_REQUEST['RegProCre'] . ",";
+        $query .= " RegProCre='" . $_REQUEST['RegProCre'] . "',";
       }
       if ($_REQUEST['RegProMod']) {
-        $query .= " RegProMod=" . $_REQUEST['RegProMod'] . ",";
+        $query .= " RegProMod='" . $_REQUEST['RegProMod'] . "',";
       }
       if ($_REQUEST['RegProModPre']) {
-        $query .= " RegProModPre=" . $_REQUEST['RegProModPre'] . ",";
+        $query .= " RegProModPre='" . $_REQUEST['RegProModPre'] . "',";
       }
       if ($_REQUEST['RegProEli']) {
-        $query .= " RegProEli=" . $_REQUEST['RegProEli'] . ",";
+        $query .= " RegProEli='" . $_REQUEST['RegProEli'] . "',";
       }
       if ($_REQUEST['RegProVer']) {
-        $query .= " RegProVer=" . $_REQUEST['RegProVer'] . ",";
+        $query .= " RegProVer='" . $_REQUEST['RegProVer'] . "',";
       }
       if ($_REQUEST['UtiCyCGen']) {
-        $query .= " UtiCyCGen=" . $_REQUEST['UtiCyCGen'] . ",";
+        $query .= " UtiCyCGen='" . $_REQUEST['UtiCyCGen'] . "',";
       }
       if ($_REQUEST['UtiCyCBus']) {
-        $query .= " UtiCyCBus=" . $_REQUEST['UtiCyCBus'] . ",";
+        $query .= " UtiCyCBus='" . $_REQUEST['UtiCyCBus'] . "',";
       }
       if ($_REQUEST['UtiCyCSeg']) {
-        $query .= " UtiCyCSeg=" . $_REQUEST['UtiCyCSeg'] . ",";
+        $query .= " UtiCyCSeg='" . $_REQUEST['UtiCyCSeg'] . "',";
       }
       if ($_REQUEST['UtiCyCPag']) {
-        $query .= " UtiCyCPag=" . $_REQUEST['UtiCyCPag'] . ",";
+        $query .= " UtiCyCPag='" . $_REQUEST['UtiCyCPag'] . "',";
       }
       if ($_REQUEST['UtiCyCSegInt']) {
-        $query .= " UtiCyCSegInt=" . $_REQUEST['UtiCyCSegInt'] . ",";
+        $query .= " UtiCyCSegInt='" . $_REQUEST['UtiCyCSegInt'] . "',";
       }
       if ($_REQUEST['UtiEnvMerGen']) {
-        $query .= " UtiEnvMerGen=" . $_REQUEST['UtiEnvMerGen'] . ",";
+        $query .= " UtiEnvMerGen='" . $_REQUEST['UtiEnvMerGen'] . "',";
       }
       if ($_REQUEST['UtiEnvMerEnv']) {
-        $query .= " UtiEnvMerEnv=" . $_REQUEST['UtiEnvMerEnv'] . ",";
+        $query .= " UtiEnvMerEnv='" . $_REQUEST['UtiEnvMerEnv'] . "',";
       }
       if ($_REQUEST['UtiCCGen']) {
-        $query .= " UtiCCGen=" . $_REQUEST['UtiCCGen'] . ",";
+        $query .= " UtiCCGen='" . $_REQUEST['UtiCCGen'] . "',";
       }
       if ($_REQUEST['UtiCCCorCaj']) {
-        $query .= " UtiCCCorCaj=" . $_REQUEST['UtiCCCorCaj'] . ",";
+        $query .= " UtiCCCorCaj='" . $_REQUEST['UtiCCCorCaj'] . "',";
       }
       if ($_REQUEST['UtiCCPdf']) {
-        $query .= " UtiCCPdf=" . $_REQUEST['UtiCCPdf'] . ",";
+        $query .= " UtiCCPdf='" . $_REQUEST['UtiCCPdf'] . "',";
       }
       if ($_REQUEST['UtiCCEnv']) {
-        $query .= " UtiCCEnv=" . $_REQUEST['UtiCCEnv'] . ",";
+        $query .= " UtiCCEnv='" . $_REQUEST['UtiCCEnv'] . "',";
       }
       if ($_REQUEST['UtiEySCGen']) {
-        $query .= " UtiEySCGen=" . $_REQUEST['UtiEySCGen'] . ",";
+        $query .= " UtiEySCGen='" . $_REQUEST['UtiEySCGen'] . "',";
       }
       if ($_REQUEST['UtiEySCAgrSal']) {
-        $query .= " UtiEySCAgrSal=" . $_REQUEST['UtiEySCAgrSal'] . ",";
+        $query .= " UtiEySCAgrSal='" . $_REQUEST['UtiEySCAgrSal'] . "',";
       }
       if ($_REQUEST['UtiEySCAgrEnt']) {
-        $query .= " UtiEySCAgrEnt=" . $_REQUEST['UtiEySCAgrEnt'] . ",";
+        $query .= " UtiEySCAgrEnt='" . $_REQUEST['UtiEySCAgrEnt'] . "',";
       }
       if ($_REQUEST['UtiStoMinGen']) {
-        $query .= " UtiStoMinGen=" . $_REQUEST['UtiStoMinGen'] . ",";
+        $query .= " UtiStoMinGen='" . $_REQUEST['UtiStoMinGen'] . "',";
       }
       if ($_REQUEST['UtiStoMinEnv']) {
-        $query .= " UtiStoMinEnv=" . $_REQUEST['UtiStoMinEnv'] . ",";
+        $query .= " UtiStoMinEnv='" . $_REQUEST['UtiStoMinEnv'] . "',";
       }
       if ($_REQUEST['UtiPerGen']) {
-        $query .= " UtiPerGen=" . $_REQUEST['UtiPerGen'] . ",";
+        $query .= " UtiPerGen='" . $_REQUEST['UtiPerGen'] . "',";
       }
       if ($_REQUEST['UtiPerCre']) {
-        $query .= " UtiPerCre=" . $_REQUEST['UtiPerCre'] . ",";
+        $query .= " UtiPerCre='" . $_REQUEST['UtiPerCre'] . "',";
       }
       if ($_REQUEST['UtiPerMod']) {
-        $query .= " UtiPerMod=" . $_REQUEST['UtiPerMod'] . ",";
+        $query .= " UtiPerMod='" . $_REQUEST['UtiPerMod'] . "',";
       }
       if ($_REQUEST['UtiPerEli']) {
-        $query .= " UtiPerEli=" . $_REQUEST['UtiPerEli'] . ",";
+        $query .= " UtiPerEli='" . $_REQUEST['UtiPerEli'] . "',";
       }
       if ($_REQUEST['UtiPerVer']) {
-        $query .= " UtiPerVer=" . $_REQUEST['UtiPerVer'] . ",";
+        $query .= " UtiPerVer='" . $_REQUEST['UtiPerVer'] . "',";
       }
       if ($_REQUEST['MovLisGen']) {
-        $query .= " MovLisGen=" . $_REQUEST['MovLisGen'] . ",";
+        $query .= " MovLisGen='" . $_REQUEST['MovLisGen'] . "',";
       }
       if ($_REQUEST['MovLisBus']) {
-        $query .= " MovLisBus=" . $_REQUEST['MovLisBus'] . ",";
+        $query .= " MovLisBus='" . $_REQUEST['MovLisBus'] . "',";
       }
       if ($_REQUEST['MovLisTim']) {
-        $query .= " MovLisTim=" . $_REQUEST['MovLisTim'] . ",";
+        $query .= " MovLisTim='" . $_REQUEST['MovLisTim'] . "',";
       }
       if ($_REQUEST['MovLisDes']) {
-        $query .= " MovLisDes=" . $_REQUEST['MovLisDes'] . ",";
+        $query .= " MovLisDes='" . $_REQUEST['MovLisDes'] . "',";
       }
       if ($_REQUEST['MovLisEnv']) {
-        $query .= " MovLisEnv=" . $_REQUEST['MovLisEnv'] . ",";
+        $query .= " MovLisEnv='" . $_REQUEST['MovLisEnv'] . "',";
       }
       if ($_REQUEST['MovLisEli']) {
-        $query .= " MovLisEli=" . $_REQUEST['MovLisEli'] . ",";
+        $query .= " MovLisEli='" . $_REQUEST['MovLisEli'] . "',";
       }
       if ($_REQUEST['MovCotGen']) {
-        $query .= " MovCotGen=" . $_REQUEST['MovCotGen'] . ",";
+        $query .= " MovCotGen='" . $_REQUEST['MovCotGen'] . "',";
       }
       if ($_REQUEST['MovCotBusCli']) {
-        $query .= " MovCotBusCli=" . $_REQUEST['MovCotBusCli'] . ",";
+        $query .= " MovCotBusCli='" . $_REQUEST['MovCotBusCli'] . "',";
       }
       if ($_REQUEST['MovCotBusPro']) {
-        $query .= " MovCotBusPro=" . $_REQUEST['MovCotBusPro'] . ",";
+        $query .= " MovCotBusPro='" . $_REQUEST['MovCotBusPro'] . "',";
       }
       if ($_REQUEST['MovCotFac']) {
-        $query .= " MovCotFac=" . $_REQUEST['MovCotFac'] . ",";
+        $query .= " MovCotFac='" . $_REQUEST['MovCotFac'] . "',";
       }
       if ($_REQUEST['MovCotRem']) {
-        $query .= " MovCotRem=" . $_REQUEST['MovCotRem'] . ",";
+        $query .= " MovCotRem='" . $_REQUEST['MovCotRem'] . "',";
       }
       if ($_REQUEST['MovCotCre']) {
-        $query .= " MovCotCre=" . $_REQUEST['MovCotCre'] . ",";
+        $query .= " MovCotCre='" . $_REQUEST['MovCotCre'] . "',";
       }
       if ($_REQUEST['MovCotCan']) {
-        $query .= " MovCotCan=" . $_REQUEST['MovCotCan'] . ",";
+        $query .= " MovCotCan='" . $_REQUEST['MovCotCan'] . "',";
       }
       if ($_REQUEST['MovInvGen']) {
-        $query .= " MovInvGen=" . $_REQUEST['MovInvGen'] . ",";
+        $query .= " MovInvGen='" . $_REQUEST['MovInvGen'] . "',";
       }
       if ($_REQUEST['MovInvBus']) {
-        $query .= " MovInvBus=" . $_REQUEST['MovInvBus'] . ",";
+        $query .= " MovInvBus='" . $_REQUEST['MovInvBus'] . "',";
       }
       if ($_REQUEST['MovInvMod']) {
-        $query .= " MovInvMod=" . $_REQUEST['MovInvMod'] . ",";
+        $query .= " MovInvMod='" . $_REQUEST['MovInvMod'] . "',";
       }
       if ($_REQUEST['MovInvEntDev']) {
-        $query .= " MovInvEntDev=" . $_REQUEST['MovInvEntDev'] . ",";
+        $query .= " MovInvEntDev='" . $_REQUEST['MovInvEntDev'] . "',";
       }
       if ($_REQUEST['MovInvSalDev']) {
-        $query .= " MovInvSalDev=" . $_REQUEST['MovInvSalDev'] . ",";
+        $query .= " MovInvSalDev='" . $_REQUEST['MovInvSalDev'] . "',";
       }
       if ($_REQUEST['MovEntMerBus']) {
-        $query .= " MovEntMerBus=" . $_REQUEST['MovEntMerBus'] . ",";
+        $query .= " MovEntMerBus='" . $_REQUEST['MovEntMerBus'] . "',";
       }
       if ($_REQUEST['MovEntMerGen']) {
-        $query .= " MovEntMerGen=" . $_REQUEST['MovEntMerGen'] . ",";
+        $query .= " MovEntMerGen='" . $_REQUEST['MovEntMerGen'] . "',";
       }
       if ($_REQUEST['MovEntMerAgr']) {
-        $query .= " MovEntMerAgr=" . $_REQUEST['MovEntMerAgr'] . ",";
+        $query .= " MovEntMerAgr='" . $_REQUEST['MovEntMerAgr'] . "',";
       }
       if ($_REQUEST['RepFacGen']) {
-        $query .= " RepFacGen=" . $_REQUEST['RepFacGen'] . ",";
+        $query .= " RepFacGen='" . $_REQUEST['RepFacGen'] . "',";
       }
       if ($_REQUEST['RepFacVer']) {
-        $query .= " RepFacVer=" . $_REQUEST['RepFacVer'] . ",";
+        $query .= " RepFacVer='" . $_REQUEST['RepFacVer'] . "',";
       }
       if ($_REQUEST['RepFacDes']) {
-        $query .= " RepFacDes=" . $_REQUEST['RepFacDes'] . ",";
+        $query .= " RepFacDes='" . $_REQUEST['RepFacDes'] . "',";
       }
       if ($_REQUEST['RepMerCInvGen']) {
-        $query .= " RepMerCInvGen=" . $_REQUEST['RepMerCInvGen'] . ",";
+        $query .= " RepMerCInvGen='" . $_REQUEST['RepMerCInvGen'] . "',";
       }
       if ($_REQUEST['RepMerCInvVer']) {
-        $query .= " RepMerCInvVer=" . $_REQUEST['RepMerCInvVer'] . ",";
+        $query .= " RepMerCInvVer='" . $_REQUEST['RepMerCInvVer'] . "',";
       }
       if ($_REQUEST['RepMerCInvDes']) {
-        $query .= " RepMerCInvDes=" . $_REQUEST['RepMerCInvDes'] . ",";
+        $query .= " RepMerCInvDes='" . $_REQUEST['RepMerCInvDes'] . "',";
       }
       if ($_REQUEST['RepMerSInvGen']) {
-        $query .= " RepMerSInvGen=" . $_REQUEST['RepMerSInvGen'] . ",";
+        $query .= " RepMerSInvGen='" . $_REQUEST['RepMerSInvGen'] . "',";
       }
       if ($_REQUEST['RepMerSInvVer']) {
-        $query .= " RepMerSInvVer=" . $_REQUEST['RepMerSInvVer'] . ",";
+        $query .= " RepMerSInvVer='" . $_REQUEST['RepMerSInvVer'] . "',";
       }
       if ($_REQUEST['RepMerSInvDes']) {
-        $query .= " RepMerSInvDes=" . $_REQUEST['RepMerSInvDes'] . ",";
+        $query .= " RepMerSInvDes='" . $_REQUEST['RepMerSInvDes'] . "',";
       }
       if ($_REQUEST['RepMerCCosGen']) {
-        $query .= " RepMerCCosGen=" . $_REQUEST['RepMerCCosGen'] . ",";
+        $query .= " RepMerCCosGen='" . $_REQUEST['RepMerCCosGen'] . "',";
       }
       if ($_REQUEST['RepMerCCosVer']) {
-        $query .= " RepMerCCosVer=" . $_REQUEST['RepMerCCosVer'] . ",";
+        $query .= " RepMerCCosVer='" . $_REQUEST['RepMerCCosVer'] . "',";
       }
       if ($_REQUEST['RepMerCCosDes']) {
-        $query .= " RepMerCCosDes=" . $_REQUEST['RepMerCCosDes'] . ",";
+        $query .= " RepMerCCosDes='" . $_REQUEST['RepMerCCosDes'] . "',";
       }
       $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE name='" . $_REQUEST['id'] . "';";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));

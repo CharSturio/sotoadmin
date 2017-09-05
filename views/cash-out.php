@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['UtiEySCGen']){
+if($_SESSION['UtiEySCGen'] == 'true'){
   echo '<div class="header">
 	<h2><strong>Entradas y salidas de Caja</strong></h2>
 </div>

@@ -4,7 +4,7 @@
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'action') {
-    if($_SESSION['UtiCCCorCaj']){
+    if($_SESSION['UtiCCCorCaj'] == 'true'){
       $fecha_desde = $_REQUEST['fecha_desde'];
       $fecha_hasta = $_REQUEST['fecha_hasta'];
       $desde = explode("/", $fecha_desde);

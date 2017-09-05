@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['RegSucGen']){
+if($_SESSION['RegSucGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Sucursales</strong></h2>
 </div>

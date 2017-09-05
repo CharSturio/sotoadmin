@@ -1,7 +1,7 @@
 <?php 
 require '../connection/index.php';
 session_start();
-if($_SESSION['RegUsuGen']){
+if($_SESSION['RegUsuGen'] == 'true'){
   echo '
 <div class="header">
   <h2><strong>Usuarios</strong></h2>

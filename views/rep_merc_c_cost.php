@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['RepMerCCosGen']){
+if($_SESSION['RepMerCCosGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Reporte de Mercancia con Costos</strong></h2>
 </div>

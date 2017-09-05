@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['RegProGen']){
+if($_SESSION['RegProGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Productos</strong></h2>
 </div>

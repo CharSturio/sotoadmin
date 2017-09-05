@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['UtiCCGen']){
+if($_SESSION['UtiCCGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Corte de Caja</strong></h2>
 </div>

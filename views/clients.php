@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['RegCliGen']){
+if($_SESSION['RegCliGen'] == 'true'){
   echo '
   <div class="header">
   <h2><strong>Clientes</strong></h2>

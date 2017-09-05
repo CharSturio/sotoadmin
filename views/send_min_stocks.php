@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['UtiStoMinGen']){
+if($_SESSION['UtiStoMinGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Reporte de minino en stocks</strong></h2>
 </div>

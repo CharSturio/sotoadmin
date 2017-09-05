@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['UtiEnvMerGen']){
+if($_SESSION['UtiEnvMerGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Envio de Existencia para clientes</strong></h2>
 </div>

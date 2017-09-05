@@ -4,7 +4,7 @@
   
   $operation = $_REQUEST['operation'];
   if ($operation === 'new') {
-    if($_SESSION['RegCliCre']){
+    if($_SESSION['RegCliCre'] == 'true'){
       $name = $_REQUEST['name'];
       $address = $_REQUEST['address'];
       $colony = $_REQUEST['colony'];
@@ -40,7 +40,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'modify') {
-    if($_SESSION['RegCliMod']){
+    if($_SESSION['RegCliMod'] == 'true'){
       $query = "UPDATE clients SET";
       if ($_REQUEST['name']) {
         $query .= " name='" . $_REQUEST['name'] . "',";
@@ -98,7 +98,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'delete') {
-    if($_SESSION['RegCliEli']){
+    if($_SESSION['RegCliEli'] == 'true'){
       $query .= "DELETE FROM clients WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Eliminado correctamente.';
@@ -106,7 +106,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'clients') {
-    if($_SESSION['RegCliVer']){
+    if($_SESSION['RegCliVer'] == 'true'){
       $query = "SELECT id, name FROM clients;";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       while ($row = mysqli_fetch_assoc($result)) {

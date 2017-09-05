@@ -4,7 +4,7 @@
   
   $operation = $_REQUEST['operation'];
   if ($operation === 'new') {
-    if($_SESSION['RegSucCre']){
+    if($_SESSION['RegSucCre'] == 'true'){
       $name = $_REQUEST['name'];
       $rfc = $_REQUEST['rfc'];
       $address = $_REQUEST['address'];
@@ -28,7 +28,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'modify') {
-    if($_SESSION['RegSucMod']){
+    if($_SESSION['RegSucMod'] == 'true'){
       $query = "UPDATE branches SET";
       if ($_REQUEST['name']) {
         $query .= " name='" . $_REQUEST['name'] . "',";
@@ -64,7 +64,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'delete') {
-    if($_SESSION['RegSucEli']){
+    if($_SESSION['RegSucEli'] == 'true'){
       $query .= "DELETE FROM branches WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Eliminado correctamente.';
@@ -72,7 +72,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'branch') {
-    if($_SESSION['RegSucVer']){
+    if($_SESSION['RegSucVer'] == 'true'){
       $query = "SELECT id, name FROM branches;";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       while ($row = mysqli_fetch_assoc($result)) {

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['UtiPerGen']){
+if($_SESSION['UtiPerGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Permisos</strong></h2>
 </div>

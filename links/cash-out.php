@@ -4,7 +4,7 @@
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'add') {
-    if($_SESSION['UtiEySCAgrSal']){
+    if($_SESSION['UtiEySCAgrSal'] == 'true'){
       $comprobante = $_REQUEST['comprobante'];
       $cantidad = $_REQUEST['cantidad'];
       $descripcion = $_REQUEST['descripcion'];
@@ -16,7 +16,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'add2') {
-    if($_SESSION['UtiEySCAgrEnt']){
+    if($_SESSION['UtiEySCAgrEnt'] == 'true'){
         $comprobante = $_REQUEST['comprobante2'];
         $cantidad = $_REQUEST['cantidad2'];
         $descripcion = $_REQUEST['descripcion2'];

@@ -4,7 +4,7 @@
   
   $operation = $_REQUEST['operation'];
   if ($operation === 'new') {
-    if($_SESSION['RegUsuCre']){
+    if($_SESSION['RegUsuCre'] == 'true'){
       $user = $_REQUEST['user'];
       $password = $_REQUEST['pass'];
       $name = $_REQUEST['name'];
@@ -32,7 +32,7 @@
     }
 
   } else if ($operation === 'modify') {
-    if($_SESSION['RegUsuMod']){
+    if($_SESSION['RegUsuMod'] == 'true'){
       $query = "UPDATE users SET";
       if ($_REQUEST['user']) {
         $query .= " user='" . $_REQUEST['user'] . "',";
@@ -77,7 +77,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'delete') {
-    if($_SESSION['RegUsuEli']){
+    if($_SESSION['RegUsuEli'] == 'true'){
       $query .= "DELETE FROM users WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Eliminado correctamente.';
@@ -85,7 +85,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'users') {
-    if($_SESSION['RegUsuVer']){      
+    if($_SESSION['RegUsuVer'] == 'true'){      
       $query = "SELECT id, user FROM users;";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       while ($row = mysqli_fetch_assoc($result)) {

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['MovLisGen']){
+if($_SESSION['MovLisGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Movimientos</strong></h2>
 </div>

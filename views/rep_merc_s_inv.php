@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['RepMerSInvGen']){
+if($_SESSION['RepMerSInvGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Reporte de Mercancia sin Inventarios</strong></h2>
 </div>

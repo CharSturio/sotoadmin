@@ -72,7 +72,7 @@
 
     }
   } else if ($operation === 'browserInfo') {
-    if($_SESSION['MovLisBus']){
+    if($_SESSION['MovLisBus'] == 'true'){
       $ident = 0;
       $client = $_REQUEST['client'];
       $invoice = $_REQUEST['invoice'];
@@ -159,7 +159,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'xml') {
-    if($_SESSION['MovLisTim']){
+    if($_SESSION['MovLisTim'] == 'true'){
       $id = $_REQUEST['id'];
       $queryDandC = "SELECT * FROM documents WHERE id=" . $id ." LIMIT 1;";
       $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));

@@ -4,7 +4,7 @@
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'new') {
-    if($_SESSION['RegProCre']){
+    if($_SESSION['RegProCre'] == 'true'){
       $type_product = $_REQUEST['type_product'];
       $barcode = $_REQUEST['barcode'];
       $name = $_REQUEST['name'];
@@ -59,7 +59,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'modify') {
-    if($_SESSION['RegProMod']){
+    if($_SESSION['RegProMod'] == 'true'){
       $query = "UPDATE products SET";
       if ($_REQUEST['barcode']) {
         $query .= " barcode='" . $_REQUEST['barcode'] . "',";
@@ -98,7 +98,7 @@
       echo 'noPermit';
     }
   }else if ($operation === 'modifyCosts') {
-    if($_SESSION['RegProModPre']){
+    if($_SESSION['RegProModPre'] == 'true'){
       $query = "UPDATE products SET";
       if ($_REQUEST['retail_price']) {
         $query .= " retail_price='" . round(($_REQUEST['retail_price']/116)*100,2)*1.16 . "',";
@@ -125,7 +125,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'delete') {
-    if($_SESSION['RegProEli']){
+    if($_SESSION['RegProEli'] == 'true'){
       $query .= "DELETE FROM products WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Eliminado correctamente.';
@@ -133,7 +133,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'browserName') {
-    if($_SESSION['RegProVer']){
+    if($_SESSION['RegProVer'] == 'true'){
       $query = "SELECT * FROM products WHERE name LIKE '%" . $_REQUEST['content'] . "%';";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $print = '<table class="table table-striped tablet-tools">
@@ -160,7 +160,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'browserBarcode') {
-    if($_SESSION['RegProVer']){
+    if($_SESSION['RegProVer'] == 'true'){
       $query = "SELECT * FROM products WHERE barcode LIKE '%" . $_REQUEST['content'] . "%';";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $print = '<table class="table table-striped tablet-tools">

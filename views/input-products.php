@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['MovEntMerGen']){
+if($_SESSION['MovEntMerGen'] == 'true'){
   echo '<div class="header">
 	<h2><strong>Entrada Mercancia</strong></h2>
 </div>

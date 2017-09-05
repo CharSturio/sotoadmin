@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['RepFacGen']){
+if($_SESSION['RepFacGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Reporte de Facturas</strong></h2>
 </div>

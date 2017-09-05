@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['MovCotGen']){
+if($_SESSION['MovCotGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Cotizador</strong></h2>
 </div>

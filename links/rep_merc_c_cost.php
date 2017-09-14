@@ -4,48 +4,51 @@
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'action') {
+    if($_SESSION['RepMerCCosVer'] == 'true'){
+      
+      $query = "SELECT P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.retail_price, P.wholesale_price, P.special_price, P.tarjeta, P.mpago, P.pespecial FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "' ORDER BY P.barcode ASC";
+      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
-    $query = "SELECT P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.retail_price, P.wholesale_price, P.special_price, P.tarjeta, P.mpago, P.pespecial FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "' ORDER BY P.barcode ASC";
-    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+      $table_efectivo_remision = '<div class="force-table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+          <th>Tipo</th>
+          <th>Nombre</th>
+          <th>Codigo</th>
+          <th>Clave</th>
+          <th>P Publico</th>
+          <th>P Mayoreo</th>
+          <th>P Especial</th>
+          <th>P Tarjeta</th>
+          <th>P Merc Pago</th>
+          <th>P Pub Especial</th>
+          </tr>
+        </thead>
+        <tbody id="table">';
 
-    $table_efectivo_remision = '<div class="force-table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-        <th>Tipo</th>
-        <th>Nombre</th>
-        <th>Codigo</th>
-        <th>Clave</th>
-        <th>P Publico</th>
-        <th>P Mayoreo</th>
-        <th>P Especial</th>
-        <th>P Tarjeta</th>
-        <th>P Merc Pago</th>
-        <th>P Pub Especial</th>
-        </tr>
-      </thead>
-      <tbody id="table">';
+      while($row = mysqli_fetch_assoc($result)){
+        //$total_efectivo += $row['total'];
+        $table_efectivo_remision .= '<tr>
+        <td>' . $row['type_product'] . '</td>
+        <td>' . $row['name'] . '</td>
+        <td>' . $row['barcode'] . '</td>
+        <td>' . $row['key_'] . '</td>
+        <td>' . $row['retail_price'] . '</td>
+        <td>' . $row['wholesale_price'] . '</td>
+        <td>' . $row['special_price'] . '</td>
+        <td>' . $row['tarjeta'] . '</td>
+        <td>' . $row['mpago'] . '</td>
+        <td>' . $row['pespecial'] . '</td>
+        </tr>';
+      }
+      $table_efectivo_remision .= '</tbody></table></div>';
 
-    while($row = mysqli_fetch_assoc($result)){
-      //$total_efectivo += $row['total'];
-      $table_efectivo_remision .= '<tr>
-      <td>' . $row['type_product'] . '</td>
-      <td>' . $row['name'] . '</td>
-      <td>' . $row['barcode'] . '</td>
-      <td>' . $row['key_'] . '</td>
-      <td>' . $row['retail_price'] . '</td>
-      <td>' . $row['wholesale_price'] . '</td>
-      <td>' . $row['special_price'] . '</td>
-      <td>' . $row['tarjeta'] . '</td>
-      <td>' . $row['mpago'] . '</td>
-      <td>' . $row['pespecial'] . '</td>
-      </tr>';
+
+      echo $table_efectivo_remision;
+    } else {
+      echo 'noPermit';
     }
-    $table_efectivo_remision .= '</tbody></table></div>';
-
-
-    echo $table_efectivo_remision;
-
   }
   mysqli_close($link);
  ?>

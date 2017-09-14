@@ -12,7 +12,11 @@ function onClickClients() {
       if (xmlhttp.readyState === 1) {
         document.getElementById('response').innerHTML = 'Procesando...';
       } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-        document.getElementById('response').innerHTML = xmlhttp.responseText;
+        if (xmlhttp.responseText == 'noPermit') {
+          alert("No cuenta con los permisos necesarios.");
+        } else {
+          document.getElementById('response').innerHTML = xmlhttp.responseText;
+        }
       }
     }
 
@@ -34,7 +38,11 @@ function onClickProducts() {
       if (xmlhttp.readyState === 1) {
         document.getElementById('responseProduct').innerHTML = 'Procesando...';
       } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-        document.getElementById('responseProduct').innerHTML = xmlhttp.responseText;
+        if (xmlhttp.responseText == 'noPermit') {
+          alert("No cuenta con los permisos necesarios.");
+        } else {
+          document.getElementById('responseProduct').innerHTML = xmlhttp.responseText;
+        }
       }
     };
 
@@ -84,9 +92,13 @@ function onClickCancel(id, id_product, id_client) {
     if (xmlhttp.readyState === 1) {
       document.getElementById('response').innerHTML = 'Procesando...';
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      document.getElementById('totalQuoter').innerHTML = xmlhttp.responseText;
-      var th = document.getElementById(id);
-      th.parentNode.removeChild(th);
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else {
+        document.getElementById('totalQuoter').innerHTML = xmlhttp.responseText;
+        var th = document.getElementById(id);
+        th.parentNode.removeChild(th);
+      }
       // var th = document.getElementById(id);
       // th.parentNode.removeChild(th);
     }
@@ -116,7 +128,9 @@ function onSubmitInvoice() {
     if (xmlhttp.readyState === 1) {
       document.getElementById('response').innerHTML = 'Procesando...';
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      if (xmlhttp.responseText === 'x') {
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else if (xmlhttp.responseText === 'x') {
         alert('Valores incorrectos o faltantes en cliente.');
       } else if (xmlhttp.responseText === 'y') {
         alert('Las existencias han cambiado. Favor de verificar los productos.');
@@ -167,10 +181,14 @@ function onSubmitCredit() {
     if (xmlhttp.readyState === 1) {
       document.getElementById('response').innerHTML = 'Procesando...';
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      alert('Añadida con exito.');
-      var x = 'invoice/index.php?id=' + xmlhttp.responseText + '&op=3';
-      window.open(x,'Credito','width=100%,height=100%,fullscreen=yes,scrollbars=NO')
-      document.location.reload();
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else {
+        alert('Añadida con exito.');
+        var x = 'invoice/index.php?id=' + xmlhttp.responseText + '&op=3';
+        window.open(x,'Credito','width=100%,height=100%,fullscreen=yes,scrollbars=NO')
+        document.location.reload();
+      }
     }
   };
 
@@ -198,10 +216,14 @@ function onSubmitRemission() {
     if (xmlhttp.readyState === 1) {
       document.getElementById('response').innerHTML = 'Procesando...';
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      alert("Añadida con Exito. Sera redireccionado.");
-      var x = 'invoice/index.php?id=' + xmlhttp.responseText + '&op=2';
-      window.open(x,'Remision','width=100%,height=100%,fullscreen=yes,scrollbars=NO')
-      document.location.reload();
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else {
+        alert("Añadida con Exito. Sera redireccionado.");
+        var x = 'invoice/index.php?id=' + xmlhttp.responseText + '&op=2';
+        window.open(x,'Remision','width=100%,height=100%,fullscreen=yes,scrollbars=NO')
+        document.location.reload();
+      }
     }
   };
 
@@ -216,7 +238,11 @@ function onClickCancelAll() {
     if (xmlhttp.readyState === 1) {
       document.getElementById('response').innerHTML = 'Procesando...';
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
-      alert(xmlhttp.responseText);
+      if (xmlhttp.responseText == 'noPermit') {
+        alert("No cuenta con los permisos necesarios.");
+      } else {
+        alert(xmlhttp.responseText);
+      }
     }
   };
 

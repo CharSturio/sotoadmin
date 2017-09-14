@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  
   require '../connection/index.php';
 
   $operation = $_REQUEST['operation'];

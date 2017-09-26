@@ -11,7 +11,7 @@ session_start();
       $barcode = $_REQUEST['barcode'];
       $ident = 0;
 
-      $query = "SELECT P.id, P.barcode, P.name, P.key_, P.brand, P.model, S.amount FROM products AS P INNER JOIN stocks AS S ON P.id = S.id_product where";
+      $query = "SELECT B.name AS nameBranch, P.id, P.barcode, P.name, P.key_, P.brand, P.model, S.amount FROM products AS P INNER JOIN stocks AS S ON P.id = S.id_product INNER JOIN branches AS B ON S.id_branch = B.id where";
       if ($name) {
         $query .= " P.name LIKE '%" . $name . "%'";
         $ident = 1;
@@ -31,12 +31,13 @@ session_start();
           $query .= " AND P.barcode LIKE '%" . $barcode . "%'";
         }
       }
-      $query .= ";";
+      $query .= " AND S.id_branch = $_SESSION['branchID'];";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       while ($row = mysqli_fetch_assoc($result)) {
         $namePrint = "'" . $row['name'] . "'";
         echo '<tr>
                 <td>' . $row['amount'] . '</td>
+          <td>' . $row['nameBranch'] . '</td>
                 <td>' . $row['barcode'] . '</td>
                 <td>' . $row['key_'] . '</td>
                 <td>' . $row['name'] . '</td>

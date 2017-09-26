@@ -42,6 +42,7 @@ if($_SESSION['MovLisGen'] == 'true'){
               <th>Status</th>
               <th>Cliente</th>
               <th>Usuario</th>
+    <th>Sucursal</th>
               <th>Seguimiento</th>
               <th>Total</th>
               <th></th>

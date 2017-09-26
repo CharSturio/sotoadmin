@@ -34,6 +34,7 @@ if($_SESSION['MovInvGen'] == 'true'){
                 <thead>
                   <tr>
                     <th>Existencia</th>
+    				<th>Sucursal</th>
                     <th>Código de Barras</th>
                     <th>Clave</th>
                     <th>Nombre</th>

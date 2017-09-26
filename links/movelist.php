@@ -6,7 +6,7 @@
   if ($operation === 'loadInfo') {
     // $id = $_REQUEST['id'];
     // $quest = $id * 25;
-    $query = "SELECT D.uuid, D.id, D.invoice, D.last_date, D.type, D.status, C.name, U.user, D.total, D.comments FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id ORDER BY D.last_date DESC LIMIT 0,425";
+    $query = "SELECT B.name AS nameBranch, D.uuid, D.id, D.invoice, D.last_date, D.type, D.status, C.name, U.user, D.total, D.comments FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id  INNER JOIN branches AS B ON D.id_branch = B.id ORDER BY D.last_date DESC LIMIT 0,425";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     while ($row = mysqli_fetch_assoc($result)) {
       if ($row['type'] === 'invoice') {
@@ -22,6 +22,7 @@
                 <td>' . $row['status'] . '</td>
                 <td>' . $row['name'] . '</td>
                 <th>' . $row['user'] . '</th>
+          <th>' . $row['nameBranch'] . '</th>
                 <th>' . $row['comments'] . '</th>
                 <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                 <td><a onClick="onClickXML(' . $row['id'] . ',' . $idIn . ')"><i class="fa fa-file-archive-o"></i></a></td>
@@ -38,6 +39,7 @@
                 <td>' . $row['status'] . '</td>
                 <td>' . $row['name'] . '</td>
                 <th>' . $row['user'] . '</th>
+          <th>' . $row['nameBranch'] . '</th>
                 <th>' . $row['comments'] . '</th>
                 <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                 <td></td>
@@ -61,6 +63,7 @@
                 <td>' . $row['status'] . '</td>
                 <td>' . $row['name'] . '</td>
                 <th>' . $row['user'] . '</th>
+          <th>' . $row['nameBranch'] . '</th>
                 <th>' . $row['comments'] . '</th>
                 <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                 <td><a onClick="onClickXMLCredit(' . $row['id'] . ', ' . $idIn . ')"><i class="fa fa-file-archive-o"></i></a></td>
@@ -77,7 +80,7 @@
       $client = $_REQUEST['client'];
       $invoice = $_REQUEST['invoice'];
       $user = $_REQUEST['user'];
-      $query = "SELECT D.uuid, D.id, D.invoice, D.last_date, D.type, D.status, C.name, U.user, D.total FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id WHERE";
+      $query = "SELECT D.uuid, D.id, D.invoice, D.last_date, D.type, D.status, C.name, U.user, D.total FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id  INNER JOIN branches AS B ON D.id_branch = B.id WHERE";
       if ($client) {
         $query .= " C.name LIKE '%" . $client . "%'";
         $ident = 1;
@@ -111,6 +114,7 @@
                   <td>' . $row['status'] . '</td>
                   <td>' . $row['name'] . '</td>
                   <th>' . $row['user'] . '</th>
+            <th>' . $row['nameBranch'] . '</th>
                   <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                   <td><a onClick="onClickXML(' . $row['id'] . ',' . $idIn . ')"><i class="fa fa-file-archive-o"></i></a></td>
                   <td><a onClick="onClickPDF(' . $row['id'] . ', 1)"><i class="fa fa-file-pdf-o"></i></a></td>
@@ -126,6 +130,7 @@
                   <td>' . $row['status'] . '</td>
                   <td>' . $row['name'] . '</td>
                   <th>' . $row['user'] . '</th>
+            <th>' . $row['nameBranch'] . '</th>
                   <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                   <td></td>
                   <td><a onClick="onClickPDF(' . $row['id'] . ', 2)"><i class="fa fa-file-pdf-o"></i></a></td>
@@ -146,6 +151,7 @@
                   <td>' . $row['status'] . '</td>
                   <td>' . $row['name'] . '</td>
                   <th>' . $row['user'] . '</th>
+            <th>' . $row['nameBranch'] . '</th>
                   <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                   <td><a onClick="onClickXMLCredit(' . $row['id'] . ', ' . $idIn . ')"><i class="fa fa-file-archive-o"></i></a></td>
                   <td><a onClick="onClickPDF(' . $row['id'] . ', 3)"><i class="fa fa-file-pdf-o"></i></a></td>

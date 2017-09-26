@@ -49,7 +49,7 @@
           // }
           $id=mysqli_insert_id($link);
 
-          $query = "INSERT INTO stocks (id_product, amount, last_date) VALUES ('" . $id . "', 0, date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+          $query = "INSERT INTO stocks (id_product, amount, id_branch, last_date) VALUES ('" . $id . "', 0, " . $_SESSION['branchID'] . ", date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
           $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
           echo 'Producto agregado.';

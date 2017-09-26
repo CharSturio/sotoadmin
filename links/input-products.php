@@ -11,19 +11,26 @@
       $unit_cost = $_REQUEST['unit_cost'];
       $id = $_REQUEST['id'];
 
-      $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+      $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, branch, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "','" . $_SESSION['branchID'] . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
-      $query = "SELECT * FROM stocks where id_product ='" . $id ."';";
+      $query = "SELECT * FROM stocks where id_product ='" . $id ."' and id_branch = ".$_SESSION['branchID'].";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
       $total = $amount;
-      while($row = mysqli_fetch_assoc($result)){
-        $total += $row['amount'];
+      $rowcount=mysqli_num_rows($result);
+      if($rowcount == 0) {
+        $query = "INSERT INTO stocks (id_product, amount, id_branch, last_date) VALUES ('" . $id . "', ".$amount.", " . $_SESSION['branchID'] . ", date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+        $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+      } else {
+        while($row = mysqli_fetch_assoc($result)){
+          $total += $row['amount'];
+        }
+  
+        $query = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id;
+        $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       }
-
-      $query = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id;
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+      
 
 
       echo 'Agregados Satisfactoriamente.';
@@ -48,11 +55,12 @@
         $barcode = "'" . $row['barcode'] . "'";
         $key_ = "'" . $row['key_'] . "'";
         $name = "'" . $row['name'] . "'";
+        $branch = "'".$_SESSION['branchName']."'";
         $print .= '<tr>
               <td>' . $row['barcode'] . '</td>
               <td>' . $row['key_'] . '</td>
               <td>' . $row['name'] . '</td>
-              <td><button onClick="onClickSelect(' . $row['id'] . ',' . $key_ . ',' . $barcode . ',' . $name . ')" type="button" class="btn btn-primary btn-square">Seleccionar</button></td>
+              <td><button onClick="onClickSelect(' . $row['id'] . ',' . $key_ . ',' . $barcode . ',' . $name . ',' . $branch . ')" type="button" class="btn btn-primary btn-square">Seleccionar</button></td>
             </tr>';
       }
       $print .= '</tbody></table>';
@@ -78,11 +86,12 @@
           $barcode = "'" . $row['barcode'] . "'";
           $key_ = "'" . $row['key_'] . "'";
           $name = "'" . $row['name'] . "'";
+          $branch = "'".$_SESSION['branchName']."'";
           $print .= '<tr>
                 <td>' . $row['barcode'] . '</td>
                 <td>' . $row['key_'] . '</td>
                 <td>' . $row['name'] . '</td>
-                <td><button onClick="onClickSelect(' . $row['id'] . ',' . $key_ . ',' . $barcode . ',' . $name . ')" type="button" class="btn btn-primary btn-square">Seleccionar</button></td>
+                <td><button onClick="onClickSelect(' . $row['id'] . ',' . $key_ . ',' . $barcode . ',' . $name . ',' . $branch . ')" type="button" class="btn btn-primary btn-square">Seleccionar</button></td>
               </tr>';
         }
       $print .= '</tbody></table>';

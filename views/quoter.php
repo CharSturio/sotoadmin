@@ -62,6 +62,7 @@ if($_SESSION['MovCotGen'] == 'true'){
                       <th>Existencia</th>
                       <th>Cantidad</th>
                       <th>Tipo Producto</th>
+                      <th>Sucursal</th>
                       <th>Codigo</th>
                       <th>Clave</th>
                       <th>Marca</th>

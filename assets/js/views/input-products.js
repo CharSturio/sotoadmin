@@ -26,9 +26,9 @@ function onClickAdd() {
   }
 }
 
-function onClickSelect(id_product, key, barcode, name) {
+function onClickSelect(id_product, key, barcode, name, branch) {
   id_select = id_product;
-  document.getElementById('divProducts').innerHTML = '<h2>Ha seleccionado: <b>' + name + '.</b></h2><h2>Clave: <b>' + key + '.</b></h2><h2>Codigo de barras: <b>' + barcode + '.</b></h2>';
+  document.getElementById('divProducts').innerHTML = '<h2>Ha seleccionado: <b>' + name + '.</b></h2><h2>Clave: <b>' + key + '.</b></h2><h2>Codigo de barras: <b>' + barcode + '.</b></h2><h2>Sucursal a guardar: <b>' + branch + '.</b></h2>';
 }
 
 function onClickBrowserBarcode() {

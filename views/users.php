@@ -54,9 +54,14 @@ if($_SESSION['RegUsuGen'] == 'true'){
           </div>
           <div class="col-md-6">
               <label for="sucursal">Sucursal</label>
-              <select id="branches" class="form-control">
-                <option value="0">Matriz</option>
-                <option value="1">Oblatos</option>
+              <select id="branches" class="form-control">';
+              $query = "SELECT * FROM branches";
+              $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+              }
+                
+              echo '
               </select>
           </div>
           <div class="col-md-6">

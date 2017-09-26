@@ -15,6 +15,7 @@ require '../../connection/index.php';
           $_SESSION['permit'] = $row['permit'];
           $_SESSION['id'] = $row['id'];
           $_SESSION['logged'] = true;
+          $_SESSION['branchID'] = $row['branch'];
         }
         $query2 = "SELECT * FROM permissions where name ='" . $_SESSION['permit'] ."';";
         $result2 = mysqli_query($link, $query2) or die ('Consulta fallida: ' . mysqli_error($link));
@@ -97,6 +98,19 @@ require '../../connection/index.php';
             $_SESSION['RepMerCCosDes'] = $row2['RepMerCCosDes'];
           }
         }
+        $query3 = "SELECT * FROM branches where id =" . $_SESSION['branchID'];
+        $result3 = mysqli_query($link, $query3) or die ('Consulta fallida: ' . mysqli_error($link));
+        $row3 = mysqli_fetch_assoc($result3);
+        $_SESSION['branchRFC'] = $row3['rfc'];
+        $_SESSION['branchName'] = $row3['name'];
+        $_SESSION['branchAddress'] = $row3['address'];
+        $_SESSION['branchNint'] = $row3['nint'];
+        $_SESSION['branchNext'] = $row3['next'];
+        $_SESSION['branchState'] = $row3['state'];
+        $_SESSION['branchCity'] = $row3['city'];
+        $_SESSION['branchCP'] = $row3['cp'];
+        $_SESSION['branchReason'] = $row3['reason'];
+          
         if ($row['permit'] === 'client') {
           echo 2;
         } else {

@@ -59,7 +59,7 @@
   } else if ($operation === 'browserProduct') {
     if($_SESSION['MovCotBusPro'] == 'true'){
       $exist = 0;
-      $query = "SELECT * FROM products AS p INNER JOIN stocks AS s ON p.id = s.id_product WHERE ";
+      $query = "SELECT *, B.name AS branch, p.name AS nameProduct FROM products AS p INNER JOIN stocks AS s ON p.id = s.id_product INNER JOIN branches AS B ON s.id_branch = B.id WHERE ";
       if ($_REQUEST['product_name'] !== "") {
         $query .= "p.name LIKE '%" . $_REQUEST['product_name'] . "%'";
         $exist = 1;
@@ -88,11 +88,12 @@
               <td>' . $row['amount'] . '</td>
               <td><input id="a' . $row['id_product'] . '" type="number" value="1" size="1" /></td>
               <td>' . $row['type_product'] . '</td>
+              <td>' . $row['branch'] . '</td>
               <td>' . $row['barcode'] . '</td>
               <td>' . $row['key_'] . '</td>
               <td>' . $row['brand'] . '</td>
               <td>' . $row['model'] . '</td>
-              <td>' . $row['name'] . '</td>';
+              <td>' . $row['nameProduct'] . '</td>';
               $id_complement = "'a" . $row['id_product'] . "'";
               $id_complementb = "'b" . $row['id_product'] . "'";
               echo '<td>

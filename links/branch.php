@@ -23,7 +23,7 @@
       if (mysqli_fetch_assoc($result)) {
         echo 'La sucursal ya existe. Favor de intentar con otro.';
       } else {
-        $query = "INSERT INTO branches (name, rfc, address, nint, next, state, city, cp, reason, phone, mail, colony last_date) VALUES('" . $name ."','" . $rfc . "','" . $address . "','" . $nint . "','" . $next . "','" . $state . "','" . $city . "','" . $cp . "','" . $reason . "','" . $phone . "','" . $mail . "','" . $colony . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+        $query = "INSERT INTO branches (name, rfc, address, nint, next, state, city, cp, reason, phone, mail, colony, last_date) VALUES('" . $name ."','" . $rfc . "','" . $address . "','" . $nint . "','" . $next . "','" . $state . "','" . $city . "','" . $cp . "','" . $reason . "','" . $phone . "','" . $mail . "','" . $colony . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
         echo 'Sucursal agregada.';
       }

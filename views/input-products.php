@@ -22,6 +22,16 @@ if($_SESSION['MovEntMerGen'] == 'true'){
 	        <div class="col-md-12">
 	          <div class="col-md-6">
 	            <div class="form-group">
+    			  <label for="sucursal">Sucursal</label>
+                  <select id="branches" class="form-control">';
+                  $query = "SELECT * FROM branches";
+                  $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+                  }
+
+                  echo '
+                  </select>
 	              <label class="form-label">Proovedor</label>
 	              <input id="provider" type="text" class="form-control" placeholder="Ingrese Proovedor">
 	            </div>

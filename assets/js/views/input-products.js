@@ -4,6 +4,7 @@ function onClickAdd() {
   var provider = document.getElementById('provider').value;
   var amount = document.getElementById('amount').value;
   var unitCost = document.getElementById('unitCost').value;
+  var branches = document.getElementById('branches').value;
 
   if (!provider || !amount || !unitCost) {
     alert('Favor de llenar todos los campos.');
@@ -21,7 +22,7 @@ function onClickAdd() {
       }
     };
 
-    xmlhttp.open("GET", "links/input-products.php?operation=add&provider=" + provider + "&amount=" + amount + "&unit_cost=" + unitCost + "&id=" + id_select);
+    xmlhttp.open("GET", "links/input-products.php?operation=add&provider=" + provider + "&amount=" + amount + "&unit_cost=" + unitCost + "&branch=" + branches + "&id=" + id_select);
     xmlhttp.send();
   }
 }

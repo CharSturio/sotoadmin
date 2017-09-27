@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../../connection/index.php';
 require 'call.php';
   $queryNow = "UPDATE documents SET last_date = date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'];
@@ -52,7 +53,7 @@ require 'call.php';
   $node_proof->setAttribute("version","3.2");
   $node_proof->setAttribute("serie","FA");
   $node_proof->setAttribute("folio",$idInvoice);
-  $node_proof->setAttribute("LugarExpedicion","Arandas");
+  $node_proof->setAttribute("LugarExpedicion",$_SESSION['branchCity']);
   if ($rowDandC['last_digits']) {
     $node_proof->setAttribute("NumCtaPago",$rowDandC['last_digits']);
   }
@@ -88,18 +89,18 @@ require 'call.php';
   $node_proof->setAttribute("tipoDeComprobante","ingreso");
 
   $node_sender = $node_proof->appendChild($dom->createElement("cfdi:Emisor"));
-  $node_sender->setAttribute("rfc","VAAA671004LY0");//VAAA671004LY0
-  $node_sender->setAttribute("nombre","Amanda Valencio Avila");//Amanda Valencio Avila
+  $node_sender->setAttribute("rfc",$_SESSION['branchRFC']);//VAAA671004LY0
+  $node_sender->setAttribute("nombre",$_SESSION['branchReason']);//Amanda Valencio Avila
   $node_dom_fiscal = $node_sender->appendChild($dom->createElement("cfdi:DomicilioFiscal"));
-  $node_dom_fiscal->setAttribute("calle","Medina Ascencio");
-  $node_dom_fiscal->setAttribute("noExterior","649");
-  $node_dom_fiscal->setAttribute("noInterior","NA");
-  $node_dom_fiscal->setAttribute("colonia","Santa Barbara");
-  $node_dom_fiscal->setAttribute("localidad","Arandas");
-  $node_dom_fiscal->setAttribute("municipio","Arandas");
-  $node_dom_fiscal->setAttribute("estado","Jalisco");
+  $node_dom_fiscal->setAttribute("calle",$_SESSION['branchAddress']);
+  $node_dom_fiscal->setAttribute("noExterior",$_SESSION['branchNext']);
+  $node_dom_fiscal->setAttribute("noInterior",$_SESSION['branchNint']);
+  $node_dom_fiscal->setAttribute("colonia",$_SESSION['branchColony']);
+  $node_dom_fiscal->setAttribute("localidad",$_SESSION['branchCity']);
+  $node_dom_fiscal->setAttribute("municipio",$_SESSION['branchCity']);
+  $node_dom_fiscal->setAttribute("estado",$_SESSION['branchState']);
   $node_dom_fiscal->setAttribute("pais","México");
-  $node_dom_fiscal->setAttribute("codigoPostal","47180");
+  $node_dom_fiscal->setAttribute("codigoPostal",$_SESSION['branchCP']);
   $node_regime_fiscal = $node_sender->appendChild($dom->createElement("cfdi:RegimenFiscal"));
   $node_regime_fiscal->setAttribute("Regimen","Régimen de Personas Físicas con Actividades Empresariales y Profesionales.");
 $rfc = strtoupper($rowDandC['rfc']);
@@ -204,7 +205,7 @@ $rfc = strtoupper($rowDandC['rfc']);
   $der = str_pad($importe[0], 10, "0", STR_PAD_LEFT);
 
   include_once("phpqrcode/qrlib.php");
-  $cadenaCodigoBarras = "?re=VAAA671004LY0&rr=" . $rfc . "&tt=" . $der . $izq . "&id=" . $UUID;
+  $cadenaCodigoBarras = "?re=".$_SESSION['branchRFC']."&rr=" . $rfc . "&tt=" . $der . $izq . "&id=" . $UUID;
 
   if(!file_exists("cbb/" . $UUID . ".png")) {
     QRcode::png($cadenaCodigoBarras, "cbb/" . $UUID . ".png", 'L', 4, 2);

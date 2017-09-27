@@ -110,7 +110,10 @@ require '../../connection/index.php';
         $_SESSION['branchCity'] = $row3['city'];
         $_SESSION['branchCP'] = $row3['cp'];
         $_SESSION['branchReason'] = $row3['reason'];
-          
+        $_SESSION['branchPhone'] = $row3['phone'];
+        $_SESSION['branchMail'] = $row3['mail'];
+        $_SESSION['branchColony'] = $row3['colony'];
+        
         if ($row['permit'] === 'client') {
           echo 2;
         } else {

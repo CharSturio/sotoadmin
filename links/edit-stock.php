@@ -31,13 +31,13 @@ session_start();
           $query .= " AND P.barcode LIKE '%" . $barcode . "%'";
         }
       }
-      $query .= " AND S.id_branch = $_SESSION['branchID'];";
+      $query .= " AND S.id_branch =". $_SESSION['branchID'];
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       while ($row = mysqli_fetch_assoc($result)) {
         $namePrint = "'" . $row['name'] . "'";
         echo '<tr>
                 <td>' . $row['amount'] . '</td>
-          <td>' . $row['nameBranch'] . '</td>
+                <td>' . $row['nameBranch'] . '</td>
                 <td>' . $row['barcode'] . '</td>
                 <td>' . $row['key_'] . '</td>
                 <td>' . $row['name'] . '</td>

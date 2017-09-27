@@ -14,13 +14,16 @@
       $city = $_REQUEST['city'];
       $cp = $_REQUEST['cp'];
       $reason = $_REQUEST['reason'];
-
+      $phone = $_REQUEST['phone'];
+      $mail = $_REQUEST['mail'];
+      $colony = $_REQUEST['colony'];
+      
       $query = "SELECT * FROM branches where name='" . $name ."';";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       if (mysqli_fetch_assoc($result)) {
         echo 'La sucursal ya existe. Favor de intentar con otro.';
       } else {
-        $query = "INSERT INTO branches (name, rfc, address, nint, next, state, city, cp, reason, last_date) VALUES('" . $name ."','" . $rfc . "','" . $address . "','" . $nint . "','" . $next . "','" . $state . "','" . $city . "','" . $cp . "','" . $reason . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+        $query = "INSERT INTO branches (name, rfc, address, nint, next, state, city, cp, reason, phone, mail, colony last_date) VALUES('" . $name ."','" . $rfc . "','" . $address . "','" . $nint . "','" . $next . "','" . $state . "','" . $city . "','" . $cp . "','" . $reason . "','" . $phone . "','" . $mail . "','" . $colony . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
         echo 'Sucursal agregada.';
       }
@@ -54,6 +57,15 @@
       if ($_REQUEST['cp']) {
         $query .= " cp='" . $_REQUEST['cp'] . "',";
       }
+      if ($_REQUEST['phone']) {
+        $query .= " phone='" . $_REQUEST['phone'] . "',";
+      }
+      if ($_REQUEST['mail']) {
+        $query .= " mail='" . $_REQUEST['mail'] . "',";
+      }
+      if ($_REQUEST['colony']) {
+        $query .= " colony='" . $_REQUEST['colony'] . "',";
+      }
       if ($_REQUEST['reason']) {
         $query .= " reason='" . $_REQUEST['reason'] . "',";
       }
@@ -86,7 +98,7 @@
     $query = "SELECT * FROM branches where id=" . $id . ";";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $row = mysqli_fetch_assoc($result);
-    echo $row['name'] . ',' . $row['rfc'] . ',' . $row['address'] . ',' . $row['nint'] . ',' . $row['next'] . ',' . $row['state'] . ',' . $row['city'] . ',' . $row['cp'] . ',' . $row['reason'];
+    echo $row['name'] . ',' . $row['rfc'] . ',' . $row['address'] . ',' . $row['nint'] . ',' . $row['next'] . ',' . $row['state'] . ',' . $row['city'] . ',' . $row['cp'] . ',' . $row['reason'].',' . $row['phone'] . ',' . $row['mail'] . ',' . $row['colony'];
   }
    mysqli_close($link);
  ?>

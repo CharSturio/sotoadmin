@@ -13,7 +13,7 @@ if ($op === '1') {
       $desde_fecha = $desde[2] . '-' . $desde[0] . '-' . $desde[1];
       $hasta_fecha = $hasta[2] . '-' . $hasta[0] . '-' . $hasta[1];
 
-      $query = "SELECT D.payment_method, D.id, D.invoice, D.total, D.last_date, D.type, D.status, D.comments, C.name AS nameC, U.name AS nameU FROM documents AS D  INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id WHERE D.last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
+      $query = "SELECT B.name AS nameBranch, D.payment_method, D.id, D.invoice, D.total, D.last_date, D.type, D.status, D.comments, C.name AS nameC, U.name AS nameU FROM documents AS D  INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id INNER JOIN branches AS B ON D.id_branch = B.id WHERE D.id_branch = ".$_SESSION['branchID']." AND D.last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $total_efectivo = 0;
       $salida_caja = 0;
@@ -48,6 +48,7 @@ if ($op === '1') {
         <thead>
           <tr>
             <th>Clave</th>
+            <th>Sucursal</th>
             <th>Total</th>
             <th>Fecha</th>
             <th>Tipo</th>
@@ -63,6 +64,7 @@ if ($op === '1') {
           <thead>
             <tr>
               <th>Clave</th>
+              <th>Sucursal</th>
               <th>Total</th>
               <th>Fecha</th>
               <th>Tipo</th>
@@ -78,6 +80,7 @@ if ($op === '1') {
           <thead>
             <tr>
               <th>Clave</th>
+              <th>Sucursal</th>
               <th>Total</th>
               <th>Fecha</th>
               <th>Tipo</th>
@@ -93,6 +96,7 @@ if ($op === '1') {
           <thead>
             <tr>
               <th>Clave</th>
+              <th>Sucursal</th>
               <th>Total</th>
               <th>Fecha</th>
               <th>Tipo</th>
@@ -108,6 +112,7 @@ if ($op === '1') {
           <thead>
             <tr>
               <th>Clave</th>
+              <th>Sucursal</th>
               <th>Total</th>
               <th>Fecha</th>
               <th>Tipo</th>
@@ -123,6 +128,7 @@ if ($op === '1') {
           <thead>
             <tr>
               <th>Clave</th>
+              <th>Sucursal</th>
               <th>Total</th>
               <th>Fecha</th>
               <th>Tipo</th>
@@ -138,6 +144,7 @@ if ($op === '1') {
           <thead>
             <tr>
               <th>Clave</th>
+              <th>Sucursal</th>
               <th>Total</th>
               <th>Fecha</th>
               <th>Tipo</th>
@@ -153,6 +160,7 @@ if ($op === '1') {
             <thead>
               <tr>
                 <th>Clave</th>
+                <th>Sucursal</th>
                 <th>Total</th>
                 <th>Fecha</th>
                 <th>Tipo</th>
@@ -168,6 +176,7 @@ if ($op === '1') {
               <thead>
                 <tr>
                   <th>Clave</th>
+                  <th>Sucursal</th>
                   <th>Total</th>
                   <th>Fecha</th>
                   <th>Tipo</th>
@@ -183,6 +192,7 @@ if ($op === '1') {
               <thead>
                 <tr>
                   <th>Clave</th>
+                  <th>Sucursal</th>
                   <th>Total</th>
                   <th>Fecha</th>
                   <th>Tipo</th>
@@ -198,6 +208,7 @@ if ($op === '1') {
               <thead>
                 <tr>
                   <th>Clave</th>
+                  <th>Sucursal</th>
                   <th>Total</th>
                   <th>Fecha</th>
                   <th>Tipo</th>
@@ -213,6 +224,7 @@ if ($op === '1') {
               <thead>
                 <tr>
                   <th>Clave</th>
+                  <th>Sucursal</th>
                   <th>Total</th>
                   <th>Fecha</th>
                   <th>Tipo</th>
@@ -228,6 +240,7 @@ if ($op === '1') {
               <thead>
                 <tr>
                   <th>Clave</th>
+                  <th>Sucursal</th>
                   <th>Total</th>
                   <th>Fecha</th>
                   <th>Tipo</th>
@@ -243,6 +256,7 @@ if ($op === '1') {
               <thead>
                 <tr>
                   <th>Clave</th>
+                  <th>Sucursal</th>
                   <th>Total</th>
                   <th>Fecha</th>
                   <th>Tipo</th>
@@ -260,6 +274,7 @@ if ($op === '1') {
                 <thead>
                   <tr>
                     <th>Clave</th>
+                    <th>Sucursal</th>
                     <th>Total</th>
                     <th>Fecha</th>
                     <th>Tipo</th>
@@ -275,6 +290,7 @@ if ($op === '1') {
                   <thead>
                     <tr>
                       <th>Clave</th>
+                      <th>Sucursal</th>
                       <th>Total</th>
                       <th>Fecha</th>
                       <th>Tipo</th>
@@ -290,6 +306,7 @@ if ($op === '1') {
                   <thead>
                     <tr>
                       <th>Clave</th>
+                      <th>Sucursal</th>
                       <th>Total</th>
                       <th>Fecha</th>
                       <th>Tipo</th>
@@ -305,6 +322,7 @@ if ($op === '1') {
                   <thead>
                     <tr>
                       <th>Clave</th>
+                      <th>Sucursal</th>
                       <th>Total</th>
                       <th>Fecha</th>
                       <th>Tipo</th>
@@ -320,6 +338,7 @@ if ($op === '1') {
                   <thead>
                     <tr>
                       <th>Clave</th>
+                      <th>Sucursal</th>
                       <th>Total</th>
                       <th>Fecha</th>
                       <th>Tipo</th>
@@ -335,6 +354,7 @@ if ($op === '1') {
                   <thead>
                     <tr>
                       <th>Clave</th>
+                      <th>Sucursal</th>
                       <th>Total</th>
                       <th>Fecha</th>
                       <th>Tipo</th>
@@ -350,6 +370,7 @@ if ($op === '1') {
                   <thead>
                     <tr>
                       <th>Clave</th>
+                      <th>Sucursal</th>
                       <th>Total</th>
                       <th>Fecha</th>
                       <th>Tipo</th>
@@ -369,6 +390,7 @@ if ($op === '1') {
             }
             $table_efectivo_remision .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -384,6 +406,7 @@ if ($op === '1') {
             }
             $table_efectivo_credito .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -399,6 +422,7 @@ if ($op === '1') {
             }
             $table_efectivo_factura .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -416,6 +440,7 @@ if ($op === '1') {
             }
             $table_cheque_remision .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -431,6 +456,7 @@ if ($op === '1') {
             }
             $table_cheque_credito .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -446,6 +472,7 @@ if ($op === '1') {
             }
             $table_cheque_factura .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -463,6 +490,7 @@ if ($op === '1') {
             }
             $table_tarjeta_credito_remision .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -478,6 +506,7 @@ if ($op === '1') {
             }
             $table_tarjeta_credito_credito .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -493,6 +522,7 @@ if ($op === '1') {
             }
             $table_tarjeta_credito_factura .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -510,6 +540,7 @@ if ($op === '1') {
             }
             $table_tarjeta_debito_remision .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -525,6 +556,7 @@ if ($op === '1') {
             }
             $table_tarjeta_debito_credito .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -540,6 +572,7 @@ if ($op === '1') {
             }
             $table_tarjeta_debito_factura .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -557,6 +590,7 @@ if ($op === '1') {
             }
             $table_deposito_remision .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -572,6 +606,7 @@ if ($op === '1') {
             }
             $table_deposito_credito .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -587,6 +622,7 @@ if ($op === '1') {
             }
             $table_deposito_factura .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -604,6 +640,7 @@ if ($op === '1') {
             }
             $table_transferencia_remision .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -619,6 +656,7 @@ if ($op === '1') {
             }
             $table_transferencia_credito .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -634,6 +672,7 @@ if ($op === '1') {
             }
             $table_transferencia_factura .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -651,6 +690,7 @@ if ($op === '1') {
             }
             $table_no_identificado_remision .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -666,6 +706,7 @@ if ($op === '1') {
             }
             $table_no_identificado_credito .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -681,6 +722,7 @@ if ($op === '1') {
             }
             $table_no_identificado_factura .= '<tr>
                     <td>' . $row['invoice'] . '</td>
+                    <td>' . $row['nameBranch'] . '</td>
                     <td>$' . number_format($row['total'], 2, '.', ',') . '</td>
                     <td>' . $row['last_date'] . '</td>
                     <td>' . $row['type'] . '</td>
@@ -969,6 +1011,7 @@ if ($op === '1') {
           <thead>
             <tr>
               <th>Clave</th>
+              <th>Sucursal</th>
               <th>Abono</th>
               <th>Cliente</th>
               <th>Usuario</th>
@@ -981,6 +1024,7 @@ if ($op === '1') {
       while($row = mysqli_fetch_assoc($result)){
         $pagos_credito .= '<tr>
                 <td>' . $row['invoice'] . '</td>
+                <td>' . $row['nameBranch'] . '</td>
                 <td>$' . number_format($row['paid_out'], 2, '.', ',') . '</td>
                 <td>' . $row['nameC'] . '</td>
                 <td>' . $row['nameU'] . '</td>

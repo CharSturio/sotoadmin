@@ -8,7 +8,10 @@ function onClickNew() {
   var rfc = document.getElementById('rfc').value;
   var next = document.getElementById('next').value;
   var state = document.getElementById('state').value;
-
+  var phone = document.getElementById('phone').value;
+  var mail = document.getElementById('mail').value;
+  var colony = document.getElementById('colony').value;
+  
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 1) {
@@ -22,7 +25,7 @@ function onClickNew() {
     }
   };
 
-  xmlhttp.open("GET", "links/branch.php?operation=new&name=" + name + "&address=" + address + "&nint=" + nint + "&city=" + city + "&cp=" + cp + "&reason=" + reason + "&rfc=" + rfc + "&next=" + next + "&state=" + state);
+  xmlhttp.open("GET", "links/branch.php?operation=new&name=" + name + "&address=" + address + "&nint=" + nint + "&city=" + city + "&cp=" + cp + "&reason=" + reason + "&rfc=" + rfc + "&next=" + next + "&state=" + state + "&phone=" + phone + "&mail=" + mail + "&colony=" + colony);
   xmlhttp.send();
 }
 
@@ -40,6 +43,9 @@ function onClickModify() {
     var rfc = document.getElementById('rfc').value;
     var next = document.getElementById('next').value;
     var state = document.getElementById('state').value;
+    var phone = document.getElementById('phone').value;
+    var mail = document.getElementById('mail').value;
+    var colony = document.getElementById('colony').value;
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -54,7 +60,7 @@ function onClickModify() {
       }
     };
 
-    xmlhttp.open("GET", "links/branch.php?operation=modify&&name=" + name + "&address=" + address + "&nint=" + nint + "&city=" + city + "&cp=" + cp + "&reason=" + reason + "&rfc=" + rfc + "&next=" + next + "&state=" + state + "&id=" + id);
+    xmlhttp.open("GET", "links/branch.php?operation=modify&&name=" + name + "&address=" + address + "&nint=" + nint + "&city=" + city + "&cp=" + cp + "&reason=" + reason + "&rfc=" + rfc + "&next=" + next + "&state=" + state + "&phone=" + phone + "&mail=" + mail + "&colony=" + colony + "&id=" + id);
     xmlhttp.send();
   }
 }
@@ -75,6 +81,9 @@ function onClickSelect() {
       document.getElementById('city').value = res[6];
       document.getElementById('cp').value = res[7];
       document.getElementById('reason').value = res[8];
+      document.getElementById('phone').value = res[9];
+      document.getElementById('mail').value = res[10];
+      document.getElementById('colony').value = res[11];
     }
   };
 

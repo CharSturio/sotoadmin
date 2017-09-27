@@ -24,18 +24,25 @@ if($_SESSION['RegSucGen'] == 'true'){
               <input id="city" type="text" class="form-control" placeholder="Ingrese Municipio">
               <label class="form-label">C.P.</label>
               <input id="cp" type="text" class="form-control" placeholder="Ingrese C.P.">
+              <label class="form-label">Correo</label>
+              <input id="mail" type="text" class="form-control" placeholder="Ingrese Correo">
+              <label class="form-label">Telefono</label>
+              <input id="phone" type="text" class="form-control" placeholder="Ingrese Phone">
           </div>
           <div class="col-md-6">
             <label class="form-label">Razón Social</label>
             <input id="reason" type="text" class="form-control" placeholder="Ingrese Razon Social">
             <label class="form-label">RFC</label>
             <select id="rfc" class="form-control">
-              <option value="default">RFC1</option>
+              <option value="VAAA671004LY0">VAAA671004LY0</option>
             </select>
             <label class="form-label">No Ext</label>
             <input id="next" type="text" class="form-control" placeholder="Ingrese No Ext">
+            <label class="form-label">Colonia</label>
+            <input id="colony" type="text" class="form-control" placeholder="Ingrese Colonia">
             <label class="form-label">Estado</label>
             <input id="state" type="text" class="form-control" placeholder="Ingrese Estado">
+            
           </div>
 
           <div class="col-md-12">

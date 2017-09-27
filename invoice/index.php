@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../connection/index.php';
 require "convert.php";
 $id = $_REQUEST['id'];
@@ -26,12 +27,12 @@ if ($op === '1') {
       </div>
       <div  class="wid25">
         <b>Emisor</b><br />
-        Amanda Valenciano Avila<br />
-        Medina Ascencio 649 <br />CP 47180<br />
-        Hacienda Palomino<br />
-        VAAA671004LY0<br />
-        <br />01 34 8784 7733<br />
-        sotogoodyear@hotmail.com
+        '.$_SESSION['branchReason'].'<br />
+        '.$_SESSION['branchAddress'].' '.$_SESSION['branchNext'].' '.$_SESSION['branchNint'].'<br />CP '.$_SESSION['branchCP'].'<br />
+        '.$_SESSION['branchColony'].'<br />
+        '.$_SESSION['branchRFC'].'<br />
+        '.$_SESSION['branchPhone'].'<br />
+        '.$_SESSION['branchMail'].'
       </div>
       <div class="wid25">
         <b>Receptor</b><br />
@@ -179,11 +180,12 @@ if ($op === '1') {
       </div>
       <div  class="wid25">
         <b>Emisor</b><br />
-        Amanda Valenciano Avila<br />
-        Medina Ascencio 649 <br />CP 47180<br />
-        VAAA671004LY0<br />
-        <br />01 34 8784 7733<br />
-        sotogoodyear@hotmail.com
+        '.$_SESSION['branchReason'].'<br />
+        '.$_SESSION['branchAddress'].' '.$_SESSION['branchNext'].' '.$_SESSION['branchNint'].'<br />CP '.$_SESSION['branchCP'].'<br />
+        '.$_SESSION['branchColony'].'<br />
+        '.$_SESSION['branchRFC'].'<br />
+        '.$_SESSION['branchPhone'].'<br />
+        '.$_SESSION['branchMail'].'
       </div>
       <div class="wid25">
         <b>Receptor</b><br />
@@ -292,11 +294,12 @@ if ($op === '1') {
       </div>
       <div  class="wid25">
         <b>Emisor</b><br />
-        Amanda Valenciano Avila<br />
-        Medina Ascencio 649 <br />CP 47180<br />
-        VAAA671004LY0<br />
-        <br />01 34 8784 7733<br />
-        sotogoodyear@hotmail.com
+        '.$_SESSION['branchReason'].'<br />
+        '.$_SESSION['branchAddress'].' '.$_SESSION['branchNext'].' '.$_SESSION['branchNint'].'<br />CP '.$_SESSION['branchCP'].'<br />
+        '.$_SESSION['branchColony'].'<br />
+        '.$_SESSION['branchRFC'].'<br />
+        '.$_SESSION['branchPhone'].'<br />
+        '.$_SESSION['branchMail'].'
       </div>
       <div class="wid25">
         <b>Receptor</b><br />

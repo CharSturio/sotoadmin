@@ -12,16 +12,16 @@
       $branch = $_REQUEST['branch'];
       $id = $_REQUEST['id'];
 
-      $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, branch, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "','" . $_SESSION['branchID'] . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+      $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, branch, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "','" . $branch . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
-      $query = "SELECT * FROM stocks where id_product ='" . $id ."' and id_branch = ".$_SESSION['branchID'].";";
+      $query = "SELECT * FROM stocks where id_product ='" . $id ."' and id_branch = ".$branch.";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
       $total = $amount;
       $rowcount=mysqli_num_rows($result);
       if($rowcount == 0) {
-        $query = "INSERT INTO stocks (id_product, amount, id_branch, last_date) VALUES ('" . $id . "', ".$amount.", " . $_SESSION['branchID'] . ", date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+        $query = "INSERT INTO stocks (id_product, amount, id_branch, last_date) VALUES ('" . $id . "', ".$amount.", " . $branch . ", date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       } else {
         while($row = mysqli_fetch_assoc($result)){

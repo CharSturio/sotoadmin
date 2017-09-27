@@ -9,6 +9,7 @@
       $provider = $_REQUEST['provider'];
       $amount = $_REQUEST['amount'];
       $unit_cost = $_REQUEST['unit_cost'];
+      $branch = $_REQUEST['branch'];
       $id = $_REQUEST['id'];
 
       $query = "INSERT INTO merchandise_entry (id_product, provider, amount, unit_cost, branch, last_date) VALUES ('" . $id . "','" . $provider . "','" . $amount . "','" . $unit_cost . "','" . $_SESSION['branchID'] . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";

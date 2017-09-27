@@ -1,5 +1,7 @@
 <?php 
 session_start();
+require '../connection/index.php';
+
 if($_SESSION['MovEntMerGen'] == 'true'){
   echo '<div class="header">
 	<h2><strong>Entrada Mercancia</strong></h2>
@@ -20,18 +22,21 @@ if($_SESSION['MovEntMerGen'] == 'true'){
 
           </div>
 	        <div class="col-md-12">
-	          <div class="col-md-6">
-	            <div class="form-group">
-    			  <label for="sucursal">Sucursal</label>
-                  <select id="branches" class="form-control">';
-                  $query = "SELECT * FROM branches";
-                  $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-                  while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
-                  }
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="sucursal">Sucursal</label>
+								<select id="branches" class="form-control">';
+								$query = "SELECT * FROM branches";
+								$result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+								while ($row = mysqli_fetch_assoc($result)) {
+									echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+								}
 
-                  echo '
-                  </select>
+								echo '
+								</select>
+								</div>
+	            <div class="form-group">
+    			  
 	              <label class="form-label">Proovedor</label>
 	              <input id="provider" type="text" class="form-control" placeholder="Ingrese Proovedor">
 	            </div>

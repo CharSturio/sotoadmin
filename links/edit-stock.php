@@ -11,7 +11,7 @@ session_start();
       $barcode = $_REQUEST['barcode'];
       $ident = 0;
 
-      $query = "SELECT B.name AS nameBranch, P.id, P.barcode, P.name, P.key_, P.brand, P.model, S.amount FROM products AS P INNER JOIN stocks AS S ON P.id = S.id_product INNER JOIN branches AS B ON S.id_branch = B.id where";
+      $query = "SELECT B.name AS nameBranch, S.id, P.barcode, P.name, P.key_, P.brand, P.model, S.amount FROM products AS P INNER JOIN stocks AS S ON P.id = S.id_product INNER JOIN branches AS B ON S.id_branch = B.id where";
       if ($name) {
         $query .= " P.name LIKE '%" . $name . "%'";
         $ident = 1;
@@ -51,10 +51,10 @@ session_start();
     }
   } else if ($operation === 'modify') {
     if($_SESSION['MovInvMod'] == 'true'){
-      $id_product = $_REQUEST['id'];
+      $id = $_REQUEST['id'];
       $alter_stock = $_REQUEST['alterStock'];
 
-      $queryTemp = "UPDATE stocks SET amount=" . $alter_stock . " WHERE id_product=" . $id_product;
+      $queryTemp = "UPDATE stocks SET amount=" . $alter_stock . " WHERE id=" . $id;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Cantidad cambiada.';
     } else {
@@ -62,16 +62,16 @@ session_start();
     }
   } else if ($operation === 'in') {
     if($_SESSION['MovInvEntDev'] == 'true'){
-      $id_product = $_REQUEST['id'];
+      $id = $_REQUEST['id'];
       $alter_stock = $_REQUEST['alterStock'];
 
-      $queryTemp = "SELECT amount FROM stocks WHERE id_product=" . $id_product;
+      $queryTemp = "SELECT amount FROM stocks WHERE id=" . $id;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
       $row = mysqli_fetch_assoc($result);
       $total = $alter_stock + $row['amount'];
 
-      $queryTemp = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id_product;
+      $queryTemp = "UPDATE stocks SET amount=" . $total . " WHERE id=" . $id;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Cantidad cambiada.';
     } else {
@@ -79,16 +79,16 @@ session_start();
     }
   } else if ($operation === 'out') {
     if($_SESSION['MovInvSalDev'] == 'true'){
-      $id_product = $_REQUEST['id'];
+      $id = $_REQUEST['id'];
       $alter_stock = $_REQUEST['alterStock'];
 
-      $queryTemp = "SELECT amount FROM stocks WHERE id_product=" . $id_product;
+      $queryTemp = "SELECT amount FROM stocks WHERE id=" . $id;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
       $row = mysqli_fetch_assoc($result);
       $total = $row['amount'] - $alter_stock;
 
-      $queryTemp = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id_product;
+      $queryTemp = "UPDATE stocks SET amount=" . $total . " WHERE id=" . $id;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
       echo 'Cantidad cambiada.';
     } else {

@@ -3,7 +3,8 @@ require '../connection/index.php';
 
 //function send ($id_document) {
 $id_document = $_REQUEST['id'];
-  require_once 'phpmailer/class.phpmailer.php';
+require_once 'phpmailer/class.phpmailer.php';
+require_once 'phpmailer/class.smtp.php';
   $queryClient = "SELECT D.invoice, C.email, D.uuid FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id=" . $id_document;
   $resultClient = mysqli_query($link,$queryClient) or die ('Consulta fallida: ' . mysqli_error($link));
   $rowClient = mysqli_fetch_assoc($resultClient);

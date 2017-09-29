@@ -135,6 +135,7 @@ function onSubmitInvoice() {
       } else if (xmlhttp.responseText === 'y') {
         alert('Las existencias han cambiado. Favor de verificar los productos.');
       } else {
+        alert(xmlhttp.responseText);
         alert('Añadido con Exito. Timbre en proceso. Sera redireccionado al terminar con el proceso..');
         var idDocument = xmlhttp.responseText;
         var x = 'invoice/index.php?id=' + xmlhttp.responseText + '&op=1';

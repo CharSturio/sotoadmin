@@ -195,7 +195,7 @@
         if ($row['temp_amount'] > $row['exist_amount']) {
           $pass = false;
         }
-        array_push($products, $row['product']);
+        // array_push($products, $row['product']);
       }
 
       if ($pass) {
@@ -274,8 +274,9 @@
         while ($row = mysqli_fetch_assoc($result)) {
           if ($row['temp_amount'] > $row['exist_amount']) {
             $pass = false;
+            echo ' Esto es lo que se imprime '.$row['temp_amount'];
           }
-          array_push($products, $row['product']);
+          // array_push($products, $row['product']);
         }
 
         if ($pass) {
@@ -354,7 +355,7 @@
         if ($row['temp_amount'] > $row['exist_amount']) {
           $pass = false;
         }
-        array_push($products, $row['product']);
+        // array_push($products, $row['product']);
       }
 
       if ($pass) {

@@ -1082,7 +1082,7 @@ try {
   $mail->Port = 587;
   $mail->SMTPAuth = true;     // turn on SMTP authentication
   $mail->Username = "no-reply@sotoadmin.com";  // SMTP username
-  $mail->Password = "SotoLlantas2015"; // SMTP password
+  $mail->Password = "SotoGoodyear2015."; // SMTP password
   
   $mail->AddAddress($_REQUEST['correo'], 'Cliente');
   $mail->SetFrom('no-reply@sotoadmin.com', 'Soto Goodyear');

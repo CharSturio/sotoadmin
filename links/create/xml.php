@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require '../../connection/index.php';
 require 'call.php';
   $queryNow = "UPDATE documents SET last_date = date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'];

@@ -2,6 +2,8 @@
   session_start();
   require '../connection/index.php';
   require_once 'phpmailer/class.phpmailer.php';
+  require_once 'phpmailer/class.smtp.php';
+  
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'action') {
@@ -156,6 +158,13 @@
       $mail = new PHPMailer(true); //defaults to using php "mail()"; the true param means it will throw exceptions on errors, which we need to catch
 
       try {
+        $mail->IsSMTP();                                      // set mailer to use SMTP
+        $mail->Host = "smtp.1and1.mx";  // specify main and backup server
+        $mail->Port = 587;
+        $mail->SMTPAuth = true;     // turn on SMTP authentication
+        $mail->Username = "no-reply@sotoadmin.com";  // SMTP username
+        $mail->Password = "SotoLlantas2015"; // SMTP password
+        
         $mail->AddAddress('sotollantas@gmail.com', 'Cliente');
         $split = explode(",",$_REQUEST['email']);
         $count = count($split);

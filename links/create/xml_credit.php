@@ -1,10 +1,11 @@
 <?php
+session_start();
+
 require '../../connection/index.php';
 require 'call.php';
   $queryNow = "UPDATE documents SET last_date = date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'];
   $resultNow = mysqli_query($link,$queryNow) or die ('Consulta fallida: ' . mysqli_error($link));
-  $rowNow = mysqli_fetch_assoc($resultNow);
-
+  //$rowNow = mysqli_fetch_assoc($resultNow);
   $queryDandC = "SELECT D.last_date, D.invoice, D.id, D.id_invoice, D.last_digits, D.total, D.payment_method, C.rfc, C.name, C.address, C.noExt, C.noint, C.colony, C.city, C.state, C.pc, C.phone, C.email FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id=" . $_REQUEST['id'] ." LIMIT 1;";
   $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
   $rowDandC = mysqli_fetch_assoc($resultDandC);
@@ -64,7 +65,7 @@ require 'call.php';
     $node_proof->setAttribute("version","3.2");
     $node_proof->setAttribute("serie","CR");
     $node_proof->setAttribute("folio",$idInvoice);
-    $node_proof->setAttribute("LugarExpedicion","Arandas");
+    $node_proof->setAttribute("LugarExpedicion",$_SESSION['branchCity']);
     if ($rowDandC['last_digits']) {
       $node_proof->setAttribute("NumCtaPago",$rowDandC['last_digits']);
     }
@@ -119,18 +120,18 @@ require 'call.php';
     $node_proof->setAttribute("tipoDeComprobante","ingreso");
 
     $node_sender = $node_proof->appendChild($dom->createElement("cfdi:Emisor"));
-    $node_sender->setAttribute("rfc","VAAA671004LY0");//VAAA671004LY0
-    $node_sender->setAttribute("nombre","Amanda Valencio Avila");//Amanda Valencio Avila
+    $node_sender->setAttribute("rfc",$_SESSION['branchRFC']);//VAAA671004LY0
+    $node_sender->setAttribute("nombre",$_SESSION['branchReason']);//Amanda Valencio Avila
     $node_dom_fiscal = $node_sender->appendChild($dom->createElement("cfdi:DomicilioFiscal"));
-    $node_dom_fiscal->setAttribute("calle","Medina Ascencio");
-    $node_dom_fiscal->setAttribute("noExterior","649");
-    $node_dom_fiscal->setAttribute("noInterior","NA");
-    $node_dom_fiscal->setAttribute("colonia","Santa Barbara");
-    $node_dom_fiscal->setAttribute("localidad","Arandas");
-    $node_dom_fiscal->setAttribute("municipio","Arandas");
-    $node_dom_fiscal->setAttribute("estado","Jalisco");
+    $node_dom_fiscal->setAttribute("calle",$_SESSION['branchAddress']);
+    $node_dom_fiscal->setAttribute("noExterior",$_SESSION['branchNext']);
+    $node_dom_fiscal->setAttribute("noInterior",$_SESSION['branchNint']);
+    $node_dom_fiscal->setAttribute("colonia",$_SESSION['branchColony']);
+    $node_dom_fiscal->setAttribute("localidad",$_SESSION['branchCity']);
+    $node_dom_fiscal->setAttribute("municipio",$_SESSION['branchCity']);
+    $node_dom_fiscal->setAttribute("estado",$_SESSION['branchState']);
     $node_dom_fiscal->setAttribute("pais","México");
-    $node_dom_fiscal->setAttribute("codigoPostal","47180");
+    $node_dom_fiscal->setAttribute("codigoPostal",$_SESSION['branchCP']);
     $node_regime_fiscal = $node_sender->appendChild($dom->createElement("cfdi:RegimenFiscal"));
     $node_regime_fiscal->setAttribute("Regimen","Régimen de Personas Físicas con Actividades Empresariales y Profesionales.");
     $rfc = strtoupper($rowDandC['rfc']);
@@ -153,14 +154,13 @@ require 'call.php';
     $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
     $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
     $node_concepts = $node_proof->appendChild($dom->createElement("cfdi:Conceptos"));
-
     while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
       $costUnit = $rowQandP['unit_cost'];
       $costUnitSIVA = ($costUnit/116) * 100;
       $CostUnitSIVA = round($costUnitSIVA, 2);
       $costPzs = $CostUnitSIVA * $rowQandP['amount'];
       $CostPzs = round($costPzs, 2);
-
+      
       $node_concept = $node_concepts->appendChild($dom->createElement("cfdi:Concepto"));
       $node_concept->setAttribute("cantidad",$rowQandP['amount']);
       $node_concept->setAttribute("unidad","Pieza");
@@ -169,6 +169,7 @@ require 'call.php';
       $node_concept->setAttribute("valorUnitario",$CostUnitSIVA);
       $node_concept->setAttribute("importe",$CostPzs);
     }
+    
     $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
     $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
     $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
@@ -232,7 +233,7 @@ require 'call.php';
     $der = str_pad($importe[0], 10, "0", STR_PAD_LEFT);
 
     include_once("phpqrcode/qrlib.php");
-    $cadenaCodigoBarras = "?re=VAAA671004LY0&rr=" . $rfc . "&tt=" . $der . $izq . "&id=" . $UUID;
+    $cadenaCodigoBarras = "?re=".$_SESSION['branchRFC']."&rr=" . $rfc . "&tt=" . $der . $izq . "&id=" . $UUID;
 
     if(!file_exists("cbb/" . $UUID . ".png")) {
       QRcode::png($cadenaCodigoBarras, "cbb/" . $UUID . ".png", 'L', 4, 2);

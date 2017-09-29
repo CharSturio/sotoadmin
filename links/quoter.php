@@ -167,7 +167,7 @@
     $query = "DELETE FROM temp_quoter WHERE id=" . $_REQUEST['id'];
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
-    $query = "SELECT T.id, T.amount, T.unit_cost, P.type_product, P.brand, P.model, P.name FROM temp_quoter as T INNER JOIN products AS P ON T.id_product = P.id where T.id_client LIKE '%" . $_REQUEST['idClient'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
+    $query = "SELECT T.id, T.amount, T.unit_cost, P.type_product, P.brand, P.model, P.name FROM temp_quoter as T INNER JOIN products AS P ON T.id_product = P.id where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
     $totalAll = 0;

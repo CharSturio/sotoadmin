@@ -274,7 +274,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
           if ($row['temp_amount'] > $row['exist_amount']) {
             $pass = false;
-            echo ' Esto es lo que se imprime '.$row['temp_amount'];
+            echo ' Esto es lo que se imprime '.$row['temp_amount'].' Y esto es exist '.$row['exist_amount'];
           }
           // array_push($products, $row['product']);
         }

@@ -188,7 +188,7 @@
     }
   } else if ($operation === 'remission') {
     if($_SESSION['MovCotRem'] == 'true'){
-      $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
+      $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $pass = true;
       while ($row = mysqli_fetch_assoc($result)) {
@@ -268,7 +268,7 @@
       $rowClient = mysqli_fetch_assoc($resultClient);
       if ($rowClient['name'] && $rowClient['address'] && $rowClient['colony'] && $rowClient['state'] && $rowClient['rfc'] && $rowClient['pc'] && $rowClient['city'] && $rowClient['phone'] && $rowClient['noExt']) {
 
-        $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
+        $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
         $pass = true;
         while ($row = mysqli_fetch_assoc($result)) {
@@ -348,7 +348,7 @@
     }
   } else if ($operation === 'credit') {
     if($_SESSION['MovCotCre'] == 'true'){
-      $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
+      $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $pass = true;
       while ($row = mysqli_fetch_assoc($result)) {

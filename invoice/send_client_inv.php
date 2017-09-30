@@ -163,7 +163,7 @@
         $mail->Port = 587;
         $mail->SMTPAuth = true;     // turn on SMTP authentication
         $mail->Username = "no-reply@sotoadmin.com";  // SMTP username
-        $mail->Password = "SotoGoodyear2015."; // SMTP password
+        $mail->Password = $passSMTP; // SMTP password
         
         $mail->AddAddress('sotollantas@gmail.com', 'Cliente');
         $split = explode(",",$_REQUEST['email']);

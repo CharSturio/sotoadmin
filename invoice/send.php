@@ -24,7 +24,7 @@ require_once 'phpmailer/class.smtp.php';
               $mail->Port = 587;
               $mail->SMTPAuth = true;     // turn on SMTP authentication
               $mail->Username = "no-reply@sotoadmin.com";  // SMTP username
-              $mail->Password = $passSMTP; // SMTP password
+              $mail->Password = "SotoGoodyear2015.,"; // SMTP password
 
 
               $mail->AddAddress($rowClient['email'], 'Cliente');

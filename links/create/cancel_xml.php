@@ -92,6 +92,17 @@ if($_SESSION['MovLisEli'] == 'true'){
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $queryTemp = "DELETE FROM credit WHERE id_document =" . $id;
       $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
+
+      
+
+      
+      $queryGet = "SELECT D.id_branch, Q.amount, Q.id_product FROM documents AS D INNER JOIN quoter AS Q ON D.invoice = Q.invoice WHERE D.id=" . $id;
+      $resultGet = mysqli_query($link,$queryGet) or die ('Consulta fallida: ' . mysqli_error($link));
+      while($rowGet = mysqli_fetch_assoc($resultGet)){
+        $query = "UPDATE stocks SET amount= amount + ".$rowGet['amount']." WHERE id_product = ".$rowGet['id_product']." AND id_branch =" . $rowGet['id_branch'];
+        $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+      }
+
         echo "cancelado";
     }
 } else {

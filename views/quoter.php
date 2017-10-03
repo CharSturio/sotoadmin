@@ -91,6 +91,7 @@ if($_SESSION['MovCotGen'] == 'true'){
                 <tr>
                   <th>Quitar</th>
                   <th>Tipo Producto</th>
+                  <th>Sucursal</th>
                   <th>Marca</th>
                   <th>Modelo</th>
                   <th>Nombre</th>

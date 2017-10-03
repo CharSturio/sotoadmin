@@ -62,7 +62,7 @@ function onClickSelectName(id, name, credit, limitCredit, typeCost) {
   document.getElementById('typeCost').innerHTML = '<b>Tipo: </b>' + typeCost;
 }
 
-function onClickAdd(id, amount, codigo) {
+function onClickAdd(id, amount, codigo, branch) {
   console.log(codigo);
   code = "'"+codigo+"'";
   price = document.getElementById(code).value;
@@ -81,7 +81,7 @@ function onClickAdd(id, amount, codigo) {
       }
     };
 
-    xmlhttp.open("GET", "links/quoter.php?operation=addProduct&id=" + id + "&amount=" + ramount + "&price=" + price + "&idClient=" + idSelect);
+    xmlhttp.open("GET", "links/quoter.php?operation=addProduct&id=" + id + "&amount=" + ramount + "&price=" + price + "&idClient=" + idSelect + "&branch=" + branch);
     xmlhttp.send();
   }
 }
@@ -218,6 +218,8 @@ function onSubmitRemission() {
     } else if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
       if (xmlhttp.responseText == 'noPermit') {
         alert("No cuenta con los permisos necesarios.");
+      } else if (xmlhttp.responseText == 'y'){
+        alert('Las existencias han cambiado. Favor de verificar los productos.');
       } else {
         alert("Añadida con Exito. Sera redireccionado.");
         var x = 'invoice/index.php?id=' + xmlhttp.responseText + '&op=2';

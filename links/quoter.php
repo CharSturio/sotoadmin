@@ -118,7 +118,7 @@
                 }
                 echo '</select>
               </td>
-              <td><button onClick="onClickAdd(' . $row['id_product'] . ',' . $id_complement . ', ' . $id_complementb . ');" type="button" class="btn btn-primary btn-square">Agregar</button></td>
+              <td><button onClick="onClickAdd(' . $row['id_product'] . ',' . $id_complement . ', ' . $id_complementb . ','. $row['id_branch'].');" type="button" class="btn btn-primary btn-square">Agregar</button></td>
             </tr>';
 
       }
@@ -126,7 +126,7 @@
       echo 'noPermit';
     }
   } else if ($operation === 'addProduct') {
-    $query = "SELECT * FROM temp_quoter where id_product LIKE '%" . $_REQUEST['id'] ."%' AND id_client LIKE '%" . $_REQUEST['idClient'] . "%' AND id_user LIKE '%" . $_SESSION['id'] . "%' AND unit_cost LIKE '%" . $_REQUEST['price'] . "%';";
+    $query = "SELECT * FROM temp_quoter where id_product LIKE '%" . $_REQUEST['id'] ."%' AND id_client LIKE '%" . $_REQUEST['idClient'] . "%' AND id_user LIKE '%" . $_SESSION['id'] . "%' AND unit_cost LIKE '%" . $_REQUEST['price'] . "%' AND id_branch = ". $_REQUEST['branch'].";";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $exist = false;
     $amount = $_REQUEST['amount'];
@@ -141,11 +141,11 @@
       $query = "UPDATE temp_quoter SET amount=" . $amount . " WHERE id=" . $id;
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     } else {
-      $query = "INSERT INTO temp_quoter (id_product, id_client, id_user, amount, unit_cost, last_date) VALUES ('" . $_REQUEST['id'] . "','" . $_REQUEST['idClient'] . "','" . $_SESSION['id'] . "','" . $_REQUEST['amount'] . "','" . $_REQUEST['price'] . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+      $query = "INSERT INTO temp_quoter (id_product, id_client, id_user, id_branch, amount, unit_cost, last_date) VALUES ('" . $_REQUEST['id'] . "','" . $_REQUEST['idClient'] . "','" . $_SESSION['id'] . "'," . $_REQUEST['branch'] . ",'" . $_REQUEST['amount'] . "','" . $_REQUEST['price'] . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     }
 
-    $query = "SELECT T.id, T.amount, T.unit_cost, P.type_product, P.brand, P.model, P.name FROM temp_quoter as T INNER JOIN products AS P ON T.id_product = P.id where T.id_client =" . $_REQUEST['idClient'] . " AND T.id_user =" . $_SESSION['id'] . ";";
+    $query = "SELECT B.name AS Bname, T.id, T.amount, T.unit_cost, P.type_product, P.brand, P.model, P.name FROM temp_quoter as T INNER JOIN products AS P ON T.id_product = P.id INNER JOIN branches AS B ON T.id_branch = B.id where T.id_client =" . $_REQUEST['idClient'] . " AND T.id_user =" . $_SESSION['id'] . ";";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $totalAll = 0;
     while ($row = mysqli_fetch_assoc($result)) {
@@ -154,6 +154,7 @@
       echo '<tr id="' . $row['id'] . '">
         <td><button onClick="onClickCancel(' . $row['id'] . ',' . $_REQUEST['id'] .','. $_REQUEST['idClient'] .')" type="button" class="btn btn-danger btn-square">X</button></td>
         <td>' . $row['type_product'] . '</td>
+        <td>' . $row['Bname'] . '</td>
         <td>' . $row['brand'] . '</td>
         <td>' . $row['model'] . '</td>
         <td>' . $row['name'] . '</td>
@@ -188,7 +189,7 @@
     }
   } else if ($operation === 'remission') {
     if($_SESSION['MovCotRem'] == 'true'){
-      $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
+      $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%' AND T.id_branch = S.id_branch;";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $pass = true;
       while ($row = mysqli_fetch_assoc($result)) {
@@ -199,7 +200,7 @@
       }
 
       if ($pass) {
-        $queryInvoice = "select * from documents where type = 'remission' order by id_invoice desc limit 1";
+        $queryInvoice = "SELECT * FROM documents where type = 'remission' order by id_invoice desc limit 1";
         $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error($link));
         $rowInvoice = mysqli_fetch_assoc($resultInvoice);
 
@@ -237,13 +238,13 @@
 
         while ($row2 = mysqli_fetch_assoc($result2)) {
           $total_invoice += ($row2['amount'] * $row2['unit_cost']);
-          $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " limit 1;";
+          $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " AND id_branch = " . $row2['id_branch'] . " limit 1;";
           $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $AllStock = mysqli_fetch_assoc($resultStock);
 
           $amount = $AllStock['amount'] - $row2['amount'];
-          $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
+          $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_branch = " . $row2['id_branch'] . " AND id_product=" . $row2['id_product'];
           $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
@@ -256,7 +257,7 @@
         $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
         echo $id_document;
       } else {
-        echo 'Las existencias han cambiado. Favor de verificar los productos.';
+        echo 'y';
       }
     } else {
       echo 'noPermit';
@@ -268,7 +269,7 @@
       $rowClient = mysqli_fetch_assoc($resultClient);
       if ($rowClient['name'] && $rowClient['address'] && $rowClient['colony'] && $rowClient['state'] && $rowClient['rfc'] && $rowClient['pc'] && $rowClient['city'] && $rowClient['phone'] && $rowClient['noExt']) {
 
-        $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
+        $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%' AND T.id_branch = S.id_branch;";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
         $pass = true;
         while ($row = mysqli_fetch_assoc($result)) {
@@ -318,13 +319,13 @@
 
           while ($row2 = mysqli_fetch_assoc($result2)) {
             $total_invoice += ($row2['amount'] * $row2['unit_cost']);
-            $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " limit 1;";
+            $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " AND id_branch = " . $row2['id_branch'] . "  limit 1;";
             $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error($link));
 
             $AllStock = mysqli_fetch_assoc($resultStock);
 
             $amount = $AllStock['amount'] - $row2['amount'];
-            $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
+            $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_branch = " . $row2['id_branch'] . " AND id_product=" . $row2['id_product'];
             $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
             $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
@@ -347,7 +348,7 @@
     }
   } else if ($operation === 'credit') {
     if($_SESSION['MovCotCre'] == 'true'){
-      $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%';";
+      $query = "SELECT T.unit_cost, T.id_product AS product, T.amount AS temp_amount, S.amount AS exist_amount FROM temp_quoter as T INNER JOIN stocks AS S ON T.id_product = S.id_product where T.id_client LIKE '%" . $_REQUEST['id_client'] . "%' AND T.id_user LIKE '%" . $_SESSION['id'] . "%' AND T.id_branch = S.id_branch;";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $pass = true;
       while ($row = mysqli_fetch_assoc($result)) {
@@ -396,13 +397,13 @@
 
         while ($row2 = mysqli_fetch_assoc($result2)) {
           $total_credit += ($row2['amount'] * $row2['unit_cost']);
-          $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " limit 1;";
+          $queryStock = "SELECT * FROM stocks where id_product=" . $row2['id_product'] . " AND id_branch = " . $row2['id_branch'] . "  limit 1;";
           $resultStock = mysqli_query($link,$queryStock) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $AllStock = mysqli_fetch_assoc($resultStock);
 
           $amount = $AllStock['amount'] - $row2['amount'];
-          $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_product=" . $row2['id_product'];
+          $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_branch = " . $row2['id_branch'] . " AND id_product=" . $row2['id_product'];
           $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";

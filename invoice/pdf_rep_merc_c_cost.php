@@ -52,14 +52,14 @@
                 ->setCellValue('B'.$i, $row['name'])
                 ->setCellValue('C'.$i, $row['barcode'])
                 ->setCellValue('D'.$i, $row['key_'])
-                ->setCellValue('E'.$i, '$'.$row['retail_price'])
-                ->setCellValue('F'.$i, '$'.$row['wholesale_price'])
-                ->setCellValue('G'.$i, '$'.$row['special_price'])
-                ->setCellValue('H'.$i, '$'.$row['tarjeta'])
-                ->setCellValue('I'.$i, '$'.$row['mpago'])
-                ->setCellValue('J'.$i, '$'.$row['pespecial'])
-                ->setCellValue('K'.$i, '$'.$row['amount'])
-                ->setCellValue('L'.$i, '$'.$row['unit_cost'])
+                ->setCellValue('E'.$i, $row['retail_price'])
+                ->setCellValue('F'.$i, $row['wholesale_price'])
+                ->setCellValue('G'.$i, $row['special_price'])
+                ->setCellValue('H'.$i, $row['tarjeta'])
+                ->setCellValue('I'.$i, $row['mpago'])
+                ->setCellValue('J'.$i, $row['pespecial'])
+                ->setCellValue('K'.$i, $row['amount'])
+                ->setCellValue('L'.$i, $row['unit_cost'])
                 ->setCellValue('M'.$i, $row['last_date']);
                 $i++;
     }

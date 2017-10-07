@@ -4,7 +4,7 @@
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'action') {
-    $query = "SELECT S.amount, P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.measure, P.treadware, P.load_index, P.load_speed FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "'  ORDER BY P.key_ ASC";
+    $query = "SELECT P.id, S.amount, P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.measure, P.treadware, P.load_index, P.load_speed, P.retail_price, P.wholesale_price, B.name AS branch FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B ON B.id = S.id_branch WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "' AND B.id = ".$_SESSION['branchID']."  ORDER BY P.key_ ASC";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
       require_once 'lib/PHPExcel/PHPExcel.php';
@@ -22,10 +22,10 @@
                  ->setCategory("Reporte excel");
 
       $tituloReporte = "Reporte de Mercancia Con Inventarios";
-      $titulosColumnas = array('TIPO', 'NOMBRE', 'CODIGO', 'CLAVE', 'MARCA', 'MODELO', 'MEDIDA', 'TREADWARE', 'IND CARGA', 'IND VELOCIDAD', 'EXISTENCIA');
+      $titulosColumnas = array('TIPO', 'NOMBRE', 'CODIGO', 'CLAVE', 'MARCA', 'MODELO', 'MEDIDA', 'TREADWARE', 'IND CARGA', 'IND VELOCIDAD', 'EXISTENCIA', 'P Publico', 'P Mayoreo', 'U Costo','Sucursal');
 
       $objPHPExcel->setActiveSheetIndex(0)
-                  ->mergeCells('A1:K1');
+                  ->mergeCells('A1:O1');
 
       // Se agregan los titulos del reporte
       $objPHPExcel->setActiveSheetIndex(0)
@@ -40,11 +40,18 @@
                   ->setCellValue('H3',  $titulosColumnas[7])
                   ->setCellValue('I3',  $titulosColumnas[8])
                   ->setCellValue('J3',  $titulosColumnas[9])
-                  ->setCellValue('K3',  $titulosColumnas[10]);
+                  ->setCellValue('K3',  $titulosColumnas[10])
+                  ->setCellValue('L3',  $titulosColumnas[11])
+                  ->setCellValue('M3',  $titulosColumnas[12])
+                  ->setCellValue('N3',  $titulosColumnas[13])
+                  ->setCellValue('O3',  $titulosColumnas[14]);
 
       //Se agregan los datos de los alumnos
       $i=4;
       while($row = mysqli_fetch_assoc($result)){
+        $query2 = "SELECT * FROM merchandise_entry WHERE id_product = " . $row['id'] . " AND branch = ".$_SESSION['branchID']." ORDER BY last_date DESC limit 1";
+        $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error($link));
+        $row2 = mysqli_fetch_assoc($result2);
         $objPHPExcel->setActiveSheetIndex(0)
                   ->setCellValue('A'.$i, $row['type_product'])
                   ->setCellValue('B'.$i, $row['name'] )
@@ -56,7 +63,11 @@
                   ->setCellValue('H'.$i,$row['treadware'])
                   ->setCellValue('I'.$i,$row['load_index'])
                   ->setCellValue('J'.$i,$row['load_speed'])
-                  ->setCellValue('K'.$i,$row['amount']);
+                  ->setCellValue('K'.$i,$row['amount'])
+                  ->setCellValue('L'.$i,$row['retail_price'])
+                  ->setCellValue('M'.$i,$row['wholesale_price'])
+                  ->setCellValue('N'.$i,$row2['unit_cost'])
+                  ->setCellValue('O'.$i,$row['branch']);
                   $i++;
       }
 
@@ -122,11 +133,11 @@
               )
           ));
 
-      $objPHPExcel->getActiveSheet()->getStyle('A1:K1')->applyFromArray($estiloTituloReporte);
-      $objPHPExcel->getActiveSheet()->getStyle('A3:K3')->applyFromArray($estiloTituloColumnas);
-      $objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:K".($i-1));
+      $objPHPExcel->getActiveSheet()->getStyle('A1:O1')->applyFromArray($estiloTituloReporte);
+      $objPHPExcel->getActiveSheet()->getStyle('A3:O3')->applyFromArray($estiloTituloColumnas);
+      $objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:O".($i-1));
 
-      for($i = 'A'; $i <= 'K'; $i++){
+      for($i = 'A'; $i <= 'O'; $i++){
         $objPHPExcel->setActiveSheetIndex(0)
           ->getColumnDimension($i)->setAutoSize(TRUE);
       }

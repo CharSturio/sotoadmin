@@ -4,7 +4,7 @@
 
   $operation = $_REQUEST['operation'];
   if ($operation === 'action') {
-    $query = "SELECT P.id, S.amount, P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.measure, P.treadware, P.load_index, P.load_speed, P.retail_price, P.wholesale_price, B.name AS branch FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B ON B.id = S.id_branch WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "' AND B.id = ".$_SESSION['branchID']."  ORDER BY P.key_ ASC";
+    $query = "SELECT P.id AS id_p, S.amount, P.type_product, P.barcode, P.name, P.key_, P.brand, P.model, P.measure, P.treadware, P.load_index, P.load_speed, P.retail_price, P.wholesale_price, B.name AS branch FROM stocks AS S INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B ON B.id = S.id_branch WHERE P.type_product = '" . $_REQUEST['typeProduct'] . "' AND B.id = ".$_SESSION['branchID']."  ORDER BY P.key_ ASC";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
       require_once 'lib/PHPExcel/PHPExcel.php';
@@ -49,7 +49,7 @@
       //Se agregan los datos de los alumnos
       $i=4;
       while($row = mysqli_fetch_assoc($result)){
-        $query2 = "SELECT * FROM merchandise_entry WHERE id_product = " . $row['id'] . " AND branch = ".$_SESSION['branchID']." ORDER BY last_date DESC limit 1";
+        $query2 = "SELECT * FROM merchandise_entry WHERE id_product = " . $row['id_p'] . " AND branch = ".$_SESSION['branchID']." ORDER BY last_date DESC limit 1";
         $result2 = mysqli_query($link,$query2) or die ('Consulta fallida: ' . mysqli_error($link));
         $row2 = mysqli_fetch_assoc($result2);
         $objPHPExcel->setActiveSheetIndex(0)

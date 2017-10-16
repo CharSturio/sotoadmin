@@ -62,7 +62,7 @@
         $query .= " permit='" . $_REQUEST['permision'] . "',";
       }
       if ($_REQUEST['branches']) {
-        $query .= " branch='" . $_REQUEST['branches'] . "',";
+        $query .= " branch=" . $_REQUEST['branches'] . ",";
       }
       if ($_REQUEST['checkIn']) {
         $query .= " check_in='" . $_REQUEST['checkIn'] . "',";

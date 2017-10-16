@@ -96,7 +96,7 @@ if($_SESSION['MovLisEli'] == 'true'){
       
 
       
-      $queryGet = "SELECT D.id_branch, Q.amount, Q.id_product FROM documents AS D INNER JOIN quoter AS Q ON D.invoice = Q.invoice WHERE D.id=" . $id;
+      $queryGet = "SELECT D.id_branch, Q.amount, Q.id_product FROM documents AS D INNER JOIN quoter AS Q ON D.invoice = Q.invoice WHERE D.id=" . $id ." AND Q.id_branch =" . $_SESSION['branchID'];;
       $resultGet = mysqli_query($link,$queryGet) or die ('Consulta fallida: ' . mysqli_error($link));
       while($rowGet = mysqli_fetch_assoc($resultGet)){
         $query = "UPDATE stocks SET amount= amount + ".$rowGet['amount']." WHERE id_product = ".$rowGet['id_product']." AND id_branch =" . $rowGet['id_branch'];

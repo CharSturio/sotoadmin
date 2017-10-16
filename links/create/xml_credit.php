@@ -368,7 +368,7 @@ require 'call.php';
     $node_dom_catch->setAttribute("pais","México");
     $node_dom_catch->setAttribute("codigoPostal",$rowDandC['pc']);
 
-    $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
+    $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
     $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
     $node_concepts = $node_proof->appendChild($dom->createElement("cfdi:Conceptos"));
     $sinIVA = 0;
@@ -391,7 +391,7 @@ require 'call.php';
     $node_proof->setAttribute("subTotal",$sinIVA);
 
     $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
-    $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
+    $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
     $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
     $IVATOTAL = $sinIVA * .16;
     $IVA_total = round($IVATOTAL, 2);

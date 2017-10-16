@@ -69,7 +69,7 @@ if($_SESSION['MovCotGen'] == 'true'){
                       <th>Modelo</th>
                       <th>Nombre</th>
                       <th>Precios</th>
-                      <th>Agregar</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody id="responseProduct">

@@ -63,6 +63,7 @@ if ($_SESSION['logged'] && $_SESSION['id']) {
                   <li id="quoter"><a>Cotizador</a></li>
                   <li id="stock"><a>Inventarios</a></li>
                   <li id="items_input"><a>Entrada Mercancia</a></li>
+                  <li id="transferlist"><a>Listado de transferencia</a></li>
                 </ul>
               </li>
               <li class="tm nav-parent">
@@ -73,6 +74,7 @@ if ($_SESSION['logged'] && $_SESSION['id']) {
                 <li id="salida-caja"><a>Entrada y Salida Caja</a></li>
                 <li id="min-stocks"><a>Stocks Minimos</a></li>
                 <li id="send-inv-clients"><a>Envio Mercancia</a></li>
+                <li id="send-products"><a>Transferencia Mercancia</a></li>
                 <li id="permisos"><a>Permisos</a></li>
                 </ul>
               </li>

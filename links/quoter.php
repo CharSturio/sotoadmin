@@ -86,7 +86,7 @@
         echo '
             <tr>
               <td>' . $row['amount'] . '</td>
-              <td><input id="a' . $row['id_product'] . '" type="number" value="1" size="1" /></td>
+              <td><input id="a' . $row['id_product'] . $row['id_branch'] . '" type="number" value="1" size="1" /></td>
               <td>' . $row['type_product'] . '</td>
               <td>' . $row['branch'] . '</td>
               <td>' . $row['barcode'] . '</td>
@@ -94,8 +94,8 @@
               <td>' . $row['brand'] . '</td>
               <td>' . $row['model'] . '</td>
               <td>' . $row['nameProduct'] . '</td>';
-              $id_complement = "'a" . $row['id_product'] . "'";
-              $id_complementb = "'b" . $row['id_product'] . "'";
+              $id_complement = "'a" . $row['id_product'] . $row['id_branch'] . "'";
+              $id_complementb = "'b" . $row['id_product'] . $row['id_branch'] . "'";
               echo '<td>
                 <select id="' . $id_complementb . '" class="form-control" data-placeholder="Selecciona Estatus">';
                 if ($row['retail_price']) {
@@ -117,9 +117,18 @@
                   echo '<option value="' . $row['pespecial'] . '">Publico Especial: $' . $row['pespecial'] . '</option>';
                 }
                 echo '</select>
-              </td>
-              <td><button onClick="onClickAdd(' . $row['id_product'] . ',' . $id_complement . ', ' . $id_complementb . ','. $row['id_branch'].');" type="button" class="btn btn-primary btn-square">Agregar</button></td>
-            </tr>';
+              </td>';
+              if ($row['id_branch'] == $_SESSION['branchID']){
+                echo '
+                <td><button onClick="onClickAdd(' . $row['id_product'] . ',' . $id_complement . ', ' . $id_complementb . ','. $row['id_branch'].');" type="button" class="btn btn-primary btn-square">Agregar</button></td>';
+  
+              } else {
+                echo '
+                <td></td>';
+  
+              }
+              
+            echo '</tr>';
 
       }
     } else {
@@ -200,7 +209,7 @@
       }
 
       if ($pass) {
-        $queryInvoice = "SELECT * FROM documents where type = 'remission' order by id_invoice desc limit 1";
+        $queryInvoice = "SELECT * FROM documents where type = 'remission' AND id_branch = ".$_SESSION['branchID'] ." order by id_invoice desc limit 1";
         $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error($link));
         $rowInvoice = mysqli_fetch_assoc($resultInvoice);
 
@@ -247,7 +256,7 @@
           $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_branch = " . $row2['id_branch'] . " AND id_product=" . $row2['id_product'];
           $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
-          $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+          $queryInsertQuoters = "INSERT INTO quoter (id_product, id_branch, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $_SESSION['branchID'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
           $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];
@@ -280,7 +289,7 @@
         }
 
         if ($pass) {
-          $queryInvoice = "select * from documents where type = 'invoice' order by id_invoice desc limit 1";
+          $queryInvoice = "SELECT * FROM documents WHERE type = 'invoice' AND id_branch = ".$_SESSION['branchID'] ." order by id_invoice desc limit 1";
           $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error($link));
           $rowInvoice = mysqli_fetch_assoc($resultInvoice);
 
@@ -328,7 +337,7 @@
             $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_branch = " . $row2['id_branch'] . " AND id_product=" . $row2['id_product'];
             $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
-            $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+            $queryInsertQuoters = "INSERT INTO quoter (id_product, id_branch, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $_SESSION['branchID'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
             $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
             $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];
@@ -359,7 +368,7 @@
       }
 
       if ($pass) {
-        $queryInvoice = "select * from documents where type = 'credit' order by id_invoice desc limit 1";
+        $queryInvoice = "select * from documents where type = 'credit' AND id_branch = ".$_SESSION['branchID'] ." order by id_invoice desc limit 1";
         $resultInvoice = mysqli_query($link,$queryInvoice) or die ('Consulta fallida: ' . mysqli_error($link));
         $rowInvoice = mysqli_fetch_assoc($resultInvoice);
 
@@ -406,7 +415,7 @@
           $queryTemp = "UPDATE stocks SET amount=" . $amount . " WHERE id_branch = " . $row2['id_branch'] . " AND id_product=" . $row2['id_product'];
           $result = mysqli_query($link,$queryTemp) or die ('Consulta fallida: ' . mysqli_error($link));
 
-          $queryInsertQuoters = "INSERT INTO quoter (id_product, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+          $queryInsertQuoters = "INSERT INTO quoter (id_product, id_branch, amount, unit_cost, invoice, last_date) VALUES ('" . $row2['id_product'] . "','" . $_SESSION['branchID'] . "','" . $row2['amount'] . "','" . $row2['unit_cost'] . "','" . $invoice . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
           $result = mysqli_query($link,$queryInsertQuoters) or die ('Consulta fallida: ' . mysqli_error($link));
 
           $queryTemp = "DELETE FROM temp_quoter WHERE id =" . $row2['id'];

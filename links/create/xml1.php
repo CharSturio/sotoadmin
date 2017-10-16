@@ -94,7 +94,7 @@ $rfc = strtoupper($rowDandC['rfc']);
   $node_dom_catch->setAttribute("pais","México");
   $node_dom_catch->setAttribute("codigoPostal",$rowDandC['pc']);
 
-  $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
+  $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
   $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
   $node_concepts = $node_proof->appendChild($dom->createElement("cfdi:Conceptos"));
   while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
@@ -113,7 +113,7 @@ $rfc = strtoupper($rowDandC['rfc']);
     $node_concept->setAttribute("importe",$CostPzs);
   }
   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
-  $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "';";
+  $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
   $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
   $node_taxes->setAttribute("totalImpuestosTrasladados",$IVA_total);
   $node_transfers = $node_taxes->appendChild($dom->createElement("cfdi:Traslados"));

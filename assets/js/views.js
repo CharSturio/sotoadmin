@@ -53,10 +53,22 @@ $(document).ready(function () {
     $('#content').load("views/users.php");
   });
 
+  $("#send-products").on("click", function(event)
+  {
+    event.preventDefault();
+    $('#content').load("views/send-products.php");
+  });
+
   $("#quoter").on("click", function(event)
   {
     event.preventDefault();
     $('#content').load("views/quoter.php");
+  });
+
+  $("#transferlist").on("click", function(event)
+  {
+    event.preventDefault();
+    $('#content').load("views/transferlist.php");
   });
 
   $("#items_input").on("click", function(event)

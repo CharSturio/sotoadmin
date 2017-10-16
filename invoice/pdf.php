@@ -58,7 +58,7 @@ if ($op === '1') {
       <div class="wid17"><b>Cantidad</b></div>
       <div class="wid15"><b>TOTAL</b></div>
       <div class="clearL"></div>';
-          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "'";
+          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
           $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error($link));
           $totalGral = 0;
           while ($rowPro = mysqli_fetch_assoc($resultPro)) {
@@ -209,7 +209,7 @@ if ($op === '1') {
       <div class="wid17"><b>Cantidad</b></div>
       <div class="wid15"><b>TOTAL</b></div>
       <div class="clearL"></div>';
-          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "'";
+          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
           $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error($link));
           $totalGral = 0;
           while ($rowPro = mysqli_fetch_assoc($resultPro)) {
@@ -322,7 +322,7 @@ if ($op === '1') {
       <div class="wid17"><b>Cantidad</b></div>
       <div class="wid15"><b>TOTAL</b></div>
       <div class="clearL"></div>';
-          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "'";
+          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
           $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error($link));
           $totalGral = 0;
           while ($rowPro = mysqli_fetch_assoc($resultPro)) {

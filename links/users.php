@@ -61,7 +61,7 @@
       if ($_REQUEST['permision']) {
         $query .= " permit='" . $_REQUEST['permision'] . "',";
       }
-      if ($_REQUEST['branches']) {
+      if ($_REQUEST['branches'] || $_REQUEST['branches'] == "0") {
         $query .= " branch=" . $_REQUEST['branches'] . ",";
       }
       if ($_REQUEST['checkIn']) {

@@ -72,7 +72,6 @@
       }
       $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-      echo $query;
       echo 'Actualizado correctamente.';
     } else {
       echo 'noPermit';

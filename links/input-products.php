@@ -28,7 +28,7 @@
           $total += $row['amount'];
         }
   
-        $query = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id;
+        $query = "UPDATE stocks SET amount=" . $total . " WHERE id_product=" . $id ."' and id_branch = ".$branch.";";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       }
       

@@ -152,7 +152,7 @@ function GetCadenaOriginal_3_2($xml_Original) {
 
   //funcion para obtener el certificado
   function GetCertificado() {
-      $archivo_pem = "../keys/00001000000301099705.cer.pem";
+      $archivo_pem = "../keys/00001000000407881077.cer.pem";
       //$archivo_pem = "../keys/CSD01_AAA010101AAA.cer.pem";
       $datos=file($archivo_pem);
       $certificado = "";

@@ -20,8 +20,8 @@ if($_SESSION['MovLisEli'] == 'true'){
         $serv->passwordkeys = "acoss551";
 
         // array bytes public key
-        $handle = fopen("../keys/00001000000407881077.cer",'r');
-        $contents = fread($handle,filesize("../keys/00001000000407881077.cer"));
+        $handle = fopen("../keys/00001000000407885997.cer",'r');
+        $contents = fread($handle,filesize("../keys/00001000000407885997.cer"));
         $serv->publicKey = $contents;
 
         // array bytes public key

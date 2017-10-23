@@ -72,8 +72,8 @@ function CancelarCFDI($fecha, $folio, $file) {
     $serv->passwordkeys = "acoss551";
 
     // array bytes public key
-    $handle = fopen("../keys/00001000000407881077.cer",'r');
-    $contents = fread($handle,filesize("../keys/00001000000407881077.cer"));
+    $handle = fopen("../keys/00001000000407885997.cer",'r');
+    $contents = fread($handle,filesize("../keys/00001000000407885997.cer"));
     $serv->publicKey = $contents;
 
     // array bytes public key
@@ -152,7 +152,7 @@ function GetCadenaOriginal_3_2($xml_Original) {
 
   //funcion para obtener el certificado
   function GetCertificado() {
-      $archivo_pem = "../keys/00001000000407881077.cer.pem";
+      $archivo_pem = "../keys/00001000000407885997.cer.pem";
       //$archivo_pem = "../keys/CSD01_AAA010101AAA.cer.pem";
       $datos=file($archivo_pem);
       $certificado = "";

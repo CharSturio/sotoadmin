@@ -72,8 +72,8 @@ function CancelarCFDI($fecha, $folio, $file) {
     $serv->passwordkeys = "acoss551";
 
     // array bytes public key
-    $handle = fopen("../keys/00001000000301099705.cer",'r');
-    $contents = fread($handle,filesize("../keys/00001000000301099705.cer"));
+    $handle = fopen("../keys/00001000000407881077.cer",'r');
+    $contents = fread($handle,filesize("../keys/00001000000407881077.cer"));
     $serv->publicKey = $contents;
 
     // array bytes public key

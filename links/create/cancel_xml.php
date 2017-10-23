@@ -25,8 +25,8 @@ if($_SESSION['MovLisEli'] == 'true'){
         $serv->publicKey = $contents;
 
         // array bytes public key
-        $handle = fopen("../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key",'r');
-        $contents = fread($handle,filesize("../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key"));
+        $handle = fopen("../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key",'r');
+        $contents = fread($handle,filesize("../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key"));
         $serv->privateKey = $contents;
 
 

@@ -77,8 +77,8 @@ function CancelarCFDI($fecha, $folio, $file) {
     $serv->publicKey = $contents;
 
     // array bytes public key
-    $handle = fopen("../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key",'r');
-    $contents = fread($handle,filesize("../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key"));
+    $handle = fopen("../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key",'r');
+    $contents = fread($handle,filesize("../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key"));
     $serv->privateKey = $contents;
 
 
@@ -137,7 +137,7 @@ function GetCadenaOriginal_3_2($xml_Original) {
   function GetSelloDigital($CadenaOrig) {
       //obtenemos la ruta del archivo key ya transformado
       //sablot.dll, expat.dll, and iconv.dll
-      $archivo_pem = "../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key.pem";
+      $archivo_pem = "../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key.pem";
       //$archivo_pem = "../keys/CSD01_AAA010101AAA.key.pem";
       $pkeyid = openssl_get_privatekey(file_get_contents($archivo_pem));
       //md5

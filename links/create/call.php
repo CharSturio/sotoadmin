@@ -62,8 +62,8 @@ function CancelarCFDI($fecha, $folio, $file) {
     include_once('cancelacion.class.php');
 
     $serv=new Cancelacion();
-    $serv->usuario = "pruebasWS";
-    $serv->password = "pruebasWS";
+    $serv->usuario = "VAAA671004";
+    $serv->password = "7388O_a14";
     $serv->rfc = "VAAA671004LY0";
     $serv->fecha = $fecha;
     $serv->folios = Array(

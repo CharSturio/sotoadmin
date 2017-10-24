@@ -11,41 +11,39 @@
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       $insert_temp=mysqli_insert_id($link);
       
-      $queryT = "SELECT T.id, P.name AS p_name, P.key_, P.barcode, B2.name AS branch_to, B1.name AS branch, T.amount FROM temp_stock AS T INNER JOIN stocks AS S ON T.id_stock = S.id INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B1 ON T.id_branch_to = B1.id INNER JOIN branches AS B2 ON S.id_branch = B2.id";
+      $queryT = "SELECT T.id_stock, B2.id AS branch_to, B1.id AS branch, T.amount FROM temp_stock AS T INNER JOIN stocks AS S ON T.id_stock = S.id INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B1 ON T.id_branch_to = B1.id INNER JOIN branches AS B2 ON S.id_branch = B2.id";
       $resultT = mysqli_query($link,$queryT) or die ('Consulta fallida: ' . mysqli_error($link));
-
       while ($rowT = mysqli_fetch_assoc($resultT)) {
-        $query = "INSERT INTO translates (id_stock, id_branch_out, id_branch_in, id_user, id_trans_op, amount, last_date) VALUES (" . $id_stock . "," . $id_branch_out . "," . $id_branch_in . "," . $_SESSION['id'] . "," . $amount . "," . $insert_temp . ",date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+        $query = "INSERT INTO translates (id_stock, id_branch_out, id_branch_in, id_user, id_trans_op, amount, last_date) VALUES (" . $rowT['id_stock'] . "," . $rowT['branch'] . "," . $rowT['branch_to'] . "," . $_SESSION['id'] . "," . $insert_temp . "," . $rowT['amount'] . ",date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-        $oldInsert=mysqli_insert_id($link);
-  
-        $query = "UPDATE stocks SET amount=amount - " . $amount . " WHERE id=" . $id_stock;
+        
+        $query = "UPDATE stocks SET amount=amount - " . $rowT['amount'] . " WHERE id=" . $rowT['id_stock'];
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-  
-        $queryP = "SELECT * FROM stocks where id =" . $id_stock .";";
+        
+        $queryP = "SELECT * FROM stocks where id =" . $rowT['id_stock'] .";";
         $resultP = mysqli_query($link,$queryP) or die ('Consulta fallida: ' . mysqli_error($link));
         $rowP = mysqli_fetch_assoc($resultP);
         $id_product = $rowP['id_product'];      
-  
-        $query = "SELECT * FROM stocks where id_product ='" . $id_product ."' and id_branch = ".$id_branch_in.";";
+        
+        $query = "SELECT * FROM stocks where id_product ='" . $id_product ."' and id_branch = ".$rowT['branch_to'].";";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-  
+        
         $rowcount=mysqli_num_rows($result);
         if($rowcount == 0) {
-          $query = "INSERT INTO stocks (id_product, amount, id_branch, last_date) VALUES ('" . $id_product . "', ".$amount.", " . $id_branch_in  . ", date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+          $query = "INSERT INTO stocks (id_product, amount, id_branch, last_date) VALUES ('" . $id_product . "', ".$rowT['amount'].", " . $rowT['branch_to']  . ", date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
           $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-        } else {
+        } else {          
           $row = mysqli_fetch_assoc($result);
           $idStock = $row['id'];
           
-          $query = "UPDATE stocks SET amount=amount + " . $amount . " WHERE id=" . $idStock;
+          $query = "UPDATE stocks SET amount=amount + " . $rowT['amount'] . " WHERE id=" . $idStock;
           $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
         }
       }        
       
 
 
-      echo $oldInsert;
+      echo $insert_temp;
     } else {
       echo 'noPermit';
     }

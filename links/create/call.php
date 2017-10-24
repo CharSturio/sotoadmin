@@ -62,8 +62,8 @@ function CancelarCFDI($fecha, $folio, $file) {
     include_once('cancelacion.class.php');
 
     $serv=new Cancelacion();
-    $serv->usuario = "pruebasWS";
-    $serv->password = "pruebasWS";
+    $serv->usuario = "VAAA671004";
+    $serv->password = "7388O_a14";
     $serv->rfc = "VAAA671004LY0";
     $serv->fecha = $fecha;
     $serv->folios = Array(
@@ -72,13 +72,13 @@ function CancelarCFDI($fecha, $folio, $file) {
     $serv->passwordkeys = "acoss551";
 
     // array bytes public key
-    $handle = fopen("../keys/00001000000301099705.cer",'r');
-    $contents = fread($handle,filesize("../keys/00001000000301099705.cer"));
+    $handle = fopen("../keys/00001000000407885997.cer",'r');
+    $contents = fread($handle,filesize("../keys/00001000000407885997.cer"));
     $serv->publicKey = $contents;
 
     // array bytes public key
-    $handle = fopen("../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key",'r');
-    $contents = fread($handle,filesize("../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key"));
+    $handle = fopen("../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key",'r');
+    $contents = fread($handle,filesize("../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key"));
     $serv->privateKey = $contents;
 
 
@@ -137,7 +137,7 @@ function GetCadenaOriginal_3_2($xml_Original) {
   function GetSelloDigital($CadenaOrig) {
       //obtenemos la ruta del archivo key ya transformado
       //sablot.dll, expat.dll, and iconv.dll
-      $archivo_pem = "../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key.pem";
+      $archivo_pem = "../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key.pem";
       //$archivo_pem = "../keys/CSD01_AAA010101AAA.key.pem";
       $pkeyid = openssl_get_privatekey(file_get_contents($archivo_pem));
       //md5
@@ -152,7 +152,7 @@ function GetCadenaOriginal_3_2($xml_Original) {
 
   //funcion para obtener el certificado
   function GetCertificado() {
-      $archivo_pem = "../keys/00001000000301099705.cer.pem";
+      $archivo_pem = "../keys/00001000000407885997.cer.pem";
       //$archivo_pem = "../keys/CSD01_AAA010101AAA.cer.pem";
       $datos=file($archivo_pem);
       $certificado = "";

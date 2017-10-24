@@ -20,13 +20,13 @@ if($_SESSION['MovLisEli'] == 'true'){
         $serv->passwordkeys = "acoss551";
 
         // array bytes public key
-        $handle = fopen("../keys/00001000000301099705.cer",'r');
-        $contents = fread($handle,filesize("../keys/00001000000301099705.cer"));
+        $handle = fopen("../keys/00001000000407885997.cer",'r');
+        $contents = fread($handle,filesize("../keys/00001000000407885997.cer"));
         $serv->publicKey = $contents;
 
         // array bytes public key
-        $handle = fopen("../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key",'r');
-        $contents = fread($handle,filesize("../keys/CSD_AMANDA_VALENCIANO_AVILA_VAAA671004LY0_20131021_130729.key"));
+        $handle = fopen("../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key",'r');
+        $contents = fread($handle,filesize("../keys/CSD_MATRIZ_VAAA671004LY0_20171023_132252.key"));
         $serv->privateKey = $contents;
 
 

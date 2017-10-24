@@ -62,7 +62,7 @@ require 'call.php';
   $node_proof->setAttribute("Moneda","Pesos Mexicanos");
   $node_proof->setAttribute("fecha",$fecha_O);
   $node_proof->setAttribute("formaDePago","Pago en una sola exhibición");
-  $node_proof->setAttribute("noCertificado","00001000000301099705");
+  $node_proof->setAttribute("noCertificado","00001000000407885997");
   $node_proof->setAttribute("total",$total);
   if ($rowDandC['payment_method'] === 'Cheque Nominativo') {
     $node_proof->setAttribute("metodoDePago","02");
@@ -211,7 +211,7 @@ $rfc = strtoupper($rowDandC['rfc']);
   if(!file_exists("cbb/" . $UUID . ".png")) {
     QRcode::png($cadenaCodigoBarras, "cbb/" . $UUID . ".png", 'L', 4, 2);
   }
-  $noCertificado = '00001000000301099705';
+  $noCertificado = '00001000000407885997';
 
   $query = "UPDATE documents SET uuid='" . $UUID . "', fechaTimbrado='" . $fechaTimbrado . "', selloSat='" . $selloSAT . "', noCertificado='" . $noCertificado . "', certificado='" . $certificado . "', sello='" . $sello . "', noCertificadoSat='" . $noCertificadoSat . "'  WHERE id=" . $_REQUEST['id'];
   $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));

@@ -6,42 +6,43 @@
   $operation = $_REQUEST['operation'];
   if ($operation === 'add') {
     if($_SESSION['MovEntMerAgr'] == 'true'){
-      $amount = $_REQUEST['amount'];
-      $id_branch_in = $_REQUEST['id_branch_in'];
-      $id_branch_out = $_REQUEST['id_branch_out'];
-      $id_stock = $_REQUEST['id_stock'];
 
-      $query = "INSERT INTO translates (id_stock, id_branch_out, id_branch_in, id_user, amount, last_date) VALUES (" . $id_stock . "," . $id_branch_out . "," . $id_branch_in . "," . $_SESSION['id'] . "," . $amount . ",date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+      $query = "INSERT INTO trans_op (last_date) VALUES (date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-$oldInsert=mysqli_insert_id($link);
+      $insert_temp=mysqli_insert_id($link);
+      
+      $queryT = "SELECT T.id, P.name AS p_name, P.key_, P.barcode, B2.name AS branch_to, B1.name AS branch, T.amount FROM temp_stock AS T INNER JOIN stocks AS S ON T.id_stock = S.id INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B1 ON T.id_branch_to = B1.id INNER JOIN branches AS B2 ON S.id_branch = B2.id";
+      $resultT = mysqli_query($link,$queryT) or die ('Consulta fallida: ' . mysqli_error($link));
 
-      $query = "UPDATE stocks SET amount=amount - " . $amount . " WHERE id=" . $id_stock;
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-
-
-
-
-
-      $queryP = "SELECT * FROM stocks where id =" . $id_stock .";";
-      $resultP = mysqli_query($link,$queryP) or die ('Consulta fallida: ' . mysqli_error($link));
-      $rowP = mysqli_fetch_assoc($resultP);
-      $id_product = $rowP['id_product'];      
-
-      $query = "SELECT * FROM stocks where id_product ='" . $id_product ."' and id_branch = ".$id_branch_in.";";
-      $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-
-      $rowcount=mysqli_num_rows($result);
-      if($rowcount == 0) {
-        $query = "INSERT INTO stocks (id_product, amount, id_branch, last_date) VALUES ('" . $id_product . "', ".$amount.", " . $id_branch_in  . ", date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+      while ($rowT = mysqli_fetch_assoc($resultT)) {
+        $query = "INSERT INTO translates (id_stock, id_branch_out, id_branch_in, id_user, id_trans_op, amount, last_date) VALUES (" . $id_stock . "," . $id_branch_out . "," . $id_branch_in . "," . $_SESSION['id'] . "," . $amount . "," . $insert_temp . ",date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-      } else {
-        while($row = mysqli_fetch_assoc($result)){
-          $idStock = $row['id'];
-        }
+        $oldInsert=mysqli_insert_id($link);
   
-        $query = "UPDATE stocks SET amount=amount + " . $amount . " WHERE id=" . $idStock;
+        $query = "UPDATE stocks SET amount=amount - " . $amount . " WHERE id=" . $id_stock;
         $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
-      }
+  
+        $queryP = "SELECT * FROM stocks where id =" . $id_stock .";";
+        $resultP = mysqli_query($link,$queryP) or die ('Consulta fallida: ' . mysqli_error($link));
+        $rowP = mysqli_fetch_assoc($resultP);
+        $id_product = $rowP['id_product'];      
+  
+        $query = "SELECT * FROM stocks where id_product ='" . $id_product ."' and id_branch = ".$id_branch_in.";";
+        $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+  
+        $rowcount=mysqli_num_rows($result);
+        if($rowcount == 0) {
+          $query = "INSERT INTO stocks (id_product, amount, id_branch, last_date) VALUES ('" . $id_product . "', ".$amount.", " . $id_branch_in  . ", date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+          $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+        } else {
+          $row = mysqli_fetch_assoc($result);
+          $idStock = $row['id'];
+          
+          $query = "UPDATE stocks SET amount=amount + " . $amount . " WHERE id=" . $idStock;
+          $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+        }
+      }        
+      
 
 
       echo $oldInsert;
@@ -128,6 +129,102 @@ $oldInsert=mysqli_insert_id($link);
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $row = mysqli_fetch_assoc($result);
     echo $row['barcode'] . ',' . $row['name'] . ',' . $row['description'] . ',' . $row['key_'] . ',' . $row['brand'] . ',' . $row['model'] . ',' . $row['measure'] . ',' . $row['treadware'] . ',' . $row['load_index'] . ',' . $row['load_speed'] . ',' . $row['retail_price'] . ',' . $row['wholesale_price'] . ',' . $row['special_price'];
+  } else if ($operation === 'cancelProduct') {
+    $query .= "DELETE FROM temp_stock WHERE id=" . $_REQUEST['id'] . ";";
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+
+    $query = "SELECT T.id, P.name AS p_name, P.key_, P.barcode, B2.name AS branch_to, B1.name AS branch, T.amount FROM temp_stock AS T INNER JOIN stocks AS S ON T.id_stock = S.id INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B1 ON T.id_branch_to = B1.id INNER JOIN branches AS B2 ON S.id_branch = B2.id";
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+    $print = '<table class="table table-striped tablet-tools">
+    <thead>
+      <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th>Codigo de barras</th>            
+      <th>Sucursal Actual</th>
+      <th>Sucursal Destino</th>
+      <th>Cantidad</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>';
+    while ($row = mysqli_fetch_assoc($result)) {
+      $print .= '<tr>
+            <td>' . $row['p_name'] . '</td>
+            <td>' . $row['key_'] . '</td>
+            <td>' . $row['barcode'] . '</td>
+            <td>' . $row['branch'] . '</td>
+            <td>' . $row['branch_to'] . '</td>
+            <td>' . $row['amount'] . '</td>
+            <td><button onClick="onClickCancel(' . $row['id'] . ')" type="button" class="btn btn-primary btn-square">Cancelar</button></td>
+            </tr>';
+    }
+  $print .= '</tbody></table>';
+  echo $print;
+  } else if ($operation === 'addProduct') {
+    $amount = $_REQUEST['amount'];
+    $id_branch_to = $_REQUEST['id_branch_to'];
+    $id_stock = $_REQUEST['id_stock'];
+    $query = "INSERT INTO temp_stock (id_stock, id_branch_to, amount, last_date) VALUES (" . $id_stock . "," . $id_branch_to . "," . $amount . ",date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+
+    $query = "SELECT T.id, P.name AS p_name, P.key_, P.barcode, B2.name AS branch_to, B1.name AS branch, T.amount FROM temp_stock AS T INNER JOIN stocks AS S ON T.id_stock = S.id INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B1 ON T.id_branch_to = B1.id INNER JOIN branches AS B2 ON S.id_branch = B2.id";
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+    $print = '<table class="table table-striped tablet-tools">
+    <thead>
+      <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th>Codigo de barras</th>            
+      <th>Sucursal Actual</th>
+      <th>Sucursal Destino</th>
+      <th>Cantidad</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>';
+    while ($row = mysqli_fetch_assoc($result)) {
+      $print .= '<tr>
+            <td>' . $row['p_name'] . '</td>
+            <td>' . $row['key_'] . '</td>
+            <td>' . $row['barcode'] . '</td>
+            <td>' . $row['branch'] . '</td>
+            <td>' . $row['branch_to'] . '</td>
+            <td>' . $row['amount'] . '</td>
+            <td><button onClick="onClickCancel(' . $row['id'] . ')" type="button" class="btn btn-primary btn-square">Cancelar</button></td>
+            </tr>';
+    }
+  $print .= '</tbody></table>';
+  echo $print;
+  } else if ($operation === 'loadInfo') {
+    $query = "SELECT T.id, P.name AS p_name, P.key_, P.barcode, B2.name AS branch_to, B1.name AS branch, T.amount FROM temp_stock AS T INNER JOIN stocks AS S ON T.id_stock = S.id INNER JOIN products AS P ON S.id_product = P.id INNER JOIN branches AS B1 ON T.id_branch_to = B1.id INNER JOIN branches AS B2 ON S.id_branch = B2.id";
+    $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+    $print = '<table class="table table-striped tablet-tools">
+    <thead>
+      <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th>Codigo de barras</th>            
+      <th>Sucursal Actual</th>
+      <th>Sucursal Destino</th>
+      <th>Cantidad</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>';
+    while ($row = mysqli_fetch_assoc($result)) {
+      $print .= '<tr>
+            <td>' . $row['p_name'] . '</td>
+            <td>' . $row['key_'] . '</td>
+            <td>' . $row['barcode'] . '</td>
+            <td>' . $row['branch'] . '</td>
+            <td>' . $row['branch_to'] . '</td>
+            <td>' . $row['amount'] . '</td>
+            <td><button onClick="onClickCancel(' . $row['id'] . ')" type="button" class="btn btn-primary btn-square">Cancelar</button></td>
+            </tr>';
+    }
+    $print .= '</tbody></table>';
+    echo $print;
   }
   mysqli_close($link);
  ?>

@@ -41,10 +41,11 @@ if($_SESSION['MovEntMerGen'] == 'true'){
 	            </div>
 	          </div>
 	        </div>
-	        <div class="col-md-6">
-	          <button onclick="onClickAdd()" type="button" class="btn btn-success btn-square">Transferir</button>
-	        </div>
-					<div id="response">
+					<div class="col-md-6">
+					  <button onclick="onClickAddProduct()" type="button" class="btn btn-primary btn-square">Agregar</button>					
+						<button onclick="onClickAdd()" type="button" class="btn btn-success btn-square">Transferir</button>
+					</div>
+					<div class="col-md-12" id="response">
 
 					</div>
 	      </div>
@@ -52,7 +53,6 @@ if($_SESSION['MovEntMerGen'] == 'true'){
 	  </div>
 	</div>
 </div>
-<script src="assets/js/views/send-products.js"></script>
 <div class="modal fade" id="modal-bootstrap-timepicker" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -77,7 +77,9 @@ if($_SESSION['MovEntMerGen'] == 'true'){
       </div>
     </div>
   </div>
-</div>';
+</div>
+<script src="assets/js/views/send-products.js"></script>
+';
 } else {
   echo '
     <script type="text/javascript">

@@ -76,7 +76,7 @@ function onClickAdd() {
     }
   };
 
-  xmlhttp.open("GET", "links/send-products.php?operation=add&amount=" + amount + "&id_branch_to=" + id_branch_to + "&_id_branch_out=" + _id_branch_out + "&_id_stock=" + _id_stock);
+  xmlhttp.open("GET", "links/send-products.php?operation=add");
   xmlhttp.send();
   
 }

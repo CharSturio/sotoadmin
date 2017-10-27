@@ -10,7 +10,7 @@
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>
-                <td>' . $row['id'] . '</td>
+                <td>' . $row['id_trans_op'] . '</td>
                 <td>' . $row['key_'] . '</td>
                 <td>' . $row['Bout'] . '</td>
                 <td>' . $row['Bin'] . '</td>
@@ -48,7 +48,7 @@
       while ($row = mysqli_fetch_assoc($result)) {
         
         echo '<tr>
-        <td>' . $row['id'] . '</td>
+        <td>' . $row['id_trans_op'] . '</td>
         <td>' . $row['key_'] . '</td>
         <td>' . $row['Bout'] . '</td>
         <td>' . $row['Bin'] . '</td>

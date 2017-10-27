@@ -6,7 +6,7 @@
   if ($operation === 'loadInfo') {
     // $id = $_REQUEST['id'];
     // $quest = $id * 25;
-    $query = "SELECT T.id_trans_op,T.id,P.key_, B1.name AS Bout, B2.name AS Bin, U.name AS Nuser, T.amount, T.last_date FROM `translates` AS T INNER JOIN stocks AS S ON S.id = T.id_stock INNER JOIN products AS P ON P.id = S.id_product INNER JOIN branches AS B1 ON B1.id = T.id_branch_out INNER JOIN branches AS B2 ON B2.id = T.id_branch_in INNER JOIN users AS U ON U.id = T.id_user LIMIT 0,425";
+    $query = "SELECT T.id_trans_op,T.id,P.key_, B1.name AS Bout, B2.name AS Bin, U.name AS Nuser, T.amount, T.last_date FROM `translates` AS T INNER JOIN stocks AS S ON S.id = T.id_stock INNER JOIN products AS P ON P.id = S.id_product INNER JOIN branches AS B1 ON B1.id = T.id_branch_out INNER JOIN branches AS B2 ON B2.id = T.id_branch_in INNER JOIN users AS U ON U.id = T.id_user Order By T.id_trans_op DESC LIMIT 0,425";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>
@@ -44,6 +44,7 @@
         }
         $query .= " B1.name LIKE '%" . $out . "%'";
       }
+      $query .= " Order By T.id_trans_op DESC";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       while ($row = mysqli_fetch_assoc($result)) {
         

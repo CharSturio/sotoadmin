@@ -37,7 +37,6 @@ if($_SESSION['MovLisGen'] == 'true'){
           <thead>
             <tr>
             <th>Clave</th>
-            <th>Clave Producto</th>
             <th>Sucursal Salida</th>
               <th>Sucursal Entrada</th>
               <th>Usuario</th>

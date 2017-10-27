@@ -73,15 +73,15 @@
         }
       }
       echo '<tr>
-      <td>' . $row['id'] . '</td>
-      <td>' . $row['Bout'] . '</td>
-      <td>' . $row['Bin'] . '</td>
-      <td>' . $row['Nuser'] . '</td>
-      <th>' . $tot_op . '</th>
-      <th>' . $row['last_date'] . '</th>
-      <td><a onClick="onClickPDF(' . $id_op . ')"><i class="fa fa-file-pdf-o"></i></a></td>
-    </tr>';
-      }
+        <td>' . $row['id'] . '</td>
+        <td>' . $row['Bout'] . '</td>
+        <td>' . $row['Bin'] . '</td>
+        <td>' . $row['Nuser'] . '</td>
+        <th>' . $tot_op . '</th>
+        <th>' . $row['last_date'] . '</th>
+        <td><a onClick="onClickPDF(' . $id_op . ')"><i class="fa fa-file-pdf-o"></i></a></td>
+      </tr>';
+      
     } else {
       echo 'noPermit';
     }

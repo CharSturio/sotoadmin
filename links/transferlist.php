@@ -18,7 +18,7 @@
       }
       if($id_op != $row['id_trans_op']){
         echo '<tr>
-        <td>' . $row['id_trans_op'] . '</td>
+        <td>' . $id_op . '</td>
         <td>' . $row['Bout'] . '</td>
         <td>' . $row['Bin'] . '</td>
         <td>' . $row['Nuser'] . '</td>
@@ -33,7 +33,7 @@
       }
     }
     echo '<tr>
-    <td>' . $row['id_trans_op'] . '</td>
+    <td>' . $id_op . '</td>
     <td>' . $row['Bout'] . '</td>
     <td>' . $row['Bin'] . '</td>
     <td>' . $row['Nuser'] . '</td>
@@ -74,7 +74,7 @@
         }
         if($id_op != $row['id_trans_op']){
           echo '<tr>
-          <td>' . $row['id_trans_op'] . '</td>
+          <td>' . $id_op . '</td>
           <td>' . $row['Bout'] . '</td>
           <td>' . $row['Bin'] . '</td>
           <td>' . $row['Nuser'] . '</td>
@@ -89,7 +89,7 @@
         }
       }
       echo '<tr>
-        <td>' . $row['id_trans_op'] . '</td>
+        <td>' . $id_op . '</td>
         <td>' . $row['Bout'] . '</td>
         <td>' . $row['Bin'] . '</td>
         <td>' . $row['Nuser'] . '</td>

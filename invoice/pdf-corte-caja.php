@@ -1163,7 +1163,7 @@ if ($op === '1') {
             <link href="../assets/css/ui.css" rel="stylesheet"> <!-- MANDATORY -->
             <link href="../assets/plugins/datatables/dataTables.min.css" rel="stylesheet">';
     $html .= '<>Corte de Caja de ' . $desde_fecha . ' a ' .  $hasta_fecha . '</>';
-  $html = '<div class="col-md-12">
+  $html .= '<div class="col-md-12">
     <div class="col-md-6">
       <h3><strong>Gran <strong>TOTAL:</strong> </strong></h3>
       <label id="entrada-caja" class="form-label">$' . number_format($gran_total, 2, '.', ',') . '</label>

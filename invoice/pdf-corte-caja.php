@@ -1148,7 +1148,7 @@ if ($op === '1') {
   
   $print .= '</tbody></table></div>';
 
-  echo '<div class="col-md-12">
+  $html = '<div class="col-md-12">
     <div class="col-md-6">
       <h3><strong>Gran <strong>TOTAL:</strong> </strong></h3>
       <label id="entrada-caja" class="form-label">$' . number_format($gran_total, 2, '.', ',') . '</label>
@@ -1193,7 +1193,7 @@ if ($op === '1') {
     </div>
     
   </div>';
-echo $print;
+$html .=  $print;
 
   //tabla salida de caja
       $total_salida_caja = 0;
@@ -1223,13 +1223,13 @@ echo $print;
       }
       $salidas_de_caja .= '</tbody></table></div>';
 
-      echo '<div class="col-md-12 border-top" style="border-top:1px;">
+      $html .= '<div class="col-md-12 border-top" style="border-top:1px;">
         <h2>Salida de <strong>Caja</strong></h2>
           <h3><strong>Resumen </strong></h3>
             <label id="efectivo" class="form-label">$' . number_format($total_salida_caja, 2, '.', ',') . '</label>
             ';
-            echo $salidas_de_caja;
-          echo '
+            $html .=  $salidas_de_caja;
+            $html .= '
       </div>';
 
 
@@ -1262,13 +1262,13 @@ echo $print;
   }
   $entradas_de_caja .= '</tbody></table></div>';
 
-  echo '<div class="col-md-12 border-top" style="border-top:1px;">
+  $html .= '<div class="col-md-12 border-top" style="border-top:1px;">
     <h2>Entrada de <strong>Caja</strong></h2>
       <h3><strong>Resumen </strong></h3>
         <label id="efectivo" class="form-label">$' . number_format($total_entrada_caja, 2, '.', ',') . '</label>
         ';
-        echo $entradas_de_caja;
-      echo '
+        $html .= $entradas_de_caja;
+        $html .= '
   </div>';
 
 
@@ -1302,13 +1302,13 @@ echo $print;
   }
   $pagos_credito .= '</tbody></table></div>';
 
-  echo '<div class="col-md-12 border-top" style="border-top:1px;">
+  $html .= '<div class="col-md-12 border-top" style="border-top:1px;">
     <h2>Pagos de  <strong>Credito</strong></h2>
       <h3><strong>Resumen </strong></h3>
         <label id="efectivo" class="form-label">$' . number_format($total_pagos_credito, 2, '.', ',') . '</label>
         ';
-        echo $pagos_credito;
-      echo '
+        $html .= $pagos_credito;
+        $html .= '
   </div>';
 
 }

@@ -1147,7 +1147,22 @@ if ($op === '1') {
   $gran_total = $total_efectivo + $total_cheque + $total_tc + $total_td + $total_deposito + $total_transfer + $total_noident; 
   
   $print .= '</tbody></table></div>';
+  $html = '<style>
+              table {
+                  border-collapse: collapse;
+              }
 
+              table, td, th {
+                  border: 1px solid black;
+                  font: 60%;
+              }
+            </style>
+            <link href="http://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet" type="text/css">
+            <link href="../assets/css/style.css" rel="stylesheet"> <!-- MANDATORY -->
+            <link href="../assets/css/theme.css" rel="stylesheet"> <!-- MANDATORY -->
+            <link href="../assets/css/ui.css" rel="stylesheet"> <!-- MANDATORY -->
+            <link href="../assets/plugins/datatables/dataTables.min.css" rel="stylesheet">';
+    $html .= '<>Corte de Caja de ' . $desde_fecha . ' a ' .  $hasta_fecha . '</>';
   $html = '<div class="col-md-12">
     <div class="col-md-6">
       <h3><strong>Gran <strong>TOTAL:</strong> </strong></h3>
@@ -1193,7 +1208,7 @@ if ($op === '1') {
     </div>
     
   </div>';
-$html .=  $print;
+  $html .=  $print;
 
   //tabla salida de caja
       $total_salida_caja = 0;

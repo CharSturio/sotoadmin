@@ -1046,8 +1046,8 @@ if ($op === '1') {
   //         $html .= '
   //     </div>';
 
-  $fecha_desde = $_REQUEST['fecha_desde'];
-  $fecha_hasta = $_REQUEST['fecha_hasta'];
+  $fecha_desde = $_REQUEST['desde'];
+  $fecha_hasta = $_REQUEST['hasta'];
   $desde = explode("/", $fecha_desde);
   $hasta = explode("/", $fecha_hasta);
 

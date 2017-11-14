@@ -40,7 +40,8 @@
       $total_td = 0;
       $total_deposito = 0;
       $total_transfer = 0;
-      $total_noident = 0;      
+      $total_noident = 0; 
+
       $query = "SELECT B.name AS nameBranch, D.payment_method, D.id, D.invoice, D.total, D.last_date, D.type, D.status, D.comments, C.name AS nameC, U.name AS nameU FROM documents AS D  INNER JOIN clients AS C ON D.id_client = C.id INNER JOIN users AS U ON D.id_user = U.id INNER JOIN branches AS B ON D.id_branch = B.id WHERE D.id_branch = ".$_SESSION['branchID']." AND D.last_date BETWEEN '" . $desde_fecha . " 00:00:00' AND '" . $hasta_fecha . " 23:59:59'";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
       while($row = mysqli_fetch_assoc($result)){
@@ -102,15 +103,22 @@
       $total_efectivo += $entrada_caja;
       $total_efectivo += 500;
 
-      $print .= '</tbody></table></div>';
+
+      $gran_total = $total_efectivo + $total_cheque + $total_tc + $total_td + $total_deposito + $total_transfer + $total_noident; 
       
+      $print .= '</tbody></table></div>';
+
       echo '<div class="col-md-12">
+        <div class="col-md-6">
+          <h3><strong>Gran <strong>TOTAL:</strong> </strong></h3>
+          <label id="entrada-caja" class="form-label">$' . number_format($gran_total, 2, '.', ',') . '</label>
+        </div>
+      </div>
+      <div class="col-md-12">
         <div class="col-md-6">
           <h3><strong>Total <strong>efectivo</strong> en caja:</strong></h3>
             <label id="total-efectivo" class="form-label">$' . number_format($total_efectivo, 2, '.', ',') . '</label>
         </div>
-      </div>
-      <div class="col-md-12">
         <div class="col-md-6">
           <h3><strong>Salida de <strong>caja:</strong> </strong></h3>
             <label id="salida-caja" class="form-label">$' . number_format($salida_caja, 2, '.', ',') . '</label>
@@ -143,6 +151,7 @@
           <h3><strong>Total <strong>no identificado:</strong> </strong></h3>
           <label id="entrada-caja" class="form-label">$' . number_format($total_noident, 2, '.', ',') . '</label>
         </div>
+        
       </div>';
 echo $print;
   

@@ -1,5 +1,7 @@
 <?php 
 session_start();
+require '../connection/index.php';
+
 if($_SESSION['RegProGen'] == 'true'){
   echo '<div class="header">
   <h2><strong>Productos</strong></h2>
@@ -65,6 +67,20 @@ if($_SESSION['RegProGen'] == 'true'){
               <input id="mpago" type="text" class="form-control" placeholder="Ingrese Precio Mercado Pago">
               <label class="form-label">Precio Publico Especial</label>
               <input id="pespecial" type="text" class="form-control" placeholder="Ingrese Precio Publico Especial">
+            </div>
+          </div>
+          <div class="col-md-12 border-top" style="border-top:1px;">
+            <div class="col-md-6">
+              <h3>Clave de producto <strong>SAT</strong></h3>
+              <label for="permisos">Clave</label>
+              <select id="catalogSAT" class="form-control" name="favoriteNumber">';
+              $query = "SELECT * FROM catalog_sat";
+              $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value="'.$row['id'].'">'.$row['product_key'].' - '.$row['product_description'].' | '.$row['unit_key'].' - '.$row['unit_description'].'</option>';
+              }
+                echo'
+              </select>
             </div>
           </div>
           <div class="col-md-12">

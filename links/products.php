@@ -22,6 +22,7 @@
       $tarjeta = $_REQUEST['tarjeta'];
       $mpago = $_REQUEST['mpago'];
       $pespecial = $_REQUEST['pespecial'];
+      $catalogSAT = $_REQUEST['catalogSAT'];
       $retail_price = round(($retail_price/116)*100,2)*1.16;
       $wholesale_price = round(($wholesale_price/116)*100,2)*1.16;
       $special_price = round(($special_price/116)*100,2)*1.16;
@@ -38,7 +39,7 @@
         if (mysqli_fetch_assoc($result)) {
           echo 'El Codigo de Barras ya existe.';
         } else {
-          $query = "INSERT INTO products (type_product, barcode, name, description, key_, brand, model, measure, treadware, load_index, load_speed, retail_price, wholesale_price, special_price, tarjeta, mpago, pespecial, last_date) VALUES ('" . $type_product . "','" . $barcode . "','" . $name . "','" . $description . "','" . $key . "','" . $brand . "','" . $model . "','" . $measure . "','" . $treadware . "','" . $load_index . "','" . $load_speed . "','" . $retail_price . "','" . $wholesale_price . "','" . $special_price . "','" . $tarjeta . "','" . $mpago . "','" . $pespecial . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
+          $query = "INSERT INTO products (type_product, id_sat, barcode, name, description, key_, brand, model, measure, treadware, load_index, load_speed, retail_price, wholesale_price, special_price, tarjeta, mpago, pespecial, last_date) VALUES ('" . $type_product . "'," . $catalogSAT . ",'" . $barcode . "','" . $name . "','" . $description . "','" . $key . "','" . $brand . "','" . $model . "','" . $measure . "','" . $treadware . "','" . $load_index . "','" . $load_speed . "','" . $retail_price . "','" . $wholesale_price . "','" . $special_price . "','" . $tarjeta . "','" . $mpago . "','" . $pespecial . "',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE));";
           $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
 
           // $query = "SELECT id FROM products where name ='" . $name ."';";
@@ -90,6 +91,9 @@
       }
       if ($_REQUEST['load_speed']) {
         $query .= " load_speed='" . $_REQUEST['load_speed'] . "',";
+      }
+      if ($_REQUEST['catalogSAT']) {
+        $query .= " id_sat=" . $_REQUEST['catalogSAT'] . ",";
       }
       $query .= " last_date=date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'] . ";";
       $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
@@ -191,7 +195,7 @@
     $query = "SELECT * FROM products where id=" . $id . ";";
     $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
     $row = mysqli_fetch_assoc($result);
-    echo $row['barcode'] . ',' . $row['name'] . ',' . $row['description'] . ',' . $row['key_'] . ',' . $row['brand'] . ',' . $row['model'] . ',' . $row['measure'] . ',' . $row['treadware'] . ',' . $row['load_index'] . ',' . $row['load_speed'] . ',' . $row['retail_price'] . ',' . $row['wholesale_price'] . ',' . $row['special_price'] . ',' . $row['tarjeta'] . ',' . $row['mpago'] . ',' . $row['pespecial'];
+    echo $row['barcode'] . ',' . $row['name'] . ',' . $row['description'] . ',' . $row['key_'] . ',' . $row['brand'] . ',' . $row['model'] . ',' . $row['measure'] . ',' . $row['treadware'] . ',' . $row['load_index'] . ',' . $row['load_speed'] . ',' . $row['retail_price'] . ',' . $row['wholesale_price'] . ',' . $row['special_price'] . ',' . $row['tarjeta'] . ',' . $row['mpago'] . ',' . $row['pespecial'].',' . $row['id_sat'];
   }
   mysqli_close($link);
  ?>

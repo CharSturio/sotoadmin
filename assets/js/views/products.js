@@ -17,6 +17,8 @@ function onClickNew() {
   var tarjeta = document.getElementById('tarjeta').value;
   var mpago = document.getElementById('mpago').value;
   var pespecial = document.getElementById('pespecial').value;
+  var catalogSAT = document.getElementById('catalogSAT').value;
+  // aasd
 
   if (!name) {
     alert('Favor de llenar nombre.');
@@ -34,7 +36,7 @@ function onClickNew() {
       }
     };
 
-    xmlhttp.open("GET", "links/products.php?operation=new&type_product=" + typeProduct + "&barcode=" + barcode + "&name=" + name + "&description=" + description + "&key=" + key + "&brand=" + brand + "&model=" + model + "&measure=" + measure + "&treadware=" + treadware + "&load_index=" + loadIndex + "&load_speed=" + loadSpeed + "&retail_price=" + retailPrice + "&wholesale_price=" + wholesalePrice + "&special_price=" + specialPrice + "&tarjeta=" + tarjeta + "&mpago=" + mpago + "&pespecial=" + pespecial);
+    xmlhttp.open("GET", "links/products.php?operation=new&type_product=" + typeProduct + "&barcode=" + barcode + "&catalogSAT=" + catalogSAT + "&name=" + name + "&description=" + description + "&key=" + key + "&brand=" + brand + "&model=" + model + "&measure=" + measure + "&treadware=" + treadware + "&load_index=" + loadIndex + "&load_speed=" + loadSpeed + "&retail_price=" + retailPrice + "&wholesale_price=" + wholesalePrice + "&special_price=" + specialPrice + "&tarjeta=" + tarjeta + "&mpago=" + mpago + "&pespecial=" + pespecial);
     xmlhttp.send();
   }
 }
@@ -44,6 +46,7 @@ function onClickModify() {
     document.getElementById('response').innerHTML = "No se ha seleccionado ningun producto";
   } else {
     var barcode = document.getElementById('barcode').value;
+    var catalogSAT = document.getElementById('catalogSAT').value;
     var name = document.getElementById('name').value;
     var description = document.getElementById('description').value;
     var key_ = document.getElementById('key').value;
@@ -53,6 +56,7 @@ function onClickModify() {
     var treadware = document.getElementById('treadware').value;
     var loadIndex = document.getElementById('loadIndex').value;
     var loadSpeed = document.getElementById('loadSpeed').value;
+    
     if (name === '' || key_ === '') {
       alert('Ingresa datos obligatorios.');
     } else {
@@ -69,7 +73,7 @@ function onClickModify() {
         }
       };
 
-      xmlhttp.open("GET", "links/products.php?operation=modify&barcode=" + barcode + "&name=" + name + "&description=" + description + "&key_=" + key_ + "&brand=" + brand + "&model=" + model + "&measure=" + measure + "&treadware=" + treadware + "&load_index=" + loadIndex + "&load_speed=" + loadSpeed  + "&id=" + id_select);
+      xmlhttp.open("GET", "links/products.php?operation=modify&barcode=" + barcode + "&catalogSAT=" + catalogSAT + "&name=" + name + "&description=" + description + "&key_=" + key_ + "&brand=" + brand + "&model=" + model + "&measure=" + measure + "&treadware=" + treadware + "&load_index=" + loadIndex + "&load_speed=" + loadSpeed  + "&id=" + id_select);
 
       xmlhttp.send();
     }
@@ -129,6 +133,12 @@ function onClickSelect(id_product) {
       document.getElementById('tarjeta').value = res[13];
       document.getElementById('mpago').value = res[14];
       document.getElementById('pespecial').value = res[15];
+      document.getElementById('catalogSAT').value = res[16];
+
+      // var e = document.getElementById("catalogSAT");
+      // e.options[e.selectedIndex].value = res[16];
+      // e.options[e.selectedIndex].text = res[16];
+
     }
   };
 

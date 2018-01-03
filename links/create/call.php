@@ -11,11 +11,12 @@ class Timbrar{
 function SetTimbrado($fileName) {
     header ('Content-type: text/html; charset=utf-8');
     try {
-        set_time_limit(0);
+        // set_time_limit(0);
         $XML = new DOMDocument();
         $XML->load($fileName);
         //$client = new SoapClient('https://dev.facturacfdi.mx:8081/WSTimbrado/WSForcogsaService?wsdl');
-        $client = new SoapClient('https://www.facturacfdi.mx/WSTimbrado/WSForcogsaService?wsdl');
+        // $client = new SoapClient('https://www.facturacfdi.mx/WSTimbrado/WSForcogsaService?wsdl');
+        $client = new SoapClient('https://v33.facturacfdi.mx/WSForcogsaService?wsdl');
         $autentica = new Autenticar();
         $autentica->usuario = "VAAA671004";
         $autentica->contrasena = "7388O_a14";
@@ -30,13 +31,13 @@ function SetTimbrado($fileName) {
 
         /* cacha la respuesta */
         $responseTimbre = $client->Timbrar($timbrar);
-        // echo "<br><br><br>MSG SOAP REQUEST:<br><br>" . $client->__getLastRequest() . "\n";
-    	// 	echo "<br><br><br>MSG SOAP REQUEST:<br><br>" . $client->__getLastResponse() . "\n";
+        echo "<br><br><br>MSG SOAP REQUEST:<br><br>" . $client->__getLastRequest() . "\n";
+    		echo "<br><br><br>MSG SOAP REQUEST:<br><br>" . $client->__getLastResponse() . "\n";
 
 
-        // echo "codigoErr:" . $responseTimbre->return->codigo . "<br>";
-    	// 	echo $responseTimbre->return->mensaje . "<br>";
-    	// 	echo $responseTimbre->return->cfdi . "<br>";
+        echo "codigoErr:" . $responseTimbre->return->codigo . "<br>";
+    		echo $responseTimbre->return->mensaje . "<br>";
+    		echo $responseTimbre->return->cfdi . "<br>";
 
 
         if(isset($responseTimbre->return->codigo) && $responseTimbre->return->codigo != "" && $responseTimbre->return->codigo <> 0) {
@@ -113,25 +114,45 @@ function CancelarCFDI($fecha, $folio, $file) {
             break;
     }
 }
-function GetCadenaOriginal_3_2($xml_Original) {
-      if($xml_Original) {
-          $str_xml = $xml_Original->saveXML();
-          $xml = new DOMDocument();
-          $xml->loadXML($str_xml);
-          $obj_xsl = new DOMDocument();
-          $obj_xsl->load("http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_2/cadenaoriginal_3_2.xslt", LIBXML_NOCDATA);
+// function GetCadenaOriginal_3_2($xml_Original) {
+//     if($xml_Original) {
+//         $str_xml = $xml_Original->saveXML();
+//         $xml = new DOMDocument();
+//         $xml->loadXML($str_xml);
+//         $obj_xsl = new DOMDocument();
+//         $obj_xsl->load("http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_2/cadenaoriginal_3_2.xslt", LIBXML_NOCDATA);
+      
+//         error_reporting(0);
+//         $obj_xslt = new XSLTProcessor();
+//         $obj_xslt->importStyleSheet($obj_xsl);
         
-          error_reporting(0);
-          $obj_xslt = new XSLTProcessor();
-          $obj_xslt->importStyleSheet($obj_xsl);
-          
-          
-          error_reporting(E_ALL);
-          $tmp_CadOrig = $obj_xslt->transformToXml($xml);
+        
+//         error_reporting(E_ALL);
+//         $tmp_CadOrig = $obj_xslt->transformToXml($xml);
 
-          return $tmp_CadOrig;
-      }
-  }
+//         return $tmp_CadOrig;
+//     }
+// }
+
+function GetCadenaOriginal_3_3($xml_Original) {
+    if($xml_Original) {
+        $str_xml = $xml_Original->saveXML();
+        $xml = new DOMDocument();
+        $xml->loadXML($str_xml);
+        $obj_xsl = new DOMDocument();
+        $obj_xsl->load("http://www.sat.gob.mx/sitio_internet/cfd/3/cadenaoriginal_3_3/cadenaoriginal_3_3.xslt", LIBXML_NOCDATA);
+      
+        error_reporting(0);
+        $obj_xslt = new XSLTProcessor();
+        $obj_xslt->importStyleSheet($obj_xsl);
+        
+        
+        error_reporting(E_ALL);
+        $tmp_CadOrig = $obj_xslt->transformToXml($xml);
+
+        return $tmp_CadOrig;
+    }
+}
 
   //funcion para obtener el sello digital
   function GetSelloDigital($CadenaOrig) {
@@ -141,10 +162,17 @@ function GetCadenaOriginal_3_2($xml_Original) {
       //$archivo_pem = "../keys/CSD01_AAA010101AAA.key.pem";
       $pkeyid = openssl_get_privatekey(file_get_contents($archivo_pem));
       //md5
-      openssl_sign($CadenaOrig,$res_sig,$pkeyid,OPENSSL_ALGO_MD5);
+    //   openssl_sign($CadenaOrig,$res_sig,$pkeyid,OPENSSL_ALGO_MD5);
       //sha1
-      openssl_sign($CadenaOrig,$res_sig,$pkeyid,OPENSSL_ALGO_SHA1);
-      openssl_free_key($pkeyid);
+    //   openssl_sign($CadenaOrig,$res_sig,$pkeyid,OPENSSL_ALGO_SHA1);
+    //sha254
+
+
+
+
+
+      openssl_sign($CadenaOrig,$res_sig,$pkeyid,OPENSSL_ALGO_SHA256);
+    //   openssl_free_key($pkeyid);
 
       $sello=base64_encode($res_sig);
       return $sello;

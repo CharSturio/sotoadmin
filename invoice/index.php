@@ -54,14 +54,16 @@ if ($op === '1') {
       </div>
       <div class="clearL"></div>
       <br /><br />
+      <div class="wid14"><b>ClaveProdServ</b></div>
+      <div class="wid12"><b>ClaveUnidad</b></div>
       <div class="wid17"><b>Código</b></div>
       <div class="wid17"><b>Descripción</b></div>
-      <div class="wid17"><b>Unidad</b></div>
-      <div class="wid17"><b>Precio x Unidad</b></div>
-      <div class="wid17"><b>Cantidad</b></div>
-      <div class="wid15"><b>TOTAL</b></div>
+      <div class="wid10"><b>Unidad</b></div>
+      <div class="wid10"><b>Precio x Unidad</b></div>
+      <div class="wid10"><b>Cantidad</b></div>
+      <div class="wid10"><b>TOTAL</b></div>
       <div class="clearL"></div>';
-          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
+          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id INNER JOIN catalog_sat AS C ON P.id_sat = C.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
           $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error($link));
           $totalGral = 0;
           while ($rowPro = mysqli_fetch_assoc($resultPro)) {
@@ -72,12 +74,14 @@ if ($op === '1') {
 
             $totalGral += $totalUnitCost;
             $html .= '
+            <div class="wid14">' . $rowPro['product_key'] . '</div>
+            <div class="wid12">' . $rowPro['unit_key'] . '</div>
             <div class="wid17">' . $rowPro['key_'] . '</div>
             <div class="wid17">' . $rowPro['name'] . '</div>
-            <div class="wid17">Pieza</div>
-            <div class="wid17">$' . $unitCost . '</div>
-            <div class="wid17">' . $rowPro['amount'] . '</div>
-            <div class="wid15">$' . $totalUnitCost . '</div>
+            <div class="wid10">Pieza</div>
+            <div class="wid10">$' . $unitCost . '</div>
+            <div class="wid10">' . $rowPro['amount'] . '</div>
+            <div class="wid10">$' . $totalUnitCost . '</div>
             <div class="clearL"></div>';
           }
           $totalGral = round($totalGral, 2);
@@ -206,14 +210,16 @@ if ($op === '1') {
       </div>
       <div class="clearL"></div>
       <br /><br />
+      <div class="wid14"><b>ClaveProdServ</b></div>
+      <div class="wid12"><b>ClaveUnidad</b></div>
       <div class="wid17"><b>Código</b></div>
       <div class="wid17"><b>Descripción</b></div>
-      <div class="wid17"><b>Unidad</b></div>
-      <div class="wid17"><b>Precio x Unidad</b></div>
-      <div class="wid17"><b>Cantidad</b></div>
-      <div class="wid15"><b>TOTAL</b></div>
+      <div class="wid10"><b>Unidad</b></div>
+      <div class="wid10"><b>Precio x Unidad</b></div>
+      <div class="wid10"><b>Cantidad</b></div>
+      <div class="wid10"><b>TOTAL</b></div>
       <div class="clearL"></div>';
-          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
+          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id INNER JOIN catalog_sat AS C ON P.id_sat = C.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
           $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error($link));
           $totalGral = 0;
           while ($rowPro = mysqli_fetch_assoc($resultPro)) {
@@ -224,12 +230,14 @@ if ($op === '1') {
 
             $totalGral += $totalUnitCost;
             $html .= '
+            <div class="wid14">' . $rowPro['product_key'] . '</div>
+            <div class="wid12">' . $rowPro['unit_key'] . '</div>
             <div class="wid17">' . $rowPro['key_'] . '</div>
             <div class="wid17">' . $rowPro['name'] . '</div>
-            <div class="wid17">Pieza</div>
-            <div class="wid17">$' . $unitCost . '</div>
-            <div class="wid17">' . $rowPro['amount'] . '</div>
-            <div class="wid15">$' . $totalUnitCost . '</div>
+            <div class="wid10">Pieza</div>
+            <div class="wid10">$' . $unitCost . '</div>
+            <div class="wid10">' . $rowPro['amount'] . '</div>
+            <div class="wid10">$' . $totalUnitCost . '</div>
             <div class="clearL"></div>';
           }
           $totalGral = round($totalGral, 2);
@@ -320,14 +328,16 @@ if ($op === '1') {
       </div>
       <div class="clearL"></div>
       <br /><br />
+      <div class="wid14"><b>ClaveProdServ</b></div>
+      <div class="wid12"><b>ClaveUnidad</b></div>
       <div class="wid17"><b>Código</b></div>
       <div class="wid17"><b>Descripción</b></div>
-      <div class="wid17"><b>Unidad</b></div>
-      <div class="wid17"><b>Precio x Unidad</b></div>
-      <div class="wid17"><b>Cantidad</b></div>
-      <div class="wid15"><b>TOTAL</b></div>
+      <div class="wid10"><b>Unidad</b></div>
+      <div class="wid10"><b>Precio x Unidad</b></div>
+      <div class="wid10"><b>Cantidad</b></div>
+      <div class="wid10"><b>TOTAL</b></div>
       <div class="clearL"></div>';
-          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
+          $queryPro = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id INNER JOIN catalog_sat AS C ON P.id_sat = C.id WHERE Q.invoice ='" . $row['invoice'] . "' AND Q.id_branch =" . $_SESSION['branchID'];
           $resultPro = mysqli_query($link,$queryPro) or die ('Consulta fallida: ' . mysqli_error($link));
           $totalGral = 0;
           while ($rowPro = mysqli_fetch_assoc($resultPro)) {
@@ -338,12 +348,14 @@ if ($op === '1') {
 
             $totalGral += $totalUnitCost;
             $html .= '
+            <div class="wid14">' . $rowPro['product_key'] . '</div>
+            <div class="wid12">' . $rowPro['unit_key'] . '</div>
             <div class="wid17">' . $rowPro['key_'] . '</div>
             <div class="wid17">' . $rowPro['name'] . '</div>
-            <div class="wid17">Pieza</div>
-            <div class="wid17">$' . $unitCost . '</div>
-            <div class="wid17">' . $rowPro['amount'] . '</div>
-            <div class="wid15">$' . $totalUnitCost . '</div>
+            <div class="wid10">Pieza</div>
+            <div class="wid10">$' . $unitCost . '</div>
+            <div class="wid10">' . $rowPro['amount'] . '</div>
+            <div class="wid10">$' . $totalUnitCost . '</div>
             <div class="clearL"></div>';
           }
           $totalGral = round($totalGral, 2);
@@ -386,7 +398,7 @@ if ($op === '1') {
     </body>
   </html>';
 }
-
+// echo $html;
 $routePDF = 'pdf/' . $row['invoice'] . '.pdf';
 require_once 'dompdf/autoload.inc.php';
 use Dompdf\Dompdf;

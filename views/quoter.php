@@ -152,6 +152,12 @@ if($_SESSION['MovCotGen'] == 'true'){
               <div class="col-md-12">
                 <div class="col-md-8">
                   <div class="form-group">
+                    <label>Uso de CFDI> Obligatorio para factura</label>
+                    <select id="usocfdi" class="form-control" data-placeholder="Selecciona uso">
+                      <option value="G01">Adquisicion de mercancia</option>
+                      <option value="G03">Gastos en General</option>
+                      <option value="P01">Por definir</option>
+                    </select>
                     <label>Numero de Guía</label>
                     <input id="guideNumber" type="text" class="form-control" placeholder="XXXXXXXX">
                     <label>Metodo de Pago</label>

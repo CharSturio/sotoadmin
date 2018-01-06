@@ -120,6 +120,7 @@ function onClickInvoice() {
 function onSubmitInvoice() {
   var xmlhttp = new XMLHttpRequest();
   var guideNumber = document.getElementById('guideNumber').value;
+  var usocfdi = document.getElementById('usocfdi').value;
   var paymentMethod = document.getElementById('paymentMethod').value;
   var lastDigits = document.getElementById('lastDigits').value;
   var comments = document.getElementById('comments').value;
@@ -156,7 +157,7 @@ function onSubmitInvoice() {
     }
   };
 
-  xmlhttp.open("GET", "links/quoter.php?operation=invoice&id_client=" + idSelect + "&guide_number=" + guideNumber + "&payment_method=" + paymentMethod + "&last_digits=" + lastDigits + "&comments=" + comments);
+  xmlhttp.open("GET", "links/quoter.php?operation=invoice&id_client=" + idSelect + "&guide_number=" + guideNumber + "&payment_method=" + paymentMethod + "&last_digits=" + lastDigits + "&comments=" + comments + "&usocfdi=" + usocfdi);
   xmlhttp.send();
 }
 
@@ -172,11 +173,12 @@ function onClickCredit() {
 function onSubmitCredit() {
   var xmlhttp = new XMLHttpRequest();
   var guideNumber = document.getElementById('guideNumber').value;
+  var usoCFDI = document.getElementById('usocfdi').value;  
   var paymentMethod = document.getElementById('paymentMethod').value;
   var lastDigits = document.getElementById('lastDigits').value;
   var comments = document.getElementById('comments').value;
   var diasCredito = document.getElementById('diasCredito').value;
-
+console.log(usoCFDI);
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState === 1) {
       document.getElementById('response').innerHTML = 'Procesando...';
@@ -185,6 +187,7 @@ function onSubmitCredit() {
         alert("No cuenta con los permisos necesarios.");
       } else {
         alert('Añadida con exito.');
+        
         var x = 'invoice/index.php?id=' + xmlhttp.responseText + '&op=3';
         window.open(x,'Credito','width=100%,height=100%,fullscreen=yes,scrollbars=NO')
         document.location.reload();
@@ -192,7 +195,7 @@ function onSubmitCredit() {
     }
   };
 
-  xmlhttp.open("GET", "links/quoter.php?operation=credit&id_client=" + idSelect + "&guide_number=" + guideNumber + "&payment_method=" + paymentMethod + "&last_digits=" + lastDigits + "&comments=" + comments + "&diasCredito = " + diasCredito);
+  xmlhttp.open("GET", "links/quoter.php?operation=credit&id_client=" + idSelect + "&guide_number=" + guideNumber + "&payment_method=" + paymentMethod + "&last_digits=" + lastDigits + "&comments=" + comments + "&diasCredito = " + diasCredito + "&usocfdi = " + usoCFDI);
   xmlhttp.send();
 }
 

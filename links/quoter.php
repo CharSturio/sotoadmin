@@ -318,7 +318,7 @@
             $invoice = 'FA00001';
           }
 
-          $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, id_branch, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $_SESSION['branchID'] . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','invoice','activo',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),0);";
+          $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, id_branch, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total, usocfdi) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $_SESSION['branchID'] . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','invoice','activo',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),0,'" . $_REQUEST['usocfdi'] . "');";
           $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
           $id_document = mysqli_insert_id($link);
           $total_invoice = 0;
@@ -396,7 +396,7 @@
           $numInvoice = 1;
           $invoice = 'CR00001';
         }
-        $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, id_branch, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total, dias_credito) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $_SESSION['branchID'] . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','credit','activo',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),0,'" . $_REQUEST['diasCredito'] . "');";
+        $queryInsert = "INSERT INTO documents (id_user, id_client, id_invoice, id_branch, invoice, guide_number, payment_method, last_digits, comments, type, status, last_date, total, usocfdi, dias_credito) VALUES ('" . $_SESSION['id'] . "','" . $_REQUEST['id_client'] . "','" . $numInvoice . "','" . $_SESSION['branchID'] . "','" . $invoice . "','" . $_REQUEST['guide_number'] . "','" . $_REQUEST['payment_method'] . "','" . $_REQUEST['last_date'] . "','" . $_REQUEST['comments'] . "','credit','activo',date_sub(NOW(), INTERVAL 300 HOUR_MINUTE),0,'" . $_REQUEST['usocfdi'] . "','" . $_REQUEST['diasCredito'] . "');";
         $resultInsert = mysqli_query($link,$queryInsert) or die ('Consulta fallida: ' . mysqli_error($link));
 
         $id_document = mysqli_insert_id($link);

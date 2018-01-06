@@ -15,8 +15,8 @@ function SetTimbrado($fileName) {
         $XML = new DOMDocument();
         $XML->load($fileName);
         //$client = new SoapClient('https://dev.facturacfdi.mx:8081/WSTimbrado/WSForcogsaService?wsdl');
-        $client = new SoapClient('https://www.facturacfdi.mx/WSTimbrado/WSForcogsaService?wsdl');
-        // $client = new SoapClient('https://v33.facturacfdi.mx/WSForcogsaService?wsdl');
+        // $client = new SoapClient('https://www.facturacfdi.mx/WSTimbrado/WSForcogsaService?wsdl');
+        $client = new SoapClient('https://v33.facturacfdi.mx/WSForcogsaService?wsdl');
         $autentica = new Autenticar();
         $autentica->usuario = "VAAA671004";
         $autentica->contrasena = "7388O_a14";

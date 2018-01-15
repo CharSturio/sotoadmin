@@ -50,7 +50,7 @@ class Cancelacion{
 		// Set error message
 		$this->error="";
 
-		$this->https = new SoapClient('https://www.facturacfdi.mx/WSTimbrado/WSForcogsaService?wsdl');
+		$this->https = new SoapClient('https://v33.facturacfdi.mx/WSForcogsaService?wsdl');
 	}
 
 	function process(){

@@ -5,7 +5,7 @@ require "convert.php";
 $id = $_REQUEST['id'];
 $op = $_REQUEST['op'];
 if ($op === '1') {
-  $query = "SELECT D.dias_credito, D.type, D.invoice, C.colony, C.name, C.address, C.noExt, C.noInt, C.pc, C.rfc, C.phone, C.email, D.last_date, D.payment_method, D.last_digits, D.guide_number, D.uuid, D.fechaTimbrado, D.sello, D.noCertificadoSat, D.noCertificado, D.selloSat FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id =" . $id ." LIMIT 1;";
+  $query = "SELECT D.dias_credito, D.type, D.invoice, C.colony, C.name, C.address, C.noExt, C.noInt, C.pc, C.rfc, C.phone, C.email, D.last_date, D.payment_method, D.last_digits, D.guide_number, D.uuid, D.fechaTimbrado, D.sello, D.noCertificadoSat, D.noCertificado, D.selloSat, D.usocfdi FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id =" . $id ." LIMIT 1;";
   $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
   $row = mysqli_fetch_assoc($result);
 
@@ -50,7 +50,15 @@ if ($op === '1') {
         <b>Tipo Comprobante: </b>Factura Electrónica<br />
         <b>Método de Pago: </b>' . $row['payment_method'] . '<br />
         <b>Expedido en: </b>Arandas, Jal.<br />
-        <b>Cuenta Pago: </b>' . $row['last_digits'] . '
+        <b>Uso CFDI </b>' . $row['usocfdi'] . '<br />';
+        if ($row['usocfdi'] == "G01") {
+          $html .= "Adquisición de mercancía";
+        } elseif ($row['usocfdi'] == "G03") {
+          $html .= "Gastos en General";
+        } elseif ($row['usocfdi'] == "P01") {
+          $html .= "Por definir";
+        }
+        $html .= '
       </div>
       <div class="clearL"></div>
       <br /><br />
@@ -280,7 +288,7 @@ if ($op === '1') {
     </body>
   </html>';
 } else if ($op === '3') {
-  $query = "SELECT D.dias_credito, D.invoice, C.name, C.address, C.noExt, C.noInt, C.pc, C.rfc, C.phone, C.email, D.last_date, D.payment_method, D.last_digits, D.guide_number FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id =" . $id ." LIMIT 1;";
+  $query = "SELECT D.dias_credito, D.invoice, C.name, C.address, C.noExt, C.noInt, C.pc, C.rfc, C.phone, C.email, D.last_date, D.payment_method, D.last_digits, D.guide_number, D.usocfdi FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id =" . $id ." LIMIT 1;";
   $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
   $row = mysqli_fetch_assoc($result);
 
@@ -324,7 +332,15 @@ if ($op === '1') {
         <b>Tipo Comprobante: </b>Credito<br />
         <b>Método de Pago: </b>' . $row['payment_method'] . '<br />
         <b>Expedido en: </b>Arandas, Jal.<br />
-        <b>Cuenta Pago: </b>' . $row['last_digits'] . '
+        <b>Uso CFDI </b>' . $row['usocfdi'] . '<br />';
+        if ($row['usocfdi'] == "G01") {
+          $html .= "Adquisición de mercancía";
+        } elseif ($row['usocfdi'] == "G03") {
+          $html .= "Gastos en General";
+        } elseif ($row['usocfdi'] == "P01") {
+          $html .= "Por definir";
+        }
+        $html .= '
       </div>
       <div class="clearL"></div>
       <br /><br />

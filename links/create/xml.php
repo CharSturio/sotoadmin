@@ -6,7 +6,7 @@ require 'call.php';
   $queryNow = "UPDATE documents SET last_date = date_sub(NOW(), INTERVAL 300 HOUR_MINUTE) WHERE id=" . $_REQUEST['id'];
   $resultNow = mysqli_query($link,$queryNow) or die ('Consulta fallida: ' . mysqli_error($link));
   //$rowNow = mysqli_fetch_assoc($resultNow);
-  $queryDandC = "SELECT D.last_date, D.invoice, D.id, D.id_invoice, D.last_digits, D.total, D.payment_method, C.rfc, C.name, C.address, C.noExt, C.noint, C.colony, C.city, C.state, C.pc FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id=" . $_REQUEST['id'] ." LIMIT 1;";
+  $queryDandC = "SELECT D.last_date, D.invoice, D.id, D.id_invoice, D.last_digits, D.total, D.payment_method, C.rfc, C.name, C.address, C.noExt, C.noint, C.colony, C.city, C.state, C.pc, D.usocfdi FROM documents AS D INNER JOIN clients AS C ON D.id_client = C.id WHERE D.id=" . $_REQUEST['id'] ." LIMIT 1;";
   $resultDandC = mysqli_query($link,$queryDandC) or die ('Consulta fallida: ' . mysqli_error($link));
   $rowDandC = mysqli_fetch_assoc($resultDandC);
   $fecha_ = $rowDandC['last_date'];
@@ -117,7 +117,11 @@ require 'call.php';
   $rfc = strtoupper($rowDandC['rfc']);
   $node_catch = $node_proof->appendChild($dom->createElement('cfdi:Receptor'));
   $node_catch->setAttribute("Rfc",$rfc);
-  $node_catch->setAttribute("UsoCFDI","G01");
+  if($rowDandC['usocfdi'] != ""){
+    $node_catch->setAttribute("UsoCFDI",$rowDandC['usocfdi']);
+  } else {
+    $node_catch->setAttribute("UsoCFDI","G01");
+  }
   // $node_catch->setAttribute("nombre",$rowDandC['name']);
   // $node_dom_catch = $node_catch->appendChild($dom->createElement('cfdi:Domicilio'));
   // $node_dom_catch->setAttribute("calle",$rowDandC['address']);

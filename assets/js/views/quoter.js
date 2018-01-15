@@ -195,7 +195,8 @@ console.log(usoCFDI);
     }
   };
 
-  xmlhttp.open("GET", "links/quoter.php?operation=credit&id_client=" + idSelect + "&guide_number=" + guideNumber + "&payment_method=" + paymentMethod + "&last_digits=" + lastDigits + "&comments=" + comments + "&diasCredito = " + diasCredito + "&usocfdi = " + usoCFDI);
+  
+  xmlhttp.open("GET", "links/quoter.php?operation=credit&id_client=" + idSelect + "&guide_number=" + guideNumber + "&payment_method=" + paymentMethod + "&last_digits=" + lastDigits + "&comments=" + comments + "&diasCredito=" + diasCredito + "&usocfdi=" + usoCFDI);  
   xmlhttp.send();
 }
 

@@ -29,7 +29,7 @@ require_once 'phpmailer/class.smtp.php';
 
               $mail->AddAddress($rowClient['email'], 'Cliente');
               $mail->AddAddress('facturasoto@hotmail.com', 'SotoFacturacion');
-              $mail->SetFrom('no-reply@sotoadmin.com', 'Soto Goodyear');
+              $mail->SetFrom('no-reply@sturio.com', 'Soto Goodyear');
               $mail->Subject = 'Factura de SotoGoodyear';
               $mail->AltBody = 'Factura de SotoGoodyear'; // optional - MsgHTML will create an alternate automatically
               $mail->MsgHTML('Estos son sus documentos de la compra con SotoGoddyear. Agradecemos su preferencia.');

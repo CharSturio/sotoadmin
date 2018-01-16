@@ -131,7 +131,8 @@
           <th>RFC</th>
           <th>Telefono</th>
           <th></th>
-        </tr>
+          <th></th>
+          </tr>
       </thead>
       <tbody>';
     while ($row = mysqli_fetch_assoc($result)) {
@@ -140,6 +141,8 @@
             <td>' . $row['rfc'] . '</td>
             <td>' . $row['phone'] . '</td>
             <td><button onClick="onClickSelect(' . $row['id'] . ')" type="button" class="btn btn-primary btn-square">Modificar</button></td>
+            <td><button onClick="onClickDeleteUser(' . $row['id'] . ')" type="button" class="btn btn-danger btn-square">Eliminar</button></td>
+            
           </tr>';
     }
     $print .= '</tbody></table>';
@@ -154,7 +157,8 @@
           <th>RFC</th>
           <th>Telefono</th>
           <th></th>
-        </tr>
+          <th></th>
+          </tr>
       </thead>
       <tbody>';
     while ($row = mysqli_fetch_assoc($result)) {
@@ -163,6 +167,8 @@
             <td>' . $row['rfc'] . '</td>
             <td>' . $row['phone'] . '</td>
             <td><button onClick="onClickSelect(' . $row['id'] . ')" type="button" class="btn btn-primary btn-square">Modificar</button></td>
+            <td><button onClick="onClickDeleteUser(' . $row['id'] . ')" type="button" class="btn btn-danger btn-square">Eliminar</button></td>
+            
           </tr>';
     }
     $print .= '</tbody></table>';

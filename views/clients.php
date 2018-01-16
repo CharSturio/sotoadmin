@@ -61,12 +61,13 @@ if($_SESSION['RegCliGen'] == 'true'){
             <button onClick="onClickDelete()" type="button" class="btn btn-danger btn-square">Eliminar</button>
           </div>
           <div id="response">
-
+          
           </div>
           <div id="divProducts" class="col-md-12">
-
           </div>';
           echo '
+          <h3 class="col-md-12"> Listado de clientes</h3>
+          
           <table class="table table-striped">
           <thead>
             <tr>
@@ -85,17 +86,12 @@ if($_SESSION['RegCliGen'] == 'true'){
                       <td>' . $row['name'] . '</td>
                       <td>' . $row['rfc'] . '</td>
                       <td>' . $row['city'] . '</td>
-                      <td><a onClick="onClickDeleteUser(' . $row['id'] . ')"><i class="fa fa-close c-red"></i></a></td>
+                      <td><button onClick="onClickDeleteUser(' . $row['id'] . ')" type="button" class="btn btn-danger btn-square">Eliminar</button></td>
                     </tr>';
             }
           
           echo '</tbody>
         </table>
-          
-            
-            
-      
-
         </div>
       </div>
     </div>

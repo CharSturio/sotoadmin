@@ -175,3 +175,20 @@ function onClickDelete() {
     xmlhttp.send();
   }
 }
+
+function onClickDeleteUser(idDel) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState === 4 && xmlhttp.status == 200) {
+        if (xmlhttp.responseText == 'noPermit') {
+          alert("No cuenta con los permisos necesarios.");
+        } else {
+          document.getElementById('response').innerHTML = xmlhttp.responseText;            
+        }
+      }
+    };
+
+    xmlhttp.open("GET", "links/clients.php?operation=delete&id=" + idDel);
+    xmlhttp.send();
+  
+}

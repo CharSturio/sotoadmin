@@ -148,7 +148,7 @@
         $mail->Host = "smtp.1and1.mx";  // specify main and backup server
         $mail->Port = 587;
         $mail->SMTPAuth = true;     // turn on SMTP authentication
-        $mail->Username = "no-reply@sotoadmin.com";  // SMTP username
+        $mail->Username = "no-reply@sturio.com";  // SMTP username
         $mail->Password = $passSMTP; // SMTP password
         
         $mail->AddAddress($_REQUEST['email'], 'Cliente');

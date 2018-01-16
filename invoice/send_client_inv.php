@@ -171,7 +171,7 @@
         for ($i=0;$i<$count;$i++) {
           $mail->AddBCC($split[$i]);
         }
-        $mail->SetFrom('no-reply@sotoadmin.com', 'Soto Goodyear');
+        $mail->SetFrom('no-reply@sturio.com', 'Soto Goodyear');
         $mail->Subject = 'Reporte de inventarios Sotogoodyear';
         $mail->AltBody = 'Reporte de inventarios Sotogoodyear'; // optional - MsgHTML will create an alternate automatically
         $mail->MsgHTML('Reporte de inventarios Sotogoodyear');

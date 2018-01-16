@@ -1,5 +1,7 @@
 <?php 
 session_start();
+require '../connection/index.php';
+
 if($_SESSION['RegCliGen'] == 'true'){
   echo '
   <div class="header">
@@ -63,7 +65,37 @@ if($_SESSION['RegCliGen'] == 'true'){
           </div>
           <div id="divProducts" class="col-md-12">
 
-          </div>
+          </div>';
+          echo '
+          <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>RFC</th>
+              <th>Ciudad</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="table">';
+          $query = "SELECT * FROM clients ORDER BY name DESC LIMIT 0,10000";
+          $result = mysqli_query($link,$query) or die ('Consulta fallida: ' . mysqli_error($link));
+          while ($row = mysqli_fetch_assoc($result)) {
+            
+              echo '<tr>
+                      <td>' . $row['name'] . '</td>
+                      <td>' . $row['rfc'] . '</td>
+                      <td>' . $row['city'] . '</td>
+                      <td><a onClick="onClickDeleteUser(' . $row['id'] . ')"><i class="fa fa-close c-red"></i></a></td>
+                    </tr>';
+            }
+          
+          echo '</tbody>
+        </table>
+          
+            
+            
+      
+
         </div>
       </div>
     </div>

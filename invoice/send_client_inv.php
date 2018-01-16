@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require '../connection/index.php';
+  require 'connection/index.php';
   require_once 'phpmailer/class.phpmailer.php';
   require_once 'phpmailer/class.smtp.php';
   

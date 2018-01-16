@@ -166,7 +166,8 @@ function onClickDelete() {
         if (xmlhttp.responseText == 'noPermit') {
           alert("No cuenta con los permisos necesarios.");
         } else {
-          document.getElementById('response').innerHTML = xmlhttp.responseText;            
+          document.getElementById('response').innerHTML = xmlhttp.responseText;  
+          alert("Eliminado correctamente, favor actualiza la sección para que ya no aparezca");          
         }
       }
     };
@@ -183,7 +184,9 @@ function onClickDeleteUser(idDel) {
         if (xmlhttp.responseText == 'noPermit') {
           alert("No cuenta con los permisos necesarios.");
         } else {
-          document.getElementById('response').innerHTML = xmlhttp.responseText;            
+          document.getElementById('response').innerHTML = xmlhttp.responseText;    
+          alert("Eliminado correctamente, favor actualiza la sección para que ya no aparezca");          
+          
         }
       }
     };

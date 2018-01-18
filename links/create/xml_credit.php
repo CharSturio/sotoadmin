@@ -316,7 +316,7 @@ require 'call.php';
     // $node_proof->setAttribute("formaDePago","Pago en una sola exhibición");
     $node_proof->setAttribute("MetodoPago","PUE");
     $node_proof->setAttribute("NoCertificado","00001000000407885997");
-    $node_proof->setAttribute("Total",$subTotal);
+    $node_proof->setAttribute("Total",$total);
     if ($rowDandC['payment_method'] === 'Cheque Nominativo') {
       $node_proof->setAttribute("FormaPago","02");
     }

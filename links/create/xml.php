@@ -192,6 +192,7 @@ echo $IVAtot;
   $node_transfe->setAttribute("TipoFactor","Tasa");
   $node_transfe->setAttribute("TasaOCuota","0.160000");
   $node_transfe->setAttribute("Importe",$IVA_total);
+  $node_transfe->setAttribute("Base",$sinIVA);
   
   // $node_transfe->setAttribute("TotalImpuestosTrasladados",$IVA_total);
   

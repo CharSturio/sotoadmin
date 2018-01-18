@@ -193,7 +193,7 @@ echo $IVAtot;
   $node_transfe->setAttribute("TasaOCuota","0.160000");
   $node_transfe->setAttribute("Importe",$IVA_total);
   
-  $node_transfe->setAttribute("totalImpuestosTrasladados",$IVA_total);
+  $node_transfe->setAttribute("TotalImpuestosTrasladados",$IVA_total);
   
   
   // while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {

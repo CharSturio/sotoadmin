@@ -178,7 +178,7 @@ echo $IVAtot;
   $totalC_IVA = $sinIVA * 1.16;
   $totalC_IVAX = round($totalC_IVA, 2);
 
-  $node_proof->setAttribute("total",$totalC_IVAX);
+  $node_proof->setAttribute("Total",$totalC_IVAX);
   $node_proof->setAttribute("SubTotal",$sinIVA);
   echo ("Esto es el totanl ". $total . " y esto es el subtotal" . $sinIVA);
   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));

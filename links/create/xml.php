@@ -71,7 +71,7 @@ require 'call.php';
   // $node_proof->setAttribute("formaDePago","Pago en una sola exhibición");
   $node_proof->setAttribute("MetodoPago","PUE");
   $node_proof->setAttribute("NoCertificado","00001000000407885997");
-  $node_proof->setAttribute("Total",$total);
+  // $node_proof->setAttribute("Total",$total);
   if ($rowDandC['payment_method'] === 'Cheque Nominativo') {
     $node_proof->setAttribute("FormaPago","02");
   }
@@ -175,6 +175,10 @@ echo $IVAtot;
     $node_concept_tra->setAttribute("TasaOCuota","0.160000");
     $node_concept_tra->setAttribute("Importe",$IVAtot);
   }
+  $totalC_IVA = $sinIVA * 1.16;
+  $totalC_IVAX = round($totalC_IVA, 2);
+
+  $node_proof->setAttribute("total",$totalC_IVAX);
   $node_proof->setAttribute("SubTotal",$sinIVA);
   echo ("Esto es el totanl ". $total . " y esto es el subtotal" . $sinIVA);
   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
@@ -189,7 +193,7 @@ echo $IVAtot;
   $node_transfe->setAttribute("TasaOCuota","0.160000");
   $node_transfe->setAttribute("Importe",$IVA_total);
   
-  // $node_transfe->setAttribute("totalImpuestosTrasladados",$IVA_total);
+  $node_transfe->setAttribute("totalImpuestosTrasladados",$IVA_total);
   
   
   // while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {

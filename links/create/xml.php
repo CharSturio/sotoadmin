@@ -182,12 +182,13 @@ echo $IVAtot;
   $node_proof->setAttribute("SubTotal",$sinIVA);
   echo ("Esto es el totanl ". $total . " y esto es el subtotal" . $sinIVA);
   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
-  $node_taxes->setAttribute("TotalImpuestosTrasladados ",$IVA_total);
   
   // $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "'  AND Q.id_branch =" . $_SESSION['branchID'];
   // $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
   $IVATOTAL = $sinIVA * .16;
   $IVA_total = round($IVATOTAL, 2);
+  $node_taxes->setAttribute("TotalImpuestosTrasladados",$IVA_total);
+  
   $node_transfers = $node_taxes->appendChild($dom->createElement("cfdi:Traslados"));
   $node_transfe = $node_transfers->appendChild($dom->createElement("cfdi:Traslado"));
   $node_transfe->setAttribute("Impuesto","002");

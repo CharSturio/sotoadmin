@@ -430,6 +430,8 @@ require 'call.php';
     // $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
     $IVATOTAL = $sinIVA * .16;
     $IVA_total = round($IVATOTAL, 2);
+    $node_taxes->setAttribute("TotalImpuestosTrasladados",$IVA_total);
+    
     $node_transfers = $node_taxes->appendChild($dom->createElement("cfdi:Traslados"));
     $node_transfe = $node_transfers->appendChild($dom->createElement("cfdi:Traslado"));
     $node_transfe->setAttribute("Impuesto","002");

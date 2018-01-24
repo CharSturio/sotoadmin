@@ -155,7 +155,7 @@ require 'call.php';
     $sinIVA += $CostPzs;
     $ivaTot = $CostPzs * .16;
     $IVAtot = round($ivaTot, 2);
-echo $IVAtot;
+echo "Importe ".$IVAtot. " Base ".$CostPzs;
     $node_concept = $node_concepts->appendChild($dom->createElement("cfdi:Concepto"));
     $node_concept->setAttribute("ClaveProdServ",$rowQandP['product_key']);
     $node_concept->setAttribute("ClaveUnidad",$rowQandP['unit_key']);
@@ -180,7 +180,7 @@ echo $IVAtot;
 
   $node_proof->setAttribute("Total",$totalC_IVAX);
   $node_proof->setAttribute("SubTotal",$sinIVA);
-  echo ("Esto es el totanl ". $total . " y esto es el subtotal" . $sinIVA);
+  echo ("Esto es el total ". $totalC_IVAX) . " y esto es el subtotal " . $sinIVA);
   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
   
   // $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "'  AND Q.id_branch =" . $_SESSION['branchID'];

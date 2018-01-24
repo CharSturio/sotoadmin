@@ -180,7 +180,7 @@ echo "Importe ".$IVAtot. " Base ".$CostPzs;
 
   $node_proof->setAttribute("Total",$totalC_IVAX);
   $node_proof->setAttribute("SubTotal",$sinIVA);
-  echo ("Esto es el total ". $totalC_IVAX) . " y esto es el subtotal " . $sinIVA);
+  echo "Esto es el total ". $totalC_IVAX . " y esto es el subtotal " . $sinIVA;
   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
   
   // $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "'  AND Q.id_branch =" . $_SESSION['branchID'];

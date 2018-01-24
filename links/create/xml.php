@@ -150,7 +150,7 @@ require 'call.php';
     $costUnit = $rowQandP['unit_cost'];
     $costUnitSIVA = ($costUnit/116) * 100;
     $CostUnitSIVA = round($costUnitSIVA, 2);
-    $costPzs = $costUnitSIVA * $rowQandP['amount'];
+    $costPzs = $CostUnitSIVA * $rowQandP['amount'];
     $CostPzs = round($costPzs, 2);
     $sinIVA += $CostPzs;
     $ivaTot = $CostPzs * .16;

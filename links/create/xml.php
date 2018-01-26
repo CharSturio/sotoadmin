@@ -182,7 +182,7 @@ echo "Importe ".$IVAtot. " Base ".$CostPzs." <br > ";
   $totalC_IVAX = round($totalC_IVA, 2);
 
   $node_proof->setAttribute("Total",$totalC_IVAX);
-  $node_proof->setAttribute("SubTotal",$sinIVA);
+  $node_proof->setAttribute("SubTotal",round($sinIVA,2));
   echo "Esto es el total ". $totalC_IVAX . " y esto es el subtotal " . $sinIVA . " y el iva tot es " . $sumIvas;
   $node_taxes = $node_proof->appendChild($dom->createElement("cfdi:Impuestos"));
   

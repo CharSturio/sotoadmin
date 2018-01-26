@@ -286,11 +286,11 @@ require 'call.php';
       }
     }
 
-    $total = round($rowDandC['total'], 2);
+    $total = round($rowDandC['total'], 4);
     $subTotalX = ($total/116) * 100;
-    $subTotal = round($subTotalX, 2);
+    $subTotal = round($subTotalX, 4);
     $IVA_totalX = ($total/116) * 16;
-    $IVA_total = round($IVA_totalX, 2);
+    $IVA_total = round($IVA_totalX, 4);
     $dom = new DOMDocument('1.0','UTF-8');
     
     $node_proof=$dom->createElement("cfdi:Comprobante");
@@ -393,12 +393,12 @@ require 'call.php';
     while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
       $costUnit = $rowQandP['unit_cost'];
       $costUnitSIVA = ($costUnit/116) * 100;
-      $CostUnitSIVA = round($costUnitSIVA, 2);
+      $CostUnitSIVA = round($costUnitSIVA, 4);
       $costPzs = $costUnitSIVA * $rowQandP['amount'];
-      $CostPzs = round($costPzs, 2);
+      $CostPzs = round($costPzs, 4);
       $sinIVA += $CostPzs;
       $ivaTot = $CostPzs * .16;
-      $IVAtot = round($ivaTot, 2);
+      $IVAtot = round($ivaTot, 4);
   echo $IVAtot;
       $node_concept = $node_concepts->appendChild($dom->createElement("cfdi:Concepto"));
       $node_concept->setAttribute("ClaveProdServ",$rowQandP['product_key']);

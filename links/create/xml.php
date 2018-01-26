@@ -40,11 +40,11 @@ require 'call.php';
     }
   }
 
-  $total = round($rowDandC['total'], 2);
+  $total = round($rowDandC['total'], 4);
   $subTotalX = ($total/116) * 100;
-  $subTotal = round($subTotalX, 2);
+  $subTotal = round($subTotalX, 4);
   $IVA_totalX = ($total/116) * 16;
-  $IVA_total = round($IVA_totalX, 2);
+  $IVA_total = round($IVA_totalX, 4);
 
   $dom = new DOMDocument('1.0','UTF-8');
 
@@ -150,12 +150,12 @@ require 'call.php';
   while ($rowQandP = mysqli_fetch_assoc($resultQandP)) {
     $costUnit = $rowQandP['unit_cost'];
     $costUnitSIVA = ($costUnit/116) * 100;
-    $CostUnitSIVA = round($costUnitSIVA, 2);
+    $CostUnitSIVA = round($costUnitSIVA, 4);
     $costPzs = $CostUnitSIVA * $rowQandP['amount'];
-    $CostPzs = round($costPzs, 2);
+    $CostPzs = round($costPzs, 4);
     $sinIVA += $CostPzs;
     $ivaTot = $CostPzs * .16;
-    $IVAtot = round($ivaTot, 2);
+    $IVAtot = round($ivaTot, 4);
     $sumIvas += $IVAtot;
 
 echo "Importe ".$IVAtot. " Base ".$CostPzs." <br > ";
@@ -179,7 +179,7 @@ echo "Importe ".$IVAtot. " Base ".$CostPzs." <br > ";
     $node_concept_tra->setAttribute("Importe",$IVAtot);
   }
   $totalC_IVA = $sinIVA * 1.16;
-  $totalC_IVAX = round($totalC_IVA, 2);
+  $totalC_IVAX = round($totalC_IVA, 4);
 
   $node_proof->setAttribute("Total",$totalC_IVAX);
   $node_proof->setAttribute("SubTotal",$sinIVA);
@@ -189,7 +189,7 @@ echo "Importe ".$IVAtot. " Base ".$CostPzs." <br > ";
   // $queryQandP = "SELECT * FROM quoter AS Q INNER JOIN products AS P ON Q.id_product = P.id WHERE Q.invoice ='" . $rowDandC['invoice'] . "'  AND Q.id_branch =" . $_SESSION['branchID'];
   // $resultQandP = mysqli_query($link,$queryQandP) or die ('Consulta fallida: ' . mysqli_error($link));
   $IVATOTAL = $sinIVA * .16;
-  $IVA_total = round($IVATOTAL, 2);
+  $IVA_total = round($IVATOTAL, 4);
   $node_taxes->setAttribute("TotalImpuestosTrasladados",$IVA_total);
   
   $node_transfers = $node_taxes->appendChild($dom->createElement("cfdi:Traslados"));

@@ -179,7 +179,7 @@ echo "Importe ".$IVAtot. " Base ".$CostPzs." <br > ";
     $node_concept_tra->setAttribute("Importe",$IVAtot);
   }
   $totalC_IVA = $sinIVA * 1.16;
-  $totalC_IVAX = round($totalC_IVA, 4);
+  $totalC_IVAX = round($totalC_IVA, 2);
 
   $node_proof->setAttribute("Total",$totalC_IVAX);
   $node_proof->setAttribute("SubTotal",$sinIVA);
